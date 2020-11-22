@@ -8,7 +8,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/react-personal-page",
+    "start_url": "/",
     "background_color": "#FFFFFF",
     "display": "standalone",
     "scope": "/",
