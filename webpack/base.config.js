@@ -5,14 +5,14 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src-client/index.tsx',
+    entry: './src/index.tsx',
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader',
                 query: {
-                    configFileName: './tsconfig-client.json'
+                    configFileName: './tsconfig.json'
                 }
             },
             {
@@ -43,7 +43,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: './index.html',
-            template: './index.html'
+            template: './src/index.html'
         }),
         new CopyWebpackPlugin({
             patterns: [
