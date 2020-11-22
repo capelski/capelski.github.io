@@ -1,5 +1,0 @@
-{
-	"publicDomains": ["carlescapellas.xyz"],
-    "publicDomainCrossAccess": true,
-    "expressAppFile": "dist/src-server/get-express-app.js"
-}

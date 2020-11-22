@@ -12,6 +12,6 @@ export const ArticleVideo: React.FC<ArticleVideoProps> = (props) => (
         controls
         width="100%"
         className={`article-video ${props.className ? props.className : ''}`}
-        src={`/images/blog/${props.articleId}/${props.filename}?$modena=react-personal-page`}
+        src={`/images/blog/${props.articleId}/${props.filename}`}
     />
 );

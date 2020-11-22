@@ -30,18 +30,16 @@ module.exports = {
         ]
     },
     output: {
-        filename: 'client-bundle.js?$modena=react-personal-page',
+        filename: 'client-bundle.js',
         path: resolve(__dirname, '..', 'docs'),
         publicPath: '/'
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.PRODUCTION_URL_BASE': JSON.stringify(
-                'https://carlescapellas.xyz/react-personal-page'
-            )
+            'process.env.PRODUCTION_URL_BASE': JSON.stringify('https://capelski.github.io')
         }),
         new MiniCssExtractPlugin({
-            filename: 'main.css?$modena=react-personal-page'
+            filename: 'main.css'
         }),
         new HtmlWebpackPlugin({
             filename: './index.html',

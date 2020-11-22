@@ -27,10 +27,7 @@ export const Home: React.FC<RouteChildrenProps> = () => (
         </Helmet>
         <React.Fragment>
             <div className="home-image">
-                <img
-                    src="/images/home-image.jpg?$modena=react-personal-page"
-                    alt="World map lines image"
-                />
+                <img src="/images/home-image.jpg" alt="World map lines image" />
             </div>
             <div className="home-header">
                 <h1>

@@ -17,7 +17,7 @@ export const ArticleImage: React.FC<ArticleImageProps> = (props) => {
                 className={`article-image${props.footer ? ' with-footer' : ''}${
                     loadError ? ' image-placeholder' : ''
                 }${props.className ? ' ' + props.className : ''}`}
-                src={`/images/blog/${props.articleId}/${props.filename}?$modena=react-personal-page`}
+                src={`/images/blog/${props.articleId}/${props.filename}`}
                 alt={props.alt}
                 onError={() => {
                     setLoadError(true);

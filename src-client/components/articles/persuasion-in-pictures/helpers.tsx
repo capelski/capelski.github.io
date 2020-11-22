@@ -15,7 +15,7 @@ export const PersuasionHeader: React.FC<PersuasionHeaderProps> = (props) => (
             <p>{props.description}</p>
         </div>
         <img
-            src={`/images/blog/${ArticleId.persuasionInPictures}/${props.image}?$modena=react-personal-page`}
+            src={`/images/blog/${ArticleId.persuasionInPictures}/${props.image}`}
             alt={props.imageAlt}
         />
     </div>
@@ -31,7 +31,7 @@ export const PersuasionStage: React.FC<PersuasionStageProps> = (props) => (
     <div className="persuasion-resource">
         <img
             className="persuasion-resource-image"
-            src={`/images/blog/${ArticleId.persuasionInPictures}/${props.image}?$modena=react-personal-page`}
+            src={`/images/blog/${ArticleId.persuasionInPictures}/${props.image}`}
             alt={`${props.image.split('.')[0]} representation`}
         />
         <h4>{props.title}</h4>
@@ -48,7 +48,7 @@ export const PersuasionResource: React.FC<PersuasionResourceProps> = (props) => 
         <h4>{props.title}</h4>
         <img
             className="persuasion-resource-image"
-            src={`/images/blog/${ArticleId.persuasionInPictures}/${props.image}?$modena=react-personal-page`}
+            src={`/images/blog/${ArticleId.persuasionInPictures}/${props.image}`}
             alt={props.imageAlt}
         />
         <p>{props.description}</p>

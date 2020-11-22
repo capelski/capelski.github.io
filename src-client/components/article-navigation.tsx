@@ -97,10 +97,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
             </div>
             {typeof navigator !== 'undefined' && navigator.share && (
                 <div className="share-button">
-                    <img
-                        src="/images/share.png?$modena=react-personal-page"
-                        onClick={shareHandler}
-                    />
+                    <img src="/images/share.png" onClick={shareHandler} />
                 </div>
             )}
         </React.Fragment>

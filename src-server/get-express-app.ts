@@ -21,11 +21,11 @@ const serverRenderer: express.Handler = (req, res) => {
         try {
             const context: { url: string | undefined } = { url: undefined };
             // Necessary for meta tags rendering
-            process.env.PRODUCTION_URL_BASE = 'https://carlescapellas.xyz/react-personal-page';
+            process.env.PRODUCTION_URL_BASE = 'https://capelski.github.io';
 
             const serverApp = React.createElement(
                 StaticRouter,
-                { basename: '/react-personal-page', context, location: req.url },
+                { context, location: req.url },
                 React.createElement(App, { isServerRendered: true })
             );
             const serializedApp = ReactDOMServer.renderToString(serverApp);
@@ -61,7 +61,7 @@ export default () => {
 
     app.use(express.static(staticPath));
 
-    app.get([/^\/react-personal-page/].concat(supportedRoutes), serverRenderer);
+    app.get(supportedRoutes, serverRenderer);
 
     return app;
 };

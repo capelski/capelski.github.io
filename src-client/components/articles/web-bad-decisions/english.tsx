@@ -16,11 +16,12 @@ export const english: ArticleContent = {
             challenges properly. As a consequence of this haste, I sometimes feel my web sites are
             lacking something... but what exactly? Here are the bad decisions I made while
             developing my{' '}
-            <a href="https://carlescapellas.xyz/vue-personal-page" target="_blank">
+            <a href={`${process.env.PRODUCTION_URL_BASE}/vue-personal-page`} target="_blank">
+                {/* TODO Migrate vue-personal-page to github-pages */}
                 old website
             </a>{' '}
             and how I approached them on{' '}
-            <a href="https://carlescapellas.xyz/react-personal-page" target="_blank">
+            <a href={process.env.PRODUCTION_URL_BASE} target="_blank">
                 this new version
             </a>{' '}
             of my web page.

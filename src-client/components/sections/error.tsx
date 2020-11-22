@@ -21,10 +21,6 @@ export const Error: React.FC<RouteChildrenProps | {}> = () => (
             />
         </Helmet>
         <h1 className="error-title">Something went wrong</h1>
-        <img
-            className="error-image"
-            src="/images/shrug.png?$modena=react-personal-page"
-            alt="Shrug meme"
-        />
+        <img className="error-image" src="/images/shrug.png" alt="Shrug meme" />
     </SectionContainer>
 );

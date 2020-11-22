@@ -13,14 +13,14 @@
         <script type="text/javascript">
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function () {
-                    navigator.serviceWorker.register('/sw.js?$modena=react-personal-page', {
+                    navigator.serviceWorker.register('/sw.js', {
                         scope: '/'
                     });
                 });
             }
         </script>
-        <link rel="manifest" href="/manifest.json?$modena=react-personal-page" />
-        <link rel="icon" type="image/png" href="/favicon.png?$modena=react-personal-page" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
     </head>
     <body>
         <noscript>
