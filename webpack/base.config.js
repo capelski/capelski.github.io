@@ -30,7 +30,7 @@ module.exports = {
         ]
     },
     output: {
-        filename: 'client-bundle.js',
+        filename: 'main.js',
         path: resolve(__dirname, '..', 'docs'),
         publicPath: '/'
     },
@@ -43,6 +43,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: './index.html',
+            inject: false,
             template: './src/index.html'
         }),
         new CopyWebpackPlugin({

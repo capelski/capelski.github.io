@@ -4,7 +4,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         (async function () {
             const cache = await caches.open(myCache);
-            await cache.addAll(['/', '/favicon.png', '/main.css', '/client-bundle.js']);
+            await cache.addAll(['/', '/favicon.png', '/main.css', '/main.js']);
             // TODO Add rest of resources (eg. blog images, portfolio, etc.) with out await
         })()
     );
