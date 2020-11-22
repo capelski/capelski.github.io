@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "Personal page built in react",
     "scripts": {
-        "build": "npm run clean:build && npm run build:client",
+        "build": "npm run clean:build && build:articles && npm run build:client",
+        "build:articles": "tsc src/components/articles/article-id.ts",
         "build:client": "webpack --config webpack/production.config.js",
         "build:ts": "tsc --noEmit -p tsconfig.json",
         "clean:build": "rm -rf docs",
