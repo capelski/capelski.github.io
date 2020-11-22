@@ -1,6 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { resolve } = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -30,6 +31,7 @@ module.exports = {
     },
     output: {
         filename: 'client-bundle.js?$modena=react-personal-page',
+        path: resolve(__dirname, '..', 'docs'),
         publicPath: '/'
     },
     plugins: [
