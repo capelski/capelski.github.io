@@ -16,6 +16,7 @@ import { webBadDecisions } from './web-bad-decisions';
 import { linearGradient } from './linear-gradient';
 import { expressOnGoogleCloud } from './express-on-google-cloud';
 import { npmPackagesDevelopment } from './npm-packages-development';
+import { wordpressOnGoogleCloud } from './wordpress-on-google-cloud';
 
 export const articles = [
     agilityRocks,
@@ -35,5 +36,6 @@ export const articles = [
     webBadDecisions,
     linearGradient,
     expressOnGoogleCloud,
-    npmPackagesDevelopment
+    npmPackagesDevelopment,
+    wordpressOnGoogleCloud
 ].reverse();

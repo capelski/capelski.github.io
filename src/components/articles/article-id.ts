@@ -16,5 +16,6 @@ export enum ArticleId {
     webBadDecisions = 'web-bad-decisions',
     linearGradient = 'linear-gradient',
     expressOnGoogleCloud = 'express-on-google-cloud',
-    npmPackagesDevelopment = 'npm-packages-development'
+    npmPackagesDevelopment = 'npm-packages-development',
+    wordpressOnGoogleCloud = 'wordpress-on-google-cloud'
 }
