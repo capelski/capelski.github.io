@@ -19,8 +19,6 @@ const getInitialArticleId = (location: { pathname: string }) => {
     return isArticleUrl ? (urlParts[2] as ArticleId) : undefined;
 };
 
-// If starting the application in an article url, we need to set the selectedCategory
-// accordingly. Doing so in a useEffect will fail on the server side rendering
 const getInitialCategory = (location: { pathname: string }) => {
     const initialArticleId = getInitialArticleId(location);
     let initialCategory = ArticleCategory.tech;

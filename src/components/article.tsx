@@ -32,8 +32,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
 
     const containerClickHandler = () => {
         if (props.preview) {
-            // Server side required casting. The click will never get triggered in the server anyway
-            (navigationRef.current as { click: () => void })?.click();
+            navigationRef.current?.click();
         }
     };
 
