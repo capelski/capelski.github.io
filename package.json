@@ -4,7 +4,7 @@
     "description": "Personal page built in react",
     "scripts": {
         "build": "npm run clean:build && npm run build:articles && npm run build:client",
-        "build:articles": "tsc src/components/articles/article-id.ts",
+        "build:articles": "tsc src/components/articles/article-id.ts && mv src/components/articles/article-id.js src/components/articles/all-articles-id.js",
         "build:client": "webpack --config webpack/production.config.js",
         "build:ts": "tsc --noEmit -p tsconfig.json",
         "clean:build": "rm -rf docs",
