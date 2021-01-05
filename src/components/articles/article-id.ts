@@ -17,5 +17,6 @@ export enum ArticleId {
     linearGradient = 'linear-gradient',
     expressOnGoogleCloud = 'express-on-google-cloud',
     npmPackagesDevelopment = 'npm-packages-development',
-    wordpressOnGoogleCloud = 'wordpress-on-google-cloud'
+    wordpressOnGoogleCloud = 'wordpress-on-google-cloud',
+    androidAppPublishing = 'android-app-publishing'
 }

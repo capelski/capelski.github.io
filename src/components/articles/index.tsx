@@ -17,6 +17,7 @@ import { linearGradient } from './linear-gradient';
 import { expressOnGoogleCloud } from './express-on-google-cloud';
 import { npmPackagesDevelopment } from './npm-packages-development';
 import { wordpressOnGoogleCloud } from './wordpress-on-google-cloud';
+import { androidAppPublishing } from './android-app-publishing';
 
 export const articles = [
     agilityRocks,
@@ -37,5 +38,6 @@ export const articles = [
     linearGradient,
     expressOnGoogleCloud,
     npmPackagesDevelopment,
-    wordpressOnGoogleCloud
+    wordpressOnGoogleCloud,
+    androidAppPublishing
 ].reverse();
