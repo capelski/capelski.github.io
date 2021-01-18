@@ -227,10 +227,7 @@ export const english: ArticleContent = {
                     using it.
                 </li>
             </ul>
-            <p>
-                And that's all there is! Go publishing your brand new library, let me know if you
-                get stuck and see you in the next post 💪
-            </p>
+            <p>And that's all there is! Wait no more and go publishing your brand new library 💪</p>
         </React.Fragment>
     )
 };

@@ -336,7 +336,7 @@ export const english: ArticleContent = {
                 enough for today: creating a WordPress site, accepting HTTPS traffic and enabling
                 emails sending. From here on is up to the marketing guys to choose a nice template,
                 fill the pages with content and tell all of their friends they are now developing
-                websites. See you in the next article!
+                websites.
             </p>
         </React.Fragment>
     )

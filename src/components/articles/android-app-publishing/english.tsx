@@ -36,9 +36,9 @@ export const english: ArticleContent = {
                 <a href="https://play.google.com/console/about/" target="_blank">
                     Google Play Console
                 </a>
-                , click <i>Go to Play Console</i>, fill the form (the developer name doesn’t need to
-                be your legal name, you can use whatever you like), pay the $25 registration fee and
-                you are good to start.
+                , click <i>Go to Play Console</i>, sign in with your Google account, fill the form
+                (the developer name doesn’t need to be your legal name, you can use whatever you
+                like), pay the $25 registration fee and you are good to start.
             </p>
             <ArticleImage
                 articleId={ArticleId.androidAppPublishing}
@@ -309,8 +309,7 @@ export const english: ArticleContent = {
             />
             <p>
                 Don’t lose heart, spend some time fixing the issues and eventually you will get an
-                email stating that your app is now published 🍾 That’s pretty much the end of it.
-                Have fun publishing and see you in the next article!
+                email stating that your app is now published 🍾
             </p>
             <ArticleImage
                 articleId={ArticleId.androidAppPublishing}

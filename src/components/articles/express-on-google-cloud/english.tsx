@@ -316,14 +316,7 @@ export const english: ArticleContent = {
                 And that's it! Fix the problems that might appear in the way (e.g. wrong sql
                 instance connection name) and you are good to go 🎉 One last tip if you are using
                 windows: you will have an easier time with gcloud sdk if you use it from cmd or
-                powershell instead of git bash. Check the{' '}
-                <a
-                    href="https://cloud.google.com/appengine/docs/standard/nodejs/building-app"
-                    target="_blank"
-                >
-                    official nodejs tutorials
-                </a>{' '}
-                if you want to know more about it and see you in the next post!
+                powershell instead of git bash.
             </p>
         </React.Fragment>
     )
