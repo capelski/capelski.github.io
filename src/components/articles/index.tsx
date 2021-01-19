@@ -18,6 +18,7 @@ import { expressOnGoogleCloud } from './express-on-google-cloud';
 import { npmPackagesDevelopment } from './npm-packages-development';
 import { wordpressOnGoogleCloud } from './wordpress-on-google-cloud';
 import { androidAppPublishing } from './android-app-publishing';
+import { iosAppPublishing } from './ios-app-publishing';
 
 export const articles = [
     agilityRocks,
@@ -39,5 +40,6 @@ export const articles = [
     expressOnGoogleCloud,
     npmPackagesDevelopment,
     wordpressOnGoogleCloud,
-    androidAppPublishing
+    androidAppPublishing,
+    iosAppPublishing
 ].reverse();

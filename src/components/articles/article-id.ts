@@ -18,5 +18,6 @@ export enum ArticleId {
     expressOnGoogleCloud = 'express-on-google-cloud',
     npmPackagesDevelopment = 'npm-packages-development',
     wordpressOnGoogleCloud = 'wordpress-on-google-cloud',
-    androidAppPublishing = 'android-app-publishing'
+    androidAppPublishing = 'android-app-publishing',
+    iosAppPublishing = 'ios-app-publishing'
 }
