@@ -1,11 +1,13 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { articleRoute } from '../../routes';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
 
 export const english: ArticleContent = {
     title: 'Publishing an Android app to Play Store',
-    description: 'How to publish an Android app to Play Store',
+    description: 'Detailed explanation on how to publish an Android app to Play Store',
     shareSentence:
         'Want to publish an Android app to Play Store? This is what it looks like in 2021',
     introduction: (
@@ -25,8 +27,13 @@ export const english: ArticleContent = {
                     Play Store’s license is cheap ($25) and lasts forever, Apple’s one is more
                     expensive ($100), must be renewed every year and the upload process is more
                     complicated. I recommend starting with Play Store, testing the app with some
-                    users in the production environment and once everything is ready, move into App
-                    Store.
+                    users in the production environment and once everything is ready,{' '}
+                    <NavLink
+                        to={articleRoute.path.replace(':articleId', ArticleId.iosAppPublishing)}
+                    >
+                        move into App Store
+                    </NavLink>
+                    .
                 </i>
             </p>
             <h3>Google Play Console</h3>
