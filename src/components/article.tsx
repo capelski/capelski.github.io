@@ -4,7 +4,6 @@ import { Article as IArticle } from './articles/article-data';
 import { ArticleId } from './articles/article-id';
 import { Language } from './articles/language';
 import { ArticleNavigation } from './article-navigation';
-import { Newsletter } from './newsletter';
 import { articleRoute } from './routes';
 
 interface ArticleBaseProps extends IArticle {
@@ -89,7 +88,8 @@ export const Article: React.FC<ArticleProps> = (props) => {
                     />
                 ) : (
                     <React.Fragment>
-                        <Newsletter selectedLanguage={props.selectedLanguage} />
+                        {/* Removing the Mailchimp newsletter for now
+                        <Newsletter selectedLanguage={props.selectedLanguage} /> */}
                         <ArticleNavigation
                             articleId={props.metadata.id}
                             shareSentence={content.shareSentence || content.description}
