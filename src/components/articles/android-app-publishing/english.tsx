@@ -75,9 +75,9 @@ export const english: ArticleContent = {
             />
             <h3>App content</h3>
             <p>
-                After the app is created you will be taken to the app dashboard. There you will find
-                a straightforward guide with the steps you need to take in order to setup the app.
-                First, Google needs some information about your app content. This is:
+                After the app is created you will be directed to the app dashboard. There you will
+                find a straightforward guide with the steps you need to take in order to setup the
+                app. First, Google needs some information about your app content. This is:
             </p>
             <ArticleImage
                 articleId={ArticleId.androidAppPublishing}

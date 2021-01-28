@@ -194,9 +194,9 @@ export const english: ArticleContent = {
                 filename="app-store-connect-3.png"
             />
             <p>
-                When the create operation finishes you will then be taken to the app settings page,
-                where you will need to provide plenty of information about your app. Filling all the
-                required sections is mandatory in order to submit your app for review.
+                When the create operation finishes you will then be directed to the app settings
+                page, where you will need to provide plenty of information about your app. Filling
+                all the required sections is mandatory in order to submit your app for review.
             </p>
             <p>
                 The simplest approach to getting your app ready consists in clicking the{' '}
