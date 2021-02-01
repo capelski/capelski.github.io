@@ -19,6 +19,7 @@ import { npmPackagesDevelopment } from './npm-packages-development';
 import { wordpressOnGoogleCloud } from './wordpress-on-google-cloud';
 import { androidAppPublishing } from './android-app-publishing';
 import { iosAppPublishing } from './ios-app-publishing';
+import { reactNativeFirebaseAuth } from './react-native-firebase-auth';
 
 export const articles = [
     agilityRocks,
@@ -41,5 +42,6 @@ export const articles = [
     npmPackagesDevelopment,
     wordpressOnGoogleCloud,
     androidAppPublishing,
-    iosAppPublishing
+    iosAppPublishing,
+    reactNativeFirebaseAuth
 ].reverse();

@@ -19,5 +19,6 @@ export enum ArticleId {
     npmPackagesDevelopment = 'npm-packages-development',
     wordpressOnGoogleCloud = 'wordpress-on-google-cloud',
     androidAppPublishing = 'android-app-publishing',
-    iosAppPublishing = 'ios-app-publishing'
+    iosAppPublishing = 'ios-app-publishing',
+    reactNativeFirebaseAuth = 'react-native-firebase-auth'
 }
