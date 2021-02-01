@@ -27,13 +27,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
             {/* TODO Include one skills matrix client */}
             {/* TODO Figure out what to do with the commented descriptions */}
 
-            <Project
-                date="2018"
-                image="webjack.png"
-                repository="webjack"
-                title="webjack"
-                url="/webjack"
-            >
+            <Project date="2018" image="webjack.png" repository="webjack" title="webjack">
                 <p>
                     Cashless online multiplayer black jack game. Play online with strangers,
                     practice offline against the dealer or learn the black jack basic strategy.
@@ -45,13 +39,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                     </p> */}
             </Project>
 
-            <Project
-                date="2020"
-                image="jokify.png"
-                repository="jokify"
-                title="jokify"
-                url="/jokify"
-            >
+            <Project date="2020" image="jokify.png" repository="jokify" title="jokify">
                 <p>
                     Instead of deleting all those twitter jokes I get over the phone, I decided I
                     had to make them available to the world. Here you will find them (in Spanish).
@@ -63,13 +51,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                     </p> */}
             </Project>
 
-            <Project
-                date="2012"
-                image="desdecasa.png"
-                repository="desdecasa"
-                title="desdecasa"
-                url="/desdecasa"
-            >
+            <Project date="2012" image="desdecasa.png" repository="desdecasa" title="desdecasa">
                 <p>
                     First attempt to build an online business! Along with <b>Eudald Bover</b> we
                     developed this restaurant discounts (up to 50%!) web app and managed to sell 150
@@ -88,7 +70,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="sudoku-generator.png"
                 repository="sudoku-generator"
                 title="sudoku generator"
-                url="/sudoku-generator"
+                url="/sudoku-generator/"
             >
                 <p>
                     Web application that generates random sudoku puzzles and offers hints on how to
@@ -108,7 +90,6 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="skills-matrix-graphql.png"
                 repository="skills-matrix-api-graphql"
                 title="skills matrix"
-                url="/skills-matrix-api-graphql"
             >
                 <p>
                     I was developing a front end application at work and we interacted with a{' '}
@@ -128,7 +109,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="fractal-generator.png"
                 repository="fractal-generator"
                 title="fractal generator"
-                url="/fractal-generator"
+                url="/fractal-generator/"
             >
                 <p>
                     Web app that generates fractal pictures by replicating the pattern in a grid.
@@ -148,7 +129,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="michael-page.png"
                 repository="michael"
                 title="michael.page"
-                url="/michael"
+                url="/michael/"
             >
                 <p>
                     Tribute page to all the Michaels of the world. Who doesn't have a Michael in
@@ -168,7 +149,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="carniques-ausa.png"
                 repository="carniques-ausa"
                 title="càrniques ausà"
-                url="/carniques-ausa"
+                url="/carniques-ausa/"
             >
                 <p>
                     "It must have an interactive pig!". That was the sentence that convinced me to
@@ -187,7 +168,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="poliester-pelegrina.png"
                 repository="poliester-pelegrina"
                 title="poliester pelegrina"
-                url="/poliester-pelegrina"
+                url="/poliester-pelegrina/"
             >
                 <p>
                     This was the <b>Poliester Pelegrina</b> polyester company official website. My
@@ -202,13 +183,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                     </p> */}
             </Project>
 
-            <Project
-                date="2013"
-                image="dovic.png"
-                repository="do-vic"
-                title="d.o. vic"
-                url="/do-vic"
-            >
+            <Project date="2013" image="dovic.png" repository="do-vic" title="d.o. vic">
                 <p>
                     This was the <b>D.O. Vic</b> restaurant official website for two years, until
                     they went out of business in 2015. It provided the restaurant menus, contact
@@ -230,7 +205,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="vue-personal-page.png"
                 repository="vue-personal-page"
                 title="vue"
-                url="/vue-personal-page"
+                url="/vue-personal-page/"
             />
 
             <Project
@@ -238,7 +213,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="angularjs-personal-page.png"
                 repository="angularjs-personal-page"
                 title="angular.js"
-                url="/angularjs-personal-page"
+                url="/angularjs-personal-page/"
             />
 
             <Project
@@ -246,7 +221,6 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="php-personal-page.png"
                 repository="php-personal-page"
                 title="php"
-                url="/php-personal-page"
             />
         </div>
     </SectionContainer>
