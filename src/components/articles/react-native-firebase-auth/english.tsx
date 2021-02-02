@@ -210,6 +210,34 @@ export const english: ArticleContent = {
                 formatted.") and a code (e.g. "auth/invalid-email"). You can display the message
                 directly to the user or use the code to localize the message for other languages.
             </p>
+            <h3>Android timers</h3>
+            <p>
+                As soon as you start using Firebase JavaScript SDK methods you will start getting a
+                warning message when running your app on Android. This is a known issue that occurs
+                due to the way React Native handles timers in Android. You can read more about it in
+                this{' '}
+                <a
+                    href="https://medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ffacebook%2Freact-native%2Fissues%2F12981%23issuecomment-652745831"
+                    target="_blank"
+                >
+                    github issue comment
+                </a>
+                .
+            </p>
+            <div className="article-code-snippet">
+                Setting a timer for a long period of time, i.e. multiple minutes, is a performance
+                and correctness issue on Android as it keeps the timer module awake, and timers can
+                only be called when the app is in the foreground. See
+                https://github.com/facebook/react-native/issues/12981 for more info. (Saw setTimeout
+                with duration 111862ms)
+            </div>
+            <p>
+                Long story short the timers issue is here to stay. Fortunately it's not critical
+                one. It only means that things might take longer than expected if the app becomes
+                backgrounded. What some developers chose to do is disabling the warning message
+                using LogBox (previously named YellowBox).
+            </p>
+            <ReactGist id="bab2d44625d1570542e195929b238d09" />
             <h3>The screens</h3>
             <p>
                 Firebase provides a JavaScript drop-in auth solution that handles the UI flows

@@ -9,7 +9,7 @@ export const reactNativeFirebaseAuth: Article = {
     metadata: {
         category: ArticleCategory.tech,
         date: '2021-01-28',
-        duration: 6,
+        duration: 7,
         id: ArticleId.reactNativeFirebaseAuth,
         languages: [Language.en],
         shareImage: 'firebase-auth-providers.png'
