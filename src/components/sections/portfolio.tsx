@@ -168,7 +168,6 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="poliester-pelegrina.png"
                 repository="poliester-pelegrina"
                 title="poliester pelegrina"
-                url="/poliester-pelegrina/"
             >
                 <p>
                     This was the <b>Poliester Pelegrina</b> polyester company official website. My
