@@ -20,5 +20,6 @@ export enum ArticleId {
     wordpressOnGoogleCloud = 'wordpress-on-google-cloud',
     androidAppPublishing = 'android-app-publishing',
     iosAppPublishing = 'ios-app-publishing',
-    reactNativeFirebaseAuth = 'react-native-firebase-auth'
+    reactNativeFirebaseAuth = 'react-native-firebase-auth',
+    expoSocialSignIn = 'expo-social-sign-in'
 }

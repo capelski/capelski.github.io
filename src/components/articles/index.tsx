@@ -20,6 +20,7 @@ import { wordpressOnGoogleCloud } from './wordpress-on-google-cloud';
 import { androidAppPublishing } from './android-app-publishing';
 import { iosAppPublishing } from './ios-app-publishing';
 import { reactNativeFirebaseAuth } from './react-native-firebase-auth';
+import { expoSocialSignIn } from './expo-social-sign-in';
 
 export const articles = [
     agilityRocks,
@@ -43,5 +44,6 @@ export const articles = [
     wordpressOnGoogleCloud,
     androidAppPublishing,
     iosAppPublishing,
-    reactNativeFirebaseAuth
+    reactNativeFirebaseAuth,
+    expoSocialSignIn
 ].reverse();
