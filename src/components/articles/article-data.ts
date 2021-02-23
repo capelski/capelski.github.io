@@ -6,7 +6,6 @@ export interface ArticleContent {
     body: JSX.Element | React.FC<{}>;
     description: string;
     introduction: JSX.Element;
-    // TODO Make mandatory
     shareSentence?: string;
     title: string;
 }

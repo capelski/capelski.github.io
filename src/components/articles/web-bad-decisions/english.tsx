@@ -17,7 +17,6 @@ export const english: ArticleContent = {
             lacking something... but what exactly? Here are the bad decisions I made while
             developing my{' '}
             <a href={`${process.env.PRODUCTION_URL_BASE}/vue-personal-page`} target="_blank">
-                {/* TODO Migrate vue-personal-page to github-pages */}
                 old website
             </a>{' '}
             and how I approached them on{' '}
