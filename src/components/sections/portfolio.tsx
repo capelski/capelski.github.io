@@ -39,7 +39,13 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                     </p> */}
             </Project>
 
-            <Project date="2020" image="jokify.png" repository="jokify" title="jokify">
+            <Project
+                date="2020"
+                image="jokify.png"
+                repository="jokify"
+                title="jokify"
+                url="/jokify/"
+            >
                 <p>
                     Instead of deleting all those twitter jokes I get over the phone, I decided I
                     had to make them available to the world. Here you will find them (in Spanish).
