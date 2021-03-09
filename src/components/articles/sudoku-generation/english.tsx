@@ -25,13 +25,11 @@ export const english: ArticleContent = {
             <div className="screen-splitter">
                 <ArticleImage
                     articleId={ArticleId.sudokuGeneration}
-                    alt="Easy sudoku"
                     filename="easy-sudoku.png"
                     footer="Easy sudoku"
                 />
                 <ArticleImage
                     articleId={ArticleId.sudokuGeneration}
-                    alt="Hard sudoku"
                     filename="hard-sudoku.png"
                     footer="Hard sudoku"
                 />

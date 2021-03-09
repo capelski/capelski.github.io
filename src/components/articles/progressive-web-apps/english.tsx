@@ -22,7 +22,6 @@ export const english: ArticleContent = {
     body: (
         <React.Fragment>
             <ArticleImage
-                alt="Add PWA to home screen prompt"
                 articleId={ArticleId.progressiveWebApps}
                 className="image-300"
                 filename="add-home.png"
@@ -132,13 +131,11 @@ export const english: ArticleContent = {
                 requests fail and the assets are served from the service worker:
             </p>
             <ArticleImage
-                alt="Service worker cache files"
                 articleId={ArticleId.progressiveWebApps}
                 filename="cache-content.png"
                 footer="Service worker cache files"
             />
             <ArticleImage
-                alt="Files being served from service worker cache"
                 articleId={ArticleId.progressiveWebApps}
                 filename="offline-desktop.png"
                 footer="Files being served from service worker cache"

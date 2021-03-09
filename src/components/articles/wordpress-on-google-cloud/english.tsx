@@ -136,7 +136,6 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.wordpressOnGoogleCloud}
-                alt="DNS A record creation"
                 filename="dns-a-record.png"
                 footer="DNS record creation example in DonDominio spanish registrar. Interface will be different for other registrars"
             />
@@ -287,13 +286,11 @@ export const english: ArticleContent = {
             />
             <ArticleImage
                 articleId={ArticleId.wordpressOnGoogleCloud}
-                alt="DNS TXT record creation"
                 filename="dns-txt-record.png"
                 footer="TXT DNS record creation example in DonDominio spanish registrar"
             />
             <ArticleImage
                 articleId={ArticleId.wordpressOnGoogleCloud}
-                alt="Mailgun domain verification email"
                 filename="mailgun-verification-email.png"
                 footer="Mailgun successful domain verification email"
             />
@@ -307,7 +304,6 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.wordpressOnGoogleCloud}
-                alt="Mailgun SMTP credentials sections"
                 filename="mailgun-smtp-credentials.png"
                 footer="Mailgun SMTP credentials section"
             />

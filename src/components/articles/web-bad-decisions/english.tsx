@@ -53,13 +53,11 @@ export const english: ArticleContent = {
             <div className="screen-splitter">
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="Old website transitions"
                     filename="page-animations-vue.gif"
                     footer="Old website transitions"
                 />
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="New website transitions"
                     filename="page-animations-react.gif"
                     footer="New website transitions"
                 />
@@ -84,13 +82,11 @@ export const english: ArticleContent = {
             <div className="screen-splitter">
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="Old website portfolio"
                     filename="portfolio-vue.png"
                     footer="Old website portfolio"
                 />
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="New website portfolio"
                     filename="portfolio-react.png"
                     footer="New website portfolio"
                 />
@@ -138,13 +134,11 @@ export const english: ArticleContent = {
             <div className="screen-splitter">
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="Old website code snippet"
                     filename="code-snippet-monaco.png"
                     footer="Old website code snippet"
                 />
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="New website code snippet"
                     filename="code-snippet-gist.png"
                     footer="New website code snippet"
                 />
@@ -161,7 +155,6 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.webBadDecisions}
-                alt="Blog filters before the calendar view"
                 className="image-600"
                 filename="blog-filters-vue.png"
                 footer="Blog filters before the calendar view"
@@ -169,13 +162,11 @@ export const english: ArticleContent = {
             <div className="screen-splitter">
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="Collapsed blog filters after the calendar view"
                     filename="blog-calendar-view-collapsed.png"
                     footer="Blog filters after the calendar view (collapsed)"
                 />
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="Visible blog filters after the calendar view"
                     filename="blog-calendar-view.png"
                     footer="Blog filters after the calendar view (visible)"
                 />
@@ -215,13 +206,11 @@ export const english: ArticleContent = {
             <div className="screen-splitter">
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="Old website blog filters"
                     filename="blog-filters-vue.png"
                     footer="Old website blog filters"
                 />
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
-                    alt="New website blog filters"
                     filename="blog-filters-react.png"
                     footer="New website blog filters"
                 />

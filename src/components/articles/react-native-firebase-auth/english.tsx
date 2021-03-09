@@ -55,13 +55,11 @@ export const english: ArticleContent = {
                     solution but will do the trick on the app's early stages.
                     <ArticleImage
                         articleId={ArticleId.reactNativeFirebaseAuth}
-                        alt="Firebase authentication templates dashboard"
                         footer="Firebase authentication templates dashboard"
                         filename="firebase-auth-templates.png"
                     />
                     <ArticleImage
                         articleId={ArticleId.reactNativeFirebaseAuth}
-                        alt="Email address verification received email, in Spanish"
                         footer="Email address verification received email, in Spanish"
                         filename="firebase-auth-email-example.png"
                     />
@@ -76,7 +74,6 @@ export const english: ArticleContent = {
                     </div>
                     <ArticleImage
                         articleId={ArticleId.reactNativeFirebaseAuth}
-                        alt="Firebase users dashboard"
                         footer="Firebase users dashboard"
                         filename="firebase-auth-users-list.png"
                     />
@@ -88,7 +85,6 @@ export const english: ArticleContent = {
                     structure at all.
                     <ArticleImage
                         articleId={ArticleId.reactNativeFirebaseAuth}
-                        alt="Firebase authentication providers"
                         footer="Firebase authentication providers"
                         filename="firebase-auth-providers.png"
                     />
@@ -251,7 +247,6 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.reactNativeFirebaseAuth}
-                alt="FirebaseUI authentication widget"
                 filename="firebase-ui-widgets.png"
                 footer="FirebaseUI authentication widget"
             />

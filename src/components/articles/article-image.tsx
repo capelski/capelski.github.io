@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { ArticleId } from './article-id';
 
-interface ArticleImageProps {
+type ArticleImageProps = {
     articleId: ArticleId;
-    alt: string;
     className?: string;
     filename: string;
     footer?: string;
-}
+} & ({ alt: string; footer?: string } | { alt?: string; footer: string });
 
 export const ArticleImage: React.FC<ArticleImageProps> = (props) => {
     const [loadError, setLoadError] = useState(false);
@@ -18,7 +17,7 @@ export const ArticleImage: React.FC<ArticleImageProps> = (props) => {
                     loadError ? ' image-placeholder' : ''
                 }${props.className ? ' ' + props.className : ''}`}
                 src={`/images/blog/${props.articleId}/${props.filename}`}
-                alt={props.alt}
+                alt={props.alt || props.footer}
                 onError={() => {
                     setLoadError(true);
                 }}

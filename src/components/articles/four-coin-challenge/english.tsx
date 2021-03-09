@@ -24,9 +24,8 @@ export const english: ArticleContent = {
             <React.Fragment>
                 <ArticleImage
                     articleId={ArticleId.fourCoinChallenge}
-                    alt="4-coin challenge initial position"
                     filename="initial-position.jpg"
-                    footer="Initial position"
+                    footer="Coins initial position"
                 />
                 <p>
                     To start with the coins must placed in the <b>initial position</b> displayed
@@ -44,13 +43,11 @@ export const english: ArticleContent = {
                 </p>
                 <ArticleImage
                     articleId={ArticleId.fourCoinChallenge}
-                    alt="4-coin challenge invalid movement"
                     filename="invalid-movement.jpg"
                     footer="Invalid movement"
                 />
                 <ArticleImage
                     articleId={ArticleId.fourCoinChallenge}
-                    alt="4-coin challenge valid movement"
                     filename="valid-movement.jpg"
                     footer="Valid movement"
                 />
