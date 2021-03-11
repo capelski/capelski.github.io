@@ -5,8 +5,7 @@ import { articleRoute } from '../../routes';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
-
-// https://capelski.medium.com/apple-google-authentication-in-expo-apps-using-firebase-997125440032
+import { InlineSnippet } from '../inline-snippet';
 
 export const english: ArticleContent = {
     title: 'Apple/Google authentication in Expo apps using Firebase',
@@ -46,15 +45,15 @@ export const english: ArticleContent = {
                 <li>
                     <i>
                         Handle successful user authentication through Firebase{' '}
-                        <span className="inline-snippet">onAuthStateChanged</span> listener
+                        <InlineSnippet text="onAuthStateChanged" /> listener
                     </i>
                 </li>
             </ul>
             <h3>Firebase limitations in React Native</h3>
             <p>
                 The Firebase Javascript SDK has an specific method called{' '}
-                <span className="inline-snippet">signInWithPopup</span> to handle authentication
-                providers' sign-in flow using OAuth. Relaying on the Firebase{' '}
+                <InlineSnippet text="signInWithPopup" /> to handle authentication providers' sign-in
+                flow using OAuth. Relaying on the Firebase{' '}
                 <a href="https://firebase.google.com/docs/auth/web/apple" target="_blank">
                     Apple authentication documentation page
                 </a>{' '}
@@ -64,8 +63,8 @@ export const english: ArticleContent = {
             <p>
                 Using this approach in React Native apps will raise an exception however. This
                 happens because the Firebase Javascript SDK is designed for web applications and the{' '}
-                <span className="inline-snippet">signInWithPopup</span> method expects the app to
-                run in a browser. Frog! We will need to find another way to do it.
+                <InlineSnippet text="signInWithPopup" /> method expects the app to run in a browser.
+                Frog! We will need to find another way to do it.
             </p>
             <div className="article-code-snippet">
                 Error: This operation is not supported in the environment this application is
@@ -74,22 +73,22 @@ export const english: ArticleContent = {
             </div>
             <p>
                 Fortunately for us we are using Expo 🎉 and Expo has two modules designed for this
-                specific purpose: <span className="inline-snippet">expo-google-app-auth</span> and{' '}
-                <span className="inline-snippet">expo-apple-authentication</span>. Both modules
-                authenticate the user against the corresponding provider and return a credential
-                that can be used to authenticate the user in Firebase through the{' '}
-                <span className="inline-snippet">signInWithCredential</span> method.
+                specific purpose: <InlineSnippet text="expo-google-app-auth" /> and{' '}
+                <InlineSnippet text="expo-apple-authentication" />. Both modules authenticate the
+                user against the corresponding provider and return a credential that can be used to
+                authenticate the user in Firebase through the{' '}
+                <InlineSnippet text="signInWithCredential" /> method.
             </p>
             <p>
                 <i>
                     In fact Expo provides two modules to authenticate users against Google:{' '}
-                    <span className="inline-snippet">expo-google-app-auth</span> and{' '}
-                    <span className="inline-snippet">expo-google-sign-in</span>. They both achieve
-                    the same goal but the latter uses native Google authentication while the former
-                    uses a secure system web browser. At practice this means that{' '}
-                    <span className="inline-snippet">expo-google-sign-in</span> requires a bit more
-                    configuration and it doesn't work in the Expo Go client. Feel free to use the
-                    one you like better.
+                    <InlineSnippet text="expo-google-app-auth" /> and{' '}
+                    <InlineSnippet text="expo-google-sign-in" />. They both achieve the same goal
+                    but the latter uses native Google authentication while the former uses a secure
+                    system web browser. At practice this means that{' '}
+                    <InlineSnippet text="expo-google-sign-in" /> requires a bit more configuration
+                    and it doesn't work in the Expo Go client. Feel free to use the one you like
+                    better.
                 </i>
             </p>
             <p>
@@ -98,13 +97,12 @@ export const english: ArticleContent = {
             </p>
             <h3>Sign in with Google</h3>
             <p>
-                Go ahead and install <span className="inline-snippet">expo-google-app-auth</span>.
-                We will then use the straightforward{' '}
-                <span className="inline-snippet">logInAsync</span> method to get the users'
+                Go ahead and install <InlineSnippet text="expo-google-app-auth" />. We will then use
+                the straightforward <InlineSnippet text="logInAsync" /> method to get the users'
                 credentials. This method needs at least three parameters:{' '}
-                <span className="inline-snippet">androidStandaloneAppClientId</span>,{' '}
-                <span className="inline-snippet">iosStandaloneAppClientId</span>, and{' '}
-                <span className="inline-snippet">scopes</span>.
+                <InlineSnippet text="androidStandaloneAppClientId" />,{' '}
+                <InlineSnippet text="iosStandaloneAppClientId" />, and{' '}
+                <InlineSnippet text="scopes" />.
             </p>
             <p>
                 The first two are OAuth 2.0 Client IDs that are automatically generated by Firebase
@@ -153,23 +151,21 @@ export const english: ArticleContent = {
             </p>
             <ReactGist id="a47a64db2a2fe7d4ad3469655d98addf" />
             <p>
-                The <span className="inline-snippet">logInAsync</span> call returns a promise with
-                the result of the operation. If the result type equals{' '}
-                <span className="inline-snippet">success</span> we will then find the{' '}
-                <span className="inline-snippet">idToken</span> and{' '}
-                <span className="inline-snippet">accessToken</span> in the result, which we will use
-                to authenticate the user in Firebase by creating a GoogleAuthProvider credential. If
-                the result equals <span className="inline-snippet">cancel</span> means the user
-                didn't complete the sign-in flow. Easy as 1,2,3!
+                The <InlineSnippet text="logInAsync" /> call returns a promise with the result of
+                the operation. If the result type equals The <InlineSnippet text="success" /> we
+                will then find the <InlineSnippet text="idToken" /> and{' '}
+                <InlineSnippet text="accessToken" /> in the result, which we will use to
+                authenticate the user in Firebase by creating a GoogleAuthProvider credential. If
+                the result equals <InlineSnippet text="cancel" /> means the user didn't complete the
+                sign-in flow. Easy as 1,2,3!
             </p>
             <p>
                 Keep in mind that the code above will not work on the Expo Go client. You can either{' '}
                 <b>create a new Internal testing release</b> on Google Play console and install the
                 app on an Android device or <b>generate new OAuth 2.0 Client IDs</b> for testing
-                purposes and pass them to <span className="inline-snippet">logInAsync</span> using
-                the <span className="inline-snippet">androidClientId</span> and{' '}
-                <span className="inline-snippet">iosClientId</span> parameters (in which case you
-                will need 4 client IDs).
+                purposes and pass them to <InlineSnippet text="logInAsync" /> using the{' '}
+                <InlineSnippet text="androidClientId" /> and <InlineSnippet text="iosClientId" />{' '}
+                parameters (in which case you will need 4 client IDs).
             </p>
             <h3>Sign in with Apple</h3>
             <p>
@@ -202,30 +198,28 @@ export const english: ArticleContent = {
             </p>
             <p>
                 First we need to install the necessary modules:{' '}
-                <span className="inline-snippet">expo-apple-authentication</span> and
-                <span className="inline-snippet">expo-crypto</span>. We will use the{' '}
-                <span className="inline-snippet">signInAsync</span> method from the{' '}
-                <span className="inline-snippet">expo-apple-authentication</span> module to, just as
-                we did before, get the user's credentials and then authenticate the user in Firebase
-                using those credentials.
+                <InlineSnippet text="expo-apple-authentication" /> and{' '}
+                <InlineSnippet text="expo-crypto" />. We will use the{' '}
+                <InlineSnippet text="signInAsync" /> method from the{' '}
+                <InlineSnippet text="expo-apple-authentication" /> module to, just as we did before,
+                get the user's credentials and then authenticate the user in Firebase using those
+                credentials.
             </p>
             <p>
-                The difference this time is that <span className="inline-snippet">signInAsync</span>{' '}
-                does not return an OAuth access token. As Dan Singer points in his story, we can get
-                around this issue by providing a SHA256-hashed nonce to the{' '}
-                <span className="inline-snippet">signInAsync</span> function and then pass the
-                original nonce to Firebase's{' '}
-                <span className="inline-snippet">signInWithCredential</span>. That's why we also
-                need the <span className="inline-snippet">expo-crypto</span> module. Let's put it
-                all together:
+                The difference this time is that <InlineSnippet text="signInAsync" /> does not
+                return an OAuth access token. As Dan Singer points in his story, we can get around
+                this issue by providing a SHA256-hashed nonce to the{' '}
+                <InlineSnippet text="signInAsync" /> function and then pass the original nonce to
+                Firebase's <InlineSnippet text="signInWithCredential" />. That's why we also need
+                the <InlineSnippet text="expo-crypto" /> module. Let's put it all together:
             </p>
             <ReactGist id="ea93abe5f49d1db77bab773ea83a894d" />
             <p>
-                The <span className="inline-snippet">requestedScopes</span> parameter is a list of
-                OAuth 2.0 scopes. Not that complicated after all! Next thing we need to care about
-                is the UI. While Google let's you display their sign-in button the way you want
-                Apple will require you to use a guideline approved button. In fact it's normal to
-                get rejected because the sign in button doesn't meet the requirements.
+                The <InlineSnippet text="requestedScopes" /> parameter is a list of OAuth 2.0
+                scopes. Not that complicated after all! Next thing we need to care about is the UI.
+                While Google let's you display their sign-in button the way you want Apple will
+                require you to use a guideline approved button. In fact it's normal to get rejected
+                because the sign in button doesn't meet the requirements.
             </p>
             <ArticleImage
                 articleId={ArticleId.expoSocialSignIn}
@@ -237,7 +231,7 @@ export const english: ArticleContent = {
                 The simplest way to prevent the rejection is to use the "corporative" button Expo
                 provides for us. Keep in mind that Apple sign-in only works on iOS devices so we
                 need to check whether it's available or not before rendering the button. Expo gets
-                us covered with the <span className="inline-snippet">isAvailableAsync</span> method:
+                us covered with the <InlineSnippet text="isAvailableAsync" /> method:
             </p>
             <ReactGist id="17de06c5390b050620c548a9a5f233ce" />
             <p>
@@ -248,14 +242,13 @@ export const english: ArticleContent = {
                     href="https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple"
                     target="_blank"
                 >
-                    <span className="inline-snippet">expo-apple-authentication</span>
+                    <InlineSnippet text="expo-apple-authentication" />
                 </a>{' '}
                 page so make sure to take a look at it.
             </p>
             <p>
-                First add the <span className="inline-snippet">usesAppleSignIn</span> property to
-                your <span className="inline-snippet">app.json</span> configuration file. Then head
-                to{' '}
+                First add the <InlineSnippet text="usesAppleSignIn" /> property to your{' '}
+                <InlineSnippet text="app.json" /> configuration file. Then head to{' '}
                 <a href="https://developer.apple.com/" target="_blank">
                     Apple Developer Portal
                 </a>{' '}
@@ -360,8 +353,8 @@ export const english: ArticleContent = {
                     Portal but you can only do it once. If you let Expo handle the process back in
                     the day then you probably won't be able to download the key. You can manually
                     generate a new key from the Apple Developer Portal and then use{' '}
-                    <span className="inline-snippet">expo credentials:manager</span> to replace the
-                    private key your app uses.
+                    <InlineSnippet text="expo credentials:manager" /> to replace the private key
+                    your app uses.
                 </i>
             </p>
             <p>
