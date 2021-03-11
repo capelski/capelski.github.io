@@ -5,5 +5,5 @@ interface InlineSnippetProps {
 }
 
 export const InlineSnippet: React.FC<InlineSnippetProps> = (props) => (
-    <span className="inline-snippet">{props.text}</span>
+    <span className="article-inline-snippet">{props.text}</span>
 );
