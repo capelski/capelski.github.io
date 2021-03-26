@@ -3,6 +3,7 @@ import ReactGist from 'react-gist';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
     title: 'Email authentication in React Native apps using Firebase',
@@ -69,9 +70,7 @@ export const english: ArticleContent = {
                     filtering, creating new users, disabling accounts or removing them completely.
                     It's only missing import/export functionality but that can be done through
                     command line:
-                    <div className="article-code-snippet">
-                        firebase auth:export users.csv --format=csv
-                    </div>
+                    <BlockSnippet>firebase auth:export users.csv --format=csv</BlockSnippet>
                     <ArticleImage
                         articleId={ArticleId.reactNativeFirebaseAuth}
                         footer="Firebase users dashboard"
@@ -220,13 +219,13 @@ export const english: ArticleContent = {
                 </a>
                 .
             </p>
-            <div className="article-code-snippet">
+            <BlockSnippet>
                 Setting a timer for a long period of time, i.e. multiple minutes, is a performance
                 and correctness issue on Android as it keeps the timer module awake, and timers can
                 only be called when the app is in the foreground. See
                 https://github.com/facebook/react-native/issues/12981 for more info. (Saw setTimeout
                 with duration 111862ms)
-            </div>
+            </BlockSnippet>
             <p>
                 Long story short the timers issue is here to stay. Fortunately it's not critical
                 one. It only means that things might take longer than expected if the app becomes

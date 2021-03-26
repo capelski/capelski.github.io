@@ -3,6 +3,7 @@ import ReactGist from 'react-gist';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
     title: 'Create your own npm package',
@@ -80,7 +81,7 @@ export const english: ArticleContent = {
                 package is actually to make it easy to use and understand, while keeping it
                 small-sized, functioning and properly versioned.
             </p>
-            <div className="article-code-snippet">npm publish</div>
+            <BlockSnippet>npm publish</BlockSnippet>
             <p>Here is a checklist you want to cover in order to build a great library:</p>
             <ul>
                 <li>
@@ -107,7 +108,7 @@ export const english: ArticleContent = {
                     </a>{' '}
                     and make sure you properly update the version depending on the type of your
                     release:
-                    <div className="article-code-snippet">npm version [major|minor|patch]</div>
+                    <BlockSnippet>npm version [major|minor|patch]</BlockSnippet>
                 </li>
                 <li>
                     <b>.npmignore</b>: Web developers are sensitive to libraries size so it's in

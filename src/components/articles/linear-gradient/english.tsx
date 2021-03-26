@@ -4,6 +4,7 @@ import { ArticleContent } from '../article-data';
 import { Wheel } from './wheel';
 import { WheelPocFour } from './wheel-poc-four';
 import { WheelPocEight } from './wheel-poc-eight';
+import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
     title: 'Linear gradient is the new black',
@@ -64,9 +65,9 @@ export const english: ArticleContent = {
                 half will be transparent.
             </p>
             <WheelPocEight isSkeleton={false} />
-            <div className="article-code-snippet">
+            <BlockSnippet>
                 background: linear-gradient(135deg, #0082ff 50%, transparent 50%);
-            </div>
+            </BlockSnippet>
             <p>
                 This is how linear-gradient makes its magic. The first argument is optional and it
                 can be used to apply a rotation to the background. The rest of arguments are a set

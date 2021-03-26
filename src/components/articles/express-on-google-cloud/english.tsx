@@ -3,6 +3,7 @@ import ReactGist from 'react-gist';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
     title: 'Running express on Google Cloud',
@@ -252,12 +253,12 @@ export const english: ArticleContent = {
                 ). Once you have done this you just need to run the deploy command to automatically
                 deploy your app while you go getting some coffee.
             </p>
-            <div className="article-code-snippet">
+            <BlockSnippet>
                 <p>{'>'} gcloud auth login</p>
                 <p>{'>'} gcloud projects create [YOUR_PROJECT_ID] --set-as-default</p>
                 <p>{'>'} gcloud app create --project=[YOUR_PROJECT_ID]</p>
                 <p>{'>'} gcloud app deploy</p>
-            </div>
+            </BlockSnippet>
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
                 className="image-600"

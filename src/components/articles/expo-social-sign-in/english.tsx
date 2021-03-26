@@ -5,6 +5,7 @@ import { articleRoute } from '../../routes';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { BlockSnippet } from '../block-snippet';
 import { InlineSnippet } from '../inline-snippet';
 
 export const english: ArticleContent = {
@@ -66,11 +67,11 @@ export const english: ArticleContent = {
                 <InlineSnippet text="signInWithPopup" /> method expects the app to run in a browser.
                 Frog! We will need to find another way to do it.
             </p>
-            <div className="article-code-snippet">
+            <BlockSnippet>
                 Error: This operation is not supported in the environment this application is
                 running on. "location.protocol" must be http, https or chrome-extension and web
                 storage must be enabled.
-            </div>
+            </BlockSnippet>
             <p>
                 Fortunately for us we are using Expo 🎉 and Expo has two modules designed for this
                 specific purpose: <InlineSnippet text="expo-google-app-auth" /> and{' '}
@@ -304,9 +305,9 @@ export const english: ArticleContent = {
                 new Profile as well as revoke the old one thanks to Expo by using a couple command
                 line arguments next time we build the app:
             </p>
-            <div className="article-code-snippet">
+            <BlockSnippet>
                 expo build:ios --clear-provisioning-profile --revoke-credentials
-            </div>
+            </BlockSnippet>
             <p>
                 We are almost there! We only need to enable Apple authentication provider in
                 Firebase and will have arrived to our destination: success. Head to the{' '}

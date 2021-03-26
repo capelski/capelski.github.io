@@ -3,6 +3,7 @@ import ReactGist from 'react-gist';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
     title: 'Web development on steroids: Vol. 1',
@@ -62,9 +63,9 @@ export const english: ArticleContent = {
             <ul>
                 <li>
                     Install typescript and a module loader as development dependencies
-                    <div className="article-code-snippet">
+                    <BlockSnippet>
                         npm install --save-dev typescript awesome-typescript-loader
-                    </div>
+                    </BlockSnippet>
                 </li>
                 <li>
                     Add a <b>tsconfig.json</b> configuration file. If you are migrating an existing
@@ -105,7 +106,7 @@ export const english: ArticleContent = {
             <ul>
                 <li>
                     Install prettier as a development dependency
-                    <div className="article-code-snippet">npm install --save-dev prettier</div>
+                    <BlockSnippet>npm install --save-dev prettier</BlockSnippet>
                 </li>
                 <li>
                     Add a <b>prettier.rc</b> json configuration file with your favorite settings or
@@ -148,13 +149,13 @@ export const english: ArticleContent = {
             <ul>
                 <li>
                     Install eslint as a development dependency
-                    <div className="article-code-snippet">npm install --save-dev eslint</div>
+                    <BlockSnippet>npm install --save-dev eslint</BlockSnippet>
                 </li>
                 <li>
                     Create a .eslintrc.js configuration file. You can either copy an existing one
                     (remember to install the required dependencies) or create a new one with the
                     eslint command line utility
-                    <div className="article-code-snippet">npx eslint --init</div>
+                    <BlockSnippet>npx eslint --init</BlockSnippet>
                 </li>
                 <li>
                     Add npm scripts to run eslint
@@ -163,9 +164,9 @@ export const english: ArticleContent = {
                 <li>
                     If you are using or want to use prettier, you will need to configure eslint to
                     respect prettier rules
-                    <div className="article-code-snippet">
+                    <BlockSnippet>
                         npm install --save-dev eslint-config-prettier eslint-plugin-prettier
-                    </div>
+                    </BlockSnippet>
                     <ReactGist id="eaa383ca7b2ddcb07f9a404324535711" />
                 </li>
                 <li>
@@ -183,9 +184,7 @@ export const english: ArticleContent = {
                     Optionally some more plugins can be installed on top of eslint. For example, I
                     like to enforce the import statements to be alphabetically sorted. We can use{' '}
                     <b>eslint-plugin-import</b> for such purpose
-                    <div className="article-code-snippet">
-                        npm install --save-dev eslint-plugin-import
-                    </div>
+                    <BlockSnippet>npm install --save-dev eslint-plugin-import</BlockSnippet>
                     <ReactGist id="5540afca4d6afce91e00c48b97e5724c" />
                 </li>
                 <li>

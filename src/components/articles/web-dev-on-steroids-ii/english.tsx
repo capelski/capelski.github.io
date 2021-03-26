@@ -5,6 +5,7 @@ import { articleRoute } from '../../routes';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
     title: 'Web development on steroids: Vol. 2',
@@ -106,7 +107,7 @@ export const english: ArticleContent = {
             <ul>
                 <li>
                     Install cucumber
-                    <div className="article-code-snippet">npm install --save-dev cucumber</div>
+                    <BlockSnippet>npm install --save-dev cucumber</BlockSnippet>
                 </li>
                 <li>
                     Create a <b>cucumber.js</b> file in the root of the project with the following
@@ -118,7 +119,7 @@ export const english: ArticleContent = {
                     document. We can do that with <b>jsdom</b> and a similar initialization code
                     that we will require from the test npm script (e.g.{' '}
                     <i>cucumber-environment.ts</i>):
-                    <div className="article-code-snippet">npm install --save-dev jsdom</div>
+                    <BlockSnippet>npm install --save-dev jsdom</BlockSnippet>
                     <ReactGist id="6bb293f5604147cd8647e052bc6bd98b" />
                 </li>
                 <li>
@@ -131,9 +132,9 @@ export const english: ArticleContent = {
                 <li>
                     If using typescript, install the corresponding types and ts-node, and adapt the
                     test npm script to require ts-node too:
-                    <div className="article-code-snippet">
+                    <BlockSnippet>
                         npm install --save-dev @types/cucumber @types/jsdom ts-node
-                    </div>
+                    </BlockSnippet>
                     <ReactGist id="675c54f581ccd7ecafa7d5951c0963a6" />
                 </li>
             </ul>
@@ -165,7 +166,7 @@ export const english: ArticleContent = {
             <ul>
                 <li>
                     Install istanbul (for some reason, they named the npm package <b>nyc</b>):
-                    <div className="article-code-snippet">npm install --save-dev nyc</div>
+                    <BlockSnippet>npm install --save-dev nyc</BlockSnippet>
                 </li>
                 <li>
                     Create a <b>.nycrc</b> istanbul configuration file with the following contents
@@ -214,7 +215,7 @@ export const english: ArticleContent = {
             <ul>
                 <li>
                     Install husky:
-                    <div className="article-code-snippet">npm install --save-dev husky</div>
+                    <BlockSnippet>npm install --save-dev husky</BlockSnippet>
                 </li>
                 <li>
                     Create a <b>husky</b> section in your package.json file specifying the commands
@@ -250,7 +251,7 @@ export const english: ArticleContent = {
                 , a utility for versioning using semver and CHANGELOG generation). Here are some
                 example commit messages:
             </p>
-            <div className="article-code-snippet">
+            <BlockSnippet>
                 feat(lang): add polish language
                 <br />
                 <br />
@@ -258,15 +259,15 @@ export const english: ArticleContent = {
                 <br />
                 <br />
                 docs: correct spelling of CHANGELOG
-            </div>
+            </BlockSnippet>
             <h5>Steps</h5>
             <ul>
                 <li>
                     Install commitlint and the conventional commits configuration package (or any
                     other configuration package you prefer):
-                    <div className="article-code-snippet">
+                    <BlockSnippet>
                         npm install --save-dev @commitlint/cli @commitlint/config-conventional
-                    </div>
+                    </BlockSnippet>
                 </li>
                 <li>
                     Create a <b>commitlint.config.js</b> configuration file, exporting the

@@ -2,6 +2,7 @@ import React from 'react';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
     title: 'Https, email ready WordPress site on Google Cloud Platform',
@@ -164,17 +165,17 @@ export const english: ArticleContent = {
                 <li>Connect to the virtual machine through SSH (from the Compute Engine page)</li>
                 <li>
                     Download and install certbot-auto
-                    <div className="article-code-snippet">
+                    <BlockSnippet>
                         sudo apt-get install certbot python-certbot-apache -t stretch-backports
-                    </div>
+                    </BlockSnippet>
                 </li>
                 <li>
                     Generate an SSL certificate
-                    <div className="article-code-snippet">sudo certbot --apache</div>
+                    <BlockSnippet>sudo certbot --apache</BlockSnippet>
                 </li>
                 <li>
                     Restart Apache server
-                    <div className="article-code-snippet">sudo service apache2 restart</div>
+                    <BlockSnippet>sudo service apache2 restart</BlockSnippet>
                 </li>
                 <li>
                     Update WordPress URLs. Log in to the WordPress site using the credentials you
