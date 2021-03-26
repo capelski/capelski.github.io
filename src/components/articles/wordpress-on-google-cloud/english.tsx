@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -24,23 +25,17 @@ export const english: ArticleContent = {
                     comes to hosting WordPress pages. Having WordPress in GCP is not the cheapest
                     one by far: around 22€/month for a small instance based on my last invoice. If
                     you don't need a dedicated virtual machine consider using other{' '}
-                    <a href="https://wordpress.org/hosting/" target="_blank">
-                        hosting solutions
-                    </a>
-                    . GCP is a good fit if you are already using it as your cloud infrastructure
-                    provider.
+                    <Anchor url="https://wordpress.org/hosting/">hosting solutions</Anchor>. GCP is
+                    a good fit if you are already using it as your cloud infrastructure provider.
                 </i>
             </p>
             <h3>Creating the WordPress site</h3>
             <p>
                 WordPress is written in PHP and runs on{' '}
-                <a href="https://www.apache.org/" target="_blank">
-                    Apache
-                </a>
-                . You can create a Compute Engine instance (i.e. a virtual machine) yourself and
-                manually install those dependencies or let Google do it for you. I'm a fan of the
-                latter so let's use the GCP Deployment Manager to create our WordPress virtual
-                machine.
+                <Anchor url="https://www.apache.org/">Apache</Anchor>. You can create a Compute
+                Engine instance (i.e. a virtual machine) yourself and manually install those
+                dependencies or let Google do it for you. I'm a fan of the latter so let's use the
+                GCP Deployment Manager to create our WordPress virtual machine.
             </p>
             <p>
                 In order to use the deployment manager you will need to enable it's API if you still
@@ -149,16 +144,11 @@ export const english: ArticleContent = {
             <p>
                 Ok! Let's get the HTTPS running and move on to something else before we lose heart.
                 We will do so by generating an SSL certificate with{' '}
-                <a href="https://certbot.eff.org/" target="_blank">
-                    certbot
-                </a>
-                . There is a great guide on how to do it in{' '}
-                <a
-                    href="https://onepagezen.com/free-ssl-certificates-wordpress-google-cloud-click-to-deploy"
-                    target="_blank"
-                >
+                <Anchor url="https://certbot.eff.org/">certbot</Anchor>. There is a great guide on
+                how to do it in{' '}
+                <Anchor url="https://onepagezen.com/free-ssl-certificates-wordpress-google-cloud-click-to-deploy">
                     OnePageZen
-                </a>
+                </Anchor>
                 . Here are the summarized steps (check the guide for more details):
             </p>
             <ul>
@@ -203,41 +193,26 @@ export const english: ArticleContent = {
             <h3>Sending emails from WordPress</h3>
             <p>
                 WordPress has a variety of plugins to easily create contact forms and send the
-                inquiries by email (e.g.{' '}
-                <a href="https://wpforms.com/" target="_blank">
-                    wpforms
-                </a>
+                inquiries by email (e.g. <Anchor url="https://wpforms.com/">wpforms</Anchor>
                 ). However, most of those plugins rely on sending emails through TCP port 25 which,
                 on GCP virtual machines, is always blocked due to the risk of abuse.
             </p>
             <p>
                 The easiest way for the emails to make it through the GCP firewall is to use a
                 third-party email service provider. There are three different providers available. I
-                went with{' '}
-                <a href="https://www.mailgun.com/" target="_blank">
-                    Mailgun
-                </a>{' '}
-                (the free tier offers up to 10,000 emails per month) but you can use{' '}
-                <a href="https://sendgrid.com/" target="_blank">
-                    SendGrid
-                </a>{' '}
-                or
-                <a href="https://www.mailjet.com/" target="_blank">
-                    Mailjet
-                </a>{' '}
-                if you like them better.
+                went with <Anchor url="https://www.mailgun.com/">Mailgun</Anchor> (the free tier
+                offers up to 10,000 emails per month) but you can use{' '}
+                <Anchor url="https://sendgrid.com/">SendGrid</Anchor> or
+                <Anchor url="https://www.mailjet.com/">Mailjet</Anchor> if you like them better.
             </p>
             <p>
                 Before start configuring any of those services, we need to create a new rule in the
                 firewall to allow outbound traffic. Any port other than 25 would do the trick, but
                 we will use 2525 because Mailgun listens on that port. This is done from the{' '}
                 <b>VPC Network</b> {'>'} <b>Firewall</b> page and it's described in{' '}
-                <a
-                    href="https://cloud.google.com/compute/docs/tutorials/sending-mail#email_custom_port"
-                    target="_blank"
-                >
+                <Anchor url="https://cloud.google.com/compute/docs/tutorials/sending-mail#email_custom_port">
                     this section
-                </a>{' '}
+                </Anchor>{' '}
                 of the GCP documentation:
             </p>
             <ArticleImage
@@ -311,12 +286,9 @@ export const english: ArticleContent = {
             <p>
                 Having your credentials ready there is only one thing left to do: configuring the
                 service in the virtual machine 💪 The steps are explained in great detail in the{' '}
-                <a
-                    href="https://cloud.google.com/compute/docs/tutorials/sending-mail/using-mailgun"
-                    target="_blank"
-                >
+                <Anchor url="https://cloud.google.com/compute/docs/tutorials/sending-mail/using-mailgun">
                     GCP official documentation
-                </a>
+                </Anchor>
                 . It's just a matter of executing the provided commands through an SSH terminal, so
                 I won't duplicate the steps here. In step 8 you will need to use the SMTP
                 credentials collected above.

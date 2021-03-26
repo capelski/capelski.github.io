@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGist from 'react-gist';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -45,13 +46,10 @@ export const english: ArticleContent = {
                 Regardless your project size and complexity, having meta data about your code will
                 help it being more descriptive and will allow you to run some compilation checks,
                 using awesome libraries such as{' '}
-                <a href="https://palantir.github.io/tslint/" target="_blank">
-                    Typescript
-                </a>
-                . A very cool aspect of using Typescript with an appropriate IDE is that you get a
-                list of all the attributes and methods available in an object when you type, a
-                feature also known as Intellisense. Once you try it, you will never be able to
-                develop without it again!
+                <Anchor url="https://palantir.github.io/tslint/">Typescript</Anchor>. A very cool
+                aspect of using Typescript with an appropriate IDE is that you get a list of all the
+                attributes and methods available in an object when you type, a feature also known as
+                Intellisense. Once you try it, you will never be able to develop without it again!
             </p>
             <ArticleImage
                 articleId={ArticleId.webDevOnSteroidsI}
@@ -93,14 +91,12 @@ export const english: ArticleContent = {
                 code guideline.
             </p>
             <p>
-                <a href="https://prettier.io/" target="_blank">
-                    Prettier
-                </a>{' '}
-                is a popular opinionated code formatter that will take care of formatting for you.
-                It allows you to configure a few parameters (e.g. maximum line length) but, as it is
-                opinionated, cannot be very customized (which will save you stupid discussion with
-                your teammates). You can either run it from the command line or use the VSCode
-                extension to automatically format every file each time the file is saved.
+                <Anchor url="https://prettier.io/">Prettier</Anchor> is a popular opinionated code
+                formatter that will take care of formatting for you. It allows you to configure a
+                few parameters (e.g. maximum line length) but, as it is opinionated, cannot be very
+                customized (which will save you stupid discussion with your teammates). You can
+                either run it from the command line or use the VSCode extension to automatically
+                format every file each time the file is saved.
             </p>
             <h5>Steps</h5>
             <ul>
@@ -134,16 +130,11 @@ export const english: ArticleContent = {
             <p>
                 Static code analysis that will catch suspicious code (e.g. floating promises) and
                 will enforce the best practices (e.g. functions maximum number of lines).{' '}
-                <a href="https://eslint.org/" target="_blank">
-                    eslint
-                </a>{' '}
-                is a great linting tool, which can be highly customized and manages to automatically
-                fix certain types of issues. With a bit of additional configuration it also supports
-                Typescript language, which makes it an ideal candidate to replace the deprecated{' '}
-                <a href="https://palantir.github.io/tslint/" target="_blank">
-                    tslint
-                </a>
-                .
+                <Anchor url="https://eslint.org/">eslint</Anchor> is a great linting tool, which can
+                be highly customized and manages to automatically fix certain types of issues. With
+                a bit of additional configuration it also supports Typescript language, which makes
+                it an ideal candidate to replace the deprecated{' '}
+                <Anchor url="https://palantir.github.io/tslint/">tslint</Anchor>.
             </p>
             <h5>Steps</h5>
             <ul>

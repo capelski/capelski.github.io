@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { articleRoute } from '../../routes';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -40,10 +41,8 @@ export const english: ArticleContent = {
             <p>
                 First things first. Once your app is ready to be uploaded you will need to create a
                 Google Play Console developer account. To do so head to{' '}
-                <a href="https://play.google.com/console/about/" target="_blank">
-                    Google Play Console
-                </a>
-                , click <i>Go to Play Console</i>, sign in with your Google account, fill the form
+                <Anchor url="https://play.google.com/console/about/">Google Play Console</Anchor>,
+                click <i>Go to Play Console</i>, sign in with your Google account, fill the form
                 (the developer name doesn’t need to be your legal name, you can use whatever you
                 like), pay the $25 registration fee and you are good to start.
             </p>
@@ -163,9 +162,7 @@ export const english: ArticleContent = {
                     A feature graphic image is required in order to publish the app. I still haven’t
                     figured out where this image is displayed but I did learn that they can be
                     easily created with tools like this{' '}
-                    <a href="https://www.norio.be/graphic-generator/" target="_blank">
-                        graphic generator
-                    </a>
+                    <Anchor url="https://www.norio.be/graphic-generator/">graphic generator</Anchor>
                     . Get it done for now and you will worry about it later (if it does become a
                     problem). This is an example from an app of mine:
                     <ArticleImage
@@ -196,12 +193,9 @@ export const english: ArticleContent = {
                 production. If you instead want to test the app with a small group of users first
                 (which is usually a good idea), just follow the same steps for the corresponding
                 testing track (and maybe read more about{' '}
-                <a
-                    href="https://support.google.com/googleplay/android-developer/answer/9845334?hl=en"
-                    target="_blank"
-                >
+                <Anchor url="https://support.google.com/googleplay/android-developer/answer/9845334?hl=en">
                     testing tracks
-                </a>
+                </Anchor>
                 ).
             </p>
             <ArticleImage

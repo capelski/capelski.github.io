@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGist from 'react-gist';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -25,7 +26,7 @@ export const english: ArticleContent = {
                 social network, you might want to divorce from it in the future. Remember MySpace?.
                 Having a simple web page doesn't hurt, will allow you to start building your own
                 list of subscribers and can be created for free if you still don't have it, using
-                platforms such as <a href="https://wordpress.com/">Wordpress</a>.
+                platforms such as <Anchor url="https://wordpress.com/">Wordpress</Anchor>.
             </p>
             <p>
                 See that form in the bottom of this page? Bingo! This is exactly what I am talking
@@ -37,9 +38,9 @@ export const english: ArticleContent = {
             <p>
                 There are a bunch of services you can use to take care of all the stuff related to
                 the mailing list. The one I like the most and, to be fair, the only one I have tried
-                is <a href="https://mailchimp.com/">Mailchimp</a>. They have a great visual editor
-                to compose mails (see the screenshot below), they allow you to export the contacts
-                list and is free to use under 2000 subscribers.
+                is <Anchor url="https://mailchimp.com/">Mailchimp</Anchor>. They have a great visual
+                editor to compose mails (see the screenshot below), they allow you to export the
+                contacts list and is free to use under 2000 subscribers.
             </p>
             <p>
                 <b>

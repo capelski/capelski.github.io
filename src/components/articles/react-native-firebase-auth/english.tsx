@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGist from 'react-gist';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -211,12 +212,9 @@ export const english: ArticleContent = {
                 warning message when running your app on Android. This is a known issue that occurs
                 due to the way React Native handles timers in Android. You can read more about it in
                 this{' '}
-                <a
-                    href="https://medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ffacebook%2Freact-native%2Fissues%2F12981%23issuecomment-652745831"
-                    target="_blank"
-                >
+                <Anchor url="https://medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ffacebook%2Freact-native%2Fissues%2F12981%23issuecomment-652745831">
                     github issue comment
-                </a>
+                </Anchor>
                 .
             </p>
             <BlockSnippet>
@@ -237,9 +235,9 @@ export const english: ArticleContent = {
             <p>
                 Firebase provides a JavaScript drop-in auth solution that handles the UI flows
                 called{' '}
-                <a href="https://firebase.google.com/docs/auth/web/firebaseui" target="_blank">
+                <Anchor url="https://firebase.google.com/docs/auth/web/firebaseui">
                     FirebaseUI
-                </a>
+                </Anchor>
                 . These views are designed for web apps and are not compatible with React Native yet
                 though. For now we will need to implement our own screens but it's not a big deal
                 (just a couple forms) and allows for better customization.

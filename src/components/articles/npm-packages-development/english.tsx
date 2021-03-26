@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGist from 'react-gist';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -50,11 +51,9 @@ export const english: ArticleContent = {
                     you find an npm package that does exactly what you need? Then wait no more to
                     start contributing back to the community. Plus the more people there is running
                     your code the more your library will evolve and become better.{' '}
-                    <a href="https://www.npmjs.com/package/redux" target="_blank">
-                        redux
-                    </a>{' '}
-                    is an excellent example of a library that was started by a single developer and
-                    is now used by millions, having received contributions from over 800 developers.
+                    <Anchor url="https://www.npmjs.com/package/redux">redux</Anchor> is an excellent
+                    example of a library that was started by a single developer and is now used by
+                    millions, having received contributions from over 800 developers.
                 </li>
                 <li>
                     <b>To feed your ego</b>: Last but not least! Nothing can make a developer more
@@ -72,14 +71,12 @@ export const english: ArticleContent = {
             <h3>How to publish a Javascript library to npm</h3>
             <p>
                 Publishing a package to npm is rather easy; you just need to{' '}
-                <a href="https://www.npmjs.com/signup" target="_blank">
-                    create an account
-                </a>{' '}
-                and upload the package by running the following command within your project
-                directory. In fact, you can upload any type of file inside an npm package; from your
-                parents wedding video to a pdf version of the bible. The tricky part of publishing a
-                package is actually to make it easy to use and understand, while keeping it
-                small-sized, functioning and properly versioned.
+                <Anchor url="https://www.npmjs.com/signup">create an account</Anchor> and upload the
+                package by running the following command within your project directory. In fact, you
+                can upload any type of file inside an npm package; from your parents wedding video
+                to a pdf version of the bible. The tricky part of publishing a package is actually
+                to make it easy to use and understand, while keeping it small-sized, functioning and
+                properly versioned.
             </p>
             <BlockSnippet>npm publish</BlockSnippet>
             <p>Here is a checklist you want to cover in order to build a great library:</p>
@@ -103,11 +100,8 @@ export const english: ArticleContent = {
                     library by the <b>version</b> field of your package.json file. If you try to
                     publish a new release of your package without changing the version number, npm
                     will throw an error. Get familiar with{' '}
-                    <a href="https://semver.org/" target="_blank">
-                        semantic versioning
-                    </a>{' '}
-                    and make sure you properly update the version depending on the type of your
-                    release:
+                    <Anchor url="https://semver.org/">semantic versioning</Anchor> and make sure you
+                    properly update the version depending on the type of your release:
                     <BlockSnippet>npm version [major|minor|patch]</BlockSnippet>
                 </li>
                 <li>
@@ -164,9 +158,9 @@ export const english: ArticleContent = {
             </p>
             <ul>
                 <li>
-                    <a href="https://www.npmjs.com/package/cucumber-steps-parser" target="_blank">
+                    <Anchor url="https://www.npmjs.com/package/cucumber-steps-parser">
                         cucumber-steps-parser
-                    </a>
+                    </Anchor>
                     : Simple library I developed while working at Sage that searches for all the
                     cucumber.js sentence definitions in a Javascript/Typescript project. The first
                     version was not very intuitive, so the second had a slightly more descriptive
@@ -176,13 +170,11 @@ export const english: ArticleContent = {
                     <ReactGist id="f4a511af5f858641d7dcd3c437deebe3" />
                 </li>
                 <li>
-                    <a href="https://www.npmjs.com/package/react-redux-link" target="_blank">
+                    <Anchor url="https://www.npmjs.com/package/react-redux-link">
                         react-redux-link
-                    </a>
+                    </Anchor>
                     : Monkey patching of the{' '}
-                    <a href="https://www.npmjs.com/package/react-redux" target="_blank">
-                        react-redux
-                    </a>{' '}
+                    <Anchor url="https://www.npmjs.com/package/react-redux">react-redux</Anchor>{' '}
                     package. I wrote the code (145 lines in total) as a part of another project and
                     realized it was generic enough to exist on its own. The proof that there is no
                     minimal functionality level a library must provide.
@@ -202,16 +194,12 @@ export const english: ArticleContent = {
                     />
                 </li>
                 <li>
-                    <a href="https://www.npmjs.com/package/modena" target="_blank">
-                        modena
-                    </a>
-                    : Web server that allows exposing multiple express apps on a single domain
-                    isolated from each other. The{' '}
-                    <a href="https://github.com/capelski/modena-v1" target="_blank">
-                        first version
-                    </a>{' '}
-                    was meant to make the hosted apps code as light as possible, but it turned out
-                    to be a total mess.
+                    <Anchor url="https://www.npmjs.com/package/modena">modena</Anchor>: Web server
+                    that allows exposing multiple express apps on a single domain isolated from each
+                    other. The{' '}
+                    <Anchor url="https://github.com/capelski/modena-v1">first version</Anchor> was
+                    meant to make the hosted apps code as light as possible, but it turned out to be
+                    a total mess.
                     <br />
                     <br />
                     It imposed restrictions on the hosted apps (e.g. EJS template language,

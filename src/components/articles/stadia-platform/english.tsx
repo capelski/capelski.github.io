@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -38,12 +39,10 @@ export const english: ArticleContent = {
                 point of view is the fact that you can play from your computer without installing
                 any software. It might seem an irrelevant detail, but let's keep in mind that a very
                 similar idea turned{' '}
-                <a href="https://en.wikipedia.org/wiki/Netflix" target="_blank">
-                    Netflix
-                </a>{' '}
-                from an online pay-per-rent DVD rental company to one of the biggest streaming
-                provider in the world. <b>Stadia could be the end of consoles obsolescence</b> (e.g.
-                Play Station 1, Play Station 2, Play Station 3... and the list goes on).
+                <Anchor url="https://en.wikipedia.org/wiki/Netflix">Netflix</Anchor> from an online
+                pay-per-rent DVD rental company to one of the biggest streaming provider in the
+                world. <b>Stadia could be the end of consoles obsolescence</b> (e.g. Play Station 1,
+                Play Station 2, Play Station 3... and the list goes on).
             </p>
             <p>
                 Another promising feature, which I haven't tested out personally, is that{' '}
@@ -52,9 +51,9 @@ export const english: ArticleContent = {
                 start, the Xiamoi Redmi 5 is not powerful enough to keep the pace. You can check
                 whether your device is supported in Stadia's website. Also notice that for an
                 optimal game experience they recommend using the{' '}
-                <a href="https://store.google.com/product/stadia_controller" target="_blank">
+                <Anchor url="https://store.google.com/product/stadia_controller">
                     Stadia controller
-                </a>{' '}
+                </Anchor>{' '}
                 (sold for 69€ at the time of writing), compatible with all device types and
                 mandatory for TVs.
             </p>
@@ -83,15 +82,12 @@ export const english: ArticleContent = {
                 you sign up so you can test the platform, but if you want to play any game out of
                 that selection you will need to pay for it separately. I didn't care much about
                 which game to play so I tested out the four of them, being{' '}
-                <a href="https://en.wikipedia.org/wiki/Destiny_2" target="_blank">
-                    Destiny 2
-                </a>{' '}
-                the only one I really enjoyed (and almost got addicted to). I found other
-                interesting titles, but too expensive in my opinion. I was expecting Stadia to go
-                for a Spotify-like approach and include all the titles in the monthly subscription.
-                I won't argue whether there are enough available video games or not because I trust
-                the list will grow as the time goes by, as well as the number of players in the
-                community
+                <Anchor url="https://en.wikipedia.org/wiki/Destiny_2">Destiny 2</Anchor> the only
+                one I really enjoyed (and almost got addicted to). I found other interesting titles,
+                but too expensive in my opinion. I was expecting Stadia to go for a Spotify-like
+                approach and include all the titles in the monthly subscription. I won't argue
+                whether there are enough available video games or not because I trust the list will
+                grow as the time goes by, as well as the number of players in the community
             </p>
             <ArticleImage
                 articleId={ArticleId.stadiaPlatform}
@@ -103,19 +99,13 @@ export const english: ArticleContent = {
                 suffering <b>while playing</b>, most of the times getting a black screen with no
                 error message at all. I couldn't find a way to solve it in Stadia forum and, while
                 it just forced my to refresh the browser in a{' '}
-                <a
-                    href="https://www.laptopmag.com/reviews/laptops/dell-latitude-5480"
-                    target="_blank"
-                >
+                <Anchor url="https://www.laptopmag.com/reviews/laptops/dell-latitude-5480">
                     dell latitude 5480
-                </a>{' '}
+                </Anchor>{' '}
                 laptop, it totally made impossible to play in my{' '}
-                <a
-                    href="https://www.laptopmag.com/reviews/laptops/hppavilion-x-360"
-                    target="_blank"
-                >
+                <Anchor url="https://www.laptopmag.com/reviews/laptops/hppavilion-x-360">
                     HP Pavilion 13 x360
-                </a>
+                </Anchor>
                 . I was using a 92Mbps wired internet connection in both cases, so bandwidth was
                 clearly not the problem here. This issue is particularly annoying because the game
                 keeps running in Stadia servers in the meanwhile, so you can be sure you will have

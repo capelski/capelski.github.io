@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -79,11 +80,8 @@ export const english: ArticleContent = {
                 <b>Learning what?</b> Doesn't matter. Learning anything new or learning more about
                 something you already know but you can do better. Specially practical things (e.g.
                 martial arts, cooking, salsa, play an instrument, a language, etc.) which can easily
-                be practiced on a daily basis and might eventually turn useful. Learning about the
-                <a href="https://en.wikipedia.org/wiki/String_theory" target="_blank">
-                    {' '}
-                    string theory
-                </a>{' '}
+                be practiced on a daily basis and might eventually turn useful. Learning about the{' '}
+                <Anchor url="https://en.wikipedia.org/wiki/String_theory">string theory</Anchor>{' '}
                 might be very interesting for the intricate minds, but is a different kind of
                 learning and it doesn't provide the sense of accomplishment that I am trying to
                 explain.

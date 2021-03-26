@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -16,14 +17,11 @@ export const english: ArticleContent = {
             challenges properly. As a consequence of this haste, I sometimes feel my web sites are
             lacking something... but what exactly? Here are the bad decisions I made while
             developing my{' '}
-            <a href={`${process.env.PRODUCTION_URL_BASE}/vue-personal-page`} target="_blank">
+            <Anchor url={`${process.env.PRODUCTION_URL_BASE}/vue-personal-page`}>
                 old website
-            </a>{' '}
+            </Anchor>{' '}
             and how I approached them on{' '}
-            <a href={process.env.PRODUCTION_URL_BASE} target="_blank">
-                this new version
-            </a>{' '}
-            of my web page.
+            <Anchor url={process.env.PRODUCTION_URL_BASE!}>this new version</Anchor> of my web page.
         </p>
     ),
     body: (
@@ -96,14 +94,9 @@ export const english: ArticleContent = {
                 Being a software developer makes me want to write about code on my blog and
                 sometimes I like to provide code snippets to help illustrating concepts. The most
                 popular solution when it comes to displaying code snippets on a website are{' '}
-                <a href="https://en.wikipedia.org/wiki/Pastebin" target="_blank">
-                    pastebin
-                </a>{' '}
-                services (i.e.{' '}
-                <a href="https://medium.com/" target="_blank">
-                    medium
-                </a>{' '}
-                uses Gist, the Github pastebin service).
+                <Anchor url="https://en.wikipedia.org/wiki/Pastebin">pastebin</Anchor> services
+                (i.e. <Anchor url="https://medium.com/">medium</Anchor> uses Gist, the Github
+                pastebin service).
             </p>
             <p>
                 Gist code snippets have a minor drawback however; they are meant to be inserted
@@ -114,13 +107,11 @@ export const english: ArticleContent = {
             </p>
             <p>
                 Instead of abiding the pastebin solution, I chose to integrate{' '}
-                <a href="https://microsoft.github.io/monaco-editor/" target="_blank">
-                    Monaco
-                </a>{' '}
-                editor to my page, a text editor with a bunch of features specially designed for
-                coding. Because it's written in JavaScript, it can be easily integrated in a web
-                page, resulting in nicely colored code snippets. It's not only more customizable but
-                it gives code snippets the proper height 🤩
+                <Anchor url="https://microsoft.github.io/monaco-editor/">Monaco</Anchor> editor to
+                my page, a text editor with a bunch of features specially designed for coding.
+                Because it's written in JavaScript, it can be easily integrated in a web page,
+                resulting in nicely colored code snippets. It's not only more customizable but it
+                gives code snippets the proper height 🤩
             </p>
             <p>
                 While I think it's admirable not to settle with the standard solution and go for

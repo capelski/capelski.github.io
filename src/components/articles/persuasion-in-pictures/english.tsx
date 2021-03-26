@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { PersuasionHeader, PersuasionResource, PersuasionStage } from './helpers';
 
@@ -9,12 +10,9 @@ export const english: ArticleContent = {
         <p>
             What would I know about persuasion? Well, not that much to be honest. That's why I used
             this confinement time to improve my social skills through Brandon Hakim's persuasion{' '}
-            <a
-                href="https://www.udemy.com/course/persuasion-masterclass-how-to-powerfully-influence-anyone/"
-                target="_blank"
-            >
+            <Anchor url="https://www.udemy.com/course/persuasion-masterclass-how-to-powerfully-influence-anyone/">
                 udemy course
-            </a>
+            </Anchor>
             . Regardless how much I learned, I do recommend the course because it made me ponder
             about how people communicates effectively (and it inspired me to draw the pictures
             below). Here is a quick summary of the course main points. Did you already know them

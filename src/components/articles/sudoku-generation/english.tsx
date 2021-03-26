@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -11,13 +12,11 @@ export const english: ArticleContent = {
             My mother has always been a fervent newspaper reader and, throughout the years, she
             developed the habit of solving the puzzles that come in the last pages. Between those
             puzzles you can always find a game called{' '}
-            <a href="https://en.wikipedia.org/wiki/Sudoku" target="_blank">
-                sudoku
-            </a>
-            . Two actually; a reasonably difficult one and an evil one. So she was in the middle of
-            filling the first sudoku when I interrupted her. I don't remember what for but I do
-            remember that we talked about sudoku and it was the difference between the two sudoku
-            levels that caught my attention.
+            <Anchor url="https://en.wikipedia.org/wiki/Sudoku">sudoku</Anchor>. Two actually; a
+            reasonably difficult one and an evil one. So she was in the middle of filling the first
+            sudoku when I interrupted her. I don't remember what for but I do remember that we
+            talked about sudoku and it was the difference between the two sudoku levels that caught
+            my attention.
         </p>
     ),
     body: (
@@ -50,12 +49,9 @@ export const english: ArticleContent = {
                 combinations that solve the puzzle. The most famous example is the sudoku that UK
                 Sky TV draw in a hillside offering a £5000 prize for the solution; it turned out to
                 have{' '}
-                <a
-                    href="https://www.sudokuwiki.org/Sudoku_Creation_and_Grading.pdf"
-                    target="_blank"
-                >
+                <Anchor url="https://www.sudokuwiki.org/Sudoku_Creation_and_Grading.pdf">
                     1905 possible solutions
-                </a>
+                </Anchor>
                 . That anecdote aroused my curiosity.
             </p>
             <ArticleImage
@@ -80,12 +76,10 @@ export const english: ArticleContent = {
             <p>
                 What followed next was a much longer journey that I had expected in the beginning. I
                 was about to quit the project many times but, by chance, I watched{' '}
-                <a href="https://www.imdb.com/title/tt4276820/" target="_blank">
-                    The Founder
-                </a>{' '}
-                in the meanwhile, the movie that explains how Ray Kroc turned McDonald's into the
-                biggest restaurant business in the world thanks to his bulletproof persistence,
-                which helped me resisting until the end. This odyssey had four stages:
+                <Anchor url="https://www.imdb.com/title/tt4276820/">The Founder</Anchor> in the
+                meanwhile, the movie that explains how Ray Kroc turned McDonald's into the biggest
+                restaurant business in the world thanks to his bulletproof persistence, which helped
+                me resisting until the end. This odyssey had four stages:
             </p>
             <p>
                 <b>1. Results, results, results</b>: I couldn't fight the urge of wanting to see
@@ -141,15 +135,12 @@ export const english: ArticleContent = {
             />
             <p>
                 Hey look ma, I made it! In my case I didn't build a massive hamburger empire but
-                this humble{' '}
-                <a href="/sudoku-generator" target="_blank">
-                    sudoku generator
-                </a>
-                . I must admit that it sometimes reaches dead ends during generation, having to drop
-                the work and start again from scratch, but it always ends up generating valid single
-                solution puzzles. If you are wondering, these are the rules the algorithm uses to
-                generate sudoku. In fact, these are probably the rules you use when you are solving
-                those puzzles too.
+                this humble <Anchor url="/sudoku-generator">sudoku generator</Anchor>. I must admit
+                that it sometimes reaches dead ends during generation, having to drop the work and
+                start again from scratch, but it always ends up generating valid single solution
+                puzzles. If you are wondering, these are the rules the algorithm uses to generate
+                sudoku. In fact, these are probably the rules you use when you are solving those
+                puzzles too.
             </p>
             <ul>
                 <li>

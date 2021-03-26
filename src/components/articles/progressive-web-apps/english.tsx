@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGist from 'react-gist';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -12,9 +13,9 @@ export const english: ArticleContent = {
             If you are visiting this website from a mobile device, you might have seen the following
             message at the bottom of the screen. No, I am not trying to hack you. I have made my
             website a{' '}
-            <a href="https://developers.google.com/web/progressive-web-apps/" target="_blank">
+            <Anchor url="https://developers.google.com/web/progressive-web-apps/">
                 progressive web app
-            </a>{' '}
+            </Anchor>{' '}
             and, as such, it can be accessed offline and it can be installed in Android and iOS
             devices. Keep reading and turn your website into a PWA in less than 15 minutes!
         </p>
@@ -29,12 +30,9 @@ export const english: ArticleContent = {
             />
             <p>
                 The magic behind the progressive web apps are the{' '}
-                <a
-                    href="https://developers.google.com/web/fundamentals/primers/service-workers/"
-                    target="_blank"
-                >
+                <Anchor url="https://developers.google.com/web/fundamentals/primers/service-workers/">
                     service workers
-                </a>
+                </Anchor>
                 . To cut a long story short, a service worker is a script that the browser runs in
                 the background, in a separate thread from the UI, providing additional features such
                 as the ability to intercept and handle network requests as well as managing a cache
@@ -59,12 +57,9 @@ export const english: ArticleContent = {
             <p>
                 There are multiple caching strategies to choose from when it comes to service
                 workers and they are all very well explained in{' '}
-                <a
-                    href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#serving-suggestions"
-                    target="_blank"
-                >
+                <Anchor url="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#serving-suggestions">
                     the offline cookbook
-                </a>
+                </Anchor>
                 . Take a look at them to know which patterns there are and which ones suit better
                 your application needs (you might apply different strategies depending on the type
                 of resource being cached and how often they get updated). I chose the{' '}
@@ -99,9 +94,9 @@ export const english: ArticleContent = {
                 The shorter the list is the least chances the installation has to fail (and the rest
                 of assets can be cached later on anyway). In my case, I am only caching the landing
                 page of my site. The{' '}
-                <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/self">
+                <Anchor url="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/self">
                     self property
-                </a>{' '}
+                </Anchor>{' '}
                 is a reference to the WorkerGlobalScope (available only in service worker threads):
             </p>
             <ReactGist id="2771714847be79eb7340de48988f5d5f" />
@@ -143,12 +138,9 @@ export const english: ArticleContent = {
             <p>
                 Congratulations 🎉 Your application just turned offline friendly! You are free to go
                 playing now... but I still have something cool to show you. See that{' '}
-                <a
-                    href="https://developers.google.com/web/fundamentals/web-app-manifest/"
-                    target="_blank"
-                >
+                <Anchor url="https://developers.google.com/web/fundamentals/web-app-manifest/">
                     manifest.json file
-                </a>{' '}
+                </Anchor>{' '}
                 inside the head tag of the HTML page? It has certainly nothing to do with the
                 service worker. That file is what will make your application ready to be installed
                 in mobile devices for free and it only takes a few minutes to add it. It's content

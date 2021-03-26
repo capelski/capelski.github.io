@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGist from 'react-gist';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -44,18 +45,18 @@ export const english: ArticleContent = {
             <p>
                 My page is using Vue + Webpack so chances were high that I would find a handy
                 library on npm. A{' '}
-                <a href="https://www.npmjs.com/search?q=vue%20google%20maps" target="_blank">
+                <Anchor url="https://www.npmjs.com/search?q=vue%20google%20maps">
                     quick npm search
-                </a>{' '}
+                </Anchor>{' '}
                 returns many potentially interesting results. I gave a chance to the following two:
             </p>
             <ul>
                 <li>
                     <b>vue2-google-maps</b>: This one was making Webpack build to fail. I went to
                     the Github repository opened issues (245 at the time of writing) and I found one{' '}
-                    <a href="https://github.com/xkjyeah/vue-google-maps/issues/472" target="_blank">
+                    <Anchor url="https://github.com/xkjyeah/vue-google-maps/issues/472">
                         reporting the Webpack failure
-                    </a>{' '}
+                    </Anchor>{' '}
                     which had been seating there for almost a year
                 </li>
                 <li>
@@ -68,12 +69,9 @@ export const english: ArticleContent = {
             <p>
                 Having run out of luck on npm, it was time to do some field research on Google. It
                 didn't take me long to find this{' '}
-                <a
-                    href="https://medium.com/@paw145/using-the-google-maps-api-with-webpack-npm-and-a-handy-promise-returning-helper-19c9312971b0"
-                    target="_blank"
-                >
+                <Anchor url="https://medium.com/@paw145/using-the-google-maps-api-with-webpack-npm-and-a-handy-promise-returning-helper-19c9312971b0">
                     Medium article
-                </a>{' '}
+                </Anchor>{' '}
                 which explains exactly what I needed; how to use the Google Maps API with Webpack
                 and NPM. In short, I had to install the <b>load-google-maps-api</b> module and use
                 the function it exports to asynchronously load the Google Maps API, providing the
@@ -94,12 +92,9 @@ export const english: ArticleContent = {
             <p>
                 And that's how to remove google maps hardcoded API keys from public repositories and
                 keep Google happy. Please contact me at <b>capellas.carles@gmail.com</b> or check{' '}
-                <a
-                    href="https://github.com/capelski/vue-personal-page/commit/fcf068af000ad02b5a38583e44b104edeaeb25cc"
-                    target="_blank"
-                >
+                <Anchor url="https://github.com/capelski/vue-personal-page/commit/fcf068af000ad02b5a38583e44b104edeaeb25cc">
                     this Github commit
-                </a>{' '}
+                </Anchor>{' '}
                 if you have any doubts on specific details (other than how does Google detect that
                 their API keys are being uploaded to public repositories... isn't it a bit scary?).
                 See you in the next post!

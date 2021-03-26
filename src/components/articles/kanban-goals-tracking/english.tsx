@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -19,9 +20,9 @@ export const english: ArticleContent = {
         <React.Fragment>
             <p>
                 One of this techniques is called Kanban, an{' '}
-                <a href="https://en.wikipedia.org/wiki/Agile_software_development" target="_blank">
+                <Anchor url="https://en.wikipedia.org/wiki/Agile_software_development">
                     Agile methodology
-                </a>{' '}
+                </Anchor>{' '}
                 that, as many others, helps breaking a big and complex problem into small managable
                 tasks and tackling them iteratively over time. The interesting aspect of Kanban is
                 how this tasks get layed out in the Kanban board.
@@ -92,13 +93,10 @@ export const english: ArticleContent = {
                 the Done column, which becomes a historical register of all the goals that you have
                 completed. And that's the Kanban theory in a nutshell! There are many online tools
                 you can use to represent a Kanban board and the one I like the most is{' '}
-                <a href="https://trello.com/" target="_blank">
-                    Trello
-                </a>
-                . Trello boards can have any number of lists and each list contains cards that are
-                much more powerful than just plain text: you can attach pictures, you can share
-                them, you can label them, you can create check lists, etc. This is what my books
-                Kanban board looks like in Trello:
+                <Anchor url="https://trello.com/">Trello</Anchor>. Trello boards can have any number
+                of lists and each list contains cards that are much more powerful than just plain
+                text: you can attach pictures, you can share them, you can label them, you can
+                create check lists, etc. This is what my books Kanban board looks like in Trello:
             </p>
             <ArticleImage
                 articleId={ArticleId.kanbanGoalsTracking}

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactGist from 'react-gist';
 import { NavLink } from 'react-router-dom';
 import { articleRoute } from '../../routes';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -55,9 +56,9 @@ export const english: ArticleContent = {
                 The Firebase Javascript SDK has an specific method called{' '}
                 <InlineSnippet>signInWithPopup</InlineSnippet> to handle authentication providers'
                 sign-in flow using OAuth. Relaying on the Firebase{' '}
-                <a href="https://firebase.google.com/docs/auth/web/apple" target="_blank">
+                <Anchor url="https://firebase.google.com/docs/auth/web/apple">
                     Apple authentication documentation page
-                </a>{' '}
+                </Anchor>{' '}
                 will instruct us to handle the sign-in flow in the following fashion:
             </p>
             <ReactGist id="1bb4b55d72cf38daef7a658cf4d81147" />
@@ -129,9 +130,9 @@ export const english: ArticleContent = {
             <p>
                 The client ID we need is generated after enabling the Google sign-in method and can
                 be found in the corresponding Google Cloud Platform project. Go to{' '}
-                <a href="https://console.cloud.google.com/" target="_blank">
+                <Anchor url="https://console.cloud.google.com/">
                     https://console.cloud.google.com/
-                </a>
+                </Anchor>
                 , select the Firebase project (every Firebase project creates an associated GCP
                 project) and navigate to{' '}
                 <b>
@@ -173,12 +174,9 @@ export const english: ArticleContent = {
             <h3>Sign in with Apple</h3>
             <p>
                 Before starting configuring the Apple sign-in service I suggest you to read{' '}
-                <a
-                    href="https://medium.com/@dansinger_68758/adding-sign-in-with-apple-to-a-managed-expo-app-using-firebase-authentication-ca331b4de05"
-                    target="_blank"
-                >
+                <Anchor url="https://medium.com/@dansinger_68758/adding-sign-in-with-apple-to-a-managed-expo-app-using-firebase-authentication-ca331b4de05">
                     this helpful story
-                </a>{' '}
+                </Anchor>{' '}
                 from Dan Singer. There you will find some considerations that must be taken into
                 account before adding the Apple sign-in into an Expo app, along with the explanation
                 on how to do it. In this story I'll be extending his tutorial with more detail.
@@ -188,12 +186,9 @@ export const english: ArticleContent = {
                     It comes as no surprise that Apple's sign-in is more complicated than Google's
                     one and it can be tempting to skip it. Apple won't make so easy though. As
                     stated in{' '}
-                    <a
-                        href="https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple"
-                        target="_blank"
-                    >
+                    <Anchor url="https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple">
                         this section of the App Store Review Guidelines
-                    </a>
+                    </Anchor>
                     , "apps that use social login services (e.g. Google sign-in) must also offer
                     Sign in with Apple as an equivalent option". So let's make our best to get it
                     working!
@@ -242,21 +237,16 @@ export const english: ArticleContent = {
                 Well! Having the code in place we can now move on to configuring the services. Let's
                 start with Apple and we will tackle Firebase afterwards. Expo team did a great job
                 documenting the necessary steps in the{' '}
-                <a
-                    href="https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple"
-                    target="_blank"
-                >
+                <Anchor url="https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple">
                     <InlineSnippet>expo-apple-authentication</InlineSnippet>
-                </a>{' '}
+                </Anchor>{' '}
                 page so make sure to take a look at it.
             </p>
             <p>
                 First add the <InlineSnippet>usesAppleSignIn</InlineSnippet> property to your{' '}
                 <InlineSnippet>app.json</InlineSnippet> configuration file. Then head to{' '}
-                <a href="https://developer.apple.com/" target="_blank">
-                    Apple Developer Portal
-                </a>{' '}
-                to do the following two things:
+                <Anchor url="https://developer.apple.com/">Apple Developer Portal</Anchor> to do the
+                following two things:
             </p>
             <ReactGist id="2615d8fc1ef19e0be681ae17c1f2872a" />
             <ul>
@@ -266,12 +256,9 @@ export const english: ArticleContent = {
                     the Capabilities list select <i>Sign In with Apple</i> and click{' '}
                     <i>Configure</i>. Leave the <i>Enable as a primary App ID</i> option selected
                     and provide the Return URL for your Firebase app (step 1 in the{' '}
-                    <a
-                        href="https://firebase.google.com/docs/auth/web/apple#configure-sign-in-with-apple"
-                        target="_blank"
-                    >
+                    <Anchor url="https://firebase.google.com/docs/auth/web/apple#configure-sign-in-with-apple">
                         Firebase Apple Auth documentation page
-                    </a>
+                    </Anchor>
                     )
                     <ArticleImage
                         articleId={ArticleId.expoSocialSignIn}
@@ -314,10 +301,8 @@ export const english: ArticleContent = {
             <p>
                 We are almost there! We only need to enable Apple authentication provider in
                 Firebase and will have arrived to our destination: success. Head to the{' '}
-                <a href="https://console.firebase.google.com/" target="_blank">
-                    Firebase console
-                </a>
-                , navigate to <b>Authentication {'>'} Sign-in method</b> and enable Apple.
+                <Anchor url="https://console.firebase.google.com/">Firebase console</Anchor>,
+                navigate to <b>Authentication {'>'} Sign-in method</b> and enable Apple.
             </p>
             <ArticleImage
                 articleId={ArticleId.expoSocialSignIn}

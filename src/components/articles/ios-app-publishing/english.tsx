@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { articleRoute } from '../../routes';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -44,11 +45,9 @@ export const english: ArticleContent = {
             <p>
                 In order to upload an app to App Store you will first need to create an Apple
                 Developer account in the{' '}
-                <a href="https://developer.apple.com/" target="_blank">
-                    Apple Developer Portal
-                </a>
-                . Sign in with your Apple ID, fill the enrollment form, pay the $100 registration
-                fee and let's move on.
+                <Anchor url="https://developer.apple.com/">Apple Developer Portal</Anchor>. Sign in
+                with your Apple ID, fill the enrollment form, pay the $100 registration fee and
+                let's move on.
             </p>
             <p>
                 You will notice you get asked twice for the same details in the Romanized Contact
@@ -100,12 +99,9 @@ export const english: ArticleContent = {
                 <li>
                     <b>Distribution certificate</b>: Certificate that identifies your team and
                     allows you to submit apps to the App Store. Here is a great guide on{' '}
-                    <a
-                        href="https://support.magplus.com/hc/en-us/articles/203808748-iOS-Creating-a-Distribution-Certificate-and-p12-File"
-                        target="_blank"
-                    >
+                    <Anchor url="https://support.magplus.com/hc/en-us/articles/203808748-iOS-Creating-a-Distribution-Certificate-and-p12-File">
                         how to create a distribution certificate
-                    </a>{' '}
+                    </Anchor>{' '}
                     manually (you will need to generate the certificate from a Mac).
                     <ArticleImage
                         articleId={ArticleId.iosAppPublishing}
@@ -142,11 +138,9 @@ export const english: ArticleContent = {
             <p>
                 Creating this items is the most confusing and undocumented part of the entire upload
                 process. I can't provide much more details about it since I am using{' '}
-                <a href="http://expo.io/" target="_blank">
-                    Expo
-                </a>{' '}
-                to develop iOS apps and I relied on their CLI to generate both the distribution
-                certificate, the app id and the provisioning profile.
+                <Anchor url="http://expo.io/">Expo</Anchor> to develop iOS apps and I relied on
+                their CLI to generate both the distribution certificate, the app id and the
+                provisioning profile.
             </p>
             <ArticleImage
                 articleId={ArticleId.iosAppPublishing}
@@ -165,11 +159,8 @@ export const english: ArticleContent = {
             <p>
                 After you have successfully created the items described above in the Apple Developer
                 Portal, we can move on to{' '}
-                <a href="https://appstoreconnect.apple.com/" target="_blank">
-                    App Store Connect
-                </a>{' '}
-                (former Itunes Connect), the platform where application binaries are actually
-                uploaded.
+                <Anchor url="https://appstoreconnect.apple.com/">App Store Connect</Anchor> (former
+                Itunes Connect), the platform where application binaries are actually uploaded.
             </p>
             <ArticleImage
                 articleId={ArticleId.iosAppPublishing}
@@ -323,9 +314,9 @@ export const english: ArticleContent = {
                     page and it can either be a link to a PDF file or a web page. If you have
                     already created a privacy policy page for you website you can link to that page
                     (e.g.{' '}
-                    <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank">
+                    <Anchor url="https://www.whatsapp.com/legal/privacy-policy-eea">
                         https://www.whatsapp.com/legal/privacy-policy-eea
-                    </a>
+                    </Anchor>
                     ).
                     <ArticleImage
                         articleId={ArticleId.iosAppPublishing}

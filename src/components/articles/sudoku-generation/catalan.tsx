@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -11,13 +12,11 @@ export const catalan: ArticleContent = {
             La meva mare sempre ha estat una lectora fervent de diaris i, amb els anys, ha cultivat
             l'afició de completar els jocs que els diaris inclouen a les últimes pàgines. Entre
             aquests jocs sempre se n'hi troba un anomenat{' '}
-            <a href="https://en.wikipedia.org/wiki/Sudoku" target="_blank">
-                sudoku
-            </a>
-            . Dos de fet; un de dificultat raonable i un de completament malvat. Va ser mentre ella
-            estava enfeinada resolent el primer sudoku que la vaig interrompre. No recordo que volia
-            en aquell moment, però si que recordo que vam parlar de sudokus i que em va cridar
-            l'atenció la diferència de dificultat entre els dos nivells.
+            <Anchor url="https://en.wikipedia.org/wiki/Sudoku">sudoku</Anchor>. Dos de fet; un de
+            dificultat raonable i un de completament malvat. Va ser mentre ella estava enfeinada
+            resolent el primer sudoku que la vaig interrompre. No recordo que volia en aquell
+            moment, però si que recordo que vam parlar de sudokus i que em va cridar l'atenció la
+            diferència de dificultat entre els dos nivells.
         </p>
     ),
     body: (
@@ -51,12 +50,9 @@ export const catalan: ArticleContent = {
                 solucions vàlides. L'exemple més famós és el sudoku que la cadena de televisió
                 britànica Sky TV va dibuixar en un turó oferint 5000£ de premi per la solució; va
                 resultar que tenia{' '}
-                <a
-                    href="https://www.sudokuwiki.org/Sudoku_Creation_and_Grading.pdf"
-                    target="_blank"
-                >
+                <Anchor url="https://www.sudokuwiki.org/Sudoku_Creation_and_Grading.pdf">
                     1905 solucions possibles
-                </a>
+                </Anchor>
                 . Aquesta anècdota va aconseguir despertar la meva curiositat.
             </p>
             <ArticleImage
@@ -82,10 +78,7 @@ export const catalan: ArticleContent = {
             <p>
                 El que va venir a continuació va ser un camí més llarg del que m'havia esperat. Vaig
                 estar apunt de donar el projecte per perdut vàries vegades però, casualment, vaig
-                mirar{' '}
-                <a href="https://www.imdb.com/title/tt4276820/" target="_blank">
-                    The Founder
-                </a>{' '}
+                mirar <Anchor url="https://www.imdb.com/title/tt4276820/">The Founder</Anchor>{' '}
                 entremig, la pel·lícula que explica com Ray Kroc va transformar McDonald's en la
                 cadena de restaurants més gran del món gràcies a la seva persistència a prova de
                 bales, cosa que em va ajudar a resistir fins al final. Aquesta odissea va tenir
@@ -148,14 +141,12 @@ export const catalan: ArticleContent = {
             <p>
                 Mira mama, ho he fet! En el meu cas no vaig construir un enorme imperi de les
                 hamburgueses però si aquest humil{' '}
-                <a href="/sudoku-generator" target="_blank">
-                    generador de sudokus
-                </a>
-                . He d'admetre que a vegades arriba a carrerons sense sortida durant la generació,
-                havent de descartar la feina i començar des de zero, però sempre acaba generant
-                sudokus vàlids amb una única solució. En cas que t'ho estiguis preguntant, aquestes
-                són les regles que utilitza l'algoritme per generar sudokus. De fet, és probable que
-                siguin també les regles que fas servir tu a l'hora de resoldre'ls.
+                <Anchor url="/sudoku-generator">generador de sudokus</Anchor>. He d'admetre que a
+                vegades arriba a carrerons sense sortida durant la generació, havent de descartar la
+                feina i començar des de zero, però sempre acaba generant sudokus vàlids amb una
+                única solució. En cas que t'ho estiguis preguntant, aquestes són les regles que
+                utilitza l'algoritme per generar sudokus. De fet, és probable que siguin també les
+                regles que fas servir tu a l'hora de resoldre'ls.
             </p>
             <ul>
                 <li>

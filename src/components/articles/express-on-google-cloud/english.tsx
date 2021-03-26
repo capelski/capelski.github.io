@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactGist from 'react-gist';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -73,12 +74,9 @@ export const english: ArticleContent = {
                 Engine is the best choice for web applications, adding additional capabilities that
                 Cloud Functions do not include (e.g. easier database connections). You can read more
                 about it in{' '}
-                <a
-                    href="https://cloud.google.com/docs/overview/cloud-platform-services"
-                    target="_blank"
-                >
+                <Anchor url="https://cloud.google.com/docs/overview/cloud-platform-services">
                     GCP documentation
-                </a>
+                </Anchor>
                 .
             </p>
             <h3>Simple yet realistic app</h3>
@@ -86,29 +84,22 @@ export const english: ArticleContent = {
                 You can host any kind of application in GCP (Google Cloud Platform) so before
                 jumping into it let's have a look at the nature of the web app that will be
                 deployed. For this example I developed a web Api connected to a mySQL database. I
-                used{' '}
-                <a href="https://nestjs.com/" target="_blank">
-                    NestJS
-                </a>
-                , one of the most popular node.js frameworks, which supports Typescript (is built
-                with it), has a good community adoption (other developers will have an easier time
-                joining the project) and simplifies certain parts of the development process.
+                used <Anchor url="https://nestjs.com/">NestJS</Anchor>, one of the most popular
+                node.js frameworks, which supports Typescript (is built with it), has a good
+                community adoption (other developers will have an easier time joining the project)
+                and simplifies certain parts of the development process.
             </p>
             <p>
                 The Api itself is simple. It exposes a collection of jokes (spanish content),
                 allowing to fetch them by id or through text match. It has the following three
                 endpoints only, which you can test at{' '}
-                <a href="https://bromuro-api.oa.r.appspot.com/" target="_blank">
+                <Anchor url="https://bromuro-api.oa.r.appspot.com/">
                     https://bromuro-api.oa.r.appspot.com/
-                </a>{' '}
+                </Anchor>{' '}
                 if the gcp app is still running (in case the gcp app is shutdown, you can clone{' '}
-                <a href="https://github.com/capelski/bromuro-api" target="_blank">
-                    this repository
-                </a>
-                , run the project using docker-compose and access it at{' '}
-                <a href="http://localhost:3000" target="_blank">
-                    localhost:3000
-                </a>
+                <Anchor url="https://github.com/capelski/bromuro-api">this repository</Anchor>, run
+                the project using docker-compose and access it at{' '}
+                <Anchor url="http://localhost:3000">localhost:3000</Anchor>
                 ).
             </p>
             <ArticleImage
@@ -120,13 +111,11 @@ export const english: ArticleContent = {
             <p>
                 <i>
                     This interactive documentation is using{' '}
-                    <a href="https://swagger.io/" target="_blank">
-                        swagger
-                    </a>
-                    , an OpenAPI Specification standard, through a NestJS module which automatically
-                    generates the interactive page based on code annotations. The coolest part of
-                    swagger is that you can make actual calls to the endpoints, providing the
-                    parameters and getting a real response:
+                    <Anchor url="https://swagger.io/">swagger</Anchor>, an OpenAPI Specification
+                    standard, through a NestJS module which automatically generates the interactive
+                    page based on code annotations. The coolest part of swagger is that you can make
+                    actual calls to the endpoints, providing the parameters and getting a real
+                    response:
                 </i>
             </p>
             <ArticleImage
@@ -157,10 +146,7 @@ export const english: ArticleContent = {
                 (state) between requests is called stateful, and it will struggle to live in any
                 autoscaling environment. The solution for this problem is to persist the state
                 outside the server, using solutions like{' '}
-                <a href="https://redis.io/" target="_blank">
-                    Redis
-                </a>
-                , making the app stateless.
+                <Anchor url="https://redis.io/">Redis</Anchor>, making the app stateless.
             </p>
             <p>
                 <i>
@@ -196,12 +182,9 @@ export const english: ArticleContent = {
                 environment) and socket file connections (for production environment). This is how I
                 implemented the database connection (using Typeorm instead of mysql) and you can
                 learn more about it in the{' '}
-                <a
-                    href="https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/cloud-sql/mysql/mysql/server.js#L72"
-                    target="_blank"
-                >
+                <Anchor url="https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/cloud-sql/mysql/mysql/server.js#L72">
                     official nodejs examples repository
-                </a>
+                </Anchor>
                 .
             </p>
             <ReactGist id="71c30556e15a3d2b6dbce78cff62d5c6" />
@@ -209,10 +192,8 @@ export const english: ArticleContent = {
                 <i>
                     For noSQL databases such as MongoDB you still will have to create a virtual
                     machine and install the database engine or use a third-party solution such as{' '}
-                    <a href="https://www.mongodb.com/cloud/atlas" target="_blank">
-                        MongoDB Atlas
-                    </a>
-                    . In fact a MongoDB database makes much more sense for this application (simple
+                    <Anchor url="https://www.mongodb.com/cloud/atlas">MongoDB Atlas</Anchor>. In
+                    fact a MongoDB database makes much more sense for this application (simple
                     domain with no references), but for the sake of environment simplicity I decided
                     to use MySQL.
                 </i>
@@ -229,9 +210,9 @@ export const english: ArticleContent = {
             <p>
                 When it comes to sensitive environment variables (e.g. api keys, database users and
                 passwords, etc.), still there is{' '}
-                <a href="https://stackoverflow.com/questions/22669528/securely-storing-environment-variables-in-gae-with-app-yaml">
+                <Anchor url="https://stackoverflow.com/questions/22669528/securely-storing-environment-variables-in-gae-with-app-yaml">
                     not much agreement
-                </a>{' '}
+                </Anchor>{' '}
                 on which is the most convenient way to do it. In my case, I went for the simplest
                 option: defining the environment variables in a file excluded from the repository
                 (env_variables.yaml), and then use the <b>include</b> parameter in app.yaml to load
@@ -241,15 +222,11 @@ export const english: ArticleContent = {
             <ReactGist id="f755b72c8ad6fe5a1b130c79982dbe68" />
             <p>
                 And we are good to go 🍾 In order to deploy the app you will need the{' '}
-                <a href="https://cloud.google.com/sdk/docs" target="_blank">
-                    Google Cloud SDK
-                </a>
-                , which allows to execute commands in the cloud environment from your own terminal.
-                The first time you will need to login, create a project and create an app (you can
-                also create the project and the app in the{' '}
-                <a href="https://console.cloud.google.com/" target="_blank">
-                    GCP website
-                </a>
+                <Anchor url="https://cloud.google.com/sdk/docs">Google Cloud SDK</Anchor>, which
+                allows to execute commands in the cloud environment from your own terminal. The
+                first time you will need to login, create a project and create an app (you can also
+                create the project and the app in the{' '}
+                <Anchor url="https://console.cloud.google.com/">GCP website</Anchor>
                 ). Once you have done this you just need to run the deploy command to automatically
                 deploy your app while you go getting some coffee.
             </p>

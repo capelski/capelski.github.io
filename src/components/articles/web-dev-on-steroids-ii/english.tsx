@@ -2,6 +2,7 @@ import React from 'react';
 import ReactGist from 'react-gist';
 import { NavLink } from 'react-router-dom';
 import { articleRoute } from '../../routes';
+import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
@@ -89,11 +90,9 @@ export const english: ArticleContent = {
                 Under the hood, the implementation of the test would be very similar to the one
                 depicted above. The only tricky part of it is that the test code needs to me mapped
                 to the natural sentences.{' '}
-                <a href="https://www.npmjs.com/package/cucumber" target="_blank">
-                    Cucumber.js
-                </a>{' '}
-                is a popular gherkin library that helps us doing so. This is how the previous
-                sentences can be defined through cucumber (e.g. <i>text-component.step.tsx</i>):
+                <Anchor url="https://www.npmjs.com/package/cucumber">Cucumber.js</Anchor> is a
+                popular gherkin library that helps us doing so. This is how the previous sentences
+                can be defined through cucumber (e.g. <i>text-component.step.tsx</i>):
             </p>
             <ReactGist id="c1360518bea4b69647713f91c174f648" />
             <p>
@@ -149,12 +148,10 @@ export const english: ArticleContent = {
             </p>
             <p>
                 Personally, I have only worked with{' '}
-                <a href="https://istanbul.js.org/" target="_blank">
-                    istanbul.js
-                </a>
-                . It is easy to run (you only need to add a new npm script) and provides helpful
-                Html reports, highlighting the lines that are going unnoticed in the code files.
-                Feel free to explore alternatives, but this is the horse I am betting on.
+                <Anchor url="https://istanbul.js.org/">istanbul.js</Anchor>. It is easy to run (you
+                only need to add a new npm script) and provides helpful Html reports, highlighting
+                the lines that are going unnoticed in the code files. Feel free to explore
+                alternatives, but this is the horse I am betting on.
             </p>
             <ArticleImage
                 articleId={ArticleId.webDevOnSteroidsII}
@@ -195,21 +192,19 @@ export const english: ArticleContent = {
                 a commit is about to be made, when a branch is about to be pushed, etc.). In fact,
                 when you initialize a new repository with <b>git init</b>, Git populates the hooks
                 directory with a bunch of example scripts (see{' '}
-                <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks" target="_blank">
+                <Anchor url="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">
                     Git documentation
-                </a>{' '}
+                </Anchor>{' '}
                 for more details).
             </p>
             <p>
                 If you don't want to go that deep when it comes to Git hooks, and certainly you
                 don't need to, there is a tool called{' '}
-                <a href="https://github.com/typicode/husky" target="_blank">
-                    Husky
-                </a>{' '}
-                (woof!) that will deal with that complexity for you. By associating a set of Git
-                actions and commands in your package.json, Husky will run the corresponding commands
-                each time a Git action occurs. This way you can make sure, for example, that you
-                never push failing tests to your branch again.
+                <Anchor url="https://github.com/typicode/husky">Husky</Anchor> (woof!) that will
+                deal with that complexity for you. By associating a set of Git actions and commands
+                in your package.json, Husky will run the corresponding commands each time a Git
+                action occurs. This way you can make sure, for example, that you never push failing
+                tests to your branch again.
             </p>
             <h5>Steps</h5>
             <ul>
@@ -233,21 +228,18 @@ export const english: ArticleContent = {
                 benefits while keeping your Git history crystal clear.
             </p>
             <p>
-                <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank">
+                <Anchor url="https://www.conventionalcommits.org/en/v1.0.0/">
                     Conventional commits
-                </a>{' '}
+                </Anchor>{' '}
                 is a lightweight convention to make the commit messages more descriptive and the Git
                 history more explicit. In addition, it makes it easier to automate certain aspects
                 of the software releases (e.g., generating a changelog file for free). The
                 convention can be automatically verified in every commit with the help of tools like{' '}
-                <a href="https://commitlint.js.org/" target="_blank">
-                    commitlint
-                </a>{' '}
-                and, once the standard is put into place, you can take advantage of tools that rely
-                on it (e.g.{' '}
-                <a href="https://www.npmjs.com/package/standard-version" target="_blank">
+                <Anchor url="https://commitlint.js.org/">commitlint</Anchor> and, once the standard
+                is put into place, you can take advantage of tools that rely on it (e.g.{' '}
+                <Anchor url="https://www.npmjs.com/package/standard-version">
                     standard version
-                </a>
+                </Anchor>
                 , a utility for versioning using semver and CHANGELOG generation). Here are some
                 example commit messages:
             </p>
