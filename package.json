@@ -11,6 +11,7 @@
         "clean:dependencies": "rm -rf node_modules/ package-lock.json",
         "prettier": "prettier --list-different \"src/**/*.{ts,tsx}\"",
         "prettier:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
+        "start": "node index.js",
         "start:dev": "webpack-dev-server --config webpack/development.config.js"
     },
     "author": "Carles Capellas <capellas.carles@gmail.com>",
@@ -24,6 +25,7 @@
         "awesome-typescript-loader": "5.2.1",
         "copy-webpack-plugin": "6.0.2",
         "css-loader": "3.6.0",
+        "express": "^4.17.1",
         "html-loader": "1.1.0",
         "html-webpack-plugin": "4.3.0",
         "mini-css-extract-plugin": "0.9.0",
