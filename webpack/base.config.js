@@ -30,7 +30,6 @@ module.exports = {
         ]
     },
     output: {
-        filename: 'main.js',
         path: resolve(__dirname, '..', 'docs'),
         publicPath: '/'
     },
@@ -38,12 +37,9 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.PRODUCTION_URL_BASE': JSON.stringify('https://capelski.github.io')
         }),
-        new MiniCssExtractPlugin({
-            filename: 'main.css'
-        }),
+        new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             filename: './index.html',
-            inject: false,
             template: './src/index.html'
         }),
         new CopyWebpackPlugin({
