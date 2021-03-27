@@ -1,6 +1,6 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const { resolve } = require('path');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const PrerenderSPAPlugin = require('@dreysolano/prerender-spa-plugin');
 const { ArticleId } = require('../src/components/articles/all-articles-id');
 const baseConfig = require('./base.config');
 
