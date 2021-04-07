@@ -274,9 +274,8 @@ export const english: ArticleContent = {
                 Once the domain has been added and verified we will need to get the SMTP credentials
                 for later use when configuring the service (not the Mailgun user credentials). You
                 can find them in <b>Domain settings</b> {'>'} <b>SMTP credentials</b>. The login is
-                likely to be
-                <i>postmaster@mg.your-domain.com</i> and the password can be retrieved by resetting
-                it (it will only be displayed once, so store it in a safe location).
+                likely to be <i>postmaster@mg.your-domain.com</i> and the password can be retrieved
+                by resetting it (it will only be displayed once, so store it in a safe location).
             </p>
             <ArticleImage
                 articleId={ArticleId.wordpressOnGoogleCloud}
@@ -290,14 +289,14 @@ export const english: ArticleContent = {
                     GCP official documentation
                 </Anchor>
                 . It's just a matter of executing the provided commands through an SSH terminal, so
-                I won't duplicate the steps here. In step 8 you will need to use the SMTP
-                credentials collected above.
+                I won't duplicate the steps here. In the "Generate the SASL password map" step you
+                will need to use the SMTP credentials collected above.
             </p>
             <p>
                 <b>Important!</b> If you select EU as the Domain zone when adding the domain name in
-                Mailgun, replace <i>smtp.mailgun.org</i> with <i>smtp.eu.mailgun.org</i> (steps 6
-                and 8). Not doing so will lead to <i>535 Authentication failed</i> errors when
-                trying to send emails (step 13) and countless hours of frustration while searching
+                Mailgun, replace <i>smtp.mailgun.org</i> with <i>smtp.eu.mailgun.org</i> (steps 7
+                and 10.b). Not doing so will lead to <i>535 Authentication failed</i> errors when
+                trying to send emails (step 15) and countless hours of frustration while searching
                 for a solution to the problem in StackOverflow.
             </p>
             <p>
