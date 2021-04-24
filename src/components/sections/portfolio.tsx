@@ -27,7 +27,13 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
             {/* TODO Include one skills matrix client */}
             {/* TODO Figure out what to do with the commented descriptions */}
 
-            <Project date="2018" image="webjack.png" repository="webjack" title="webjack">
+            <Project
+                date="2018"
+                image="webjack.png"
+                repository="webjack"
+                title="webjack"
+                url="/webjack/"
+            >
                 <p>
                     Cashless online multiplayer black jack game. Play online with strangers,
                     practice offline against the dealer or learn the black jack basic strategy.
