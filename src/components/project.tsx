@@ -29,7 +29,11 @@ export const Project: React.FC<ProjectProps> = (props) => (
         <div className="project-image-wrapper">
             <img src={`/images/portfolio/${props.image}`} alt={`${props.title} project`} />
             {props.url ? (
-                <a target="_blank" href={props.url} className="project-demo">
+                <a
+                    target="_blank"
+                    href={`${process.env.PRODUCTION_URL_BASE}${props.url}`}
+                    className="project-demo"
+                >
                     ▶️
                 </a>
             ) : null}
