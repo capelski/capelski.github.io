@@ -10,6 +10,7 @@ export enum ArticleId {
     trecember = 'trecember',
     webDevOnSteroidsI = 'web-dev-on-steroids-i',
     webDevOnSteroidsII = 'web-dev-on-steroids-ii',
+    provinencaDesconeguda = 'provinenca-desconeguda',
     sudokuGeneration = 'sudoku-generation',
     persuasionInPictures = 'persuasion-in-pictures',
     stadiaPlatform = 'stadia-platform',

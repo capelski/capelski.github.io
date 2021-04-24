@@ -9,6 +9,7 @@ import { kanbanGoalsTracking } from './kanban-goals-tracking';
 import { trecember } from './trecember';
 import { webDevOnSteroidsI } from './web-dev-on-steroids-i';
 import { webDevOnSteroidsII } from './web-dev-on-steroids-ii';
+import { provinencaDesconeguda } from './provinenca-desconeguda';
 import { sudokuGeneration } from './sudoku-generation';
 import { persuasionInPictures } from './persuasion-in-pictures';
 import { stadiaPlatform } from './stadia-platform';
@@ -34,6 +35,7 @@ export const articles = [
     trecember,
     webDevOnSteroidsI,
     webDevOnSteroidsII,
+    provinencaDesconeguda,
     sudokuGeneration,
     persuasionInPictures,
     stadiaPlatform,
