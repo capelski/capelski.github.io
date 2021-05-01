@@ -4,7 +4,7 @@
     padding-bottom: 24px;
 
     @media (min-width: $medium) {
-        padding-right: 16px;
+        padding-right: 24px;
     }
 
     .project-info {
@@ -37,6 +37,7 @@
 
     .project-image-wrapper {
         position: relative;
+        margin-top: 16px;
 
         img {
             max-width: 100%;
@@ -65,5 +66,9 @@
                 opacity: $hoverOpacity;
             }
         }
+    }
+
+    p:nth-of-type(2) {
+        font-style: italic;
     }
 }

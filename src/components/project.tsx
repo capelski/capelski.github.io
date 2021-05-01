@@ -25,7 +25,6 @@ export const Project: React.FC<ProjectProps> = (props) => (
                 ) : null}
             </div>
         </div>
-        {props.children ? props.children : null}
         <div className="project-image-wrapper">
             <img src={`/images/portfolio/${props.image}`} alt={`${props.title} project`} />
             {props.url ? (
@@ -38,5 +37,6 @@ export const Project: React.FC<ProjectProps> = (props) => (
                 </a>
             ) : null}
         </div>
+        {props.children ? props.children : null}
     </div>
 );
