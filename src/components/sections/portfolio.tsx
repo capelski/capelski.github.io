@@ -22,42 +22,24 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
             />
         </Helmet>
         <h1 className="portfolio-title">Portfolio</h1>
+
         <div className="projects">
-            {/* TODO Include vue-ssr youtube video */}
-
             <Project
-                date="2020"
-                image="jokify.png"
-                repository="jokify"
-                title="jokify"
-                url="/jokify/"
+                date="2021"
+                image="daggout.png"
+                imageOrientation="portrait"
+                title="DAGGOUT"
+                url="https://play.google.com/store/apps/details?id=daggout.user"
             >
                 <p>
-                    Instead of deleting all those twitter jokes I get over the phone, I decided I
-                    had to make them available to the world. Here you will find them (in Spanish).
+                    Android/iOS app designed to store and manage clothing receipts, allowing the
+                    user to filter them by store and set return deadline notifications.
                 </p>
                 <p>
-                    This web application was also as an excuse to practice with CSS3 animation
-                    capabilities. In the first version, 2017, to animate the emojis explosion. After
-                    meeting <b>Iker Fernandez</b> in 2020, the rest of the redesigned UX.
-                </p>
-            </Project>
-
-            <Project
-                date="2018"
-                image="webjack.png"
-                repository="webjack"
-                title="webjack"
-                url="/webjack/"
-            >
-                <p>
-                    Cashless online multiplayer black jack game. Play online with strangers,
-                    practice offline against the dealer or learn the black jack basic strategy.
-                </p>
-                <p>
-                    After having developed a terrible Visual Basic desktop application in 2011 and
-                    failed to finish a Java command line utility in 2014, I decided to redeem myself
-                    by building it in web flavour.
+                    DAGGOUT SL was a startup I co-founded along with <b>Oscar Ortega</b> during our
+                    residence in Demium startup incubator, aiming to digitize paper receipts for the
+                    fashion industry. Expo/React Native for the mobile app and Google Cloud Platform
+                    for the backend.
                 </p>
             </Project>
 
@@ -77,10 +59,105 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
 
             <Project
                 date="2020"
+                image="jokify.png"
+                repository="jokify"
+                title="jokify"
+                url={`${process.env.PRODUCTION_URL_BASE}/jokify/`}
+            >
+                <p>
+                    Instead of deleting all those twitter jokes I get over the phone, I decided I
+                    had to make them available to the world. Here you will find them (in Spanish).
+                </p>
+                <p>
+                    This web application was also as an excuse to practice with CSS3 animation
+                    capabilities. In the first version, 2017, to animate the emojis explosion. After
+                    meeting <b>Iker Fernandez</b> in 2020, the rest of the redesigned UX.
+                </p>
+            </Project>
+
+            <Project
+                date="2018"
+                image="webjack.png"
+                repository="webjack"
+                title="webjack"
+                url={`${process.env.PRODUCTION_URL_BASE}/webjack/`}
+            >
+                <p>
+                    Cashless online multiplayer Blackjack game. Play online with strangers, practice
+                    offline against the dealer or learn the Blackjack basic strategy.
+                </p>
+                <p>
+                    After having developed a terrible Visual Basic desktop application in 2011 and
+                    failed to finish a Java command line utility in 2014, I decided to redeem myself
+                    by building it in web flavour.
+                </p>
+            </Project>
+
+            <Project
+                date="2020"
+                image="bromuro.png"
+                imageOrientation="portrait"
+                repository="bromuro"
+                title="Bromuro"
+                url="https://play.google.com/store/apps/details?id=capelski.bromuro"
+            >
+                <p>
+                    Collection of twitter jokes (in Spanish) delivered through an Android app.
+                    Filter them by text, share them with your friends and have them always available
+                    in your phone.
+                </p>
+                <p>
+                    I wanted to learn about Expo/React Native during my sabbatical year so I
+                    migrated the <b>Jokify</b> React web app to this mobile app version. Simplified
+                    interface and brand new name (Jokify was already taken in Play Store).
+                </p>
+            </Project>
+
+            <Project
+                date="2021"
+                image="blackjump.png"
+                imageOrientation="portrait"
+                repository="blackjump"
+                title="Blackjump"
+                url="https://play.google.com/store/apps/details?id=capelski.blackjump"
+            >
+                <p>
+                    Android app designed to learn the basic strategy for Blackjack card game. Set
+                    the rules of your favorite casino and get ready to beat the dealer.
+                </p>
+                <p>
+                    My Blackjack basic strategy still wasn't good enough after having developed{' '}
+                    <b>webjack</b> so I decided to build another Blackjack app focusing solely on
+                    that part. This time using Expo/React Native instead of vue.js and adding a
+                    range of new features around basic strategy.
+                </p>
+            </Project>
+
+            <Project
+                date="2019"
+                image="vue-ssr.png"
+                repository="vue-ssr-tutorial"
+                title="vue.js Meetup talk"
+                url="https://www.youtube.com/watch?v=uWsAFV14Svw"
+            >
+                <p>
+                    Meetup talk hosted by VueJS Barcelona. The talk features a simple yet realistic
+                    vue.js app (using webpack and consuming data from a Web Api) and walks through
+                    the process of getting it to render on the server side.
+                </p>
+                <p>
+                    After attending many coding Meetup talks I felt I had to contribute back by
+                    organizing my own. A friend of mine brought his 360º camera and recorded part of
+                    the session (the camera's battery run out) which is now available on YouTube.
+                </p>
+            </Project>
+
+            <Project
+                date="2020"
                 image="sudoku-generator.png"
                 repository="sudoku-generator"
                 title="sudoku generator"
-                url="/sudoku-generator/"
+                url={`${process.env.PRODUCTION_URL_BASE}/sudoku-generator/`}
             >
                 <p>
                     Web application that generates random sudoku puzzles and offers hints on how to
@@ -118,7 +195,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="fractal-generator.png"
                 repository="fractal-generator"
                 title="fractal generator"
-                url="/fractal-generator/"
+                url={`${process.env.PRODUCTION_URL_BASE}/fractal-generator/`}
             >
                 <p>
                     Web app that generates fractal pictures by replicating the pattern in a grid.
@@ -138,7 +215,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="michael-page.png"
                 repository="michael"
                 title="michael.page"
-                url="/michael/"
+                url={`${process.env.PRODUCTION_URL_BASE}/michael/`}
             >
                 <p>
                     Tribute page to all the Michaels of the world. Who doesn't have a Michael in
@@ -158,7 +235,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="carniques-ausa.png"
                 repository="carniques-ausa"
                 title="càrniques ausà"
-                url="/carniques-ausa/"
+                url={`${process.env.PRODUCTION_URL_BASE}/carniques-ausa/`}
             >
                 <p>
                     "It must have an interactive pig!". That was the sentence that convinced me to
@@ -212,8 +289,8 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 date="2019"
                 image="vue-personal-page.png"
                 repository="vue-personal-page"
-                title="vue"
-                url="/vue-personal-page/"
+                title="vue.js"
+                url={`${process.env.PRODUCTION_URL_BASE}/vue-personal-page/`}
             />
 
             <Project
@@ -221,7 +298,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="angularjs-personal-page.png"
                 repository="angularjs-personal-page"
                 title="angular.js"
-                url="/angularjs-personal-page/"
+                url={`${process.env.PRODUCTION_URL_BASE}/angularjs-personal-page/`}
             />
 
             <Project

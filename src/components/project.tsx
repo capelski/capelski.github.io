@@ -3,6 +3,7 @@ import React from 'react';
 interface ProjectProps {
     date?: string;
     image: string;
+    imageOrientation?: 'landscape' | 'portrait';
     repository?: string;
     title: string;
     url?: string;
@@ -20,23 +21,21 @@ export const Project: React.FC<ProjectProps> = (props) => (
                         className="project-source"
                         href={`https://github.com/capelski/${props.repository}`}
                     >
-                        ⌨️ source
+                        ⌨️ code
                     </a>
                 ) : null}
             </div>
         </div>
-        <div className="project-image-wrapper">
-            <img src={`/images/portfolio/${props.image}`} alt={`${props.title} project`} />
-            {props.url ? (
-                <a
-                    target="_blank"
-                    href={`${process.env.PRODUCTION_URL_BASE}${props.url}`}
-                    className="project-demo"
-                >
-                    ▶️
-                </a>
-            ) : null}
+        <div className={`project-content ${props.imageOrientation || 'landscape'}`}>
+            <div className="project-image-wrapper">
+                <img src={`/images/portfolio/${props.image}`} alt={`${props.title} project`} />
+                {props.url ? (
+                    <a target="_blank" href={`${props.url}`} className="project-demo">
+                        ▶️
+                    </a>
+                ) : null}
+            </div>
+            <div className="project-description">{props.children ? props.children : null}</div>
         </div>
-        {props.children ? props.children : null}
     </div>
 );
