@@ -22,5 +22,6 @@ export enum ArticleId {
     androidAppPublishing = 'android-app-publishing',
     iosAppPublishing = 'ios-app-publishing',
     reactNativeFirebaseAuth = 'react-native-firebase-auth',
-    expoSocialSignIn = 'expo-social-sign-in'
+    expoSocialSignIn = 'expo-social-sign-in',
+    expoPushNotifications = 'expo-push-notifications'
 }
