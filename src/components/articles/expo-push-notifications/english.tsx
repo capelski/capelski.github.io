@@ -227,17 +227,38 @@ export const english: ArticleContent = {
 
             <p>
                 Handling push notifications on Expo is fairly simple. Let's go ahead and install the
-                Expo notifications module.
+                Expo notifications module. We will be using this module to:
             </p>
 
             <BlockSnippet>expo install expo-notifications</BlockSnippet>
 
+            <ul>
+                <li>
+                    Display received notifications. When a notification is received Expo calls the
+                    <InlineSnippet>handleNotification</InlineSnippet> function parameter we pass to
+                    <InlineSnippet>Notifications.setNotificationHandler</InlineSnippet> to decide
+                    whether the notification must be shown to the user
+                </li>
+                <li>
+                    Update the app on notification received. Only if the app is <b>foregrounded</b>{' '}
+                    when a notification is received Expo will run the callback provided through
+                    <InlineSnippet>Notifications.addNotificationReceivedListener</InlineSnippet>
+                </li>
+                <li>
+                    Update the app on notification clicked. When the user clicks on a notification
+                    Expo will launch the app and run the callback provided through{' '}
+                    <InlineSnippet>
+                        Notifications.addNotificationResponseReceivedListener
+                    </InlineSnippet>
+                </li>
+                <li>Get the device push token</li>
+            </ul>
+
             <p>
-                We will use the module to define the notification handlers in the main component of
-                the app (i.e. <InlineSnippet>App.tsx</InlineSnippet>). For the following snippet to
-                be as simple as possible I have extracted the server related functions in a separate
-                file (i.e. <InlineSnippet>server-operations.ts</InlineSnippet>) and I have omitted
-                all style tags.
+                For the following snippet to be as simple as possible I have extracted the server
+                related functions in a separate file (i.e.{' '}
+                <InlineSnippet>server-operations.ts</InlineSnippet>) and I have omitted all style
+                tags.
             </p>
 
             <ReactGist id="f5713a2e5cd2a783ac58f23bbe8de8e4" />
