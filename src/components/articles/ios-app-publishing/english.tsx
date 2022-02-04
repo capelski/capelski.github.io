@@ -388,6 +388,17 @@ export const english: ArticleContent = {
                 alt="App approved notification email"
                 filename="app-approved-email.png"
             />
+            <h3>Edit: February 2022</h3>
+            <p>
+                When the iOS developer license expires, you will not only lose the hability to
+                update your apps but they will be entirely removed from the App Store until you
+                renew your membership.
+            </p>
+            <ArticleImage
+                articleId={ArticleId.iosAppPublishing}
+                alt="App store connect dashboard when developer license is expired"
+                filename="app-store-connect-expired-license.png"
+            />
         </React.Fragment>
     )
 };
