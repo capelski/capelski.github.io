@@ -12,5 +12,6 @@
         "multisite",
         "unstyled",
         "wpforms"
-    ]
+    ],
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
