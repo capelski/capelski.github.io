@@ -14,8 +14,8 @@ export const english: ArticleContent = {
     introduction: (
         <p>
             So you just had that amazing idea for a killer mobile app. You know how to develop it
-            and you have the motivation but you are not sure how hard it’s gonna be to get it
-            published on Play Store. Or maybe you don’t have the idea yet, but still you wonder
+            and you have the motivation but you are not sure how hard it's gonna be to get it
+            published on Play Store. Or maybe you don't have the idea yet, but still you wonder
             about how publishing a mobile app works. You came to the right article. This is what it
             looks like to upload an Android app to Play Store in January 2021.
         </p>
@@ -25,7 +25,7 @@ export const english: ArticleContent = {
             <p>
                 <i>
                     Both App Store and Play Store require you to purchase a developer license. While
-                    Play Store’s license is cheap ($25) and lasts forever, Apple’s one is more
+                    Play Store's license is cheap ($25) and lasts forever, Apple's one is more
                     expensive ($100), must be renewed every year and the upload process is more
                     complicated. I recommend starting with Play Store, testing the app with some
                     users in the production environment and once everything is ready,{' '}
@@ -43,7 +43,7 @@ export const english: ArticleContent = {
                 Google Play Console developer account. To do so head to{' '}
                 <Anchor url="https://play.google.com/console/about/">Google Play Console</Anchor>,
                 click <i>Go to Play Console</i>, sign in with your Google account, fill the form
-                (the developer name doesn’t need to be your legal name, you can use whatever you
+                (the developer name doesn't need to be your legal name, you can use whatever you
                 like), pay the $25 registration fee and you are good to start.
             </p>
             <ArticleImage
@@ -64,8 +64,8 @@ export const english: ArticleContent = {
             <p>
                 Once your account is created you will land into the Play Console dashboard. To
                 upload your app you will first need to create one. Click on <i>Create app</i> and
-                fill the app details: name, language and type (if you select free app, you won’t be
-                able to change it after you’ve published the app).
+                fill the app details: name, language and type (if you select free app, you won't be
+                able to change it after you've published the app).
             </p>
             <ArticleImage
                 articleId={ArticleId.androidAppPublishing}
@@ -92,7 +92,7 @@ export const english: ArticleContent = {
                 </li>
                 <li>
                     <b>Ads</b>: Whether your app contains ads or not. This setting is purely
-                    informative and won’t change or restrict any aspect of your app. It will only
+                    informative and won't change or restrict any aspect of your app. It will only
                     display the Contains ads label on the app Play Store page. E.g:
                     <ArticleImage
                         articleId={ArticleId.androidAppPublishing}
@@ -105,7 +105,7 @@ export const english: ArticleContent = {
                     PEGI, IARC, USK, etc.) for your app. Contains questions such as{' '}
                     <i>"Does the app contain sexual material or nudity?"</i> and{' '}
                     <i>"Does the app contain any potentially offensive language?"</i>. Play Store
-                    won’t ban your app because of the questionnaire answers. It’s all about
+                    won't ban your app because of the questionnaire answers. It's all about
                     understanding the content of the app and issuing the corresponding content
                     rating, so stay calmed and be honest. It takes a while to complete it but it
                     only must be done once for each app.
@@ -132,10 +132,10 @@ export const english: ArticleContent = {
             <h3>Store presence</h3>
             <p>
                 Now things get more interesting 😁 The store presence is the information that will
-                be displayed on your app’s page. You will need to choose a category for the app
+                be displayed on your app's page. You will need to choose a category for the app
                 (e.g. productivity, dating, photography, etc.), provide a description for interested
                 users to read and upload some app preview images (they can be screenshots or other
-                images detailing the app’s functionality) among others.
+                images detailing the app's functionality) among others.
             </p>
             <ArticleImage
                 articleId={ArticleId.androidAppPublishing}
@@ -159,7 +159,7 @@ export const english: ArticleContent = {
                     audience is probably interested in
                 </li>
                 <li>
-                    A feature graphic image is required in order to publish the app. I still haven’t
+                    A feature graphic image is required in order to publish the app. I still haven't
                     figured out where this image is displayed but I did learn that they can be
                     easily created with tools like this{' '}
                     <Anchor url="https://www.norio.be/graphic-generator/">graphic generator</Anchor>
@@ -175,9 +175,9 @@ export const english: ArticleContent = {
             <p>
                 The store presence is something that evolves as your apps does and that you will be
                 allowed to change after your app gets published (with the corresponding review by
-                the Play Store team). Don’t worry about getting it perfect from the start: a short
+                the Play Store team). Don't worry about getting it perfect from the start: a short
                 description and some screenshots will do. Eventually you can refine your description
-                and upload nice creativities such as Tinder’s ones. For now, let’s get your app
+                and upload nice creativities such as Tinder's ones. For now, let's get your app
                 released 🚀
             </p>
             <ArticleImage
@@ -187,7 +187,7 @@ export const english: ArticleContent = {
             />
             <h3>Release your app</h3>
             <p>
-                Once completed all the previous steps you can go back to your app’s dashboard and
+                Once completed all the previous steps you can go back to your app's dashboard and
                 you will find the steps you need to follow to release the app. For the sake of
                 simplicity I will skip the testing tracks and release the app straight to
                 production. If you instead want to test the app with a small group of users first
@@ -252,7 +252,7 @@ export const english: ArticleContent = {
                 <i>
                     In the final release screen Play Store displays errors and warnings found in
                     your application file (.apk or .aab). In my case the warning states that I
-                    haven’t uploaded a debug symbol file in order to analyse app errors.
+                    haven't uploaded a debug symbol file in order to analyse app errors.
                 </i>
             </p>
             <ArticleImage
@@ -262,9 +262,9 @@ export const english: ArticleContent = {
             />
             <h3>Handling rejection</h3>
             <p>
-                If the Play Store team doesn’t encounter any issue with your app, they will publish
+                If the Play Store team doesn't encounter any issue with your app, they will publish
                 it right after finishing the review. If they do encounter issues they will reject
-                your app and write back to you with the reasons for the rejection. Don’t panic
+                your app and write back to you with the reasons for the rejection. Don't panic
                 though! The rejection is not permanent. It just means you are not compliant with
                 some Google Play policy. You will need to go through the email and fix the reported
                 issues.
@@ -280,15 +280,15 @@ export const english: ArticleContent = {
                 filename="gambling-rejection-reason.png"
             />
             <p>
-                A more common issue you might run into is displaying content in your app’s page that
+                A more common issue you might run into is displaying content in your app's page that
                 is not suitable for all age groups. Even if your content rating is already warning
                 about such content (which will prevent users below the age group from installing the
-                app), the app’s page is still accessible to all users. Therefore, your app’s page
+                app), the app's page is still accessible to all users. Therefore, your app's page
                 must be suited for all audiences.
             </p>
             <p>
-                For example, let’s say your app has a PEGI 16 content rating because it uses
-                potentially offensive language. If you include offensive language in the app’s page
+                For example, let's say your app has a PEGI 16 content rating because it uses
+                potentially offensive language. If you include offensive language in the app's page
                 (e.g. in the description or in the app screenshots), your app will get rejected.
                 This is what the Play Store rejection mail looks like:
             </p>
@@ -299,7 +299,7 @@ export const english: ArticleContent = {
             />
             <p>
                 Luckily the rejection reasons are explained in a clear manner, even including an
-                image of the app screenshot that doesn’t comply with the metadata if that’s the
+                image of the app screenshot that doesn't comply with the metadata if that's the
                 case. In this case (in spanish) the Play Store team even highlighted the offensive
                 word:
             </p>
@@ -309,7 +309,7 @@ export const english: ArticleContent = {
                 filename="app-rejected-screenshot.png"
             />
             <p>
-                Don’t lose heart, spend some time fixing the issues and eventually you will get an
+                Don't lose heart, spend some time fixing the issues and eventually you will get an
                 email stating that your app is now published 🍾
             </p>
             <ArticleImage
