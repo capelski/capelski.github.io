@@ -2,14 +2,14 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { NavLink, RouteChildrenProps } from 'react-router-dom';
 import { Project } from '../project';
-import { homeRoute } from '../routes';
+import { blogRoute } from '../routes';
 import { SectionContainer } from '../section-container';
 
 export const Portfolio: React.FC<RouteChildrenProps> = () => (
     <SectionContainer
         links={
-            <NavLink to={homeRoute.path} className="link">
-                ⬅️ Home
+            <NavLink to={blogRoute.path} className="link">
+                ⬅️ Blog
             </NavLink>
         }
         sectionName="portfolio"

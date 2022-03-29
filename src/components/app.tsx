@@ -4,7 +4,14 @@ import { CSSTransition } from 'react-transition-group';
 import { articles } from './articles';
 import { ArticleCategory } from './articles/article-category';
 import { ArticleId } from './articles/article-id';
-import { articleRoute, blogRoute, errorRoute, homeRoute, routes, supportedRoutes } from './routes';
+import {
+    articleRoute,
+    blogRoute,
+    errorRoute,
+    portfolioRoute,
+    routes,
+    supportedRoutes
+} from './routes';
 import { transitionsDuration } from './variables';
 
 interface AppProps {
@@ -68,11 +75,13 @@ export const App: React.FC<AppProps> = (props) => {
                 </Route>
             ))}
 
-            {location.pathname === '' ? (
-                <Route path={''}>
-                    <Redirect from={''} to={homeRoute.path} />
+            {supportedRoutes.some((route) =>
+                route.test(location.pathname)
+            ) ? null : location.pathname === '/' ? (
+                <Route path={'/'}>
+                    <Redirect from={'/'} to={portfolioRoute.path} />
                 </Route>
-            ) : supportedRoutes.some((route) => route.test(location.pathname)) ? null : (
+            ) : (
                 <Route path={location.pathname}>
                     <Redirect from={location.pathname} to={errorRoute.path} />
                 </Route>

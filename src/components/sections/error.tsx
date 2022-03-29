@@ -1,15 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { NavLink, RouteChildrenProps } from 'react-router-dom';
-import { homeRoute } from '../routes';
+import { blogRoute, portfolioRoute } from '../routes';
 import { SectionContainer } from '../section-container';
 
 export const Error: React.FC<RouteChildrenProps | {}> = () => (
     <SectionContainer
         links={
-            <NavLink to={homeRoute.path} className="link">
-                ⬅️ Home
-            </NavLink>
+            <React.Fragment>
+                <NavLink to={blogRoute.path} className="link">
+                    ⬅️ Blog
+                </NavLink>
+                <NavLink to={portfolioRoute.path} className="link">
+                    Portfolio ➡️
+                </NavLink>
+            </React.Fragment>
         }
         sectionName="error"
     >

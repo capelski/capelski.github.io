@@ -2,7 +2,6 @@ import { RouteChildrenProps } from 'react-router-dom';
 import { ArticleLoader, ArticleLoaderAdditionalProps } from './sections/article-loader';
 import { Blog, BlogAdditionalProps } from './sections/blog';
 import { Error } from './sections/error';
-import { Home } from './sections/home';
 import { Portfolio } from './sections/portfolio';
 
 export interface ComponentRoute<TAdditional = {}> {
@@ -34,13 +33,6 @@ export const errorRoute: ComponentRoute = {
     pattern: /^\/error$/
 };
 
-export const homeRoute: ComponentRoute = {
-    path: '/',
-    name: 'home',
-    component: Home,
-    pattern: /^\/$/
-};
-
 export const portfolioRoute: ComponentRoute = {
     path: '/portfolio',
     name: 'portfolio',
@@ -48,12 +40,6 @@ export const portfolioRoute: ComponentRoute = {
     pattern: /^\/portfolio\/?$/
 };
 
-export const routes: ComponentRoute[] = [
-    homeRoute,
-    articleRoute,
-    blogRoute,
-    errorRoute,
-    portfolioRoute
-];
+export const routes: ComponentRoute[] = [articleRoute, blogRoute, errorRoute, portfolioRoute];
 
 export const supportedRoutes = routes.map((route) => route.pattern);
