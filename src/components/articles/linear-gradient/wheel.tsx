@@ -22,6 +22,7 @@ export const Wheel: React.FC<WheelProps> = (props) => {
                 {props.tiles.map((tile, index) => (
                     <div
                         className="wheel-tile"
+                        key={index}
                         style={{
                             transform: `translateX(${-wheelSize / 4}px) translateY(${
                                 wheelSize / 4

@@ -58,11 +58,12 @@ export const Blog: React.FC<BlogProps> = (props) => {
                 </div>
                 {AllArticleCategories.map((category) => (
                     <CSSTransition
-                        in={category === selectedCategory}
-                        timeout={transitionsDuration}
                         classNames="articles"
-                        unmountOnExit={true}
+                        in={category === selectedCategory}
+                        key={category}
                         onExited={() => props.setSelectedCategory(selectedCategory)}
+                        timeout={transitionsDuration}
+                        unmountOnExit={true}
                     >
                         <div className="articles">
                             {articles

@@ -98,6 +98,7 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
                     <CSSTransition
                         classNames="article"
                         in={article.metadata.id === currentArticleId}
+                        key={article.metadata.id}
                         onExited={onArticleExit}
                         timeout={transitionsDuration}
                         unmountOnExit={true}
