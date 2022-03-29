@@ -61,9 +61,9 @@ $mediumImageHeight: 60%;
             animation-delay: $animationSegmentTime;
         }
 
-        .section-links {
+        .section-links a {
             opacity: 0;
-            animation: slide-in-down $animationSegmentTime forwards;
+            animation: slide-in-up $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime * 2;
         }
     }
@@ -71,7 +71,6 @@ $mediumImageHeight: 60%;
     &.page-exit-active {
         .home-header {
             animation: slide-out-right $animationSegmentTime forwards;
-            animation-delay: $animationSegmentTime * 2;
         }
 
         .home-image {
@@ -79,8 +78,9 @@ $mediumImageHeight: 60%;
             animation-delay: $animationSegmentTime;
         }
 
-        .section-links {
-            animation: slide-out-up $animationSegmentTime forwards;
+        .section-links a {
+            animation: slide-out-down $animationSegmentTime forwards;
+            animation-delay: $animationSegmentTime * 2;
         }
     }
     &.page-exit-done {

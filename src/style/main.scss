@@ -64,6 +64,7 @@ body {
     height: $linksHeight;
     display: flex;
     align-items: center;
+    box-shadow: -2px 0px 3px lightgrey;
 
     .link {
         text-decoration: none;

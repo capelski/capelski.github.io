@@ -93,7 +93,7 @@
             animation: slide-in-left $animationSegmentTime forwards;
         }
 
-        .section-links {
+        .section-links a {
             opacity: 0;
             animation: slide-in-left $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime;
@@ -110,7 +110,7 @@
             animation-delay: $animationSegmentTime * 3;
         }
 
-        .section-links {
+        .section-links a {
             animation: slide-out-left $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime * 2;
         }

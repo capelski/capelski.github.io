@@ -31,7 +31,7 @@
             animation: slide-in-right $animationSegmentTime forwards;
         }
 
-        .section-links,
+        .section-links a,
         .personal-page-evolution {
             opacity: 0;
             animation: slide-in-right $animationSegmentTime forwards;
@@ -68,7 +68,7 @@
             animation-delay: $animationSegmentTime * 3;
         }
 
-        .section-links,
+        .section-links a,
         .personal-page-evolution {
             animation: slide-out-right $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime * 2;

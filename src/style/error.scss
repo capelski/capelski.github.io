@@ -37,7 +37,7 @@
             animation-delay: $animationSegmentTime * 3;
         }
 
-        .section-links {
+        .section-links a {
             opacity: 0;
             animation: slide-in-right $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime * 4;
@@ -55,7 +55,7 @@
             animation-delay: $animationSegmentTime * 3;
         }
 
-        .section-links {
+        .section-links a {
             animation: slide-out-right $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime * 2;
         }

@@ -271,7 +271,7 @@ $animationSegmentTime: $transitionsDuration / $animationSegments;
             @include articleEnterAnimation($animationSegmentTime);
         }
 
-        .section-links {
+        .section-links a {
             opacity: 0;
             animation: slide-in-right $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime * 2;
@@ -283,7 +283,7 @@ $animationSegmentTime: $transitionsDuration / $animationSegments;
             @include articleExitAnimation($animationSegmentTime);
         }
 
-        .section-links {
+        .section-links a {
             animation: slide-out-right $animationSegmentTime forwards;
         }
     }
