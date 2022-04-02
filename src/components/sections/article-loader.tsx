@@ -55,7 +55,7 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
             links={
                 <React.Fragment>
                     <NavLink to={blogRoute.path} className="link">
-                        ⬅️ Blog
+                        ⬇️ Blog
                     </NavLink>
                 </React.Fragment>
             }
