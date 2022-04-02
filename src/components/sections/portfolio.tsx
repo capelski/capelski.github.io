@@ -153,6 +153,25 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
             </Project>
 
             <Project
+                date="2022"
+                image="marathon-planner.png"
+                repository="marathon-planner"
+                title="marathon planner"
+                url={`${process.env.PRODUCTION_URL_BASE}/marathon-planner/`}
+            >
+                <p>
+                    Marathon training website based on the Hansons Marathon Method book by Luke
+                    Humphrey. Set your dates, get the training paces based on your expected race
+                    pace and keep track of your completed trainings 💪
+                </p>
+                <p>
+                    Having the book around all the time when I was preparing for the 2022 Barcelona
+                    marathon was inconvenient. Solution: This responsive website to track the
+                    training progress from the phone.
+                </p>
+            </Project>
+
+            <Project
                 date="2020"
                 image="sudoku-generator.png"
                 repository="sudoku-generator"
