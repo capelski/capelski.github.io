@@ -23,6 +23,7 @@ import { iosAppPublishing } from './ios-app-publishing';
 import { reactNativeFirebaseAuth } from './react-native-firebase-auth';
 import { expoSocialSignIn } from './expo-social-sign-in';
 import { expoPushNotifications } from './expo-push-notifications';
+import { typescriptMonorepo } from './typescript-monorepo';
 
 export const articles = [
     agilityRocks,
@@ -49,5 +50,6 @@ export const articles = [
     iosAppPublishing,
     reactNativeFirebaseAuth,
     expoSocialSignIn,
-    expoPushNotifications
+    expoPushNotifications,
+    typescriptMonorepo
 ].reverse();
