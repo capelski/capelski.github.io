@@ -88,10 +88,6 @@
     .article-body {
         transition: opacity $hoverOpacity;
 
-        a {
-            color: black;
-        }
-
         ul {
             &.numbered {
                 list-style-type: decimal;
