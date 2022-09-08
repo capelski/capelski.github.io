@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { NavLink, RouteChildrenProps } from 'react-router-dom';
+import { Anchor } from '../articles/anchor';
 import { Project } from '../project';
 import { blogRoute } from '../routes';
 import { SectionContainer } from '../section-container';
@@ -33,7 +34,15 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
             >
                 <p>
                     Android/iOS app designed to store and manage clothing receipts, allowing the
-                    user to filter them by store and set return deadline notifications.
+                    user to filter them by store and set return deadline notifications. The
+                    projected included a{' '}
+                    <Anchor url="https://capelski.github.io/daggout/">landing page</Anchor>, a{' '}
+                    <Anchor url="https://capelski.github.io/daggout-admin/">back office</Anchor> and
+                    an{' '}
+                    <Anchor url="https://capelski.github.io/daggout-analytics/">
+                        analytics platform
+                    </Anchor>{' '}
+                    as well.
                 </p>
                 <p>
                     DAGGOUT SL was a startup I co-founded along with <b>Oscar Ortega</b> during our
