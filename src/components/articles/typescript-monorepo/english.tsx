@@ -8,7 +8,7 @@ import { InlineSnippet } from '../inline-snippet';
 import { Spaces } from '../spaces';
 
 export const english: ArticleContent = {
-    title: 'Effective code sharing in Typescript monorepos',
+    title: 'Client/Server code sharing in Typescript monorepos',
     description: 'How to share code between client and server in Typescript monorepos',
     shareSentence: 'Time to get rid of the duplicated code in your Typescript monorepo!',
     introduction: (
