@@ -4,14 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { articles } from './articles';
 import { ArticleCategory } from './articles/article-category';
 import { ArticleId } from './articles/article-id';
-import {
-    articleRoute,
-    blogRoute,
-    errorRoute,
-    portfolioRoute,
-    routes,
-    supportedRoutes
-} from './routes';
+import { articleRoute, blogRoute, errorRoute, routes, supportedRoutes } from './routes';
 import { transitionsDuration } from './variables';
 
 interface AppProps {
@@ -79,7 +72,7 @@ export const App: React.FC<AppProps> = (props) => {
                 route.test(location.pathname)
             ) ? null : location.pathname === '/' ? (
                 <Route path={'/'}>
-                    <Redirect from={'/'} to={portfolioRoute.path} />
+                    <Redirect from={'/'} to={blogRoute.path} />
                 </Route>
             ) : (
                 <Route path={location.pathname}>
