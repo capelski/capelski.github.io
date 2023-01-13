@@ -16,7 +16,7 @@ export const english: ArticleContent = {
         "Automatically infer your fetch requests' return type through @express-typed-api",
     introduction: (
         <p>
-            Event though choosing Typescript to develop an express web app provides type safety in
+            Even though choosing Typescript to develop an express web app provides type safety in
             both client and server, the fetch requests data remains untyped on both ends,
             complicating our attempts to keep a consistent code base 🤬 With that idea in mind I
             wrote <InlineSnippet>@express-typed-api</InlineSnippet>, a library to help creating a
