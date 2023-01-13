@@ -24,6 +24,7 @@ import { reactNativeFirebaseAuth } from './react-native-firebase-auth';
 import { expoSocialSignIn } from './expo-social-sign-in';
 import { expoPushNotifications } from './expo-push-notifications';
 import { typescriptMonorepo } from './typescript-monorepo';
+import { expressTypedApi } from './express-typed-api';
 
 export const articles = [
     agilityRocks,
@@ -51,5 +52,6 @@ export const articles = [
     reactNativeFirebaseAuth,
     expoSocialSignIn,
     expoPushNotifications,
-    typescriptMonorepo
+    typescriptMonorepo,
+    expressTypedApi
 ].reverse();

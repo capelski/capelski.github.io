@@ -24,5 +24,6 @@ export enum ArticleId {
     reactNativeFirebaseAuth = 'react-native-firebase-auth',
     expoSocialSignIn = 'expo-social-sign-in',
     expoPushNotifications = 'expo-push-notifications',
-    typescriptMonorepo = 'typescript-monorepo'
+    typescriptMonorepo = 'typescript-monorepo',
+    expressTypedApi = 'express-typed-api'
 }
