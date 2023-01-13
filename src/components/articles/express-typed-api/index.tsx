@@ -8,8 +8,8 @@ export const expressTypedApi: Article = {
     content: () => english,
     metadata: {
         category: ArticleCategory.tech,
-        date: 'TODO',
-        duration: -1, // TODO
+        date: '2023-01-13',
+        duration: 8,
         id: ArticleId.expressTypedApi,
         languages: [Language.en]
     }

@@ -16,12 +16,9 @@ export const english: ArticleContent = {
         "Automatically infer your fetch requests' return type through @express-typed-api",
     introduction: (
         <p>
-            Choosing node.js and Typescript to develop a web app allows for{' '}
-            <NavLink to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}>
-                reusing the same type definitions
-            </NavLink>{' '}
-            in both ends of a web app. Yet, the client/server HTTP requests remain untyped,
-            frustrating our attempts to keep a consistent code base 🤬 With that idea in mind I
+            Event though choosing Typescript to develop an express web app provides type safety in
+            both client and server, the fetch requests data remains untyped on both ends,
+            complicating our attempts to keep a consistent code base 🤬 With that idea in mind I
             wrote <InlineSnippet>@express-typed-api</InlineSnippet>, a library to help creating a
             type declaration for an express API so that it can be used to automatically infer the
             fetch requests' return type from the client side. Here is how to use it.
@@ -29,6 +26,7 @@ export const english: ArticleContent = {
     ),
     body: (
         <React.Fragment>
+            <h3>The problem</h3>
             <p>
                 Usually, when calling a Web API via <InlineSnippet>fetch</InlineSnippet>, we either
                 settle with the <InlineSnippet>any</InlineSnippet> type of the response payload or
@@ -37,27 +35,27 @@ export const english: ArticleContent = {
             <ReactGist id="2be8474970323e3c4814e6ee13a629c2" />
             <p>
                 Explicitly casting the payload's type does provide type safety but it's not ideal:
-                it must be done for each different <InlineSnippet>fetch</InlineSnippet> call and,
-                more importantly, it is not linked to the actual endpoint's return type. When we
-                change an endpoint's return type, we also need to change the explicit casts
-                accordingly for all of the endpoint's <InlineSnippet>fetch</InlineSnippet> calls.
+                it must be done for each different fetch call and, more importantly, it is not
+                linked to the actual endpoint's return type. When we change an endpoint's return
+                type, we also need to change the explicit casts accordingly for all of the
+                endpoint's fetch calls.
             </p>
             <p>
                 The idea behind <InlineSnippet>@express-typed-api</InlineSnippet> is generating a
                 type declaration for the express API, with no dependencies on the server side, and
                 in a way that Typescript can tell the return type of the API endpoints based on
-                their path and method. That API type declaration is then provided to a{' '}
-                <InlineSnippet>fetch</InlineSnippet> wrapper function, which uses the request URL
-                and method to automatically infer the function return type. Let's get on with it!
+                their path and method. That API type declaration is then provided to a fetch wrapper
+                function, which uses the request URL and method to automatically infer the function
+                return type. Let's get on with it!
             </p>
+            <h3>Sample code</h3>
             <p>
                 To better illustrate the explanations in this article I'll be applying the steps on
                 a simple express API with a single get endpoint (i.e.{' '}
                 <InlineSnippet>/api/weather</InlineSnippet>), that receives a city name via query
                 string parameter and returns weather data for the specified city, and the
-                corresponding client side <InlineSnippet>fetch</InlineSnippet> call. A fairly simple
-                example, yet it involves all the necessary aspects to get automatic inferring going
-                in any other express API.
+                corresponding client side fetch call. A fairly simple example, yet it involves all
+                the necessary aspects to get automatic inferring going in any other express API.
             </p>
             <ReactGist id="2b1c6f55f38d1769cb2b4bb2c773e3af" />
             <ReactGist id="2c766ae92d278b2d284a25610e287b29" />
@@ -65,7 +63,7 @@ export const english: ArticleContent = {
             <p>
                 The first and obvious step is to define a type for our API, including each
                 endpoint's path and method. A convenient way to generate such type consists in{' '}
-                <b>declaring a type</b> containing the endpoints' return type as "properties" and
+                <b>declaring a type</b> containing the endpoints' return type as properties and
                 using the endpoints' path/method as keys. This is what we are talking about:
             </p>
             <ReactGist id="8c63fc889423183f60c0ee9002e5f4c5" />
@@ -83,7 +81,7 @@ export const english: ArticleContent = {
                 <NavLink to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}>
                     package/folder that can be imported from both client and server side
                 </NavLink>
-                , and that you install <InlineSnippet>@express-typed-api/common</InlineSnippet> as a
+                , with <InlineSnippet>@express-typed-api/common</InlineSnippet> installed as a
                 dependency.
             </p>
             <h3>2. Handlers' return type</h3>
@@ -163,11 +161,13 @@ export const english: ArticleContent = {
                     app.{'<'}method{'>'}
                 </InlineSnippet>{' '}
                 calls: <InlineSnippet>@express-typed-api/server</InlineSnippet> exports a{' '}
-                <InlineSnippet>publishApi</InlineSnippet> function for that purpose. It receives an
-                express app and an API representation object as parameters and it traverses the
-                representation object properties, calling the necessary methods on the express app
-                with the corresponding method, path and handler. This is what it looks like when
-                used in our sample express API:
+                <InlineSnippet>publishApi</InlineSnippet> function for that purpose.
+            </p>
+            <p>
+                It receives an express app and an API representation object as parameters and it
+                traverses the representation object properties, calling the necessary methods on the
+                express app with the corresponding method, path and handler. This is what it looks
+                like when used in our sample express API:
             </p>
             <ReactGist id="c8d6220e71e27430a2d4e21d8eda6168" />
             <i>
@@ -209,13 +209,12 @@ export const english: ArticleContent = {
             <h3>4. Fetch requests' return type inferring</h3>
             <p>
                 With the API's type declaration available on the client side the final step is using
-                it to infer the return type of the <InlineSnippet>fetch</InlineSnippet> calls.{' '}
+                it to infer the return type of the fetch calls.{' '}
                 <InlineSnippet>@express-typed-api</InlineSnippet> contains a{' '}
                 <InlineSnippet>typedFetch</InlineSnippet> function, a{' '}
                 <InlineSnippet>fetch</InlineSnippet> wrapper that receives the endpoints' path and
-                method as parameters and, apart from passing them to the actual{' '}
-                <InlineSnippet>fetch</InlineSnippet> call, uses them to cast the response's json{' '}
-                <InlineSnippet>payload</InlineSnippet>.
+                method as parameters and, apart from passing them to the actual fetch call, uses
+                them to cast the response's json payload.
             </p>
             <ArticleImage
                 articleId={ArticleId.expressTypedApi}
@@ -225,11 +224,11 @@ export const english: ArticleContent = {
             <p>
                 <InlineSnippet>typedFetch</InlineSnippet> is exported in the{' '}
                 <InlineSnippet>@express-typed-api/client</InlineSnippet> package via a getter
-                function called <InlineSnippet>getTypedFetch</InlineSnippet>, which is the one that
-                takes the API's type declaration as the type parameter and returns the corresponding
-                instance of <InlineSnippet>typedFetch</InlineSnippet>. It can be called any number
-                of times but the best practice is to call it once and use the returned function all
-                across the client side code.
+                function called <InlineSnippet>getTypedFetch</InlineSnippet>, that takes the API's
+                type declaration as the type parameter and returns the corresponding instance of{' '}
+                <InlineSnippet>typedFetch</InlineSnippet>. It can be called any number of times but
+                the best practice is to call it once and use the returned function all across the
+                client side code.
             </p>
             <p>
                 Note also that using query string parameters (and/or express URL parameters) in the
@@ -289,7 +288,7 @@ export const english: ArticleContent = {
                         before executing an endpoint's handler (e.g. authentication, request
                         parsing, etc.). Let's take the following POST endpoint, for which we want to
                         execute <InlineSnippet>express.json()</InlineSnippet> before running the
-                        actual endpoint handler:
+                        actual endpoint handler.
                     </p>
                     <ReactGist id="5709a982dd41b627368a156dc7692382" />
                     <p>
@@ -300,7 +299,7 @@ export const english: ArticleContent = {
                         <InlineSnippet>handler</InlineSnippet> and{' '}
                         <InlineSnippet>middleware</InlineSnippet>, a function that receives the
                         endpoint handler and returns an array with any number of handlers that will
-                        be executed in that order:
+                        be executed in that order.
                     </p>
                     <ReactGist id="3087226f4539e35425e1aee3f43e695b" />
                     <ReactGist id="0fc0e9513dff375d0227d4ce7327777f" />
@@ -322,7 +321,7 @@ export const english: ArticleContent = {
                             <InlineSnippet>publishApi</InlineSnippet> method accepts a{' '}
                             <InlineSnippet>pathsPrefix</InlineSnippet> parameter that can be used to
                             remove a common prefix from the API's type declaration, while keeping it
-                            in the endpoint's actual path.
+                            in the endpoints' actual path.
                         </i>
                     </p>
                 </li>
@@ -330,14 +329,14 @@ export const english: ArticleContent = {
                     <p>
                         <b>Typed request payload</b>.{' '}
                         <InlineSnippet>@express-typed-api</InlineSnippet> allows specifying the type
-                        of the requests' payload (i.e. <InlineSnippet>query</InlineSnippet>,{' '}
+                        of the requests' payload (i.e. <InlineSnippet>body</InlineSnippet>,{' '}
                         <InlineSnippet>params</InlineSnippet> and{' '}
-                        <InlineSnippet>body</InlineSnippet>) by providing an optional second type
+                        <InlineSnippet>query</InlineSnippet>) by providing an optional second type
                         parameter to <InlineSnippet>EndpointHandler</InlineSnippet>, containing any
                         combination of <InlineSnippet>jsonBody</InlineSnippet>,{' '}
                         <InlineSnippet>params</InlineSnippet> and/or{' '}
                         <InlineSnippet>query</InlineSnippet> types. The types will then be enforced
-                        on both client requests and server endpoint handlers:
+                        on both client requests and server endpoint handlers.
                     </p>
                     <ReactGist id="4f2bd5cb87b3250730c97b906fd10ffe" />
                     <ArticleImage
@@ -365,9 +364,8 @@ export const english: ArticleContent = {
                 <Anchor url="https://www.npmjs.com/package/@express-typed-api/client">
                     client
                 </Anchor>{' '}
-                packages are available on npm, containing the API documentation in the README.md.
-                Give it a try and, hopefully, it will turn out to be useful for you too. Happy
-                coding!
+                packages are available on npm, containing the API documentation in the README. Give
+                it a try and, hopefully, it will turn out to be useful for you too. Happy coding!
             </p>
         </React.Fragment>
     )
