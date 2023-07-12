@@ -13,6 +13,14 @@ module.exports = merge(baseConfig, {
     plugins: [
         new PrerenderSPAPlugin({
             staticDir: resolve(__dirname, '..', 'docs'),
+            postProcess: (renderedRoute) => {
+                /* Remove height attribute from gist iframes, as they generate noise in changesets */
+                renderedRoute.html = renderedRoute.html.replace(
+                    /<iframe([^>]*) style="height: \d+px;"([^>]*)>/g,
+                    '<iframe$1>'
+                );
+                return renderedRoute;
+            },
             routes
         })
     ]
