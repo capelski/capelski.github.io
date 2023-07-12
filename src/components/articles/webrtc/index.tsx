@@ -9,7 +9,7 @@ export const webRTC: Article = {
     metadata: {
         category: ArticleCategory.tech,
         date: '2023-07-12',
-        duration: 7,
+        duration: 9,
         id: ArticleId.webRTC,
         languages: [Language.en],
         shareImage: 'webrtc-connection-diagram.png'
