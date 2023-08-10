@@ -49,7 +49,7 @@ export const english: ArticleContent = {
             </p>
             <ReactGist id="86e97f458a65a9171ec7e825438516b7" />
             <p>
-                he register method tells the browser to search for a service worker in the{' '}
+                The register method tells the browser to search for a service worker in the{' '}
                 <b>sw.js</b> file and will start the install step in the background. Thus the next
                 thing to be done is to tell the service worker what to do during the install step
                 which, typically, will consist in caching some static assets.
