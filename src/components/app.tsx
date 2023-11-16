@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, Route, useLocation } from 'react-router-dom';
+import { Redirect, Route, RouteChildrenProps, useLocation } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { articles } from './articles';
 import { ArticleCategory } from './articles/article-category';
@@ -52,7 +52,7 @@ export const App: React.FC<AppProps> = (props) => {
         <div className={`app-container${props.isServerRendered ? ' server-rendered' : ''}`}>
             {routes.map((route) => (
                 <Route key={route.path} exact={true} path={route.path}>
-                    {(childrenProps) => (
+                    {(childrenProps: RouteChildrenProps<any>) => (
                         <CSSTransition
                             in={childrenProps.match != null}
                             timeout={transitionsDuration}

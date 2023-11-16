@@ -22,7 +22,7 @@
     // Animations
 
     $animationSegments: 6;
-    $animationSegmentTime: $transitionsDuration / $animationSegments;
+    $animationSegmentTime: math.div($transitionsDuration, $animationSegments);
 
     &.page-enter-active {
         display: none;

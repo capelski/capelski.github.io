@@ -10,7 +10,7 @@ $wheelSpinDuration: 4000ms; // Keep in sync with wheel.tsx wheelSpinDuration
         height: $wheelSize;
         margin: 32px auto;
         overflow: hidden;
-        border-radius: $wheelSize / 2;
+        border-radius: calc($wheelSize / 2);
         border: 1px solid black;
 
         &.animated {
@@ -21,8 +21,8 @@ $wheelSpinDuration: 4000ms; // Keep in sync with wheel.tsx wheelSpinDuration
             position: absolute;
             top: 0;
             right: 0;
-            width: $wheelSize / 2;
-            height: $wheelSize / 2;
+            width: calc($wheelSize / 2);
+            height: calc($wheelSize / 2);
             box-sizing: border-box;
 
             &:nth-child(odd) {

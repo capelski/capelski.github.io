@@ -18,8 +18,8 @@
     // Animations
 
     $animationSegments: 4;
-    $animationSegmentTime: $transitionsDuration / $animationSegments;
-    $projectAnimationTime: $animationSegmentTime * 2 / 4;
+    $animationSegmentTime: math.div($transitionsDuration, $animationSegments);
+    $projectAnimationTime: math.div($animationSegmentTime * 2, 4);
 
     &.page-enter-active {
         display: none;

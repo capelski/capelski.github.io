@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 @mixin articlesEnterAnimation($animationTime) {
-    $articleEnterTime: $animationTime * 2 / 4;
+    $articleEnterTime: math.div($animationTime * 2, 4);
     .article {
         opacity: 0;
         animation: slide-in-left $articleEnterTime forwards;
@@ -25,7 +25,7 @@
 }
 
 @mixin articlesExitAnimation($animationTime) {
-    $articleExitTime: $animationTime * 2 / 4;
+    $articleExitTime: math.div($animationTime * 2, 4);
     .article {
         animation: slide-out-left $articleExitTime forwards;
 
@@ -81,7 +81,7 @@
     // Section animations
 
     $animationSegments: 4;
-    $animationSegmentTime: $transitionsDuration / $animationSegments;
+    $animationSegmentTime: math.div($transitionsDuration, $animationSegments);
 
     &.page-enter-active {
         display: none;

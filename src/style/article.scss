@@ -255,7 +255,7 @@
 // Section animations
 
 $animationSegments: 3;
-$animationSegmentTime: $transitionsDuration / $animationSegments;
+$animationSegmentTime: math.div($transitionsDuration, $animationSegments);
 
 .article-container {
     &.page-enter-active {
@@ -296,12 +296,12 @@ $animationSegmentTime: $transitionsDuration / $animationSegments;
             display: none;
         }
         &.article-enter-done {
-            $animationSegmentTime: $transitionsDuration / 3;
+            $animationSegmentTime: math.div($transitionsDuration, 3);
             @include articleEnterAnimation($animationSegmentTime);
         }
 
         &.article-exit-active {
-            $animationSegmentTime: $transitionsDuration / 3;
+            $animationSegmentTime: math.div($transitionsDuration, 3);
             @include articleExitAnimation($animationSegmentTime);
         }
         &.article-exit-done {
