@@ -239,7 +239,7 @@ export const english: ArticleContent = {
             <p>Implementation:</p>
             <ul>
                 <li>
-                    Change the references to compiled files in
+                    Change the references to compiled files in{' '}
                     <InlineSnippet>package.json</InlineSnippet>: the{' '}
                     <InlineSnippet>main</InlineSnippet> property and the{' '}
                     <InlineSnippet>start</InlineSnippet> npm script.
@@ -322,7 +322,7 @@ export const english: ArticleContent = {
                 </li>
                 <li>
                     <p>
-                        Add a<InlineSnippet>package.json</InlineSnippet> file to the common folder.
+                        Add a <InlineSnippet>package.json</InlineSnippet> file to the common folder.
                         Define an npm script to compile the Typescript code (e.g.{' '}
                         <InlineSnippet>build</InlineSnippet>). Set the{' '}
                         <InlineSnippet>types</InlineSnippet> property, so that Typescript knows
@@ -357,13 +357,10 @@ export const english: ArticleContent = {
             <h3 id="local-dependencies">Solution 3. Local dependencies</h3>
             <p>
                 Building on top of the "Common npm project" approach we can use npm local
-                dependencies (
-                <Anchor url="https://docs.npmjs.com/cli/v8/commands/npm-install">
-                    natively supported
-                </Anchor>{' '}
-                since npm 2.0) to install the common project as a dependency of other npm projects
-                that import code from it, letting node find the common code via{' '}
-                <InlineSnippet>node_modules</InlineSnippet>. When using local dependencies:
+                dependencies (natively supported since npm 2.0) to install the common project as a
+                dependency of other npm projects that import code from it, letting node find the
+                common code via <InlineSnippet>node_modules</InlineSnippet>. When using local
+                dependencies:
             </p>
             <ul>
                 <li>
@@ -688,12 +685,19 @@ export const english: ArticleContent = {
                     />
                 </li>
             </ul>
-            <h3>Conclusion</h3>
+            <h3>Conclusions</h3>
             <p>
+                We have described the "replication" problem that can occur in Typescript monorepos
+                when sharing code between different projects. We have seen how the structure of the
+                distribution folder changes when not adapting Typescript to support such code
+                sharing, and how that can break some relative paths within the application.
+            </p>
+            <p>
+                We have also seen different approaches to resolve the "replication" problem, each
+                providing additional advantages for increasing amounts of implementation effort.
                 Quoting the popular reference to feline taxidermy, "there is more than one way to
-                skin a cat". Each described approach will help you preventing the "replication"
-                problem: the more implementation effort, the more advantages you get. Give it try
-                and decide which one works better for you. Happy coding!
+                skin a cat". Give them a try and decide which one works better for you. Happy
+                coding!
             </p>
         </React.Fragment>
     )
