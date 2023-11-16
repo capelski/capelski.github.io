@@ -5,8 +5,8 @@ import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
 import { BlockSnippet } from '../block-snippet';
 import { InlineSnippet } from '../inline-snippet';
-import { Spaces } from '../spaces';
 import { DirectoryView } from '../directory-view';
+import { ObjectView } from '../object-view';
 
 export const english: ArticleContent = {
     title: 'Client/Server code sharing in Typescript monorepos',
@@ -458,26 +458,16 @@ export const english: ArticleContent = {
                         property:
                     </p>
                     <BlockSnippet>
-                        {'{'}
-                        <br />
-                        <Spaces number={2} />
-                        "compilerOptions": {'{'}
-                        <br />
-                        <Spaces number={4} />
-                        "paths": {'{'}
-                        <br />
-                        <Spaces number={6} />
-                        "weather-common": ["./weather-common/source"]
-                        <br />
-                        <Spaces number={4} />
-                        {'}'}
-                        <br />
-                        <Spaces number={2} />
-                        {'}'},<br />
-                        <Spaces number={2} />
-                        "extends": "./tsconfig.base.json"
-                        <br />
-                        {'}'}
+                        <ObjectView
+                            object={{
+                                compilerOptions: {
+                                    paths: {
+                                        'weather-common': ['./weather-common/source']
+                                    }
+                                },
+                                extends: './tsconfig.base.json'
+                            }}
+                        />
                     </BlockSnippet>
                     <ArticleImage
                         articleId={ArticleId.typescriptMonorepo}
@@ -588,8 +578,7 @@ export const english: ArticleContent = {
                         npm ERR! A complete log of this run can be found in:
                         <br />
                         npm ERR
-                        <Spaces number={5} />
-                        /.../.npm/_logs/2022-05-30T05_57_51_827Z-debug.log
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/.../.npm/_logs/2022-05-30T05_57_51_827Z-debug.log
                         <br />
                     </BlockSnippet>
                 </li>
@@ -643,26 +632,16 @@ export const english: ArticleContent = {
                         property:
                     </p>
                     <BlockSnippet>
-                        {'{'}
-                        <br />
-                        <Spaces number={2} />
-                        "compilerOptions": {'{'}
-                        <br />
-                        <Spaces number={4} />
-                        "paths": {'{'}
-                        <br />
-                        <Spaces number={6} />
-                        "weather-common": ["./projects/weather-common/source"]
-                        <br />
-                        <Spaces number={4} />
-                        {'}'}
-                        <br />
-                        <Spaces number={2} />
-                        {'}'},<br />
-                        <Spaces number={2} />
-                        "extends": "./tsconfig.base.json"
-                        <br />
-                        {'}'}
+                        <ObjectView
+                            object={{
+                                compilerOptions: {
+                                    paths: {
+                                        'weather-common': ['./projects/weather-common/source']
+                                    }
+                                },
+                                extends: './tsconfig.base.json'
+                            }}
+                        />
                     </BlockSnippet>
                     <ArticleImage
                         articleId={ArticleId.typescriptMonorepo}
