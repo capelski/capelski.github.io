@@ -31,107 +31,47 @@ export const english: ArticleContent = {
             <h3>Connection overview</h3>
             <p>
                 Before diving into the code it's worth understanding the steps involved in
-                establishing a WebRTC connection. For such purpose I'm using screenshots from{' '}
-                <Anchor url="https://capelski.github.io/webrtc-example/">
-                    https://capelski.github.io/webrtc-example/
-                </Anchor>
-                , a web app designed to reflect the connection negotiation steps, display the
-                session information of each peer and input the corresponding information of the
-                other peer. It also has some logic to guarantee that the RTCPeerConnection methods
-                are called in the right order.
+                establishing a WebRTC connection. Let's have a look at the following simplified
+                connection diagram (based on the{' '}
+                <Anchor url="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity">
+                    WebRTC Connectivity
+                </Anchor>{' '}
+                documentation), which reflects the basic operations the two peers need to execute:
             </p>
-            <p>
-                <i>
-                    Note that the web app doesn't work on Firefox, since Firefox doesn't support{' '}
-                    <Anchor url="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/connectionState#browser_compatibility">
-                        connectionstate
-                    </Anchor>{' '}
-                    nor{' '}
-                    <Anchor url="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/connectionstatechange_event#browser_compatibility">
-                        onconnectionstatechange
-                    </Anchor>
-                    .
-                </i>
-            </p>
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="webrtc-connection-diagram.png"
+                footer="WebRTC connection diagram"
+            />
             <ul className="numbered">
                 <li>
-                    <p>
-                        <b>Initialize</b>. Both peers create a new connection.
-                    </p>
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="initialization.png"
-                        footer="Initialize the RTCPeerConnection objects"
-                    />
+                    <b>Initialize</b>. Both peers create a new connection object.
                 </li>
                 <li>
-                    <p>
-                        <b>Media</b>. Peer A adds media to the connection (i.e. data channels and/or
-                        stream tracks).
-                    </p>
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="channels-creation.png"
-                        footer="Create data channels and/or stream tracks in peer A"
-                    />
+                    <b>Media</b>. Peer A adds media to the connection (i.e. data channels and/or
+                    stream tracks).
                 </li>
                 <li>
-                    <p>
-                        <b>Offer creation</b>. Peer A creates an offer (i.e. session description)
-                        and sets it as the local description. The latter will generate several ICE
-                        candidates.
-                        <ArticleImage
-                            articleId={ArticleId.webRTC}
-                            filename="create-offer.png"
-                            footer="Create an offer in peer A"
-                        />
-                        <ArticleImage
-                            articleId={ArticleId.webRTC}
-                            filename="set-local-description-offer.png"
-                            footer="Set the offer as local description in peer A"
-                        />
-                    </p>
+                    <b>Offer creation</b>. Peer A creates an offer (i.e. session description) and
+                    sets it as the local description. The latter will generate several ICE
+                    candidates.
                 </li>
                 <li>
                     <b>Offer exchange</b>. Peer A sends the offer and its ICE candidates to peer B
                     through the <b>signaling service</b>.
                 </li>
                 <li>
-                    <p>
-                        <b>Offer reception</b>. Peer B sets the offer as the remote description and
-                        then adds the remote ICE candidates.
-                    </p>
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="set-remote-description-offer.png"
-                        footer="Set the offer as remote description in peer B"
-                    />
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="set-remote-ice-candidates.png"
-                        footer="Add remote ICE candidates in peer B"
-                    />
+                    <b>Offer reception</b>. Peer B sets the offer as the remote description and then
+                    adds the remote ICE candidates.
                 </li>
                 <li>
                     <b>Media</b>. If needed, Peer B adds media to the connection (i.e. data channels
                     and/or stream tracks).
                 </li>
                 <li>
-                    <p>
-                        <b>Answer creation</b>. Peer B creates an answer (i.e. session description)
-                        and sets it as the local description. Again, the latter will generate
-                        several ICE candidates.
-                    </p>
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="create-answer.png"
-                        footer="Create an answer in peer B"
-                    />
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="set-local-description-answer.png"
-                        footer="Set the answer as local description in peer B"
-                    />
+                    <b>Answer creation</b>. Peer B creates an answer (i.e. session description) and
+                    sets it as the local description. Again, the latter will generate several ICE
+                    candidates.
                 </li>
                 <li>
                     <b>Answer exchange</b>. Peer B sends the answer to peer A through the{' '}
@@ -139,29 +79,15 @@ export const english: ArticleContent = {
                     candidates.
                 </li>
                 <li>
-                    <p>
-                        <b>Answer reception</b>. Peer A sets the answer as the remote description.
-                        The connection has been established!
-                    </p>
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="set-remote-description-answer.png"
-                        footer="Set the answer as remote description in peer A"
-                    />
-                    <ArticleImage
-                        articleId={ArticleId.webRTC}
-                        filename="connection-established.png"
-                        footer="Connection negotiation finalized"
-                    />
+                    <b>Answer reception</b>. Peer A sets the answer as the remote description. The
+                    connection has been established!
                 </li>
             </ul>
-            <h3>Signaling service</h3>
             <p>
-                We have mentioned the signaling service, so it's worth expanding a bit on that. In
-                communication systems (e.g. post, telephone, email, instant messaging, etc.) when a
-                user wants to send a message or establish a connection they need to know the
-                identifier of the recipient: a postal address, a phone number, an email address,
-                etc.
+                The steps 4 and 8 involve a so called "signaling service". In communication systems
+                (e.g. post, telephone, email, instant messaging, etc.) when a peer wants to send a
+                message or establish a connection they need to know the identifier of the recipient:
+                a postal address, a phone number, an email address, etc.
             </p>
             <p>
                 In WebRTC however peers do not have identifiers. Instead each peer generates two
@@ -190,8 +116,8 @@ export const english: ArticleContent = {
                 </li>
                 <li>
                     <b>ICE Candidate</b>: includes information about the network connection and
-                    details the available methods the peer is able to communicate. It looks like
-                    this:
+                    details the available methods the peer is able to communicate through. It looks
+                    like this:
                     <BlockSnippet>
                         {'{'}"candidate":"candidate:3426902834 1 udp 2113939711
                         60c8b1aa-d1e7-46f7-954d-9183cc7efe63.local 54523 typ host generation 0 ufrag
@@ -213,15 +139,7 @@ export const english: ArticleContent = {
                 the other 📋
             </p>
             <h3>Coding time</h3>
-            <p>
-                We are now ready to start coding! Based on the steps described above we need to
-                implement the following functions, which play together like so:
-            </p>
-            <ArticleImage
-                articleId={ArticleId.webRTC}
-                filename="webrtc-connection-diagram.png"
-                footer="WebRTC connection diagram"
-            />
+            <p>Based on the steps described above we need to implement the following functions:</p>
             <ul>
                 <li>
                     <InlineSnippet>initialize</InlineSnippet>. Creates a new RTCPeerConnection
@@ -308,6 +226,80 @@ export const english: ArticleContent = {
                     <ReactGist id="375e2ad38118ece2ac69023a1c0c0777" />
                 </li>
             </ul>
+            <p>
+                Here is a web app putting together all the functions:{' '}
+                <Anchor url="https://capelski.github.io/webrtc-example/">
+                    https://capelski.github.io/webrtc-example/
+                </Anchor>
+                . It is meant to reflect the connection negotiation, display the session description
+                of each peer and help inputting the corresponding information of the other peer. It
+                also has some logic to guarantee that the RTCPeerConnection methods are called in
+                the right order.
+            </p>
+            <p>
+                <i>
+                    Note that, at the time of writing, the web app doesn't work on Firefox, since
+                    Firefox doesn't support{' '}
+                    <Anchor url="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/connectionState#browser_compatibility">
+                        connectionstate
+                    </Anchor>{' '}
+                    nor{' '}
+                    <Anchor url="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/connectionstatechange_event#browser_compatibility">
+                        onconnectionstatechange
+                    </Anchor>
+                    .
+                </i>
+            </p>
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="initialization.png"
+                footer="Initialize the RTCPeerConnection objects"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="channels-creation.png"
+                footer="Create data channels and/or stream tracks in peer A"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="create-offer.png"
+                footer="Create an offer in peer A"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="set-local-description-offer.png"
+                footer="Set the offer as local description in peer A"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="set-remote-description-offer.png"
+                footer="Set the offer as remote description in peer B"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="set-remote-ice-candidates.png"
+                footer="Add remote ICE candidates in peer B"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="create-answer.png"
+                footer="Create an answer in peer B"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="set-local-description-answer.png"
+                footer="Set the answer as local description in peer B"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="set-remote-description-answer.png"
+                footer="Set the answer as remote description in peer A"
+            />
+            <ArticleImage
+                articleId={ArticleId.webRTC}
+                filename="connection-established.png"
+                footer="Connection negotiation finalized"
+            />
             <h3>Data channels</h3>
             <p>
                 After the connection has been established, every data channel triggers an{' '}
