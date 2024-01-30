@@ -9,28 +9,28 @@ import { ArticleImage } from '../article-image';
 import { InlineSnippet } from '../inline-snippet';
 
 export const english: ArticleContent = {
-    title: "@express-typed-api: inferring the fetch requests' return type",
+    title: "Inferring network requests' return type: @express-typed-api",
     description:
-        "How to use @express-typed-api to declare a type for an express API and automatically infer the corresponding fetch requests' return type",
-    shareSentence:
-        "Automatically infer your fetch requests' return type through @express-typed-api",
+        "How to use @express-typed-api to declare a type for an express API and automatically infer the corresponding network requests' return type",
+    shareSentence: "Automatically infer network requests' return type through @express-typed-api",
     introduction: (
         <p>
             Even though choosing Typescript to develop an express web app provides type safety in
-            both client and server, the fetch requests data remains untyped on both ends,
+            both client and server, the network requests data remains untyped on both ends,
             complicating our attempts to keep a consistent code base 🤬 With that idea in mind I
             wrote <InlineSnippet>@express-typed-api</InlineSnippet>, a library to help creating a
             type declaration for an express API so that it can be used to automatically infer the
-            fetch requests' return type from the client side. Here is how to use it.
+            network requests' return type from the client side. Here is how to use it.
         </p>
     ),
     body: (
         <React.Fragment>
             <h3>The problem</h3>
             <p>
-                Usually, when calling a Web API via <InlineSnippet>fetch</InlineSnippet>, we either
-                settle with the <InlineSnippet>any</InlineSnippet> type of the response payload or
-                we explicitly cast it to the type we expect it to be.
+                Usually, when making a Web API network request via{' '}
+                <InlineSnippet>fetch</InlineSnippet>, we either settle with the{' '}
+                <InlineSnippet>any</InlineSnippet> type of the response payload or we explicitly
+                cast it to the type we expect it to be.
             </p>
             <ReactGist id="2be8474970323e3c4814e6ee13a629c2" />
             <p>
