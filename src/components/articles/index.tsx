@@ -26,6 +26,7 @@ import { expoPushNotifications } from './expo-push-notifications';
 import { typescriptMonorepo } from './typescript-monorepo';
 import { expressTypedApi } from './express-typed-api';
 import { webRTC } from './webrtc';
+import { typescriptMonorepoII } from './typescript-monorepo-ii';
 
 export const articles = [
     agilityRocks,
@@ -55,5 +56,6 @@ export const articles = [
     expoPushNotifications,
     typescriptMonorepo,
     expressTypedApi,
-    webRTC
+    webRTC,
+    typescriptMonorepoII
 ].reverse();
