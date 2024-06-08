@@ -10,9 +10,11 @@ import { DirectoryView } from '../directory-view';
 import { InlineSnippet } from '../inline-snippet';
 
 export const english: ArticleContent = {
-    title: 'Client/Server code sharing in Typescript monorepos II',
-    description: 'Sharing code efficiently between client and server in Typescript monorepos',
-    shareSentence: 'Time to get rid of the duplicated code in your Typescript monorepo!',
+    title: 'Distribution of Typescript shared code without package repositories',
+    description:
+        'Distributing shared Typescript code to production environments without package repositories',
+    shareSentence:
+        "You don't need package repositories to distribute your Typescript monorepo shared code to production environments. Here are a couple of ways to do it!",
     introduction: (
         <p>
             A couple years ago I wrote a piece about{' '}
