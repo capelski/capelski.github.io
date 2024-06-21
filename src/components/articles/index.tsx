@@ -1,32 +1,33 @@
 import { agilityRocks } from './agility-rocks';
-import { leakedApiKey } from './leaked-api-key';
-import { meaningOfLife } from './meaning-of-life';
-import { fourCoinChallenge } from './four-coin-challenge';
-import { progressiveWebApps } from './progressive-web-apps';
+import { androidAppPublishing } from './android-app-publishing';
 import { existentialInjustice } from './existential-injustice';
-import { subscribersList } from './subscribers-list';
+import { expoPushNotifications } from './expo-push-notifications';
+import { expoSocialSignIn } from './expo-social-sign-in';
+import { expressOnGoogleCloud } from './express-on-google-cloud';
+import { expressTypedApi } from './express-typed-api';
+import { fourCoinChallenge } from './four-coin-challenge';
+import { iosAppPublishing } from './ios-app-publishing';
 import { kanbanGoalsTracking } from './kanban-goals-tracking';
+import { leakedApiKey } from './leaked-api-key';
+import { linearGradient } from './linear-gradient';
+import { meaningOfLife } from './meaning-of-life';
+import { npmPackagesDevelopment } from './npm-packages-development';
+import { persuasionInPictures } from './persuasion-in-pictures';
+import { progressiveWebApps } from './progressive-web-apps';
+import { provinencaDesconeguda } from './provinenca-desconeguda';
+import { reactNativeFirebaseAuth } from './react-native-firebase-auth';
+import { stadiaPlatform } from './stadia-platform';
+import { subscribersList } from './subscribers-list';
+import { sudokuGeneration } from './sudoku-generation';
 import { trecember } from './trecember';
+import { typedWebApi } from './typed-web-api';
+import { typescriptMonorepo } from './typescript-monorepo';
+import { typescriptMonorepoII } from './typescript-monorepo-ii';
+import { webBadDecisions } from './web-bad-decisions';
 import { webDevOnSteroidsI } from './web-dev-on-steroids-i';
 import { webDevOnSteroidsII } from './web-dev-on-steroids-ii';
-import { provinencaDesconeguda } from './provinenca-desconeguda';
-import { sudokuGeneration } from './sudoku-generation';
-import { persuasionInPictures } from './persuasion-in-pictures';
-import { stadiaPlatform } from './stadia-platform';
-import { webBadDecisions } from './web-bad-decisions';
-import { linearGradient } from './linear-gradient';
-import { expressOnGoogleCloud } from './express-on-google-cloud';
-import { npmPackagesDevelopment } from './npm-packages-development';
-import { wordpressOnGoogleCloud } from './wordpress-on-google-cloud';
-import { androidAppPublishing } from './android-app-publishing';
-import { iosAppPublishing } from './ios-app-publishing';
-import { reactNativeFirebaseAuth } from './react-native-firebase-auth';
-import { expoSocialSignIn } from './expo-social-sign-in';
-import { expoPushNotifications } from './expo-push-notifications';
-import { typescriptMonorepo } from './typescript-monorepo';
-import { expressTypedApi } from './express-typed-api';
 import { webRTC } from './webrtc';
-import { typescriptMonorepoII } from './typescript-monorepo-ii';
+import { wordpressOnGoogleCloud } from './wordpress-on-google-cloud';
 
 export const articles = [
     agilityRocks,
@@ -57,5 +58,6 @@ export const articles = [
     typescriptMonorepo,
     expressTypedApi,
     webRTC,
-    typescriptMonorepoII
+    typescriptMonorepoII,
+    typedWebApi
 ].reverse();

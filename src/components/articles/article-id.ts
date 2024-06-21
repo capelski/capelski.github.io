@@ -25,7 +25,8 @@ export enum ArticleId {
     expoSocialSignIn = 'expo-social-sign-in',
     expoPushNotifications = 'expo-push-notifications',
     typescriptMonorepo = 'typescript-monorepo',
-    typescriptMonorepoII = 'typescript-monorepo-ii',
     expressTypedApi = 'express-typed-api',
-    webRTC = 'web-rtc'
+    webRTC = 'web-rtc',
+    typescriptMonorepoII = 'typescript-monorepo-ii',
+    typedWebApi = 'typed-web-api'
 }
