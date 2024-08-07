@@ -17,7 +17,8 @@ export const english: ArticleContent = {
             Apps that allow users to generate data while being offline (Trello, for example)
             generally provide a better user experience. They must resolve a challenge however:
             because the database schema naturally changes as the app evolves, the server must
-            support incoming data generated on an old schema version. How? Here is my take on it.
+            support incoming data generated on an old schema version. How? Here is one way of doing
+            it.
         </p>
     ),
     body: () => {
