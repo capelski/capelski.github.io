@@ -28,5 +28,6 @@ export enum ArticleId {
     expressTypedApi = 'express-typed-api',
     webRTC = 'web-rtc',
     typescriptMonorepoII = 'typescript-monorepo-ii',
-    typedWebApi = 'typed-web-api'
+    typedWebApi = 'typed-web-api',
+    otfMigrations = 'otf-migrations'
 }

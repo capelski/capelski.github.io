@@ -12,6 +12,7 @@ import { leakedApiKey } from './leaked-api-key';
 import { linearGradient } from './linear-gradient';
 import { meaningOfLife } from './meaning-of-life';
 import { npmPackagesDevelopment } from './npm-packages-development';
+import { otfMigrations } from './otf-migrations';
 import { persuasionInPictures } from './persuasion-in-pictures';
 import { progressiveWebApps } from './progressive-web-apps';
 import { provinencaDesconeguda } from './provinenca-desconeguda';
@@ -59,5 +60,6 @@ export const articles = [
     expressTypedApi,
     webRTC,
     typescriptMonorepoII,
-    typedWebApi
+    typedWebApi,
+    otfMigrations
 ].reverse();
