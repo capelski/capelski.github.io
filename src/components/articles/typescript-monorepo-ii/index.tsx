@@ -11,6 +11,7 @@ export const typescriptMonorepoII: Article = {
         date: '2024-06-07',
         duration: 5,
         id: ArticleId.typescriptMonorepoII,
-        languages: [Language.en]
+        languages: [Language.en],
+        shareImage: 'distribution.jpg'
     }
 };

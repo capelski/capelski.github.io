@@ -5,6 +5,7 @@ import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
+import { ArticleImage } from '../article-image';
 import { BlockSnippet } from '../block-snippet';
 import { DirectoryView } from '../directory-view';
 import { InlineSnippet } from '../inline-snippet';
@@ -30,6 +31,11 @@ export const english: ArticleContent = {
     body: () => {
         return (
             <React.Fragment>
+                <ArticleImage
+                    articleId={ArticleId.typescriptMonorepoII}
+                    filename="distribution.jpg"
+                    alt="Package distribution representation"
+                />
                 <p>
                     Having successfully extracted the duplicate code into a separate directory/npm
                     project (covered in{' '}

@@ -9,7 +9,7 @@ import { InlineSnippet } from '../inline-snippet';
 
 export const english: ArticleContent = {
     title: 'Supporting offline data on ever-changing database schemas',
-    description: 'TODO',
+    description: 'How to support offline data on ever-changing database schemas',
     shareSentence:
         'This is how Trello-like apps support offline data on ever-changing database schemas',
     introduction: (
@@ -31,12 +31,11 @@ export const english: ArticleContent = {
                 />
                 <h3>The challenge</h3>
                 <p>
-                    At the company I work for,{' '}
-                    <Anchor url="https://peekvision.org/">Peek Vision</Anchor>, we collect eye
-                    health data from patients in rural areas with little or no connectivity. This
-                    means that devices must be able to collect data while being offline. And devices
-                    stay offline for surprisingly long periods of time: usually several days, often
-                    a couple weeks and sometimes even months.
+                    At <Anchor url="https://peekvision.org/">Peek Vision</Anchor>, the company I
+                    work for, we collect eye health data from patients in rural areas with little or
+                    no connectivity. This means that devices must be able to collect data while
+                    being offline. And devices stay offline for surprisingly long periods of time:
+                    usually several days, often a couple weeks and sometimes even months.
                 </p>
                 <p>
                     When devices finally go online they send the data they have collected to the
