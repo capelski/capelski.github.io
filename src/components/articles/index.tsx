@@ -24,6 +24,7 @@ import { trecember } from './trecember';
 import { typedWebApi } from './typed-web-api';
 import { typescriptMonorepo } from './typescript-monorepo';
 import { typescriptMonorepoII } from './typescript-monorepo-ii';
+import { webApiProxyMigration } from './web-api-proxy-migration';
 import { webBadDecisions } from './web-bad-decisions';
 import { webDevOnSteroidsI } from './web-dev-on-steroids-i';
 import { webDevOnSteroidsII } from './web-dev-on-steroids-ii';
@@ -61,5 +62,6 @@ export const articles = [
     webRTC,
     typescriptMonorepoII,
     typedWebApi,
-    otfMigrations
+    otfMigrations,
+    webApiProxyMigration
 ].reverse();

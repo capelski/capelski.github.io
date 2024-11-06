@@ -29,5 +29,6 @@ export enum ArticleId {
     webRTC = 'web-rtc',
     typescriptMonorepoII = 'typescript-monorepo-ii',
     typedWebApi = 'typed-web-api',
-    otfMigrations = 'otf-migrations'
+    otfMigrations = 'otf-migrations',
+    webApiProxyMigration = 'web-api-proxy-migration'
 }
