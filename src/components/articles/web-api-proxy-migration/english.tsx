@@ -24,8 +24,9 @@ export const english: ArticleContent = {
     body: (
         <React.Fragment>
             <ArticleImage
-                articleId={ArticleId.webApiProxyMigration}
                 alt="Abstract representation of a web proxy"
+                articleId={ArticleId.webApiProxyMigration}
+                className="image-600"
                 filename="web-proxy.png"
             />
             <h3>Personal statement</h3>

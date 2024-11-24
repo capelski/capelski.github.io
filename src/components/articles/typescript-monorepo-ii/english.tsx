@@ -32,9 +32,10 @@ export const english: ArticleContent = {
         return (
             <React.Fragment>
                 <ArticleImage
-                    articleId={ArticleId.typescriptMonorepoII}
-                    filename="distribution.jpg"
                     alt="Package distribution representation"
+                    articleId={ArticleId.typescriptMonorepoII}
+                    className="image-600"
+                    filename="distribution.jpg"
                 />
                 <p>
                     Having successfully extracted the duplicate code into a separate directory/npm

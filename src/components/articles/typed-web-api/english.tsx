@@ -25,9 +25,10 @@ export const english: ArticleContent = {
     body: (
         <React.Fragment>
             <ArticleImage
-                articleId={ArticleId.typedWebApi}
-                filename="antenna.jpg"
                 alt="Telecommunications antenna"
+                articleId={ArticleId.typedWebApi}
+                className="image-600"
+                filename="antenna.jpg"
             />
             <p>
                 typed-web-api comes in three parts. First we must create a type definition for the

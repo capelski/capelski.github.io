@@ -30,5 +30,6 @@ export enum ArticleId {
     typescriptMonorepoII = 'typescript-monorepo-ii',
     typedWebApi = 'typed-web-api',
     otfMigrations = 'otf-migrations',
-    webApiProxyMigration = 'web-api-proxy-migration'
+    webApiProxyMigration = 'web-api-proxy-migration',
+    minimalisticTranslation = 'minimalistic-translation'
 }

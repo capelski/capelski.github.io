@@ -27,6 +27,7 @@ export const english: ArticleContent = {
                 <ArticleImage
                     alt="Hard disk drive"
                     articleId={ArticleId.otfMigrations}
+                    className="image-600"
                     filename="hard-drive.jpg"
                 />
                 <h3>The challenge</h3>
