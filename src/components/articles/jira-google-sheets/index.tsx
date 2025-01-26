@@ -9,7 +9,7 @@ export const jiraGoogleSheets: Article = {
     metadata: {
         category: ArticleCategory.tech,
         date: '2025-01-26',
-        duration: 5,
+        duration: 6,
         id: ArticleId.jiraGoogleSheets,
         languages: [Language.en],
         shareImage: 'jira-cloud-function-description.png'

@@ -8,7 +8,7 @@ import { InlineSnippet } from '../inline-snippet';
 export const english: ArticleContent = {
     title: 'Supercharged JIRA reporting using Google Sheets',
     description: 'How to fetch JIRA issues from Google Sheets and customize the results list',
-    shareSentence: 'Supercharge your JIRA reporting using Google Sheets',
+    shareSentence: 'Supercharge your JIRA reporting using Google Sheets 🚀',
     introduction: (
         <p>
             JIRA has a powerful builtin{' '}
@@ -87,7 +87,7 @@ export const english: ArticleContent = {
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
-                alt="Allowing Jira Cloud for Sheets access to the Google account"
+                alt="Allowing Jira Cloud for Sheets access to the JIRA account"
                 filename="jira-cloud-atlassian-sign-in.png"
                 className="image-600"
             />
@@ -102,7 +102,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
-                alt="Opening the Jira Cloud for Sheets extension"
+                alt="Opening the Jira Cloud for Sheets window"
                 filename="jira-cloud-open.png"
                 className="image-600"
             />
@@ -193,7 +193,7 @@ export const english: ArticleContent = {
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
-                alt="Refreshing the issues list"
+                alt="Refreshing the issues list while keeping existing rows"
                 filename="jira-cloud-function-refresh.png"
                 className="image-600"
             />
@@ -212,7 +212,7 @@ export const english: ArticleContent = {
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
-                alt="Hiding the issue Key column"
+                alt="Hiding the Key column from the JIRA query"
                 filename="jira-link-column-2.png"
                 className="image-600"
             />
