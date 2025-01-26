@@ -7,6 +7,7 @@ import { expressOnGoogleCloud } from './express-on-google-cloud';
 import { expressTypedApi } from './express-typed-api';
 import { fourCoinChallenge } from './four-coin-challenge';
 import { iosAppPublishing } from './ios-app-publishing';
+import { jiraGoogleSheets } from './jira-google-sheets';
 import { kanbanGoalsTracking } from './kanban-goals-tracking';
 import { leakedApiKey } from './leaked-api-key';
 import { linearGradient } from './linear-gradient';
@@ -65,5 +66,6 @@ export const articles = [
     typedWebApi,
     otfMigrations,
     webApiProxyMigration,
-    minimalisticTranslation
+    minimalisticTranslation,
+    jiraGoogleSheets
 ].reverse();

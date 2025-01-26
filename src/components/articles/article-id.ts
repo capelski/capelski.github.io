@@ -31,5 +31,6 @@ export enum ArticleId {
     typedWebApi = 'typed-web-api',
     otfMigrations = 'otf-migrations',
     webApiProxyMigration = 'web-api-proxy-migration',
-    minimalisticTranslation = 'minimalistic-translation'
+    minimalisticTranslation = 'minimalistic-translation',
+    jiraGoogleSheets = 'jira-google-sheets'
 }
