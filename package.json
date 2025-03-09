@@ -9,10 +9,10 @@
         "build:ts": "tsc --noEmit -p tsconfig.json",
         "clean:build": "rm -rf docs",
         "clean:dependencies": "rm -rf node_modules/ package-lock.json",
+        "dev": "webpack serve --config webpack/development.config.js",
         "prettier": "prettier --list-different \"src/**/*.{ts,tsx}\"",
         "prettier:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
-        "start": "node index.js",
-        "start:dev": "webpack serve --config webpack/development.config.js"
+        "start": "node index.js"
     },
     "author": "Carles Capellas <capellas.carles@gmail.com>",
     "license": "ISC",
