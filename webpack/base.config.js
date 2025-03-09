@@ -35,7 +35,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.PRODUCTION_URL_BASE': JSON.stringify('https://capelski.github.io')
+            PRODUCTION_URL_BASE: JSON.stringify('https://capelski.github.io')
         }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({

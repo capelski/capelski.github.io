@@ -43,10 +43,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
         navigator!.share!({
             text: props.shareSentence,
             title: props.title,
-            url: `${process.env.PRODUCTION_URL_BASE}${articleRoute.path.replace(
-                ':articleId',
-                props.articleId
-            )}`
+            url: `${PRODUCTION_URL_BASE}${articleRoute.path.replace(':articleId', props.articleId)}`
         });
     };
 

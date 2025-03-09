@@ -17,11 +17,9 @@ export const english: ArticleContent = {
             challenges properly. As a consequence of this haste, I sometimes feel my web sites are
             lacking something... but what exactly? Here are the bad decisions I made while
             developing my{' '}
-            <Anchor url={`${process.env.PRODUCTION_URL_BASE}/vue-personal-page`}>
-                old website
-            </Anchor>{' '}
-            and how I approached them on{' '}
-            <Anchor url={process.env.PRODUCTION_URL_BASE!}>this new version</Anchor> of my web page.
+            <Anchor url={`${PRODUCTION_URL_BASE}/vue-personal-page`}>old website</Anchor> and how I
+            approached them on <Anchor url={PRODUCTION_URL_BASE!}>this new version</Anchor> of my
+            web page.
         </p>
     ),
     body: (

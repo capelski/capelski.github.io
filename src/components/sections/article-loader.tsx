@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { RouteChildrenProps, NavLink } from 'react-router-dom';
+import { NavLink, RouteChildrenProps } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { Article } from '../article';
 import { articles } from '../articles';
@@ -71,7 +71,7 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
                 <meta property="og:description" content={articleContent!.description} />
                 <meta
                     property="og:url"
-                    content={`${process.env.PRODUCTION_URL_BASE}${articleRoute.path.replace(
+                    content={`${PRODUCTION_URL_BASE}${articleRoute.path.replace(
                         ':articleId',
                         currentArticle.metadata.id
                     )}`}
@@ -79,7 +79,7 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
                 {currentArticle.metadata.shareImage ? (
                     <meta
                         property="og:image"
-                        content={`${process.env.PRODUCTION_URL_BASE}/images/blog/${currentArticle.metadata.id}/${currentArticle.metadata.shareImage}`}
+                        content={`${PRODUCTION_URL_BASE}/images/blog/${currentArticle.metadata.id}/${currentArticle.metadata.shareImage}`}
                     />
                 ) : undefined}
             </Helmet>

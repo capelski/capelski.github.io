@@ -71,7 +71,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="jokify.png"
                 repository="jokify"
                 title="jokify"
-                url={`${process.env.PRODUCTION_URL_BASE}/jokify/`}
+                url={`${PRODUCTION_URL_BASE}/jokify/`}
             >
                 <p>
                     Instead of deleting all those twitter jokes I get over the phone, I decided I
@@ -89,7 +89,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="webjack.png"
                 repository="webjack"
                 title="webjack"
-                url={`${process.env.PRODUCTION_URL_BASE}/webjack/`}
+                url={`${PRODUCTION_URL_BASE}/webjack/`}
             >
                 <p>
                     Cashless online multiplayer Blackjack game. Play online with strangers, practice
@@ -166,7 +166,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="marathon-planner.png"
                 repository="marathon-planner"
                 title="marathon planner"
-                url={`${process.env.PRODUCTION_URL_BASE}/marathon-planner/`}
+                url={`${PRODUCTION_URL_BASE}/marathon-planner/`}
             >
                 <p>
                     Marathon training website based on the Hansons Marathon Method book by Luke
@@ -185,7 +185,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="sudoku-generator.png"
                 repository="sudoku-generator"
                 title="sudoku generator"
-                url={`${process.env.PRODUCTION_URL_BASE}/sudoku-generator/`}
+                url={`${PRODUCTION_URL_BASE}/sudoku-generator/`}
             >
                 <p>
                     Web application that generates random sudoku puzzles and offers hints on how to
@@ -223,7 +223,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="fractal-generator.png"
                 repository="fractal-generator"
                 title="fractal generator"
-                url={`${process.env.PRODUCTION_URL_BASE}/fractal-generator/`}
+                url={`${PRODUCTION_URL_BASE}/fractal-generator/`}
             >
                 <p>
                     Web app that generates fractal pictures by replicating the pattern in a grid.
@@ -243,7 +243,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="michael-page.png"
                 repository="michael"
                 title="michael.page"
-                url={`${process.env.PRODUCTION_URL_BASE}/michael/`}
+                url={`${PRODUCTION_URL_BASE}/michael/`}
             >
                 <p>
                     Tribute page to all the Michaels of the world. Who doesn't have a Michael in
@@ -263,7 +263,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="carniques-ausa.png"
                 repository="carniques-ausa"
                 title="càrniques ausà"
-                url={`${process.env.PRODUCTION_URL_BASE}/carniques-ausa/`}
+                url={`${PRODUCTION_URL_BASE}/carniques-ausa/`}
             >
                 <p>
                     "It must have an interactive pig!". That was the sentence that convinced me to
@@ -318,7 +318,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="vue-personal-page.png"
                 repository="vue-personal-page"
                 title="vue.js"
-                url={`${process.env.PRODUCTION_URL_BASE}/vue-personal-page/`}
+                url={`${PRODUCTION_URL_BASE}/vue-personal-page/`}
             />
 
             <Project
@@ -326,7 +326,7 @@ export const Portfolio: React.FC<RouteChildrenProps> = () => (
                 image="angularjs-personal-page.png"
                 repository="angularjs-personal-page"
                 title="angular.js"
-                url={`${process.env.PRODUCTION_URL_BASE}/angularjs-personal-page/`}
+                url={`${PRODUCTION_URL_BASE}/angularjs-personal-page/`}
             />
 
             <Project
