@@ -332,7 +332,9 @@ export const english: ArticleContent = {
                 <Anchor url="https://github.com/capelski/react-ssr/compare/routing...data-fetching">
                     this change set
                 </Anchor>{' '}
-                for more details.
+                for more details and star the{' '}
+                <Anchor url="https://github.com/capelski/react-ssr">entire repository</Anchor> for
+                future reference. Happy coding!
             </p>
             <h3>Troubleshooting</h3>
             <ul>
