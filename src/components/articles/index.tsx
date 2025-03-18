@@ -19,6 +19,7 @@ import { persuasionInPictures } from './persuasion-in-pictures';
 import { progressiveWebApps } from './progressive-web-apps';
 import { provinencaDesconeguda } from './provinenca-desconeguda';
 import { reactNativeFirebaseAuth } from './react-native-firebase-auth';
+import { reactSsr } from './react-ssr';
 import { stadiaPlatform } from './stadia-platform';
 import { subscribersList } from './subscribers-list';
 import { sudokuGeneration } from './sudoku-generation';
@@ -67,5 +68,6 @@ export const articles = [
     otfMigrations,
     webApiProxyMigration,
     minimalisticTranslation,
-    jiraGoogleSheets
+    jiraGoogleSheets,
+    reactSsr
 ].reverse();
