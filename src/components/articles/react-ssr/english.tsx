@@ -258,7 +258,7 @@ export const english: ArticleContent = {
             />
             <p>
                 While the client version works, it turns out the server rendered HTML doesn't
-                contain the list of user names. This happens because React doesn't trigger
+                contain the list of user names. This happens because React doesn't trigger{' '}
                 <InlineSnippet>useEffect</InlineSnippet> hooks outside of the browser. Since we want
                 the server rendered HTML to include the list of user names, we will need to fetch
                 them outside of the hooks.
@@ -344,8 +344,6 @@ export const english: ArticleContent = {
                         react, react-dom, react-router, etc.).
                     </p>
                     <BlockSnippet>
-                        [nodemon] starting `ts-node source/server.ts`
-                        <br />
                         Error: Cannot find module 'react'
                         <br />
                         Require stack:
