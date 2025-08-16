@@ -1,6 +1,6 @@
 import { agilityRocks } from './agility-rocks';
 import { androidAppPublishing } from './android-app-publishing';
-import { dynamicSitemap } from './dynamic-sitemap-firestore';
+import { dynamicSitemap } from './dynamic-sitemap';
 import { existentialInjustice } from './existential-injustice';
 import { expoPushNotifications } from './expo-push-notifications';
 import { expoSocialSignIn } from './expo-social-sign-in';
