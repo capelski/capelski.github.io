@@ -1,16 +1,17 @@
 {
     "cSpell.words": [
-        "Wikiloc",
         "backgrounded",
         "backports",
         "carlescapellas",
         "certbot",
         "dominio",
         "don",
+        "Firestore",
         "mailgun",
         "mailjet",
         "multisite",
         "unstyled",
+        "Wikiloc",
         "wpforms"
     ],
     "editor.codeActionsOnSave": {

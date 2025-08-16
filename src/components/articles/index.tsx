@@ -1,5 +1,6 @@
 import { agilityRocks } from './agility-rocks';
 import { androidAppPublishing } from './android-app-publishing';
+import { dynamicSitemap } from './dynamic-sitemap-firestore';
 import { existentialInjustice } from './existential-injustice';
 import { expoPushNotifications } from './expo-push-notifications';
 import { expoSocialSignIn } from './expo-social-sign-in';
@@ -69,5 +70,6 @@ export const articles = [
     webApiProxyMigration,
     minimalisticTranslation,
     jiraGoogleSheets,
-    reactSsr
+    reactSsr,
+    dynamicSitemap
 ].reverse();

@@ -33,5 +33,6 @@ export enum ArticleId {
     webApiProxyMigration = 'web-api-proxy-migration',
     minimalisticTranslation = 'minimalistic-translation',
     jiraGoogleSheets = 'jira-google-sheets',
-    reactSsr = 'react-ssr'
+    reactSsr = 'react-ssr',
+    dynamicSitemap = 'dynamic-sitemap'
 }
