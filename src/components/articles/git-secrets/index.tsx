@@ -9,7 +9,7 @@ export const gitSecrets: Article = {
     metadata: {
         category: ArticleCategory.tech,
         date: '2026-03-03',
-        duration: 6,
+        duration: 9,
         id: ArticleId.gitSecrets,
         languages: [Language.en],
         shareImage: 'secure-storage.jpg'
