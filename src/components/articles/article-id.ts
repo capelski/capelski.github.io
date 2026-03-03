@@ -1,3 +1,7 @@
+/** Set of unique IDs used to identify articles and build their URL.
+ *
+ * Compiled to plain JS separately for prerendering via webpack. See the build:article-id script in package.json.
+ */
 export enum ArticleId {
     agilityRocks = 'agility-rocks',
     leakedApiKey = 'leaked-api-key',
