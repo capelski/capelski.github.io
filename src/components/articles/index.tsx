@@ -7,6 +7,7 @@ import { expoSocialSignIn } from './expo-social-sign-in';
 import { expressOnGoogleCloud } from './express-on-google-cloud';
 import { expressTypedApi } from './express-typed-api';
 import { fourCoinChallenge } from './four-coin-challenge';
+import { gitSecrets } from './git-secrets';
 import { iosAppPublishing } from './ios-app-publishing';
 import { jiraGoogleSheets } from './jira-google-sheets';
 import { kanbanGoalsTracking } from './kanban-goals-tracking';
@@ -71,5 +72,6 @@ export const articles = [
     minimalisticTranslation,
     jiraGoogleSheets,
     reactSsr,
-    dynamicSitemap
+    dynamicSitemap,
+    gitSecrets
 ].reverse();

@@ -34,5 +34,6 @@ export enum ArticleId {
     minimalisticTranslation = 'minimalistic-translation',
     jiraGoogleSheets = 'jira-google-sheets',
     reactSsr = 'react-ssr',
-    dynamicSitemap = 'dynamic-sitemap'
+    dynamicSitemap = 'dynamic-sitemap',
+    gitSecrets = 'git-secrets'
 }
