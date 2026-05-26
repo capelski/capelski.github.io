@@ -45,12 +45,12 @@ export const english: ArticleContent = {
                 footer="Dashboard responsible for the inefficient queries"
             />
             <p>
-                It turns out this dashboard displays several stages which are customizable by the
-                user. Each stage displays several dials at its turn and each dial requires one or
-                more queries to fetch the necessary data. When the page was designed we assumed that
-                3 or 4 stages would be plenty for most users. Some of them however, hungry for
-                insights about their activities, started adding more stages to the dashboard. Up to
-                13 stages in the worst case, which elevated the number of queries up to 150.
+                This dashboard displays several stages which are customizable by the user. Each
+                stage displays several dials at its turn and each dial requires one or more queries
+                to fetch the necessary data. When the page was designed we assumed that 3 or 4
+                stages would be plenty for most users. Some of them however, hungry for insights
+                about their activities, started adding more stages to the dashboard. Up to 13 stages
+                in the worst case, which elevated the number of queries up to 150.
             </p>
             <ArticleImage
                 articleId={ArticleId.mongoDbOptimization}
@@ -66,7 +66,7 @@ export const english: ArticleContent = {
             </p>
             <h3>Design flaws</h3>
             <p>
-                Truth to be told, the dashboard page had a couple of issues that contributed to the
+                Database aside, the dashboard page had a couple of issues that contributed to the
                 bad performance. The degradation episodes brought our attention to them and we had
                 to iron them out before digging into the database queries themselves. Here are a few
                 issues we identified and fixed:
@@ -104,14 +104,14 @@ export const english: ArticleContent = {
                     <ReactGist id="9e6a034ac9c40a4d2ab13c966d7c0d42" />
                 </li>
             </ul>
-            <h3>Meet the profiler</h3>
             <p>
-                After the improvements described above the dashboard page stopped impacting the
-                performance of the system as much as it did before. The dashboard was still taking a
-                long time to load in environments with large datasets however (e.g. in some
-                environments we have collections with 3 million records). At this point we were
-                determined to get to the bottom of it and optimize the queries for good.
+                After these improvements, the dashboard page stopped impacting the performance of
+                the system. The dashboard was still taking a long time to load in environments with
+                large datasets however (e.g. in some environments we have collections with 3 million
+                records). At this point we were determined to get to the bottom of it and optimize
+                the queries for good.
             </p>
+            <h3>Meet the profiler</h3>
             <p>
                 Here is where the native MongoDB tooling comes into play. The{' '}
                 <Anchor url="https://www.mongodb.com/docs/manual/tutorial/manage-the-database-profiler/">
@@ -260,11 +260,11 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                In the example above the plan summary told us the query was indeed using an index
-                (i.e. IXSCAN), but not the one we expected. Our collections have several composite
-                indexes, which our dashboard was supposed to be using, and the query planner was
-                failing to pick the one that would have covered all the properties we are filtering
-                by. This can be fixed by by providing the name of the corresponding index via the{' '}
+                The plan summary told us the query was indeed using an index (i.e. IXSCAN), but not
+                the one we expected. Our collections have several composite indexes, which our
+                dashboard was supposed to be using, and the query planner was not picking the one
+                that would have covered all the properties we are filtering by. This can be fixed by
+                providing the name of the corresponding index via the{' '}
                 <InlineSnippet>hint</InlineSnippet> optional parameter.
             </p>
             <p>
