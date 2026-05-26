@@ -15,6 +15,7 @@ import { leakedApiKey } from './leaked-api-key';
 import { linearGradient } from './linear-gradient';
 import { meaningOfLife } from './meaning-of-life';
 import { minimalisticTranslation } from './minimalistic-translation';
+import { mongoDbOptimization } from './mongo-db-optimization';
 import { npmPackagesDevelopment } from './npm-packages-development';
 import { otfMigrations } from './otf-migrations';
 import { persuasionInPictures } from './persuasion-in-pictures';
@@ -73,5 +74,6 @@ export const articles = [
     jiraGoogleSheets,
     reactSsr,
     dynamicSitemap,
-    gitSecrets
+    gitSecrets,
+    mongoDbOptimization
 ].reverse();

@@ -5,11 +5,12 @@ export interface ObjectViewProps {
 }
 
 export const ObjectView: React.FC<ObjectViewProps> = (props) => {
-    return <ObjectViewRecursive parentPrefix="" object={props.object} />;
+    return <ObjectViewRecursive isArrayMember={false} level={0} object={props.object} />;
 };
 
 interface ObjectViewRecursiveProps {
-    parentPrefix: string;
+    isArrayMember: boolean;
+    level: number;
     object: any;
 }
 
@@ -20,6 +21,12 @@ const ObjectViewRecursive: React.FC<ObjectViewRecursiveProps> = (props) => {
     const isUndefined = props.object === undefined;
     const isNull = props.object === null;
     const isObject = !isNull && typeof props.object === 'object';
+
+    const indentation = '\u00A0\u00A0';
+    const currentIndentation = indentation.repeat(props.level);
+    const nextLevel = props.level + 1;
+    const nextIndentation = indentation.repeat(nextLevel);
+    const isRootObject = props.level === 0;
 
     return (
         <React.Fragment>
@@ -36,21 +43,19 @@ const ObjectViewRecursive: React.FC<ObjectViewRecursiveProps> = (props) => {
             ) : undefined}
 
             {isObject ? (
-                (() => {
-                    const nextParentPrefix = `${props.parentPrefix}\u00A0\u00A0\u00A0`;
-                    return Object.keys(props.object).map((key) => {
-                        return (
-                            <React.Fragment key={key}>
-                                {nextParentPrefix}
-                                {!isArray && <React.Fragment>"{key}": </React.Fragment>}
-                                <ObjectViewRecursive
-                                    parentPrefix={nextParentPrefix}
-                                    object={props.object[key]}
-                                />
-                            </React.Fragment>
-                        );
-                    });
-                })()
+                Object.keys(props.object).map((key) => {
+                    return (
+                        <React.Fragment key={key}>
+                            {nextIndentation}
+                            {!isArray && <React.Fragment>"{key}": </React.Fragment>}
+                            <ObjectViewRecursive
+                                isArrayMember={isArray}
+                                level={nextLevel}
+                                object={props.object[key]}
+                            />
+                        </React.Fragment>
+                    );
+                })
             ) : (
                 <React.Fragment>
                     {isString && '"'}
@@ -64,21 +69,23 @@ const ObjectViewRecursive: React.FC<ObjectViewRecursiveProps> = (props) => {
                         ? 'null'
                         : props.object}
                     {isString && '"'}
+                    {props.isArrayMember && ','}
                     <br />
                 </React.Fragment>
             )}
 
             {isArray ? (
                 <React.Fragment>
-                    {props.parentPrefix}
+                    {currentIndentation}
                     {']'}
-                    <br />
+                    {!isRootObject && <br />}
                 </React.Fragment>
             ) : isObject ? (
                 <React.Fragment>
-                    {props.parentPrefix}
+                    {currentIndentation}
                     {'}'}
-                    <br />
+                    {props.isArrayMember && ','}
+                    {!isRootObject && <br />}
                 </React.Fragment>
             ) : undefined}
         </React.Fragment>

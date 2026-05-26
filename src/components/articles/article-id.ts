@@ -39,5 +39,6 @@ export enum ArticleId {
     jiraGoogleSheets = 'jira-google-sheets',
     reactSsr = 'react-ssr',
     dynamicSitemap = 'dynamic-sitemap',
-    gitSecrets = 'git-secrets'
+    gitSecrets = 'git-secrets',
+    mongoDbOptimization = 'mongo-db-optimization'
 }
