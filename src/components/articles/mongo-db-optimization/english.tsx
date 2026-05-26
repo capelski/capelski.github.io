@@ -11,8 +11,7 @@ import { ObjectView } from '../object-view';
 export const english: ArticleContent = {
     title: 'Optimizing MongoDB queries with system.profile',
     description: 'How to optimize MongoDB queries using the system.profile collection',
-    shareSentence:
-        'Optimize your MongoDB queries with system.profile before they bring down your environment',
+    shareSentence: 'Optimize your MongoDB queries before they bring down your environment',
     introduction: (
         <p>
             Inefficient database queries can get the job done for a while but they are bound to
