@@ -275,7 +275,7 @@ export const english: ArticleContent = {
                 it turned out to be the case on the <InlineSnippet>aggregate</InlineSnippet> query
                 we use in the dashboard. Following a suggestion from Claude Code, we turned the{' '}
                 <InlineSnippet>
-                    {'{'} healthyEyes: $exists {'}'}
+                    {'{'} healthyEyes: {'{'} $exists: true {'}'} {'}'}
                 </InlineSnippet>{' '}
                 clause into{' '}
                 <InlineSnippet>
