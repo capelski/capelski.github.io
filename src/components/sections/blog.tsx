@@ -4,8 +4,9 @@ import { NavLink, RouteChildrenProps } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { Article } from '../article';
 import { articles } from '../articles';
-import { ArticleCategory, AllArticleCategories } from '../articles/article-category';
+import { AllArticleCategories, ArticleCategory } from '../articles/article-category';
 import { Language } from '../articles/language';
+import PatreonBadge from '../patreon-badge';
 import { portfolioRoute } from '../routes';
 import { SectionContainer } from '../section-container';
 import { transitionsDuration } from '../variables';
@@ -56,6 +57,7 @@ export const Blog: React.FC<BlogProps> = (props) => {
                         ))}
                     </div>
                 </div>
+                <PatreonBadge />
                 {AllArticleCategories.map((category) => (
                     <CSSTransition
                         classNames="articles"

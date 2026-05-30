@@ -1,7 +1,8 @@
 @import './variables.scss';
 
 @mixin articleEnterAnimation($animationTime) {
-    .article-info {
+    .article-info,
+    .patreon-badge {
         opacity: 0;
         animation: slide-in-down $animationTime forwards;
         animation-delay: $animationSegmentTime * 2;
@@ -15,7 +16,8 @@
 }
 
 @mixin articleExitAnimation($animationTime) {
-    .article-info {
+    .article-info,
+    .patreon-badge {
         animation: slide-out-up $animationTime forwards;
     }
 

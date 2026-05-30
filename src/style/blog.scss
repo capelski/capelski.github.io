@@ -93,7 +93,8 @@
             animation: slide-in-left $animationSegmentTime forwards;
         }
 
-        .section-links a {
+        .section-links a,
+        .patreon-badge {
             opacity: 0;
             animation: slide-in-left $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime;
@@ -110,7 +111,8 @@
             animation-delay: $animationSegmentTime * 3;
         }
 
-        .section-links a {
+        .section-links a,
+        .patreon-badge {
             animation: slide-out-left $animationSegmentTime forwards;
             animation-delay: $animationSegmentTime * 2;
         }
