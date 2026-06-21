@@ -14,15 +14,15 @@ export const english: ArticleContent = {
             Imagine playing Blackjack with the pile of cards facing upwards. You would know which
             card is coming next at any time and you would never bust. You would continue to ask for
             the next card as long as adding that card to your hand keeps your score below 22. You
-            would not win every hand but your odds of winning money on the long run would skyrocket.
+            would not win every hand but your odds of winning money in the long run would skyrocket.
         </p>
     ),
     body: (
         <React.Fragment>
             <p>
-                Imagine you have a 15. If the next card was a 3 you would hit and turn it to an 18.
-                If the next card was an 8 instead hitting would make you bust: you would stand and
-                hope the dealer to go bust. In both cases the dealer might end up with a score
+                Imagine you have a 15. If the next card was a 3, you would hit and turn it to an 18.
+                If the next card was an 8 instead, hitting would make you bust: you would stand and
+                hope the dealer to go bust. In both cases, the dealer might end up with a score
                 higher than yours, but having the information about the next card simplifies your
                 decision making as you no longer need to worry about busting.
             </p>
@@ -40,12 +40,12 @@ export const english: ArticleContent = {
             />
             <p>
                 Not many casinos are interested in giving you that much advantage unfortunately. In
-                fact casinos want you to bust. When both you and the dealer bust the casino takes
+                fact, casinos want you to bust. When both you and the dealer bust, the casino takes
                 your money even before the dealer draws their hand. That's what makes the game
-                profitable for the house. In a fair game both players being eliminated should result
-                in a draw, right? In the game of Blackjack it doesn't happen this way. Casinos want
-                the certainty they will make money at the end of the day and a perfectly fair game
-                doesn't offer this certainty.
+                profitable for the house. In a fair game, both players being eliminated should
+                result in a draw, right? In the game of Blackjack it doesn't happen this way.
+                Casinos want the certainty they will make money at the end of the day and a
+                perfectly fair game doesn't offer this certainty.
             </p>
             <p>
                 <i>
@@ -72,10 +72,10 @@ export const english: ArticleContent = {
                 and they don't need to memorize the exact cards that have been dealt.
             </p>
             <p>
-                The most popular system for card counting is the Hi-Lo system which divides cards
+                The most popular system for card counting is the Hi-Lo system, which divides cards
                 into three categories. Low cards (2, 3, 4, 5, 6), high cards (10, J, Q, K, A) and
-                neutral cards (7, 8, 9). Low cards add 1 to the running count, high cards subtract
-                1, and neutral cards don't affect the count.
+                neutral cards (7, 8, 9). Low cards add 1 to the running count, high cards subtract 1
+                and neutral cards don't affect the count.
             </p>
             <p>
                 When the running count is positive, it indicates a higher proportion of high cards
@@ -90,7 +90,7 @@ export const english: ArticleContent = {
                 footer="Card counting example"
             />
             <p>
-                Many people won considerable amounts of money using card counting:{' '}
+                Many people have won considerable amounts of money using card counting:{' '}
                 <Anchor url="https://www.imdb.com/title/tt0478087/">21 Blackjack</Anchor> is a great
                 movie to daydream of becoming rich by counting cards. Unfortunately, card counting
                 requires serious skills from the player and casinos can take measures against it
@@ -99,8 +99,8 @@ export const english: ArticleContent = {
             </p>
             <h4>Empirical analysis</h4>
             <p>
-                Let's run a simple experiment. Set a 15-point hand, deal a card and write down the
-                dealt card and the resulting score. Then pick the dealt card back and shuffle it
+                Let's run a simple experiment. Set a 15-point hand, deal a card and write down both
+                the dealt card and the resulting score. Then pick the dealt card back and shuffle it
                 into the deck. Repeat this for a large number of times and you will end up with a
                 list similar to the one below.
             </p>
@@ -122,7 +122,7 @@ export const english: ArticleContent = {
                 ]}
             />
             <p>
-                After repeating the experiment many times we can group each row in the table above
+                After repeating the experiment many times, we can group each row in the table above
                 by the resulting score and obtain the number of times we ended up with each score.
                 This is what the grouped table looks like after running the experiment 100 times.
                 Your results might vary slightly but the overall distribution should not be far off.
@@ -146,21 +146,28 @@ export const english: ArticleContent = {
                 end up with a score of 16, insufficient to beat the dealer. In other words, drawing
                 a card with a 15 will lead to a bad outcome in 56 + 9 = 65 out of 100 times. We
                 still don't know what the next card will be but, in absence of other information,
-                standing seems like the best option.
+                drawing a card seems like a risky move.
             </p>
+
+            <ArticleImage
+                alt="Sample 15 hand about to bust"
+                articleId={ArticleId.blackjack01SolidDecisions}
+                className="image-600"
+                filename="sample-15-upcoming-bust.png"
+            />
             <p>
                 This empirical approach is perfectly valid but it has some limitations. On the one
                 hand, we are using one deck only instead of the 6-8 decks casinos use. And the way
                 we shuffle the cards is probably different from the way dealers or electronic
-                shufflers do. This variations might seem irrelevant but they can lead to significant
-                differences on the long run.
+                shufflers do. These variations might seem irrelevant but they can lead to
+                significant differences in the long run.
             </p>
             <p>
                 On the other hand, the results will only be accurate if we repeat the experiment a
-                large number of times. By running the experiment a 100 times we might get an
-                unlikely distribution of cards which will not be representative of the results on
-                the long run. To cancel out the chance of unlikely distributions, we would have to
-                run the experiment many more times. Doable, but slow.
+                large number of times. By running the experiment 100 times we might get an unlikely
+                distribution of cards which will not be representative of the results in the long
+                run. To cancel out the chance of unlikely distributions, we would have to run the
+                experiment many more times. Doable, but slow.
             </p>
             <h4>Statistical analysis</h4>
             <p>
@@ -177,7 +184,7 @@ export const english: ArticleContent = {
                 And that's how we end up getting to probability and statistics. Statistics is a
                 rather unpopular discipline but it turns out to be a useful tool for analyzing the
                 game of Blackjack. Antoine de Saint-Exupéry said: "Perfection is achieved, not when
-                there is nothing more to add, but when there is nothing left to take away". Bare
+                there is nothing more to add, but when there is nothing left to take away". Bear
                 with me as I use the absolute minimum necessary from here on. There are two
                 different ways of computing the table above using statistics.
             </p>
@@ -193,7 +200,7 @@ export const english: ArticleContent = {
                     </p>
                     <p>
                         This option is called <b>independent probability</b> model and this is what
-                        the probabilities of drawing each next card are for a 10,5 hand:
+                        the probabilities of next drawing each card are for a 10,5 hand:
                     </p>
                     <ResponsiveTable<[string, string, string, string]>
                         rows={[
@@ -217,7 +224,7 @@ export const english: ArticleContent = {
                         already.
                     </p>
                     <p>
-                        In the example above a 10 card and a 5 card have been dealt already and that
+                        In the example above, a 10 card and a 5 card have been dealt already. That
                         means there are only 3 more 10 cards and 3 more 5 cards left in the deck. It
                         also means there are 50 cards left in the deck instead of 52. Therefore, the
                         probability of drawing a 10 or a 5 is not 4/52 but 3/50. Similarly, the
@@ -225,7 +232,7 @@ export const english: ArticleContent = {
                     </p>
                     <p>
                         This option is called <b>dependent probability</b> model and this is what
-                        the probabilities of drawing each next card are for a 10,5 hand:
+                        the probabilities of next drawing each card are for a 10,5 hand:
                     </p>
                     <ResponsiveTable<[string, string, string, string]>
                         rows={[
