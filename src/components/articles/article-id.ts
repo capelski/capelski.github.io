@@ -40,5 +40,6 @@ export enum ArticleId {
     reactSsr = 'react-ssr',
     dynamicSitemap = 'dynamic-sitemap',
     gitSecrets = 'git-secrets',
-    mongoDbOptimization = 'mongo-db-optimization'
+    mongoDbOptimization = 'mongo-db-optimization',
+    blackjack01SolidDecisions = 'blackjack-01-solid-decisions'
 }
