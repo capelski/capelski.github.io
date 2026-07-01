@@ -33,7 +33,7 @@ export function ResponsiveTable<T extends Array<string>>(props: ResponsiveTableP
             <tbody style={blockStyle}>
                 {body.map((row, rowIndex) => {
                     return (
-                        <tr style={responsiveStyle}>
+                        <tr key={rowIndex} style={responsiveStyle}>
                             {row.map((cell, cellIndex) => (
                                 <td key={`${rowIndex}-${cellIndex}`}>{cell}</td>
                             ))}

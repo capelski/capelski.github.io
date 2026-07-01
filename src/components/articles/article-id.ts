@@ -41,5 +41,6 @@ export enum ArticleId {
     dynamicSitemap = 'dynamic-sitemap',
     gitSecrets = 'git-secrets',
     mongoDbOptimization = 'mongo-db-optimization',
-    blackjack01SolidDecisions = 'blackjack-01-solid-decisions'
+    blackjack01SolidDecisions = 'blackjack-01-solid-decisions',
+    blackjack02FinalScores = 'blackjack-02-final-scores'
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
@@ -8,7 +10,7 @@ import { ResponsiveTable } from '../responsive-table';
 export const english: ArticleContent = {
     title: 'Blackjack 01. Making solid decisions',
     description: 'How statistics help us making solid decisions in Blackjack',
-    shareSentence: 'Embracing statistics to improve your decision making in Blackjack',
+    shareSentence: 'Embrace statistics to improve your decision making in Blackjack',
     introduction: (
         <p>
             Imagine playing Blackjack with the pile of cards facing upwards. You would know which
@@ -273,9 +275,14 @@ export const english: ArticleContent = {
             <p>
                 This is how probability and statistics help us making solid decisions in Blackjack.
                 Now that we have set the foundations we can move on to more exciting ventures, such
-                as forecasting the final score. Let's recap the key points so far:
+                as{' '}
+                <NavLink
+                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
+                >
+                    forecasting the final score
+                </NavLink>
+                . Let's recap the key points so far:
             </p>
-            {/* TODO Link to forecasting */}
             <ul>
                 <li>Making decisions is difficult because we need to guess the next card</li>
                 <li>
