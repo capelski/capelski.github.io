@@ -37,18 +37,18 @@ export const english: ArticleContent = {
                 more.
             </p>
             <p>
-                It turns out we can exploit the dealer's strategy to forecast out how often they
-                will bust and how often they will end with each score in the range. This will not
-                help us making better decisions yet, but it will allows us to predict the game
-                outcome in the long run. To forecast the dealer's final score, we need a combination
-                of two things.
+                It turns out we can exploit the dealer's strategy to forecast how often they will
+                bust and how often they will end with each score in their range. This will not help
+                us making better decisions yet, but it will allows us to predict the game outcome in
+                the long run. To forecast the dealer's final score, we need a combination of two
+                things.
             </p>
             <p>
                 The first thing is a list of all the possible hands the dealer can end up with.
                 Generating such a list requires simulating every possible scenario the dealer can go
                 through, and writing down every hand with score of 17 or higher. It is a
                 time-consuming and error prone exercise but, fortunately, computers are very good at
-                completing this sort of tasks.
+                completing these sort of tasks.
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
@@ -58,27 +58,28 @@ export const english: ArticleContent = {
             />
             <ul>
                 <li>
-                    If the first card is an A and the second card is an A, the dealer's score is
-                    2/12; they will draw a third card
+                    If the 1st card is A and the 2nd card is A, the score is 2/12. The dealer draws
+                    a 3rd card. Simulation continues
                 </li>
                 <li>
-                    If the first card is an A, the second card is an A, and the third card is an A,
-                    the dealer's score is 3/13; they will draw a fourth card
-                </li>
-                <li>...</li>
-                <li>
-                    If the first card is an A, the second card is an A, and the third card is an 8,
-                    the dealer's score is 10/20; they will stop drawing
+                    If the 1st card is A, the 2nd card is A and the 3rd card is A, the score is
+                    3/13. The dealer draws a 4th card. Simulation continues
                 </li>
                 <li>...</li>
                 <li>
-                    If the first card is an A, the second card is an A, and the third card is a K,
-                    the dealer's score is 12; they will draw a third card
+                    If the 1st card is A, the 2nd card is A and the 3rd card is 8, the score is
+                    10/20. The dealer stops drawing. We write down the hand and skip further
+                    simulation
                 </li>
                 <li>...</li>
                 <li>
-                    If the first card is an A and the second card is a K, the dealer has a
-                    Blackjack; they will stop drawing
+                    If the 1st card is A, the 2nd card is A and the 3rd card is a K, the score is
+                    12. The dealer draws a 4th card. Simulation continues
+                </li>
+                <li>...</li>
+                <li>
+                    If the 1st card is A and the 2nd card is K, the score is blackjack. The dealer
+                    stops drawing. We write down the hand and skip further simulation{' '}
                 </li>
                 <li>...</li>
             </ul>
@@ -141,7 +142,7 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                Having both things we can now find out the probability of a dealer ending the game
+                Having both things we can now find out the probability of the dealer ending the game
                 with a specific score. We do so by grouping hands by final score. For example, the
                 hands A, A, A, A, A, A, A and 8, 9 will be part of the group with score 17. The
                 hands A, A, A, A, A, A, 2 and A, 2, 3, 2 will be part of the group with score 18.
