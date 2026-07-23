@@ -7,6 +7,7 @@ import { articles } from '../articles';
 import {
     AllArticleCategories,
     ArticleCategory,
+    defaultCategory,
     getCategoryKey
 } from '../articles/article-category';
 import { Language } from '../articles/language';
@@ -32,7 +33,11 @@ export const Blog: React.FC<BlogProps> = (props) => {
         setSelectedCategory(category);
 
         const params = new URLSearchParams(props.location.search);
-        params.set('category', getCategoryKey(category));
+        if (category === defaultCategory) {
+            params.delete('category');
+        } else {
+            params.set('category', getCategoryKey(category));
+        }
         props.history.replace({ search: params.toString() });
     };
 

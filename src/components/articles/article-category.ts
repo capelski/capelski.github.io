@@ -5,6 +5,9 @@ export enum ArticleCategory {
 
 export const AllArticleCategories: ArticleCategory[] = Object.values(ArticleCategory);
 
+/** Implicit default category; not persisted in the URL query string */
+export const defaultCategory = ArticleCategory.tech;
+
 /** URL-friendly key (e.g. "tech") for a given category value */
 export const getCategoryKey = (category: ArticleCategory): string =>
     Object.keys(ArticleCategory).find(
