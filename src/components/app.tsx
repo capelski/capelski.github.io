@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect, Route, RouteChildrenProps, useLocation } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { articles } from './articles';
-import { ArticleCategory } from './articles/article-category';
+import { ArticleCategory, getCategoryFromKey } from './articles/article-category';
 import { ArticleId } from './articles/article-id';
 import { articleRoute, blogRoute, errorRoute, routes, supportedRoutes } from './routes';
 import { transitionsDuration } from './variables';
@@ -19,7 +19,14 @@ const getInitialArticleId = (location: { pathname: string }) => {
     return isArticleUrl ? (urlParts[2] as ArticleId) : undefined;
 };
 
-const getInitialCategory = (location: { pathname: string }) => {
+const getInitialCategory = (location: { pathname: string; search: string }) => {
+    const categoryFromQuery = getCategoryFromKey(
+        new URLSearchParams(location.search).get('category')
+    );
+    if (categoryFromQuery) {
+        return categoryFromQuery;
+    }
+
     const initialArticleId = getInitialArticleId(location);
     let initialCategory = ArticleCategory.tech;
 

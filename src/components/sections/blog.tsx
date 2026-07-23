@@ -4,7 +4,11 @@ import { NavLink, RouteChildrenProps } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { Article } from '../article';
 import { articles } from '../articles';
-import { AllArticleCategories, ArticleCategory } from '../articles/article-category';
+import {
+    AllArticleCategories,
+    ArticleCategory,
+    getCategoryKey
+} from '../articles/article-category';
 import { Language } from '../articles/language';
 import PatreonBadge from '../patreon-badge';
 import { portfolioRoute } from '../routes';
@@ -23,6 +27,14 @@ export const Blog: React.FC<BlogProps> = (props) => {
     const [selectedCategory, setSelectedCategory] = useState<ArticleCategory>(
         props.selectedCategory
     );
+
+    const updateSelectedCategory = (category: ArticleCategory) => {
+        setSelectedCategory(category);
+
+        const params = new URLSearchParams(props.location.search);
+        params.set('category', getCategoryKey(category));
+        props.history.replace({ search: params.toString() });
+    };
 
     return (
         <SectionContainer
@@ -50,7 +62,7 @@ export const Blog: React.FC<BlogProps> = (props) => {
                                 className={`category${
                                     selectedCategory === category ? ' selected-category' : ''
                                 }`}
-                                onClick={() => setSelectedCategory(category)}
+                                onClick={() => updateSelectedCategory(category)}
                             >
                                 {category}
                             </span>
