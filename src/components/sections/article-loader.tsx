@@ -4,7 +4,7 @@ import { NavLink, RouteChildrenProps } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { Article } from '../article';
 import { articles } from '../articles';
-import { ArticleCategory } from '../articles/article-category';
+import { ArticleCategory, getCategoryKey } from '../articles/article-category';
 import { Language } from '../articles/language';
 import { articleRoute, blogRoute } from '../routes';
 import { SectionContainer } from '../section-container';
@@ -54,7 +54,13 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
         <SectionContainer
             links={
                 <React.Fragment>
-                    <NavLink to={blogRoute.path} className="link">
+                    <NavLink
+                        to={{
+                            pathname: blogRoute.path,
+                            search: `?category=${getCategoryKey(props.selectedCategory)}`
+                        }}
+                        className="link"
+                    >
                         ⬇️ Blog
                     </NavLink>
                 </React.Fragment>
