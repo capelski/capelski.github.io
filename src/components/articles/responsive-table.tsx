@@ -1,6 +1,8 @@
 import React, { CSSProperties } from 'react';
 
 export type ResponsiveTableProps<T extends Array<string>> = {
+    /** When set to true the first row is not rendered in bold. Defaults to false */
+    headerless?: boolean;
     rows: T[];
 };
 
@@ -24,8 +26,11 @@ export function ResponsiveTable<T extends Array<string>>(props: ResponsiveTableP
             <thead style={blockStyle}>
                 <tr style={responsiveStyle}>
                     {headers.map((header, index) => (
-                        <th key={index}>
-                            <b>{header}</b>
+                        <th
+                            key={index}
+                            style={{ fontWeight: props.headerless ? 'normal' : 'bold' }}
+                        >
+                            {header}
                         </th>
                     ))}
                 </tr>

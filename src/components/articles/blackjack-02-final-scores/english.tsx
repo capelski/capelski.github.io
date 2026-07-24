@@ -9,7 +9,8 @@ import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
     title: 'Blackjack 02. Forecasting final scores',
-    description: 'How to forecast the expected final scores of a player from their strategy',
+    description:
+        'How to forecast the expected final scores of any Blackjack player through their strategy',
     shareSentence: 'Did you know the dealer busts in 1 out of every 4 hands in Blackjack?',
     introduction: (
         <p>
@@ -39,9 +40,9 @@ export const english: ArticleContent = {
             <p>
                 It turns out we can exploit the dealer's strategy to forecast how often they will
                 bust and how often they will end with each score in their range. This will not help
-                us making better decisions yet, but it will allows us to predict the game outcome in
-                the long run. To forecast the dealer's final score, we need a combination of two
-                things.
+                us making better decisions yet, but it will allows us to predict the earnings of our
+                decision making in the long run. To forecast the dealer's final score, we need a
+                combination of two things.
             </p>
             <p>
                 The first thing is a list of all the possible hands the dealer can end up with.
@@ -183,13 +184,14 @@ export const english: ArticleContent = {
                 can tell us about the dealer's results?
             </p>
             <p>
-                In fact, this approach is not limited to the dealer. We can use the same calculation
-                to find the expected outcomes of any player with a defined strategy. For example,
-                these are the expected final scores for a player who draws to 14 and stands on 15.
-                Having the final scores on both sides, we can start predicting the game outcome by
-                comparing our expected scores with the dealer's expected scores.
+                In fact, this approach is not limited to the dealer. We can use the same method to
+                find the expected outcomes of any player with a defined strategy. These are the
+                expected final scores for a common player strategy: drawing to 14 and standing on
+                15. In the next chapter,{' '}
+                <NavLink to={ArticleId.blackjack03PredictingEarnings}>predicting outcomes</NavLink>,
+                we will use these final scores to evaluate the expected earnings of a given
+                strategy.
             </p>
-            {/* TODO Link to next episode */}
             <ResponsiveTable<[string, string, string]>
                 rows={[
                     ['Score', 'Combinations', 'Probability'],
@@ -211,6 +213,18 @@ export const english: ArticleContent = {
                     <Anchor url="https://capelski.github.io/blackjack-stats/en/threshold/scores?t=15">
                         https://capelski.github.io/blackjack-stats/en/threshold/scores?t=15
                     </Anchor>
+                </i>
+            </p>
+            <p>
+                <i>
+                    The "Draw to 14" strategy feels intuitive because 15 is the lowest score where
+                    the probability of busting by drawing a card is bigger than 50%. Using the
+                    independent probability model, introduced in{' '}
+                    <NavLink to={ArticleId.blackjack01SolidDecisions}>chapter 1</NavLink>, the risk
+                    of busting with a score of 15 equals 7 cards (7, 8, 9, 10, J, Q, K) out of 13,
+                    or 53.85%. This means that, by drawing a card, the player busts more often than
+                    they keep their hand alive. This therefore feels like a natural point to stop
+                    drawing cards.
                 </i>
             </p>
         </React.Fragment>

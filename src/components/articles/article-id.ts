@@ -42,5 +42,6 @@ export enum ArticleId {
     gitSecrets = 'git-secrets',
     mongoDbOptimization = 'mongo-db-optimization',
     blackjack01SolidDecisions = 'blackjack-01-solid-decisions',
-    blackjack02FinalScores = 'blackjack-02-final-scores'
+    blackjack02FinalScores = 'blackjack-02-final-scores',
+    blackjack03PredictingEarnings = 'blackjack-03-predicting-earnings'
 }

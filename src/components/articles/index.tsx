@@ -2,6 +2,7 @@ import { agilityRocks } from './agility-rocks';
 import { androidAppPublishing } from './android-app-publishing';
 import { blackjack01SolidDecisions } from './blackjack-01-solid-decisions';
 import { blackjack02FinalScores } from './blackjack-02-final-scores';
+import { blackjack03PredictingEarnings } from './blackjack-03-predicting-earnings';
 import { dynamicSitemap } from './dynamic-sitemap';
 import { existentialInjustice } from './existential-injustice';
 import { expoPushNotifications } from './expo-push-notifications';
@@ -79,5 +80,6 @@ export const articles = [
     gitSecrets,
     mongoDbOptimization,
     blackjack01SolidDecisions,
-    blackjack02FinalScores
+    blackjack02FinalScores,
+    blackjack03PredictingEarnings
 ].reverse();
