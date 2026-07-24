@@ -265,7 +265,7 @@ export const english: ArticleContent = {
                 one of them. If you were to take away only one thing from these series of chapters
                 on Blackjack, let it be this: draw to 15 and never do it on 16. In the next chapter,
                 finding optimal actions, we will be using the edge indicator to find out which
-                action yields the most earnings for any given score.
+                action yields the most earnings for every possible score.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[

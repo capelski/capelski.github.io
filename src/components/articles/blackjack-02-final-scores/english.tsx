@@ -185,12 +185,11 @@ export const english: ArticleContent = {
             </p>
             <p>
                 In fact, this approach is not limited to the dealer. We can use the same method to
-                find the expected outcomes of any player with a defined strategy. These are the
+                find the expected final scores of any player with a defined strategy. These are the
                 expected final scores for a common player strategy: drawing to 14 and standing on
                 15. In the next chapter,{' '}
-                <NavLink to={ArticleId.blackjack03PredictingEarnings}>predicting outcomes</NavLink>,
-                we will use these final scores to evaluate the expected earnings of a given
-                strategy.
+                <NavLink to={ArticleId.blackjack03PredictingEarnings}>predicting earnings</NavLink>,
+                we will use these final scores to predict the expected earnings of a given strategy.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
