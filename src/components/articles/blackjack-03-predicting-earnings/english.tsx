@@ -208,15 +208,16 @@ export const english: ArticleContent = {
                 earnings an strategy yields, and it is often called <b>edge</b> in the Blackjack
                 community.
             </p>
-            <ul>
-                <li>37.56% wins * +1 bet = +37.56% bets</li>
-                <li>4.51% blackjack wins * +3/2 bets = +6.77% bets</li>
-                <li>8.33% pushes * +0 bets = +0 bets</li>
-                <li>49.60% losses * -1 bet = -49.60% bets</li>
-                <li>
-                    <b>Edge:</b> +37.56% bets + 6.77% bets + 0 bets - 49.60% bets = -5.27% bets
-                </li>
-            </ul>
+            <ResponsiveTable<[string, string, string, string]>
+                headerless={true}
+                rows={[
+                    ['Wins', '37.56%', '+1 bet', '+37.56% bets'],
+                    ['Blackjack wins', '4.51%', '+3/2 bets', '+6.77% bets'],
+                    ['Pushes', '8.33%', '+0 bets', '+0 bets'],
+                    ['Losses', '49.60%', '-1 bet', '-49.60% bets'],
+                    ['Edge', '', '', '-5.27% bets']
+                ]}
+            />
             <p>
                 The edge tells us the percentage of our bet size that we can expect to win or lose
                 per round on average. If the edge is negative, the game favours the dealer and we
@@ -262,10 +263,9 @@ export const english: ArticleContent = {
                 In addition, the edge indicator allows us to compare different strategies. Here are
                 the indicators for different simple strategies. As you can see, the "Draw to 15"
                 strategy is the one with the highest edge value and is therefore the most profitable
-                one of them. If you were to take away only one thing from these series of chapters
-                on Blackjack, let it be this: draw to 15 and never do it on 16. In the next chapter,
-                finding optimal actions, we will be using the edge indicator to find out which
-                action yields the most earnings for every possible score.
+                one of them. In the next chapter, choosing optimal actions, we will be using the
+                edge indicator to find out which action yields the most earnings for every possible
+                score.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[
