@@ -214,6 +214,16 @@ export const english: ArticleContent = {
                     </Anchor>
                 </i>
             </p>
+            <p>
+                <i>
+                    The "Stand on 15" strategy feels intuitive because 15 is the lowest score where
+                    the probability of busting by drawing a card is bigger than 50%. Using the
+                    independent probability model, the risk of busting with a score of 15 equals 7
+                    cards (7, 8, 9, 10, J, Q, K) out of 13, or 53.85%. This means that, by drawing a
+                    card, the player busts more often than they keep their hand alive. This
+                    therefore feels like a natural point to stop drawing cards.
+                </i>
+            </p>
         </React.Fragment>
     )
 };

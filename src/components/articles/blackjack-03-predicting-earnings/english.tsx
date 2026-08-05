@@ -43,7 +43,7 @@ export const english: ArticleContent = {
             <p>
                 That is losing 55€ over the course of 100 bets. Quite a disappointing outcome. Is
                 there any way we could have predicted that outcome before starting to play? Let's
-                see how close to it we can get. We know the player's strategy: "Draw to 14". With
+                see how close to it we can get. We know the player's strategy: "Stand on 15". With
                 that we can obtain their expected final scores, using the method we described in
                 chapter 2 (
                 <NavLink
@@ -83,7 +83,7 @@ export const english: ArticleContent = {
                 the two scores, we can tell the outcome of the game for each scenario. For example,
                 when the player has a score of 15 and the dealer has a score of 17, the player
                 loses. When the player has a score of 20 and the dealer has a score of 18, the
-                player wins. And so on. Here is the matrix of scenarios for the "Draw to 14"
+                player wins. And so on. Here is the matrix of scenarios for the "Stand on 15"
                 strategy.
             </p>
             <ResponsiveTable<[string, string, string, string, string, string, string, string]>
@@ -186,8 +186,8 @@ export const english: ArticleContent = {
                 <li>Losses = 1.93% + 1.85% + 1.77% + ... = 49.60%</li>
             </ul>
             <p>
-                These grouped probabilities start drawing a picture for the "Draw to 14" strategy. A
-                picture that tells us, for example, that the cautious player loses more often than
+                These grouped probabilities start drawing a picture for the "Stand on 15" strategy.
+                A picture that tells us, for example, that the cautious player loses more often than
                 they win. The picture doesn't convey how the higher number of losses affects our
                 earnings over time however. Since it is earnings we are interested in, we will want
                 to translate each outcome into earnings. A convenient way of doing so is by
@@ -222,8 +222,8 @@ export const english: ArticleContent = {
                 The edge tells us the percentage of our bet size that we can expect to win or lose
                 per round on average. If the edge is negative, the game favours the dealer and we
                 can expect to lose money at the end of the day. Conversely, if the edge is positive,
-                the game favours the player and we can expect to win money. The edge for the "Draw
-                to 14" strategy tells us that, on average, we can expect our pot to decrease by
+                the game favours the player and we can expect to win money. The edge for the "Stand
+                on 15" strategy tells us that, on average, we can expect our pot to decrease by
                 5.27% of the bet size per round.
             </p>
             <p>
@@ -261,23 +261,30 @@ export const english: ArticleContent = {
             </p>
             <p>
                 In addition, the edge indicator allows us to compare different strategies. Here are
-                the indicators for different simple strategies. As you can see, the "Draw to 15"
-                strategy is the one with the highest edge value and is therefore the most profitable
-                one of them. In the next chapter, choosing optimal actions, we will be using the
-                edge indicator to find out which action yields the most earnings for every possible
-                score.
+                the indicators for different simple strategies. The "Stand on 16" strategy is the
+                one with the highest edge value and is therefore the most profitable one of them. In
+                the next chapter,{' '}
+                <NavLink to={ArticleId.blackjack04OptimalActions}>choosing optimal actions</NavLink>
+                , we will be using the edge indicator to find out which action yields the most
+                earnings for every possible score.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[
                     ['Strategy', 'Edge'],
-                    ['Draw to 11', '-8.08%'],
-                    ['Draw to 12', '-6.82%'],
-                    ['Draw to 13', '-5.82%'],
-                    ['Draw to 14', '-5.28%'],
-                    ['Draw to 15', '-5.21%'],
-                    ['Draw to 16', '-5.67%'],
-                    ['Draw to 17', '-9.00%']
+                    ['Stand on 12', '-8.08%'],
+                    ['Stand on 13', '-6.82%'],
+                    ['Stand on 14', '-5.82%'],
+                    ['Stand on 15', '-5.28%'],
+                    ['Stand on 16', '-5.21%'],
+                    ['Stand on 17', '-5.67%'],
+                    ['Stand on 18', '-9.00%']
                 ]}
+            />
+            <ArticleImage
+                articleId={ArticleId.blackjack03PredictingEarnings}
+                alt="Chart showing the edge values of several 'Stand on X' strategies against the X values"
+                className="image-600"
+                filename="stand-score-vs-edge.png"
             />
         </React.Fragment>
     )
