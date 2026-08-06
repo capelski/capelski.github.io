@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import { Article } from '../article';
 import { articles } from '../articles';
 import { ArticleCategory, defaultCategory, getCategoryKey } from '../articles/article-category';
-import { Language } from '../articles/language';
+import { defaultLanguage, getLanguageFromKey, Language } from '../articles/language';
 import { articleRoute, blogRoute } from '../routes';
 import { SectionContainer } from '../section-container';
 import { transitionsDuration } from '../variables';
@@ -18,13 +18,25 @@ export interface ArticleLoaderAdditionalProps {
 export type ArticleLoaderProps = RouteChildrenProps<{ articleId?: string }> &
     ArticleLoaderAdditionalProps;
 
+const getInitialLanguage = (search: string, articleId?: string) => {
+    const languageFromQuery = getLanguageFromKey(new URLSearchParams(search).get('language'));
+    const article = articles.find((a) => a.metadata.id === articleId);
+
+    // Ignore languages the article has not been written in
+    return languageFromQuery && article?.metadata.languages.includes(languageFromQuery)
+        ? languageFromQuery
+        : defaultLanguage;
+};
+
 export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
     const articleIdInUrl = props.match?.params['articleId'];
 
     // We need to keep an owned copy of props.match?.params['articleId'] value
     // to control css exit transitions
     const [currentArticleId, setCurrentArticleId] = useState(articleIdInUrl);
-    const [selectedLanguage, setSelectedLanguage] = useState(Language.en);
+    const [selectedLanguage, setSelectedLanguage] = useState(() =>
+        getInitialLanguage(props.location.search, articleIdInUrl)
+    );
 
     const viewportRef = useRef<HTMLDivElement>(null);
     const filteredArticles = articles.filter(
@@ -37,8 +49,20 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
         articleIdInUrl && setCurrentArticleId(articleIdInUrl);
     }, [articleIdInUrl]);
 
+    const updateSelectedLanguage = (language: Language) => {
+        setSelectedLanguage(language);
+
+        const params = new URLSearchParams(props.location.search);
+        if (language === defaultLanguage) {
+            params.delete('language');
+        } else {
+            params.set('language', language);
+        }
+        props.history.replace({ search: params.toString() });
+    };
+
     const onArticleExit = () => {
-        setSelectedLanguage(Language.en);
+        setSelectedLanguage(defaultLanguage);
         (viewportRef.current as { scrollTo: (params: { top: number }) => void })?.scrollTo({
             top: 0
         });
@@ -119,7 +143,7 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
                             preview={false}
                             previousArticle={previousArticle}
                             selectedLanguage={selectedLanguage}
-                            setSelectedLanguage={setSelectedLanguage}
+                            setSelectedLanguage={updateSelectedLanguage}
                         />
                     </CSSTransition>
                 );
