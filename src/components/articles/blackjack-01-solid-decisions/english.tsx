@@ -97,7 +97,7 @@ export const english: ArticleContent = {
                 movie to daydream of becoming rich by counting cards. Unfortunately, card counting
                 requires serious skills from the player and casinos can take measures against it
                 (e.g. shuffling the dealt cards back to the pile at the end of every game). In
-                practice we cannot rely on it. Do we have a better option?
+                practice we cannot rely on it. What other options do we have?
             </p>
             <h4>Empirical analysis</h4>
             <p>
@@ -124,10 +124,10 @@ export const english: ArticleContent = {
                 ]}
             />
             <p>
-                After repeating the experiment many times, we can group each row in the table above
-                by the resulting score and obtain the number of times we ended up with each score.
-                This is what the grouped table looks like after running the experiment 100 times.
-                Your results might vary slightly but the overall distribution should not be far off.
+                After repeating the experiment many times, group each row in the list above by the
+                resulting score and obtain the number of times we ended up with each score. This is
+                what the grouped list can look like after running the experiment 100 times. Your
+                results might vary slightly but the overall distribution should not be far off.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
@@ -150,7 +150,6 @@ export const english: ArticleContent = {
                 still don't know what the next card will be but, in absence of other information,
                 drawing a card seems like a risky move.
             </p>
-
             <ArticleImage
                 alt="Sample 15 hand about to bust"
                 articleId={ArticleId.blackjack01SolidDecisions}
@@ -183,13 +182,14 @@ export const english: ArticleContent = {
                 <b>7.69%</b>.
             </p>
             <p>
-                And that's how we end up getting to probability and statistics. Statistics is a
-                rather unpopular discipline but it turns out to be a useful tool for analyzing the
-                game of Blackjack. Antoine de Saint-Exupéry said: "Perfection is achieved, not when
-                there is nothing more to add, but when there is nothing left to take away". Bear
-                with me as I use the absolute minimum necessary from here on. There are two
-                different ways of computing the table above using statistics.
+                And that's how we end up getting to probability and statistics. Two rather unpopular
+                disciplines which turn out to be useful tools for analyzing Blackjack. From now on
+                we will use some statistical methods to analyze the game. However, aware of the
+                reluctance they arouse, we will use the minimum necessary. As Antoine de
+                Saint-Exupéry said: "Perfection is achieved, not when there is nothing more to add,
+                but when there is nothing left to take away".
             </p>
+            <p>There are two different ways of computing the table above using statistics.</p>
             <ul>
                 <li>
                     <p>
@@ -201,12 +201,12 @@ export const english: ArticleContent = {
                         approximation for our purposes.
                     </p>
                     <p>
-                        This option is called <b>independent probability</b> model and this is what
-                        the probabilities of next drawing each card are for a 10,5 hand:
+                        This option is called <b>independent probability</b> model. These are the
+                        probabilities of next drawing each card for a 10,5 hand:
                     </p>
                     <ResponsiveTable<[string, string, string, string]>
                         rows={[
-                            ['Next card', 'Resulting score', 'Counts', 'Probability'],
+                            ['Next card', 'Resulting score', 'Cards', 'Probability'],
                             ['A', '16', '4/52', '7.69%'],
                             ['2', '17', '4/52', '7.69%'],
                             ['3', '18', '4/52', '7.69%'],
@@ -219,11 +219,10 @@ export const english: ArticleContent = {
                 </li>
                 <li>
                     <p>
-                        <b>Keeping track</b> of the cards that have been played. The results are
-                        more precise but the computation is more complex and depends on the number
-                        of decks used by the casino. When using this option we need to adjust the
-                        number of cards in each fraction to exclude the ones that have been dealt
-                        already.
+                        <b>Considering</b> the cards that have been played. The results are more
+                        precise but the computation is more complex and depends on the number of
+                        decks used by the casino. When using this option we need to adjust the
+                        probabilities to exclude the cards that have been dealt already.
                     </p>
                     <p>
                         In the example above, a 10 card and a 5 card have been dealt already. That
@@ -233,12 +232,12 @@ export const english: ArticleContent = {
                         probability of drawing any other card, say an ace, is 4/50.
                     </p>
                     <p>
-                        This option is called <b>dependent probability</b> model and this is what
-                        the probabilities of next drawing each card are for a 10,5 hand:
+                        This option is called <b>dependent probability</b> model. These are the
+                        probabilities of next drawing each card for a 10,5 hand:
                     </p>
                     <ResponsiveTable<[string, string, string, string]>
                         rows={[
-                            ['Next card', 'Resulting score', 'Counts', 'Probability'],
+                            ['Next card', 'Resulting score', 'Cards', 'Probability'],
                             ['A', '16', '4/50', '8%'],
                             ['2', '17', '4/50', '8%'],
                             ['3', '18', '4/50', '8%'],
@@ -249,12 +248,12 @@ export const english: ArticleContent = {
                         ]}
                     />
                     <p>
-                        The probabilities are more accurate, and they get even more accurate by
+                        The probabilities are more accurate. And they get even more accurate by
                         considering <b>8 decks</b> instead of 1:
                     </p>
                     <ResponsiveTable<[string, string, string, string]>
                         rows={[
-                            ['Next card', 'Resulting score', 'Counts', 'Probability'],
+                            ['Next card', 'Resulting score', 'Cards', 'Probability'],
                             ['A', '16', '32/414', '7.73%'],
                             ['2', '17', '32/414', '7.73%'],
                             ['3', '18', '32/414', '7.73%'],
