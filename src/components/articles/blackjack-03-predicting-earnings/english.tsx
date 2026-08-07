@@ -110,11 +110,13 @@ export const english: ArticleContent = {
             </p>
             <p>
                 And there is more. We know the probability of each final score, for both the player
-                and the dealer. We can compute the probability of each scenario by multiplying the
+                and the dealer. We can compute the probability of each scenario, by multiplying the
                 probability of the player ending with score X and the probability of the dealer
-                ending with score Y. We can, for example, expect both the player and the dealer
-                ending with a score of 17 in 12.27% x 14.51% = 1.78% of the games. Computing the
-                probability for all the scenarios draws the following table.
+                ending with score Y. We expect the player to end with a score of, for example, 17 in
+                12.27% of the games. We also expect the dealer to end with a score of 17 in 14.51%
+                of the games. Therefore, we expect both the player and the dealer to push with a
+                score of 17 in 12.27% x 14.51% = 1.78% of the games. Computing the probability for
+                all the scenarios draws the following table.
             </p>
             <ResponsiveTable<
                 [string, string, string, string, string, string, string, string, string]
@@ -163,7 +165,7 @@ export const english: ArticleContent = {
             </p>
             <p>
                 <i>
-                    Note that the dealer final scores' probabilities don't change when analyzing a
+                    The probabilities of the dealer final scores don't change when analyzing a
                     subset of player final scores. In other words, if the dealer ends with a score
                     of 17 in 14.51% of all the games, they will also end with a score of 17 in
                     14.51% of the games where the player has a score of X. In statistics, this is
@@ -174,10 +176,10 @@ export const english: ArticleContent = {
                 This table is rather verbose. Anton Chekhov, a Russian playwright, said that if a
                 gun appears in a story, it must be fired by the end of the story. We could establish
                 a similar principle in statistics: if a table appears in a story, its data must be
-                combined to produce one or more indicators by the end of the story. We can obtain
-                useful indicators by grouping the probabilities by outcome: wins, pushes and losses.
-                Also, because Blackjack wins are paid higher, we will create a separate group for
-                them.
+                combined to produce one or more indicators by the end of the story. In this story,
+                we will obtain such indicators by grouping the probabilities by outcome: wins,
+                pushes and losses. Also, because Blackjack wins are paid higher, we will create a
+                separate group for them.
             </p>
             <ul>
                 <li>Wins = 3.74 + 3.60 + 3.46 + ... = 37.56%</li>
@@ -205,7 +207,7 @@ export const english: ArticleContent = {
                 expected pot variation in the long run. For that, we will use a fixed bet size, so
                 we can equate wins and losses. If we were to change the bet size as the game goes on
                 we could no longer do so. The resulting number is an excellent indicator of the
-                earnings an strategy yields, and it is often called <b>edge</b> in the Blackjack
+                expected earnings of a strategy, and it is often called <b>edge</b> in the Blackjack
                 community.
             </p>
             <ResponsiveTable<[string, string, string, string]>
@@ -228,12 +230,12 @@ export const english: ArticleContent = {
             </p>
             <p>
                 <i>
-                    Fun fact. Negative edge values give us an idea of how many rounds we can expect
-                    to play before running out of money. Given the initial pot expressed in terms of
-                    bets, we can find out how long it takes for the pot to reach 0. If we start
-                    playing with a pot of, for example, 10 bets and we know we lose 5.27% of our bet
-                    size per round, we can expect to run out of money after 10 bets / 0.0527 bets
-                    per round = 189.7 rounds.
+                    Negative edge values give us an idea of how many rounds we can expect to play
+                    before running out of money. Given the initial pot expressed in terms of bets,
+                    we can find out how long it takes for the pot to reach 0. If we start playing
+                    with a pot of, for example, 10 bets and we know we lose 5.27% of our bet size
+                    per round, we can expect to run out of money after 10 bets / 0.0527 bets per
+                    round = 189.7 rounds.
                 </i>
             </p>
             <p>
@@ -241,32 +243,31 @@ export const english: ArticleContent = {
                 run. Let's go back to the example of the cautious player. We know they can expect to
                 lose, on average, 5.27% of their bet size per round. Since they are betting 10€ per
                 round, that is losing 0.527€ per round. After 100 rounds, they can expect to have
-                lost 52.7€. The player actually lost 55€, so the prediction is quite close!
+                lost 52.7€. The player actually lost 55€ in the example, so the prediction is quite
+                close!
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack03PredictingEarnings}
-                alt="Person wondering whether to draw a card or not"
+                alt="Bullseye with a dart in the center, representing the accuracy of the earnings prediction"
                 className="image-300"
                 filename="bullseye.png"
             />
             <p>
                 That is no coincidence, of course. I conveniently chose the number of wins, losses
                 and pushes to be very close to the expected probabilities. 37.56% wins ={'>'} 37
-                wins, 4.51% blackjack wins ={'>'} 5 blackjacks, etc. If the player gets better luck,
-                they will win more and the prediction will become less accurate. Equally, if they
-                get worse luck, they will lose more and the prediction will drift away from the
-                actual results. Because, in the long run, the expected probabilities tend to come
-                true, we can assume the numbers I used will not be that far off from the actual
-                results.
+                wins, 4.51% blackjack wins ={'>'} 5 blackjacks, etc. If the player wins more rounds,
+                the actual results will differ from the prediction. If the player wins less rounds,
+                the actual results will also drift away from the prediction. Because, in the long
+                run, the expected probabilities tend to hold true, we can assume the numbers I used
+                will not be far off from the actual results.
             </p>
             <p>
-                In addition, the edge indicator allows us to compare different strategies. Here are
-                the indicators for different simple strategies. The "Stand on 16" strategy is the
+                Finally, the edge indicator allows us to compare different strategies. Here are the
+                indicators for different "Stand on X" strategies. The "Stand on 16" strategy is the
                 one with the highest edge value and is therefore the most profitable one of them. In
-                the next chapter,{' '}
-                <NavLink to={ArticleId.blackjack04OptimalActions}>choosing optimal actions</NavLink>
-                , we will be using the edge indicator to find out which action yields the most
-                earnings for every possible score.
+                the next chapter we will be using the edge indicator to find out the{' '}
+                <NavLink to={ArticleId.blackjack04OptimalActions}>optimal action</NavLink> that
+                yield the most earnings for every possible score.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[
