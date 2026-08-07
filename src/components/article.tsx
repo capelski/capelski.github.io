@@ -74,7 +74,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
                     ))}
                 </div>
             </div>
-            {!props.preview && <PatreonBadge />}
+            {!props.preview && <PatreonBadge selectedLanguage={props.selectedLanguage} />}
             <div className="article-body">
                 {content.introduction}
                 {props.preview
@@ -90,7 +90,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
                     />
                 ) : (
                     <React.Fragment>
-                        <PatreonBadge />
+                        <PatreonBadge selectedLanguage={props.selectedLanguage} />
                         <ArticleNavigation
                             articleId={props.metadata.id}
                             shareSentence={content.shareSentence || content.description}

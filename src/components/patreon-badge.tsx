@@ -1,7 +1,19 @@
 import React from 'react';
 import { Anchor } from './articles/anchor';
+import { Language } from './articles/language';
 
-const PatreonBadge: React.FC = () => {
+const badgeContent: { [key: string]: { [Language.ca]: string; [Language.en]: string } } = {
+    sentence: {
+        ca: "T'agrada el que escric? Dóna'm suport a",
+        en: 'Do you enjoy my writing? Support me on'
+    }
+};
+
+export interface PatreonBadgeProps {
+    selectedLanguage: Language;
+}
+
+const PatreonBadge: React.FC<PatreonBadgeProps> = (props) => {
     const patreonUrl = 'https://www.patreon.com/cw/capelski';
 
     return (
@@ -17,7 +29,8 @@ const PatreonBadge: React.FC = () => {
                 textAlign: 'center'
             }}
         >
-            Do you enjoy my writing? Support me on <Anchor url={patreonUrl}>Patreon</Anchor> 💸🙏
+            {badgeContent.sentence[props.selectedLanguage]}{' '}
+            <Anchor url={patreonUrl}>Patreon</Anchor> 💸🙏
         </div>
     );
 };

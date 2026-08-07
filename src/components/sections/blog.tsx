@@ -75,7 +75,7 @@ export const Blog: React.FC<BlogProps> = (props) => {
                         ))}
                     </div>
                 </div>
-                <PatreonBadge />
+                <PatreonBadge selectedLanguage={props.selectedLanguage} />
                 {AllArticleCategories.map((category) => (
                     <CSSTransition
                         classNames="articles"
