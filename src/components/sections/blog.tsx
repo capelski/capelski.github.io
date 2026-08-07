@@ -18,6 +18,7 @@ import { transitionsDuration } from '../variables';
 
 export interface BlogAdditionalProps {
     selectedCategory: ArticleCategory;
+    selectedLanguage: Language;
     setSelectedCategory: (category: ArticleCategory) => void;
 }
 
@@ -95,7 +96,7 @@ export const Blog: React.FC<BlogProps> = (props) => {
                                         key={article.metadata.id + category}
                                         {...article}
                                         preview={true}
-                                        selectedLanguage={Language.en}
+                                        selectedLanguage={props.selectedLanguage}
                                     />
                                 ))}
                         </div>

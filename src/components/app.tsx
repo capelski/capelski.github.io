@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { articles } from './articles';
 import { ArticleCategory, defaultCategory, getCategoryFromKey } from './articles/article-category';
 import { ArticleId } from './articles/article-id';
+import { defaultLanguage, getLanguageFromKey, Language } from './articles/language';
 import { articleRoute, blogRoute, errorRoute, routes, supportedRoutes } from './routes';
 import { transitionsDuration } from './variables';
 
@@ -40,19 +41,28 @@ const getInitialCategory = (location: { pathname: string; search: string }) => {
     return initialCategory;
 };
 
+const getInitialLanguage = (location: { search: string }) =>
+    getLanguageFromKey(new URLSearchParams(location.search).get('language')) || defaultLanguage;
+
 export const App: React.FC<AppProps> = (props) => {
     const location = useLocation();
     const [selectedCategory, setSelectedCategory] = useState<ArticleCategory>(
         getInitialCategory(location)
     );
+    const [selectedLanguage, setSelectedLanguage] = useState<Language>(() =>
+        getInitialLanguage(location)
+    );
 
     blogRoute.additionalProps = {
         selectedCategory,
+        selectedLanguage,
         setSelectedCategory
     };
 
     articleRoute.additionalProps = {
-        selectedCategory
+        selectedCategory,
+        selectedLanguage,
+        setSelectedLanguage
     };
 
     return (
