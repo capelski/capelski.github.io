@@ -16,8 +16,8 @@ export const english: ArticleContent = {
         <p>
             A key aspect that makes Blackjack decision-making difficult is the fact that we always
             play our hand before the dealer does. It almost feels like bidding in a secret auction,
-            where we need to place a bid high enough to win, without knowing how much our rival will
-            bid. Except that our rival does know how much we are bidding. This is called the last
+            where, without knowing how much our rival will bid, we need to place a bid high enough
+            to win. Except that our rival does know how much we are bidding. This is called the last
             mover advantage.
         </p>
     ),
@@ -25,7 +25,7 @@ export const english: ArticleContent = {
         <React.Fragment>
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
-                alt="Abstract representation of bidding in a blind auction"
+                alt="Abstract representation of bidding in a secret auction"
                 className="image-300"
                 filename="blind-auction.png"
             />
@@ -70,7 +70,7 @@ export const english: ArticleContent = {
                 <li>
                     If the 1st card is A, the 2nd card is A and the 3rd card is 8, the score is
                     10/20. The dealer stops drawing. We write down the hand and skip further
-                    simulation
+                    simulation from this hand
                 </li>
                 <li>...</li>
                 <li>
@@ -80,7 +80,7 @@ export const english: ArticleContent = {
                 <li>...</li>
                 <li>
                     If the 1st card is A and the 2nd card is K, the score is blackjack. The dealer
-                    stops drawing. We write down the hand and skip further simulation{' '}
+                    stops drawing. We write down the hand and skip further simulation from this hand
                 </li>
                 <li>...</li>
             </ul>
@@ -105,7 +105,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.blackjack02FinalScores}
                 className="image-600"
                 filename="sample-hands-probabilities.png"
-                footer="Probability of getting example hands"
+                footer="Probability of getting certain hands"
             />
             <p>
                 These probabilities tell us that the dealer will end with cards A,J (in that
@@ -145,12 +145,11 @@ export const english: ArticleContent = {
             <p>
                 Having both things we can now find out the probability of the dealer ending the game
                 with a specific score. We do so by grouping hands by final score. For example, the
-                hands A, A, A, A, A, A, A and 8, 9 will be part of the group with score 17. The
-                hands A, A, A, A, A, A, 2 and A, 2, 3, 2 will be part of the group with score 18.
-                The hands A, A, K, A, 2, K and 4, 2, 4, 3, 2, 10 will be part of the bust group. And
-                so on.
+                hands "A, A, A, A, A, A, A" and "8, 9" will be part of the group with score 17. The
+                hands "A, A, A, A, A, A, 2" and "A, 2, 3, 2" will be part of the group with score
+                18. The hands "A, A, K, A, 2, K" and "4, 2, 4, 3, 2, 10" will be part of the bust
+                group. And so on.
             </p>
-
             <p>
                 Once all the hands have been placed in a group, we sum the probability of all the
                 hands in the same group. This is what the list looks like after grouping the hands
@@ -178,18 +177,20 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                In other words, we can expect the dealer to end with a score of 20 points in 18 out
-                of 100 times. We can also expect the dealer to bust in 28 out of 100 times, or in 1
-                hand out of every 4 approximately. Isn't it impressive what some basic statistics
-                can tell us about the dealer's results?
+                Based on that list we can expect the dealer to end with a score of 20 points in 18
+                out of 100 times. We can also expect the dealer to bust in 28 out of 100 times, or
+                in 1 hand out of every 4 approximately. Isn't it impressive what some basic
+                statistics can tell us about the dealer's results?
             </p>
             <p>
                 In fact, this approach is not limited to the dealer. We can use the same method to
                 find the expected final scores of any player with a defined strategy. These are the
                 expected final scores for a common player strategy: drawing to 14 and standing on
-                15. In the next chapter,{' '}
-                <NavLink to={ArticleId.blackjack03PredictingEarnings}>predicting earnings</NavLink>,
-                we will use these final scores to predict the expected earnings of a given strategy.
+                15. In the next chapter, we will use these final scores to{' '}
+                <NavLink to={ArticleId.blackjack03PredictingEarnings}>
+                    predict the expected earnings
+                </NavLink>{' '}
+                of a given strategy.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
@@ -220,8 +221,8 @@ export const english: ArticleContent = {
                     the probability of busting by drawing a card is bigger than 50%. Using the
                     independent probability model, the risk of busting with a score of 15 equals 7
                     cards (7, 8, 9, 10, J, Q, K) out of 13, or 53.85%. This means that, by drawing a
-                    card, the player busts more often than they keep their hand alive. This
-                    therefore feels like a natural point to stop drawing cards.
+                    card, we bust more often than we manage to improve our score. This therefore
+                    feels like a natural point to stop drawing cards.
                 </i>
             </p>
         </React.Fragment>
