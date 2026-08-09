@@ -94,7 +94,7 @@ export const catalan: ArticleContent = {
                         ArticleId.blackjack01SolidDecisions
                     )}
                 >
-                    decisions robustes
+                    decisions sòlides
                 </NavLink>
                 , vam introduir el model de probabilitat independent i vam definir la probabilitat
                 de treure una carta determinada com 1 de cada 13, independentment de les cartes que

@@ -15,8 +15,8 @@ export const english: ArticleContent = {
         <p>
             Imagine playing Blackjack with the pile of cards facing upwards. You would know which
             card is coming next at any time and you would never bust. You would continue to ask for
-            the next card as long as adding that card to your hand keeps your score below 22. You
-            would not win every hand but your odds of winning money in the long run would skyrocket.
+            the next card as long as the resulting hand has a score below 22. You would not win
+            every hand but your odds of winning money in the long run would skyrocket.
         </p>
     ),
     body: (

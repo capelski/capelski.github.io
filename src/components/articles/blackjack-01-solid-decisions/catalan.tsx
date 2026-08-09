@@ -15,9 +15,8 @@ export const catalan: ArticleContent = {
         <p>
             Imagina jugar al Blackjack amb la pila de cartes destapada. Sabries en tot moment quina
             carta ve a continuació i no et passaries mai de 21. Continuaries demanant carta mentre
-            afegir la següent carta a la teva mà mantingués la puntuació per sota de 22. No
-            guanyaries totes les mans, però les teves probabilitats de guanyar diners a la llarga es
-            dispararien.
+            la mà resultant mantingués la puntuació per sota de 22. No guanyaries totes les mans,
+            però les teves probabilitats de guanyar diners a la llarga es dispararien.
         </p>
     ),
     body: (
@@ -48,8 +47,8 @@ export const catalan: ArticleContent = {
                 el casino es queda els teus diners abans fins i tot que el crupier jugui la seva mà.
                 Això és el que fa que el joc sigui rendible per a la banca. En un joc just, que tots
                 dos jugadors quedin eliminats hauria de ser un empat, oi? Al joc del Blackjack no
-                funciona així. Els casinos volen la certesa que guanyaran diners a final de dia i un
-                joc perfectament just no ofereix aquesta certesa.
+                funciona així. Els casinos volen la certesa que guanyaran diners al final del dia, i
+                un joc perfectament just no ofereix aquesta certesa.
             </p>
             <p>
                 <i>
@@ -94,7 +93,7 @@ export const catalan: ArticleContent = {
                 articleId={ArticleId.blackjack01SolidDecisions}
                 className="image-600"
                 filename="card-counting.png"
-                footer="Exemple de compte de cartes"
+                footer="Exemple de comptatge de cartes"
             />
             <p>
                 Molta gent ha guanyat quantitats de diners considerables comptant cartes:{' '}
@@ -173,8 +172,8 @@ export const catalan: ArticleContent = {
             <p>
                 D'altra banda, els resultats només seran precisos si repetim l'experiment un gran
                 nombre de vegades. Si repetim l'experiment 100 vegades podríem obtenir una
-                distribució de cartes poc probable que no seria representativa dels resultats a la
-                llarga. Per anul·lar la possibilitat de distribucions improbables, hauríem de
+                distribució de cartes poc probable que no seria representativa dels resultats
+                generals. Per anul·lar la possibilitat de distribucions improbables, hauríem de
                 repetir l'experiment moltes més vegades. Factible, però lent.
             </p>
             <h4>Anàlisi estadística</h4>
@@ -191,7 +190,7 @@ export const catalan: ArticleContent = {
             <p>
                 I així és com acabem arribant a la probabilitat i l'estadística. Dues disciplines
                 bastant impopulars però molt útils a l'hora d'analitzar el Blackjack. D'aquí en
-                endavant farem servir alguns metodes estadístics per analitzar el joc. Tanmateix,
+                endavant farem servir alguns mètodes estadístics per analitzar el joc. Tanmateix,
                 conscient de les reticències que generen, en farem servir el mínim imprescindible.
                 Com va dir Antoine de Saint-Exupéry: "La perfecció s'assoleix no quan ja no hi ha
                 res més a afegir, sinó quan ja no hi ha res per treure".
