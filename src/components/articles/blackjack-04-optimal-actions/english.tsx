@@ -117,19 +117,19 @@ export const english: ArticleContent = {
             </p>
             <p>
                 The ultimate question we want our strategy to answer is: "Which of the available
-                actions yields the most earnings in the long run?". We measure the earnings via the
-                edge indicator... why not using the edge as the input parameter of our strategy
-                then? Since we are also using the edge as the output parameter, the correlation
-                between the input and output parameters would be as good as it gets.
+                actions yields the most earnings in the long run?". Since we measure the expected
+                earnings via the edge indicator and that is also our output parameter... why not
+                using the edge as the input parameter of our strategy then? The correlation between
+                the input and output parameters would be as good as it gets.
             </p>
             <p>
-                Using the edge as input parameter comes with a challenge however: we need to
-                calculate the edge for each available action. Is that even possible? Let's start
-                with the easy bit: the edge of standing. When we stand, we determine the final score
-                of our hand. Having the final score we can compare it with the expected final scores
-                of the dealer in the same fashion we did in chapter 3. Merging the probabilities of
-                each different comparison gives us the expected edge for standing with that score.
-                The edge of standing with a score of 20, for example, is 57.96%.
+                Using the edge as input parameter comes with a challenge: we need to calculate the
+                edge for each available action for each possible score. Is that feasible? Let's
+                start with the easy bit: the edge of standing. When we stand, we determine the final
+                score of our hand. Having the final score, we can compare it with the expected final
+                scores of the dealer in the same fashion we did in chapter 3. Merging the
+                probabilities of each different comparison gives us the expected edge for standing
+                with that score. The edge of standing with a score of 20, for example, is 57.96%.
             </p>
             <ResponsiveTable<[string, string, string, string]>
                 rows={[
@@ -153,14 +153,14 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                Now the hard part: the edge of drawing a card. Just like we did with standing, to
-                determine the edge of drawing a card we need to know the final scores drawing a card
-                will lead to. The challenge is that drawing a card doesn't determine the final score
-                of the hand. If we draw a card with a score of 9 and the card we get is a 5, for
-                example, that makes our score 14. Will we continue to draw? If so, we can't tell the
-                final score without knowing the decision we will make with that score of 14. Our
-                decision is affected by future decisions. Which, in turn, might be affected by
-                further future decisions. That sounds like an infinite dependency loop. Are we in a
+                Now the hard part: the edge of drawing a card. Just like we did with the edge of
+                standing, to determine the edge of drawing a card we need to know the final scores
+                drawing a card will lead to. The challenge is that drawing a card doesn't determine
+                the final score of the hand. If we draw a card with a score of 9 and the card we get
+                is a 5, for example, that makes our score 14. Will we continue to draw? If so, we
+                can't tell the final score without knowing the decision we will make with that score
+                of 14. Our decision is affected by future decisions. Which, in turn, might be
+                affected by further future decisions. That sounds like an infinite loop. Are we in a
                 chicken and egg dilemma?
             </p>
             <ArticleImage
@@ -204,9 +204,9 @@ export const english: ArticleContent = {
             <p>
                 We are now able to compare the edge of both actions. That is -85.90% for drawing vs
                 57.96% for standing. Since it has the highest edge by far, the optimal action is to
-                stand. This hardly comes as a surprise, since intuitively we already know that
+                stand. This will hardly surprise you, since intuitively you already know that
                 drawing a card with a score of 20 is a bad idea. Now we have a mathematical proof of
-                it. Something interesting happens now. By deciding to stand with a score of 20, we
+                it. Something interesting happens next. By deciding to stand with a score of 20, we
                 have determined all the possible future decisions for drawing a card with a score of
                 19. We can calculate the edge of drawing a card with a score of 19 🎉
             </p>
@@ -242,10 +242,9 @@ export const english: ArticleContent = {
                 scores down to the lowest one. In game theory, this is known as backward induction.
                 Here is the list of optimal actions for every possible score.
             </p>
-
             <ArticleImage
                 articleId={ArticleId.blackjack04OptimalActions}
-                alt=""
+                alt="Representation of the domino effect in backward induction"
                 className="image-600"
                 filename="domino-effect.png"
             />
