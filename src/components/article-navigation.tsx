@@ -5,10 +5,6 @@ import { ArticleId } from './articles/article-id';
 import { Language } from './articles/language';
 import { articleRoute } from './routes';
 
-declare const navigator:
-    | undefined // Undefined on the server side
-    | { share?: (params: { text: string; title: string; url: string }) => void };
-
 const articleLinksContent: { [key: string]: { [Language.ca]: string; [Language.en]: string } } = {
     following: {
         ca: 'Següent',
@@ -39,15 +35,17 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
         props.onArticleNavigation(articleId);
     };
 
-    const shareHandler = () => {
-        navigator!.share!({
-            text: props.shareSentence,
-            title: props.title,
-            url: `${PRODUCTION_URL_BASE}${articleRoute.path.replace(
-                ':articleId',
-                props.articleId
-            )}${location.search}`
-        });
+    const shareHandler = async () => {
+        try {
+            await window.navigator.share({
+                text: props.shareSentence,
+                title: props.title,
+                url: `${PRODUCTION_URL_BASE}${articleRoute.path.replace(
+                    ':articleId',
+                    props.articleId
+                )}${location.search}`
+            });
+        } catch (error) {}
     };
 
     return (
@@ -95,7 +93,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                     )}
                 </div>
             </div>
-            {typeof navigator !== 'undefined' && navigator.share && (
+            {typeof navigator !== 'undefined' && (
                 <div className="share-button">
                     <img src="/images/share.png" onClick={shareHandler} />
                 </div>
