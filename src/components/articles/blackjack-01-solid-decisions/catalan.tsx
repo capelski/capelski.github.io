@@ -8,12 +8,12 @@ import { ArticleImage } from '../article-image';
 import { ResponsiveTable } from '../responsive-table';
 
 export const catalan: ArticleContent = {
-    title: 'Blackjack 01. Decisions robustes',
-    description: "Com l'estadística ens ajuda a prendre decisions robustes al Blackjack",
+    title: 'Blackjack 01. Decisions sòlides',
+    description: "Com l'estadística ens ajuda a prendre decisions sòlides al Blackjack",
     shareSentence: "L'estadística és la teva millor amiga per pendre bones decisions al Blackjack",
     introduction: (
         <p>
-            Imagina jugar al Blackjack amb la pila de cartes cara amunt. Sabries en tot moment quina
+            Imagina jugar al Blackjack amb la pila de cartes destapada. Sabries en tot moment quina
             carta ve a continuació i no et passaries mai de 21. Continuaries demanant carta mentre
             afegir la següent carta a la teva mà mantingués la puntuació per sota de 22. No
             guanyaries totes les mans, però les teves probabilitats de guanyar diners a la llarga es
@@ -61,12 +61,12 @@ export const catalan: ArticleContent = {
                 </i>
             </p>
             <p>
-                Els casinos mantenen la pila de cartes cara avall, així que no tenim ni idea de
-                quina és la carta següent i ens veiem obligats a prendre decisions difícils. En
-                aquestes condicions, com podem estar segurs que les nostres decisions són robustes?
-                Aquesta pregunta fa anys que ronda. Molta gent llesta hi ha pensat i ha arribat a
-                solucions diferents. Edward O. Thorp, per exemple, va idear una solució molt popular
-                el 1962: el comptatge de cartes.
+                Els casinos mantenen la pila de cartes tapada, així que no tenim ni idea de quina és
+                la carta següent i ens veiem obligats a prendre decisions difícils. En aquestes
+                condicions, com podem estar segurs que les nostres decisions són sòlides? Aquesta
+                pregunta fa anys que ronda. Molta gent llesta hi ha pensat i ha arribat a solucions
+                diferents. Edward O. Thorp, per exemple, va idear una solució molt popular el 1962:
+                el comptatge de cartes.
             </p>
             <h4>El comptatge de cartes</h4>
             <p>
@@ -279,7 +279,7 @@ export const catalan: ArticleContent = {
                 probabilitat independent en els capítols següents d'aquesta sèrie.
             </p>
             <p>
-                Així és com la probabilitat i l'estadística ens ajuden a prendre decisions robustes
+                Així és com la probabilitat i l'estadística ens ajuden a prendre decisions sòlides
                 al Blackjack. Ara que hem establert els fonaments podem atacar tasques més
                 interessants, com per exemple,{' '}
                 <NavLink
