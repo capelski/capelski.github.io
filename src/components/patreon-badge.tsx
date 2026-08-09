@@ -30,7 +30,7 @@ const PatreonBadge: React.FC<PatreonBadgeProps> = (props) => {
             }}
         >
             {badgeContent.sentence[props.selectedLanguage]}{' '}
-            <Anchor url={patreonUrl}>Patreon</Anchor> 💸🙏
+            <Anchor url={patreonUrl}>Patreon</Anchor>
         </div>
     );
 };
