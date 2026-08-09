@@ -8,7 +8,7 @@ import { ArticleImage } from '../article-image';
 import { ResponsiveTable } from '../responsive-table';
 
 export const catalan: ArticleContent = {
-    title: 'Blackjack 03. Predir els guanys',
+    title: 'Blackjack 03. Guanys esperats',
     description:
         "Com predir els guanys d'un jugador de Blackjack a partir de les seves puntuacions finals esperades",
     shareSentence: 'Les teves decisions al Blackjack maximitzen els teus guanys?',
@@ -46,13 +46,13 @@ export const catalan: ArticleContent = {
                 havia alguna manera de predir aquest resultat abans de començar a jugar? Vegem fins
                 a quin punt ens hi podem acostar. Coneixem l'estratègia del jugador: "plantar-se amb
                 15". Amb això podem obtenir les seves puntuacions finals esperades, fent servir el
-                mètode que vam descriure al capítol 2 (
+                mètode que vam descriure al{' '}
                 <NavLink
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
-                    puntuacions finals
+                    capítol 2
                 </NavLink>
-                ).
+                .
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[
@@ -254,7 +254,7 @@ export const catalan: ArticleContent = {
                 força encertada!
             </p>
             <ArticleImage
-                articleId={ArticleId.blackjack03PredictingEarnings}
+                articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Diana amb un dard al centre, representant la precisió de la predicció dels guanys"
                 className="image-300"
                 filename="bullseye.png"
@@ -291,7 +291,7 @@ export const catalan: ArticleContent = {
                 ]}
             />
             <ArticleImage
-                articleId={ArticleId.blackjack03PredictingEarnings}
+                articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Gràfic amb els valors d'avantatge de diverses estratègies 'plantar-se amb X' en funció dels valors de X"
                 className="image-600"
                 filename="stand-score-vs-edge.png"

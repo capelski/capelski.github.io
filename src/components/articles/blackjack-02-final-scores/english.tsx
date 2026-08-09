@@ -8,7 +8,7 @@ import { ArticleImage } from '../article-image';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
-    title: 'Blackjack 02. Forecasting final scores',
+    title: 'Blackjack 02. Final scores',
     description:
         'How to forecast the expected final scores of any Blackjack player through their strategy',
     shareSentence: 'Did you know the dealer busts in 1 out of every 4 hands in Blackjack?',
@@ -86,16 +86,16 @@ export const english: ArticleContent = {
             </ul>
             <p>
                 The second thing we need is the probability of the dealer ending up with each hand
-                in the list. In chapter 1,{' '}
+                in the list. In{' '}
                 <NavLink
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack01SolidDecisions
                     )}
                 >
-                    making solid decisions
-                </NavLink>
-                , I introduced the independent probability model and defined the probability of
+                    chapter 1
+                </NavLink>{' '}
+                I introduced the independent probability model and defined the probability of
                 drawing a certain card as 1 out of 13, regardless of the cards that have been dealt
                 before. Using that model, the probability of a certain combination of cards is
                 obtained by multiplying the probability of each card in the combination. A few
@@ -186,11 +186,9 @@ export const english: ArticleContent = {
                 In fact, this approach is not limited to the dealer. We can use the same method to
                 find the expected final scores of any player with a defined strategy. These are the
                 expected final scores for a common player strategy: drawing to 14 and standing on
-                15. In the next chapter, we will use these final scores to{' '}
-                <NavLink to={ArticleId.blackjack03PredictingEarnings}>
-                    predict the expected earnings
-                </NavLink>{' '}
-                of a given strategy.
+                15. In the next chapter, we will use these final scores to predict the{' '}
+                <NavLink to={ArticleId.blackjack03ExpectedEarnings}>expected earnings</NavLink> of a
+                given strategy.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[

@@ -87,17 +87,17 @@ export const catalan: ArticleContent = {
             </ul>
             <p>
                 La segona cosa que necessitem és la probabilitat que el crupier acabi amb cada mà de
-                la llista. Al capítol 1,{' '}
+                la llista. Al{' '}
                 <NavLink
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack01SolidDecisions
                     )}
                 >
-                    decisions sòlides
-                </NavLink>
-                , vam introduir el model de probabilitat independent i vam definir la probabilitat
-                de treure una carta determinada com 1 de cada 13, independentment de les cartes que
+                    capítol 1
+                </NavLink>{' '}
+                vaig introduir el model de probabilitat independent i vam definir la probabilitat de
+                treure una carta determinada com 1 de cada 13, independentment de les cartes que
                 s'han repartit abans. Amb aquest model, la probabilitat d'una combinació de cartes
                 concreta s'obté multiplicant la probabilitat de cada carta de la combinació. Alguns
                 exemples:
@@ -189,11 +189,9 @@ export const catalan: ArticleContent = {
                 per trobar les puntuacions finals esperades de qualsevol jugador amb una estratègia
                 definida. Aquestes són les puntuacions finals esperades per a una estratègia
                 habitual entre els jugadors: demanar carta amb 14 o menys i plantar-se amb 15. Al
-                capítol següent, farem servir aquestes puntuacions finals per{' '}
-                <NavLink to={ArticleId.blackjack03PredictingEarnings}>
-                    predir els guanys esperats
-                </NavLink>{' '}
-                d'una estratègia determinada.
+                capítol següent, farem servir aquestes puntuacions finals per predir els{' '}
+                <NavLink to={ArticleId.blackjack03ExpectedEarnings}>guanys esperats</NavLink> d'una
+                estratègia determinada.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[

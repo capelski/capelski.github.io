@@ -8,7 +8,7 @@ import { ArticleImage } from '../article-image';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
-    title: 'Blackjack 01. Making solid decisions',
+    title: 'Blackjack 01. Solid decisions',
     description: 'How statistics help us making solid decisions in Blackjack',
     shareSentence: 'Embrace statistics to improve your decision making in Blackjack',
     introduction: (
@@ -55,7 +55,7 @@ export const english: ArticleContent = {
                     bust happens more often that you would expect. 1 in approximately every 13 hands
                     for a player copying the dealer strategy (the exact number depends on the
                     player's decision making). We will have a look at where these numbers come from
-                    in later chapters of these series.
+                    in later chapters of this series.
                 </i>
             </p>
             <p>
@@ -269,7 +269,7 @@ export const english: ArticleContent = {
                 As you can see, the difference in probabilities between the two models when using 8
                 decks is ridiculously small. Since the dependent probability model is more complex
                 and it does not give us a significant gain, I will be using the independent
-                probability model in future chapters of these series.
+                probability model in future chapters of this series.
             </p>
             <p>
                 This is how probability and statistics help us making solid decisions in Blackjack.

@@ -7,7 +7,7 @@ import { ArticleImage } from '../article-image';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
-    title: 'Blackjack 04. Choosing optimal actions',
+    title: 'Blackjack 04. Optimal actions',
     description: 'How to find the actions that maximize your earnings in Blackjack',
     shareSentence: 'To draw or not to draw? Here is the ultimate Blackjack answer',
     introduction: (
@@ -57,12 +57,12 @@ export const english: ArticleContent = {
                 Decision making in Blackjack is no exception. The goal is to earn money, so good
                 decisions will be the ones that maximize our earnings. An effective way of measuring
                 the expected earnings is the edge indicator we introduced in{' '}
-                <NavLink to={ArticleId.blackjack03PredictingEarnings}>chapter 3</NavLink>, so that
-                can be our output parameter. To optimize our decision making, we will want to base
-                our strategies on input parameters that correlate well with the edge indicator. If
-                the input parameters don't correlate well with the edge indicator, we can't be
-                certain that the strategy is achieving maximum earnings. That happens to the case
-                for the "Stand on X" strategies.
+                <NavLink to={ArticleId.blackjack03ExpectedEarnings}>chapter 3</NavLink>, so that can
+                be our output parameter. To optimize our decision making, we will want to base our
+                strategies on input parameters that correlate well with the edge indicator. If the
+                input parameters don't correlate well with the edge indicator, we can't be certain
+                that the strategy is achieving maximum earnings. That happens to the case for the
+                "Stand on X" strategies.
             </p>
             <p>
                 It might seem the input parameter of the "Stand on X" strategies is the player
@@ -288,8 +288,8 @@ export const english: ArticleContent = {
                 we know maximizes our earnings. On the other hand, the strategy is not very
                 profitable. The edge of the "Stand on 15 and 8/18" strategy is -4.07%. Better than
                 the -5.21% edge of the "Stand on 16" strategy, but still not good enough. In the
-                next chapter, divide and conquer, we will be looking at how to use the dealer up
-                card to improve the edge significantly.
+                next chapter, we will be looking at how to use the dealer card to improve the edge
+                significantly.
             </p>
         </React.Fragment>
     )

@@ -280,11 +280,11 @@ export const catalan: ArticleContent = {
             <p>
                 Així és com la probabilitat i l'estadística ens ajuden a prendre decisions sòlides
                 al Blackjack. Ara que hem establert els fonaments podem atacar tasques més
-                interessants, com per exemple,{' '}
+                interessants, com per exemple, predir la{' '}
                 <NavLink
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
-                    predir la puntuació final
+                    puntuació final
                 </NavLink>
                 . Repassem els punts clau fins ara:
             </p>

@@ -8,7 +8,7 @@ import { ArticleImage } from '../article-image';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
-    title: 'Blackjack 03. Predicting earnings',
+    title: 'Blackjack 03. Expected earnings',
     description:
         'How to predict the earnings of a Blackjack player using its expected final scores',
     shareSentence: 'Is your Blackjack decision-making maximizing your earnings?',
@@ -44,14 +44,13 @@ export const english: ArticleContent = {
                 That is losing 55€ over the course of 100 bets. Quite a disappointing outcome. Is
                 there any way we could have predicted that outcome before starting to play? Let's
                 see how close to it we can get. We know the player's strategy: "Stand on 15". With
-                that we can obtain their expected final scores, using the method we described in
-                chapter 2 (
+                that we can obtain their expected final scores, using the method we described in{' '}
                 <NavLink
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
-                    forecasting final scores
+                    chapter 2
                 </NavLink>
-                ).
+                .
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[
@@ -247,7 +246,7 @@ export const english: ArticleContent = {
                 close!
             </p>
             <ArticleImage
-                articleId={ArticleId.blackjack03PredictingEarnings}
+                articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Bullseye with a dart in the center, representing the accuracy of the earnings prediction"
                 className="image-300"
                 filename="bullseye.png"
@@ -266,7 +265,7 @@ export const english: ArticleContent = {
                 indicators for different "Stand on X" strategies. The "Stand on 16" strategy is the
                 one with the highest edge value and is therefore the most profitable one of them. In
                 the next chapter we will be using the edge indicator to find out the{' '}
-                <NavLink to={ArticleId.blackjack04OptimalActions}>optimal action</NavLink> that
+                <NavLink to={ArticleId.blackjack04OptimalActions}>optimal actions</NavLink> that
                 yield the most earnings for every possible score.
             </p>
             <ResponsiveTable<[string, string]>
@@ -282,7 +281,7 @@ export const english: ArticleContent = {
                 ]}
             />
             <ArticleImage
-                articleId={ArticleId.blackjack03PredictingEarnings}
+                articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Chart showing the edge values of several 'Stand on X' strategies against the X values"
                 className="image-600"
                 filename="stand-score-vs-edge.png"
