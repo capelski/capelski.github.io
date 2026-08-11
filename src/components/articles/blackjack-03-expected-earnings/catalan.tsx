@@ -105,8 +105,8 @@ export const catalan: ArticleContent = {
             <p style={{ textAlign: 'center' }}>
                 <i>
                     Font:{' '}
-                    <Anchor url="https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15&mode=result">
-                        https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15&mode=result
+                    <Anchor url="https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15&mm=result">
+                        https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15&mm=result
                     </Anchor>
                 </i>
             </p>

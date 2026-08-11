@@ -125,7 +125,7 @@ export const catalan: ArticleContent = {
                 La pregunta definitiva que volem que la nostra estratègia respongui és: "Quina de
                 les accions disponibles proporciona més guanys a la llarga?". Ja que mesurem els
                 guanys esperats amb l'indicador de l'avantatge i que també el fem servir com a
-                paràmetre de sortia... per què no fer servir l'avantatge com a paràmetre d'entrada
+                paràmetre de sortida... per què no fer servir l'avantatge com a paràmetre d'entrada
                 de la nostra estratègia? La correlació entre els paràmetres d'entrada i de sortida
                 seria immillorable.
             </p>

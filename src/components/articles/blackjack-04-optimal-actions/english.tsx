@@ -283,7 +283,7 @@ export const english: ArticleContent = {
                 remembering.
             </p>
             <p>
-                These are bitter sweet news. On one hand, we have an easy to remember strategy that
+                These are bitter sweet news. On one hand, we have an easy-to-remember strategy that
                 we know maximizes our earnings. On the other hand, the strategy is not very
                 profitable. The edge of the "Stand on 15 and 8/18" strategy is -4.07%. Better than
                 the -5.21% edge of the "Stand on 16" strategy, but still not good enough. In the
