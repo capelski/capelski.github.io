@@ -157,7 +157,7 @@ export const english: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
-                    ['Score', 'Combinations', 'Probability'],
+                    ['Score', 'Hands', 'Probability'],
                     ['17', '6640', '14.51%'],
                     ['18', '6650', '13.95%'],
                     ['19', '6666', '13.35%'],
@@ -192,7 +192,7 @@ export const english: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
-                    ['Score', 'Combinations', 'Probability'],
+                    ['Score', 'Hands', 'Probability'],
                     ['15', '1310', '13.29%'],
                     ['16', '1314', '12.80%'],
                     ['17', '1320', '12.27%'],

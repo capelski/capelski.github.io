@@ -141,7 +141,12 @@ export const catalan: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string, string]>
                 rows={[
-                    ['Puntuació', 'Probabilitat', 'Resultat', "Contribució a l'avantatge"],
+                    [
+                        'Puntuació del crupier',
+                        'Probabilitat',
+                        'Resultat',
+                        "Contribució a l'avantatge"
+                    ],
                     ['17', '14.51%', 'Victòria', '14.51%'],
                     ['18', '13.95%', 'Victòria', '13.95%'],
                     ['19', '13.35%', 'Victòria', '13.35%'],
@@ -149,7 +154,7 @@ export const catalan: ArticleContent = {
                     ['21', '7.27%', 'Derrota', '-7.27%'],
                     ['BJ', '4.73%', 'Derrota', '-4.73%'],
                     ['22+', '28.16%', 'Victòria', '28.16%'],
-                    ['Total', '', '', '57.96%']
+                    ['Avantatge', '', '', '57.96%']
                 ]}
             />
             <p style={{ textAlign: 'center' }}>
@@ -199,7 +204,7 @@ export const catalan: ArticleContent = {
                     ],
                     ['A', '1 / 13', '21', 'Plantar-se', '83.26%', '6.40%'],
                     ['2 - K', '12 / 13', '22+', 'Fi', '-100%', '-92.31%'],
-                    ['Total', '', '', '', '', '-85.90%']
+                    ['Avantatge', '', '', '', '', '-85.90%']
                 ]}
             />
             <p style={{ textAlign: 'center' }}>
@@ -298,8 +303,9 @@ export const catalan: ArticleContent = {
                 sabem que maximitza els nostres guanys. De l'altra, l'estratègia no és gaire
                 rendible. L'avantatge de l'estratègia de "plantar-se amb 15 i 8/18" és del -4.07%.
                 Millor que el -5.21% de l'estratègia de "plantar-se amb 16", però encara no prou bo.
-                Al capítol següent veurem com fer servir la carta del crupier per millorar
-                l'avantatge significativament.
+                Al capítol següent veurem com fer servir{' '}
+                <NavLink to={ArticleId.blackjack05DealerCard}>la carta del crupier</NavLink> per
+                millorar l'avantatge significativament.
             </p>
         </React.Fragment>
     )

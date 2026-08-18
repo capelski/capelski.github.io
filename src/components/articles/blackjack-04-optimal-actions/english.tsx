@@ -133,7 +133,7 @@ export const english: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string, string]>
                 rows={[
-                    ['Score', 'Probability', 'Outcome', 'Edge contribution'],
+                    ['Dealer score', 'Probability', 'Outcome', 'Edge contribution'],
                     ['17', '14.51%', 'Win', '14.51%'],
                     ['18', '13.95%', 'Win', '13.95%'],
                     ['19', '13.35%', 'Win', '13.35%'],
@@ -141,7 +141,7 @@ export const english: ArticleContent = {
                     ['21', '7.27%', 'Lose', '-7.27%'],
                     ['BJ', '4.73%', 'Lose', '-4.73%'],
                     ['22+', '28.16%', 'Win', '28.16%'],
-                    ['Total', '', '', '57.96%']
+                    ['Edge', '', '', '57.96%']
                 ]}
             />
             <p style={{ textAlign: 'center' }}>
@@ -190,7 +190,7 @@ export const english: ArticleContent = {
                     ],
                     ['A', '1 / 13', '21', 'Stand', '83.26%', '6.40%'],
                     ['2 - K', '12 / 13', 'Bust', 'End', '-100%', '-92.31%'],
-                    ['Total', '', '', '', '', '-85.90%']
+                    ['Edge', '', '', '', '', '-85.90%']
                 ]}
             />
             <p style={{ textAlign: 'center' }}>
@@ -287,8 +287,9 @@ export const english: ArticleContent = {
                 we know maximizes our earnings. On the other hand, the strategy is not very
                 profitable. The edge of the "Stand on 15 and 8/18" strategy is -4.07%. Better than
                 the -5.21% edge of the "Stand on 16" strategy, but still not good enough. In the
-                next chapter, we will be looking at how to use the dealer card to improve the edge
-                significantly.
+                next chapter, we will be looking at how to use{' '}
+                <NavLink to={ArticleId.blackjack05DealerCard}>the dealer card</NavLink> to improve
+                the edge significantly.
             </p>
         </React.Fragment>
     )

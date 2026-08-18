@@ -158,7 +158,7 @@ export const catalan: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
-                    ['Puntuació', 'Combinacions', 'Probabilitat'],
+                    ['Puntuació', 'Mans', 'Probabilitat'],
                     ['17', '6640', '14.51%'],
                     ['18', '6650', '13.95%'],
                     ['19', '6666', '13.35%'],
@@ -195,7 +195,7 @@ export const catalan: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
-                    ['Puntuació', 'Combinacions', 'Probabilitat'],
+                    ['Puntuació', 'Mans', 'Probabilitat'],
                     ['15', '1310', '13.29%'],
                     ['16', '1314', '12.80%'],
                     ['17', '1320', '12.27%'],
