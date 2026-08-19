@@ -1,13 +1,14 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { NavLink, RouteChildrenProps } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { NavLink } from 'react-router-dom';
 import { Anchor } from '../articles/anchor';
 import { Project } from '../project';
-import { blogRoute } from '../routes';
+import { blogRoute, RouteComponentProps } from '../routes';
 import { SectionContainer } from '../section-container';
 
-export const Portfolio: React.FC<RouteChildrenProps> = () => (
+export const Portfolio: React.FC<RouteComponentProps> = (props) => (
     <SectionContainer
+        containerRef={props.containerRef}
         links={
             <NavLink to={blogRoute.path} className="link">
                 ⬅️ Blog

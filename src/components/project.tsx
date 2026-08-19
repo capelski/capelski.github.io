@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface ProjectProps {
+    children?: React.ReactNode;
     date?: string;
     image: string;
     imageOrientation?: 'landscape' | 'portrait';

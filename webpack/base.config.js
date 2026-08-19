@@ -23,7 +23,12 @@ module.exports = {
                 test: /\.html$/,
                 use: [
                     {
-                        loader: 'html-loader'
+                        loader: 'html-loader',
+                        options: {
+                            /* index.html links assets copied verbatim by CopyWebpackPlugin,
+                             * they must not be resolved as webpack modules */
+                            sources: false
+                        }
                     }
                 ]
             }
@@ -39,7 +44,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
-            filename: './index.html',
+            filename: 'index.html',
             template: './src/index.html'
         }),
         new CopyWebpackPlugin({

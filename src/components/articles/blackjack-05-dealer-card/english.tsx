@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
@@ -36,12 +37,17 @@ export const english: ArticleContent = {
                 filename="dealer-card-unknown.png"
             />
             <p>
-                In <NavLink to={ArticleId.blackjack02FinalScores}>chapter 2</NavLink> we used the
-                dealer strategy to compile a list of all the possible hands the dealer can finish
-                the game with. We then used that list to find out how often we can expect the dealer
-                to end up with a certain score. This information is accurate from a global point of
-                view, but it misses out on a key factor. Knowing the dealer's first card rules out a
-                good number of possible final hands from the list.
+                In{' '}
+                <NavLink
+                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
+                >
+                    chapter 2
+                </NavLink>{' '}
+                we used the dealer strategy to compile a list of all the possible hands the dealer
+                can finish the game with. We then used that list to find out how often we can expect
+                the dealer to end up with a certain score. This information is accurate from a
+                global point of view, but it misses out on a key factor. Knowing the dealer's first
+                card rules out a good number of possible final hands from the list.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
@@ -331,14 +337,22 @@ export const english: ArticleContent = {
                 filename="dealer-card-6.png"
             />
             <p>
-                In <NavLink to={ArticleId.blackjack04OptimalActions}>chapter 4</NavLink> we computed
-                the edge of each action for any given player score. Quick recap. The edge of drawing
-                a card comes from pondering the future scenarios we will get to by drawing another
-                card, starting with the highest player score and working our way backwards. The edge
-                of standing comes from comparing the player score with the dealer's expected final
-                scores. In that comparison we used the overall dealer's expected final scores. For a
-                player score of 14, for example, the edge of drawing is -43.68%, while the edge of
-                standing is -42.26%.
+                In{' '}
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack04OptimalActions
+                    )}
+                >
+                    chapter 4
+                </NavLink>{' '}
+                we computed the edge of each action for any given player score. Quick recap. The
+                edge of drawing a card comes from pondering the future scenarios we will get to by
+                drawing another card, starting with the highest player score and working our way
+                backwards. The edge of standing comes from comparing the player score with the
+                dealer's expected final scores. In that comparison we used the overall dealer's
+                expected final scores. For a player score of 14, for example, the edge of drawing is
+                -43.68%, while the edge of standing is -42.26%.
             </p>
             <p>
                 Let's see how these edges change when the dealer's up card is a 6, for example. When

@@ -1,6 +1,5 @@
 const { merge } = require('webpack-merge');
-const { resolve } = require('path');
-const PrerenderSPAPlugin = require('@dreysolano/prerender-spa-plugin');
+const PrerenderSPAPlugin = require('@prerenderer/webpack-plugin');
 const { ArticleId } = require('./article-id');
 const baseConfig = require('./base.config');
 
@@ -12,14 +11,17 @@ module.exports = merge(baseConfig, {
     mode: 'production',
     plugins: [
         new PrerenderSPAPlugin({
-            staticDir: resolve(__dirname, '..', 'docs'),
             postProcess: (renderedRoute) => {
                 /* Remove height attribute from gist iframes, as they generate noise in changesets */
                 renderedRoute.html = renderedRoute.html.replace(
                     /<iframe([^>]*) style="height: \d+px;"([^>]*)>/g,
                     '<iframe$1>'
                 );
-                return renderedRoute;
+            },
+            renderer: '@prerenderer/renderer-puppeteer',
+            rendererOptions: {
+                /* The page transitions must be over before taking the html snapshot */
+                renderAfterTime: 2000
             },
             routes
         })

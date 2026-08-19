@@ -1,4 +1,5 @@
-@import './variables.scss';
+@use 'sass:math';
+@use './variables.scss' as *;
 
 $extraSmallImageHeight: 50%;
 $mediumImageHeight: 60%;
@@ -43,7 +44,7 @@ $mediumImageHeight: 60%;
     /* Animations */
 
     $animationSegments: 3;
-    $animationSegmentTime: $transitionsDuration / $animationSegments;
+    $animationSegmentTime: math.div($transitionsDuration, $animationSegments);
 
     &.page-enter-active {
         display: none;

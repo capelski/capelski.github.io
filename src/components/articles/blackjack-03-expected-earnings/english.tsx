@@ -265,8 +265,15 @@ export const english: ArticleContent = {
                 indicators for different "Stand on X" strategies. The "Stand on 16" strategy is the
                 one with the highest edge value and is therefore the most profitable one of them. In
                 the next chapter we will be using the edge indicator to find out the{' '}
-                <NavLink to={ArticleId.blackjack04OptimalActions}>optimal actions</NavLink> that
-                yield the most earnings for every possible score.
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack04OptimalActions
+                    )}
+                >
+                    optimal actions
+                </NavLink>{' '}
+                that yield the most earnings for every possible score.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[

@@ -1,4 +1,5 @@
-@import './variables.scss';
+@use 'sass:math';
+@use './variables.scss' as *;
 
 @mixin articleEnterAnimation($animationTime) {
     .article-info,

@@ -1,4 +1,5 @@
-@import './variables.scss';
+@use 'sass:math';
+@use './variables.scss' as *;
 
 @mixin articlesEnterAnimation($animationTime) {
     $articleEnterTime: math.div($animationTime * 2, 4);

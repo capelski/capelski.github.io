@@ -8,6 +8,8 @@ import PatreonBadge from './patreon-badge';
 import { articleRoute } from './routes';
 
 interface ArticleBaseProps extends IArticle {
+    /** Ref to the article root element, needed by react-transition-group nodeRef */
+    containerRef?: React.RefObject<HTMLDivElement | null>;
     selectedLanguage: Language;
 }
 
@@ -38,6 +40,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
 
     return (
         <div
+            ref={props.containerRef}
             className={`article ${props.metadata.id}${props.preview ? '  preview-mode' : ''}`}
             onClick={props.preview ? containerClickHandler : undefined}
             lang={props.selectedLanguage}
@@ -80,8 +83,8 @@ export const Article: React.FC<ArticleProps> = (props) => {
                 {props.preview
                     ? null
                     : typeof content.body === 'function'
-                    ? content.body({})
-                    : content.body}
+                      ? React.createElement(content.body)
+                      : content.body}
                 {props.preview ? (
                     <NavLink
                         ref={navigationRef}

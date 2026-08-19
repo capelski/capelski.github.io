@@ -301,8 +301,7 @@ export const english: ArticleContent = {
                 ,{' '}
                 <ObjectView
                     object={{
-                        hint:
-                            'regionIds_stationName_status_healthyEyes_patientInteractionDate_index'
+                        hint: 'regionIds_stationName_status_healthyEyes_patientInteractionDate_index'
                     }}
                 />
                 );
@@ -328,8 +327,7 @@ export const english: ArticleContent = {
                                 },
                                 { $group: { '...': '...' } }
                             ],
-                            hint:
-                                'regionIds_stationName_status_healthyEyes_patientInteractionDate_index'
+                            hint: 'regionIds_stationName_status_healthyEyes_patientInteractionDate_index'
                         },
                         keysExamined: 145936,
                         docsExamined: 0,

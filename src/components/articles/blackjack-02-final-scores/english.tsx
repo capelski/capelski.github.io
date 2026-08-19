@@ -187,8 +187,15 @@ export const english: ArticleContent = {
                 find the expected final scores of any player with a defined strategy. These are the
                 expected final scores for a common player strategy: drawing to 14 and standing on
                 15. In the next chapter, we will use these final scores to predict the{' '}
-                <NavLink to={ArticleId.blackjack03ExpectedEarnings}>expected earnings</NavLink> of a
-                given strategy.
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack03ExpectedEarnings
+                    )}
+                >
+                    expected earnings
+                </NavLink>{' '}
+                of a given strategy.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[

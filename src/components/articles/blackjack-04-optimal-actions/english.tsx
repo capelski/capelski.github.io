@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
@@ -57,12 +58,19 @@ export const english: ArticleContent = {
                 Decision making in Blackjack is no exception. The goal is to earn money, so good
                 decisions will be the ones that maximize our earnings. An effective way of measuring
                 the expected earnings is the edge indicator we introduced in{' '}
-                <NavLink to={ArticleId.blackjack03ExpectedEarnings}>chapter 3</NavLink>, so that can
-                be our output parameter. To optimize our decision making, we will want to base our
-                strategies on input parameters that correlate well with the edge indicator. If the
-                input parameters don't correlate well with the edge indicator, we can't be certain
-                that the strategy is achieving maximum earnings. That happens to the case for the
-                "Stand on X" strategies.
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack03ExpectedEarnings
+                    )}
+                >
+                    chapter 3
+                </NavLink>
+                , so that can be our output parameter. To optimize our decision making, we will want
+                to base our strategies on input parameters that correlate well with the edge
+                indicator. If the input parameters don't correlate well with the edge indicator, we
+                can't be certain that the strategy is achieving maximum earnings. That happens to
+                the case for the "Stand on X" strategies.
             </p>
             <p>
                 It might seem the input parameter of the "Stand on X" strategies is the player
@@ -81,13 +89,20 @@ export const english: ArticleContent = {
             </p>
             <p>
                 Using the independent probability model, introduced in{' '}
-                <NavLink to={ArticleId.blackjack01SolidDecisions}>chapter 1</NavLink>, we can
-                express the probability of busting for a certain score as the number of cards out of
-                13 that make the player bust. Choosing the maximum probability of busting you are
-                willing to accept determines the lowest score you will stand on. If you are willing
-                to accept, say, a 60% risk of busting, it means you will draw up to 16 (53.85%
-                probability of busting) and you will stand from 17 (61.54% probability of busting)
-                onwards.
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack01SolidDecisions
+                    )}
+                >
+                    chapter 1
+                </NavLink>
+                , we can express the probability of busting for a certain score as the number of
+                cards out of 13 that make the player bust. Choosing the maximum probability of
+                busting you are willing to accept determines the lowest score you will stand on. If
+                you are willing to accept, say, a 60% risk of busting, it means you will draw up to
+                16 (53.85% probability of busting) and you will stand from 17 (61.54% probability of
+                busting) onwards.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
@@ -288,8 +303,12 @@ export const english: ArticleContent = {
                 profitable. The edge of the "Stand on 15 and 8/18" strategy is -4.07%. Better than
                 the -5.21% edge of the "Stand on 16" strategy, but still not good enough. In the
                 next chapter, we will be looking at how to use{' '}
-                <NavLink to={ArticleId.blackjack05DealerCard}>the dealer card</NavLink> to improve
-                the edge significantly.
+                <NavLink
+                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack05DealerCard)}
+                >
+                    the dealer card
+                </NavLink>{' '}
+                to improve the edge significantly.
             </p>
         </React.Fragment>
     )

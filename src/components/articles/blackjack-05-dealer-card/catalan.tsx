@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
@@ -36,13 +37,18 @@ export const catalan: ArticleContent = {
                 filename="dealer-card-unknown.png"
             />
             <p>
-                Al <NavLink to={ArticleId.blackjack02FinalScores}>capítol 2</NavLink> vam fer servir
-                l'estratègia del crupier per elaborar una llista de totes les mans possibles amb què
-                el crupier pot acabar la partida. Després vam fer servir aquesta llista per esbrinar
-                amb quina freqüència podem esperar que el crupier acabi amb una puntuació
-                determinada. Aquesta informació és precisa des d'un punt de vista global, però deixa
-                de banda un factor clau. Conèixer la primera carta del crupier descarta un bon
-                nombre de mans finals possibles de la llista.
+                Al{' '}
+                <NavLink
+                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
+                >
+                    capítol 2
+                </NavLink>{' '}
+                vam fer servir l'estratègia del crupier per elaborar una llista de totes les mans
+                possibles amb què el crupier pot acabar la partida. Després vam fer servir aquesta
+                llista per esbrinar amb quina freqüència podem esperar que el crupier acabi amb una
+                puntuació determinada. Aquesta informació és precisa des d'un punt de vista global,
+                però deixa de banda un factor clau. Conèixer la primera carta del crupier descarta
+                un bon nombre de mans finals possibles de la llista.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
@@ -358,15 +364,23 @@ export const catalan: ArticleContent = {
                 filename="dealer-card-6.png"
             />
             <p>
-                Al <NavLink to={ArticleId.blackjack04OptimalActions}>capítol 4</NavLink> vam
-                calcular l'avantatge de cada acció per a qualsevol puntuació del jugador. Recordem
-                ràpidment com funciona el càlcul. L'avantatge de demanar carta surt de ponderar els
-                escenaris futurs als quals arribarem demanant una altra carta, començant per la
-                puntuació més alta del jugador i anant cap enrere. L'avantatge de plantar-se surt de
-                comparar la puntuació del jugador amb les puntuacions finals esperades del crupier.
-                En aquesta comparació vam fer servir les puntuacions finals esperades globals del
-                crupier. Per a una mà de 14 punts, per exemple, l'avantatge de demanar carta és del
-                -43.68%, mentre que l'avantatge de plantar-se és del -42.26%.
+                Al{' '}
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack04OptimalActions
+                    )}
+                >
+                    capítol 4
+                </NavLink>{' '}
+                vam calcular l'avantatge de cada acció per a qualsevol puntuació del jugador.
+                Recordem ràpidment com funciona el càlcul. L'avantatge de demanar carta surt de
+                ponderar els escenaris futurs als quals arribarem demanant una altra carta,
+                començant per la puntuació més alta del jugador i anant cap enrere. L'avantatge de
+                plantar-se surt de comparar la puntuació del jugador amb les puntuacions finals
+                esperades del crupier. En aquesta comparació vam fer servir les puntuacions finals
+                esperades globals del crupier. Per a una mà de 14 punts, per exemple, l'avantatge de
+                demanar carta és del -43.68%, mentre que l'avantatge de plantar-se és del -42.26%.
             </p>
             <p>
                 Vegem com canvien aquests avantatges quan la carta del crupier és un 6, per exemple.

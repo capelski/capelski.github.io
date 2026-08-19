@@ -275,8 +275,15 @@ export const catalan: ArticleContent = {
                 L'estratègia de "plantar-se amb 16" és la que té el valor d'avantatge més alt i és,
                 per tant, la més rendible de totes. Al capítol següent farem servir l'indicador de
                 l'avantatge per esbrinar les{' '}
-                <NavLink to={ArticleId.blackjack04OptimalActions}>accions òptimes</NavLink> que
-                maximitzen els guanys per a cada puntuació possible.
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack04OptimalActions
+                    )}
+                >
+                    accions òptimes
+                </NavLink>{' '}
+                que maximitzen els guanys per a cada puntuació possible.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[

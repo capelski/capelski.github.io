@@ -3,9 +3,9 @@ import { Language } from './language';
 import { ArticleCategory } from './article-category';
 
 export interface ArticleContent {
-    body: JSX.Element | React.FC<{}>;
+    body: React.JSX.Element | React.FC<{}>;
     description: string;
-    introduction: JSX.Element;
+    introduction: React.JSX.Element;
     shareSentence?: string;
     title: string;
 }

@@ -4,7 +4,7 @@
     "description": "Personal page built in react",
     "scripts": {
         "build": "npm run clean:build && npm run build:article-id && npm run build:client",
-        "build:article-id": "rm webpack/article-id* && tsc -p tsconfig.article-id.json",
+        "build:article-id": "rm -rf webpack/article-id* && tsc -p tsconfig.article-id.json",
         "build:client": "webpack --config webpack/production.config.js",
         "build:ts": "tsc --noEmit -p tsconfig.json",
         "clean:build": "rm -rf docs",
@@ -17,34 +17,38 @@
     "author": "Carles Capellas <capellas.carles@gmail.com>",
     "license": "ISC",
     "devDependencies": {
-        "@dreysolano/prerender-spa-plugin": "^1.0.3",
-        "@types/react": "16.9.41",
-        "@types/react-dom": "16.9.8",
-        "@types/react-helmet": "6.0.0",
-        "@types/react-router-dom": "5.1.5",
-        "@types/react-transition-group": "4.4.0",
-        "copy-webpack-plugin": "^8.1.0",
-        "css-loader": "^6.8.1",
-        "express": "^4.17.1",
-        "html-loader": "1.1.0",
-        "html-webpack-plugin": "^5.3.1",
-        "mini-css-extract-plugin": "^2.7.6",
-        "prettier": "2.0.5",
-        "sass": "^1.69.5",
-        "sass-loader": "^13.3.2",
-        "ts-loader": "^9.5.1",
-        "typescript": "^5.2.2",
-        "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^4.15.1",
-        "webpack-merge": "^5.10.0"
+        "@prerenderer/webpack-plugin": "^5.3.10",
+        "@types/react": "^19.2.18",
+        "@types/react-dom": "^19.2.4",
+        "@types/react-transition-group": "^4.4.12",
+        "copy-webpack-plugin": "^14.0.0",
+        "css-loader": "^7.1.4",
+        "express": "^5.2.1",
+        "html-loader": "^5.1.0",
+        "html-webpack-plugin": "^5.6.8",
+        "mini-css-extract-plugin": "^2.10.2",
+        "prettier": "^3.9.6",
+        "puppeteer": "^25.8.0",
+        "sass": "^1.102.0",
+        "sass-loader": "^17.0.0",
+        "ts-loader": "^9.6.2",
+        "typescript": "^6.0.3",
+        "webpack": "^5.109.2",
+        "webpack-cli": "^7.2.2",
+        "webpack-dev-server": "^6.0.0",
+        "webpack-merge": "^6.0.1"
     },
     "dependencies": {
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
-        "react-gist": "1.2.1",
-        "react-helmet": "6.1.0",
-        "react-router-dom": "5.2.0",
-        "react-transition-group": "4.4.1"
+        "react": "^19.2.8",
+        "react-dom": "^19.2.8",
+        "react-gist": "^1.2.4",
+        "react-helmet-async": "^3.0.0",
+        "react-router-dom": "^7.18.2",
+        "react-transition-group": "^4.4.5"
+    },
+    "overrides": {
+        "react-gist": {
+            "react": "$react"
+        }
     }
 }

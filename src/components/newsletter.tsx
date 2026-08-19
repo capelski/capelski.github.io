@@ -7,10 +7,8 @@ const formContent: { [key: string]: { [Language.ca]: string; [Language.en]: stri
         en: 'Wanna hear back from me?'
     },
     body: {
-        ca:
-            "Subscriu-te a la meva llista de correu i rebràs un mail quan publiqui una entrada nova (al voltant d'un cop al més, lliure de spam). Cancela la subscripció en qualsevol moment",
-        en:
-            'Subscribe to my newsletter and you will get a mail when I post a new entry (about once a month, spam free). Cancel the subscription at any time'
+        ca: "Subscriu-te a la meva llista de correu i rebràs un mail quan publiqui una entrada nova (al voltant d'un cop al més, lliure de spam). Cancela la subscripció en qualsevol moment",
+        en: 'Subscribe to my newsletter and you will get a mail when I post a new entry (about once a month, spam free). Cancel the subscription at any time'
     },
     placeholder: { ca: 'Adreça electrònica', en: 'Email address' },
     button: {

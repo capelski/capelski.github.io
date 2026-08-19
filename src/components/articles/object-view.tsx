@@ -64,10 +64,10 @@ const ObjectViewRecursive: React.FC<ObjectViewRecursiveProps> = (props) => {
                             ? 'true'
                             : 'false'
                         : isUndefined
-                        ? 'undefined'
-                        : isNull
-                        ? 'null'
-                        : props.object}
+                          ? 'undefined'
+                          : isNull
+                            ? 'null'
+                            : props.object}
                     {isString && '"'}
                     {props.isArrayMember && ','}
                     <br />

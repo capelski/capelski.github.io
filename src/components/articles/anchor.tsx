@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface AnchorProps {
+    children?: React.ReactNode;
     url: string;
 }
 

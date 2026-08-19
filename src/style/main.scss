@@ -1,17 +1,17 @@
-@use 'sass:math';
+@use 'sass:color';
 
-@import './article.scss';
-@import './articles/four-coin-challenge.scss';
-@import './articles/kanban-goals-tracking.scss';
-@import './articles/linear-gradient.scss';
-@import './articles/persuasion-in-pictures.scss';
-@import './articles/trecember.scss';
-@import './animations.scss';
-@import './blog.scss';
-@import './error.scss';
-@import './portfolio.scss';
-@import './project.scss';
-@import './variables.scss';
+@use './article.scss';
+@use './articles/four-coin-challenge.scss';
+@use './articles/kanban-goals-tracking.scss';
+@use './articles/linear-gradient.scss';
+@use './articles/persuasion-in-pictures.scss';
+@use './articles/trecember.scss';
+@use './animations.scss';
+@use './blog.scss';
+@use './error.scss';
+@use './portfolio.scss';
+@use './project.scss';
+@use './variables.scss' as *;
 
 $mobilePadding: 16px;
 $desktopPadding: 32px;
@@ -126,11 +126,11 @@ p {
     }
 
     &:hover {
-        background-color: mix(white, $primaryColor, 15%);
+        background-color: color.mix(white, $primaryColor, 15%);
     }
 
     &:active {
-        background-color: mix(black, $primaryColor, 15%);
+        background-color: color.mix(black, $primaryColor, 15%);
     }
 
     &:not(.disabled-button) {
@@ -138,7 +138,7 @@ p {
     }
 
     &.disabled-button {
-        background-color: mix(white, $primaryColor, 45%);
+        background-color: color.mix(white, $primaryColor, 45%);
     }
 }
 

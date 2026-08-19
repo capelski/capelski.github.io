@@ -2,7 +2,8 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "declaration": true,
-        "outDir": "./webpack"
+        "outDir": "./webpack",
+        "rootDir": "./src/components/articles"
     },
     "include": ["**/article-id.ts"]
 }

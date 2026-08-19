@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
@@ -58,7 +59,15 @@ export const catalan: ArticleContent = {
                 La presa de decisions al Blackjack no és cap excepció. L'objectiu és guanyar diners,
                 així que les bones decisions seran les que maximitzin els nostres guanys. Una manera
                 efectiva de mesurar els guanys esperats és l'indicador de l'avantatge que vam
-                introduir al <NavLink to={ArticleId.blackjack03ExpectedEarnings}>capítol 3</NavLink>
+                introduir al{' '}
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack03ExpectedEarnings
+                    )}
+                >
+                    capítol 3
+                </NavLink>
                 , així que aquest pot ser el nostre paràmetre de sortida. Per optimitzar les nostres
                 decisions, voldrem basar les estratègies en paràmetres d'entrada que es
                 correlacionin bé amb l'indicador de l'avantatge. Si els paràmetres d'entrada no s'hi
@@ -85,12 +94,19 @@ export const catalan: ArticleContent = {
             </p>
             <p>
                 Fent servir el model de probabilitat independent, introduït al{' '}
-                <NavLink to={ArticleId.blackjack01SolidDecisions}>capítol 1</NavLink>, podem
-                expressar la probabilitat de passar-se de 21 per a una puntuació determinada com el
-                nombre de cartes de 13 que fan que el jugador es passi. Escollir la probabilitat
-                màxima de passar-se de 21 que estàs disposat a acceptar determina la puntuació més
-                baixa amb què et plantaràs. Si estàs disposat a acceptar, per exemple, un risc del
-                60% de passar-te de 21, vol dir que demanaràs carta fins a 16 (53.85% de
+                <NavLink
+                    to={articleRoute.path.replace(
+                        ':articleId',
+                        ArticleId.blackjack01SolidDecisions
+                    )}
+                >
+                    capítol 1
+                </NavLink>
+                , podem expressar la probabilitat de passar-se de 21 per a una puntuació determinada
+                com el nombre de cartes de 13 que fan que el jugador es passi. Escollir la
+                probabilitat màxima de passar-se de 21 que estàs disposat a acceptar determina la
+                puntuació més baixa amb què et plantaràs. Si estàs disposat a acceptar, per exemple,
+                un risc del 60% de passar-te de 21, vol dir que demanaràs carta fins a 16 (53.85% de
                 probabilitat de passar-te) i et plantaràs a partir de 17 (61.54% de probabilitat de
                 passar-te).
             </p>
@@ -304,8 +320,12 @@ export const catalan: ArticleContent = {
                 rendible. L'avantatge de l'estratègia de "plantar-se amb 15 i 8/18" és del -4.07%.
                 Millor que el -5.21% de l'estratègia de "plantar-se amb 16", però encara no prou bo.
                 Al capítol següent veurem com fer servir{' '}
-                <NavLink to={ArticleId.blackjack05DealerCard}>la carta del crupier</NavLink> per
-                millorar l'avantatge significativament.
+                <NavLink
+                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack05DealerCard)}
+                >
+                    la carta del crupier
+                </NavLink>{' '}
+                per millorar l'avantatge significativament.
             </p>
         </React.Fragment>
     )
