@@ -10,24 +10,24 @@ export const english: ArticleContent = {
     title: 'Blackjack 05. The dealer card',
     description:
         'How to exploit the dealer card to improve the earnings of your Blackjack strategy',
-    shareSentence: 'Hitting a 16? Only on certain dealer cards',
+    shareSentence: 'Hitting a 16? Only against certain dealer cards',
     introduction: (
         <p>
             In previous chapters of this series we have applied a number of mathematical methods to
             improve our Blackjack decision making. Expected final scores, expected earnings and
             optimal actions. All safe and sound and, yet, we are still not making money at the end
             of the day. To improve our earnings we will need to do things differently. Consider
-            additional information. What additional information could that be?
+            additional information... but what information could that be?
         </p>
     ),
     body: (
         <React.Fragment>
             <p>
-                We have been paying a lot of attention to the information available on our side of
-                the table, the player score. It turns out the information at the other side of the
-                table, the dealer's up card, is also valuable. Factoring in the dealer's up card
-                will help us detect situations where we can achieve higher earnings by introducing
-                exceptions in our strategy.
+                Until now we have been paying a lot of attention to the information available on our
+                side of the table, the player score. It turns out the information at the other side
+                of the table, the dealer's up card, is also valuable. Factoring in the dealer's up
+                card will help us detect situations where we can achieve higher earnings by
+                introducing exceptions in our strategy.
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack05DealerCard}
@@ -70,20 +70,19 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                Take the first final hand in the list, for example. A, A, A, A, A, A, A, with a
-                score of 7/17 and a probability of 0.00000159%. This hand is only possible if the
-                dealer's first card is an A. If the dealer's first card is anything but an A, the
-                dealer cannot reach this final hand. We can get more accurate final score
-                probabilities by excluding this final hand from the list when the dealer's first
-                card is not an A.
+                Take the first final hand in the list, for example: A, A, A, A, A, A, A. This hand
+                is only possible if the dealer's first card is an A. If the dealer's first card is
+                anything but an A, the dealer cannot reach this final hand. We can get more accurate
+                final score probabilities by excluding this final hand from the list when the
+                dealer's first card is not an A.
             </p>
             <p>
-                The same goes for each final hand in the list. We only want to consider the final
-                hands that are possible given the dealer's first card. To do so, we need to split
-                the list of final hands by the first card of each combination. This is what the
-                dealer's final probabilities look like when splitting the list by the dealer's first
-                card. We can see, for example, that the dealer's probability of getting a blackjack
-                is null when the first card is neither an A nor a 10. That makes sense.
+                The same goes for each final hand in the list. If we consider only the final hands
+                that are possible given the dealer's first card, we will get more accurate
+                probabilities. To do so, we need to split the list of final hands into buckets, one
+                for each possible first card. This is what the dealer's final probabilities look
+                like when splitting the list. We can see, for example, that the dealer's probability
+                of getting a blackjack is null when the first card is neither an A nor a 10.
             </p>
             <ResponsiveTable<
                 [
@@ -208,10 +207,10 @@ export const english: ArticleContent = {
                 The numbers in the table above reflect the global probabilities. Once the dealer
                 gets their card dealt, we no longer care about the global probabilities. If the
                 dealer's up card is a 2, for example, the probability of the dealer busting is
-                2.72%. But that is over the 7.69% total probability for that column, not over the
-                global probabilities. 2.72% / 7.69% = 35.36%. The dealer will bust 35.36% of the
-                times when their up card is a 2. Let's adjust the probabilities of the table so each
-                column sums up to 100%.
+                2.72%, but over the 7.69% total probability for that column, not over the 100% of
+                cases. 2.72% / 7.69% = 35.36%. The dealer will bust 35.36% of the times when their
+                up card is a 2. Let's adjust the probabilities of the table so each column sums up
+                to 100%.
             </p>
             <ResponsiveTable<
                 [
@@ -320,10 +319,10 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                The numbers make more sense now. We can now see that, for example, the probability
-                of the dealer busting is almost four times higher when the dealer card is a 6
-                compared to when it is an A. Four times higher! This is a huge difference. Surely
-                this must make a difference when computing edge values.
+                The numbers make more sense now. We can now see more clearly that, for example, the
+                probability of the dealer busting is almost four times higher when the dealer card
+                is a 6 compared to when it is an A. Four times higher! This is a huge difference.
+                Surely this must make a difference when computing the edges of the actions.
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack05DealerCard}
@@ -337,15 +336,15 @@ export const english: ArticleContent = {
                 a card comes from pondering the future scenarios we will get to by drawing another
                 card, starting with the highest player score and working our way backwards. The edge
                 of standing comes from comparing the player score with the dealer's expected final
-                scores. And, for that comparison, we used the overall dealer's expected final
-                scores. For a player score of 14, for example, the edge of drawing is -43.68%, while
-                the edge of standing is -42.26%.
+                scores. In that comparison we used the overall dealer's expected final scores. For a
+                player score of 14, for example, the edge of drawing is -43.68%, while the edge of
+                standing is -42.26%.
             </p>
             <p>
                 Let's see how these edges change when the dealer's up card is a 6, for example. When
-                computing the edge of standing, we will now use the expected final scores
-                corresponding to a dealer's up card of 6. The edge of standing improves naturally,
-                because the dealer is more likely to bust and they cannot get a blackjack either.
+                computing the edge of standing, we will now use the expected final scores for a
+                dealer's 6. The edge of standing improves naturally because the dealer is more
+                likely to bust.
             </p>
             <ResponsiveTable<[string, string, string, string]>
                 rows={[
@@ -369,10 +368,10 @@ export const english: ArticleContent = {
             </p>
             <p>
                 The edge of drawing a card changes as well. The optimal action for scores of 15 and
-                higher continues to be the same when facing a dealer 6, standing, so drawing a card
-                leads to the same future scenarios. However, each of those scenarios have better
-                edges when facing a dealer 6, due again to the dealer being more likely to bust.
-                When merging the edges of all the possible scenarios, we find that the edge of
+                higher continues to be the same when facing a dealer 6: standing. Drawing a card
+                therefore leads to the same future scenarios, but each of those scenarios have
+                better edges when facing a dealer 6. Due again to the dealer being more likely to
+                bust. When merging the edges of all the future scenarios, we find that the edge of
                 drawing increases to -30.07%
             </p>
             <ResponsiveTable<[string, string, string, string, string, string]>
@@ -405,10 +404,10 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                Both edges have increased significantly, but the most important thing to notice is
-                that standing is now much more profitable than drawing a card. We can still expect
-                to lose money, since 14 is a bad player score after all, but we will lose a lot less
-                by standing when the dealer has a 6.
+                Both edges have increased significantly, but the most important thing is that
+                standing is now much more profitable than drawing a card. We can still expect to
+                lose money, since 14 is a bad player score after all, but, when the dealer has a 6,
+                we will lose less money by standing.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
@@ -423,11 +422,11 @@ export const english: ArticleContent = {
             <p>
                 A similar change occurs when looking at a player score of 16. Basing the calculation
                 on the overall dealer's expected final scores, the edges of standing and drawing a
-                card are -43.68% and -50.93% respectively, making standing the better call. When the
-                dealer's up card is an A however, they are less likely to bust. This changes the
-                edges to -76.94% and -66.57%, and turns the scale in favour of drawing. You can
-                still expect to lose money when facing an A with a score of 16, but daring to draw
-                that card will make you lose somewhat less.
+                card are -43.68% and -50.93% respectively. Standing is the optimal action. When the
+                dealer's up card is an A however, the dealer is less likely to bust. The edges are
+                -76.94% and -66.57% when the dealer has an A, and that turns the scale in favour of
+                drawing. You can still expect to lose money when facing an A with a score of 16, but
+                drawing a card will make you lose somewhat less.
             </p>
             <ResponsiveTable<[string, string, string]>
                 rows={[
@@ -440,8 +439,8 @@ export const english: ArticleContent = {
                 <i>Edges for a player score of 16</i>
             </p>
             <p>
-                The same principle applies to all the other player scores: the dealer's up card
-                might change the optimal action. Re-computing the optimal actions for each possible
+                This principle applies to all the player scores: the dealer's up card might change
+                the optimal action. Re-computing the optimal actions for each player score and each
                 dealer card yields the following table. Somewhat similar to the optimal actions for
                 the "Stand on 15 and 8/18" strategy, but with a number of exceptions to take
                 advantage of specific dealer weaknesses.
@@ -474,7 +473,7 @@ export const english: ArticleContent = {
             />
             <p style={{ textAlign: 'center' }}>
                 <i>
-                    H = Hit / S = Stand. Source:{' '}
+                    S = Stand / H = Hit. Source:{' '}
                     <Anchor url="https://capelski.github.io/blackjack-stats/en/dealer/summary?dsm=compact">
                         https://capelski.github.io/blackjack-stats/en/dealer/summary?dsm=compact
                     </Anchor>
