@@ -20,7 +20,8 @@ module.exports = merge(baseConfig, {
             },
             renderer: '@prerenderer/renderer-puppeteer',
             rendererOptions: {
-                /* The page transitions must be over before taking the html snapshot */
+                /* Give the app time to render the section (and its embedded content)
+                 * before taking the html snapshot */
                 renderAfterTime: 2000
             },
             routes

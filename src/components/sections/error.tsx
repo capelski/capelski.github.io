@@ -1,18 +1,17 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
-import { blogRoute, portfolioRoute, RouteComponentProps } from '../routes';
+import { blogRoute, portfolioRoute } from '../routes';
 import { SectionContainer } from '../section-container';
 
-export const Error: React.FC<Partial<RouteComponentProps>> = (props) => (
+export const Error: React.FC = () => (
     <SectionContainer
-        containerRef={props.containerRef}
         links={
             <React.Fragment>
-                <NavLink to={blogRoute.path} className="link">
+                <NavLink to={blogRoute.path} className="link" viewTransition={true}>
                     ⬅️ Blog
                 </NavLink>
-                <NavLink to={portfolioRoute.path} className="link">
+                <NavLink to={portfolioRoute.path} className="link" viewTransition={true}>
                     Portfolio ➡️
                 </NavLink>
             </React.Fragment>

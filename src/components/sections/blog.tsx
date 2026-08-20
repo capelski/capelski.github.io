@@ -1,81 +1,45 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+import { NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useAppContext } from '../app';
 import { Article } from '../article';
 import { articles } from '../articles';
 import {
     AllArticleCategories,
     ArticleCategory,
     defaultCategory,
+    getCategoryFromKey,
     getCategoryKey
 } from '../articles/article-category';
-import { Language } from '../articles/language';
 import PatreonBadge from '../patreon-badge';
-import { portfolioRoute, RouteComponentProps } from '../routes';
+import { portfolioRoute } from '../routes';
 import { SectionContainer } from '../section-container';
-import { transitionsDuration } from '../variables';
 
-export interface BlogAdditionalProps {
-    selectedCategory: ArticleCategory;
-    selectedLanguage: Language;
-    setSelectedCategory: (category: ArticleCategory) => void;
-}
-
-export type BlogProps = RouteComponentProps & BlogAdditionalProps;
-
-interface ArticlesTransitionProps {
-    children?: React.ReactNode;
-    in: boolean;
-    onExited: () => void;
-}
-
-/** react-transition-group requires a nodeRef since React 19 removed findDOMNode */
-const ArticlesTransition: React.FC<ArticlesTransitionProps> = (props) => {
-    const nodeRef = useRef<HTMLDivElement>(null);
-
-    return (
-        <CSSTransition
-            classNames="articles"
-            in={props.in}
-            nodeRef={nodeRef}
-            onExited={props.onExited}
-            timeout={transitionsDuration}
-            unmountOnExit={true}
-        >
-            <div className="articles" ref={nodeRef}>
-                {props.children}
-            </div>
-        </CSSTransition>
-    );
-};
-
-export const Blog: React.FC<BlogProps> = (props) => {
+export const Blog: React.FC = () => {
+    const { selectedLanguage } = useAppContext();
     const location = useLocation();
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
 
-    // We need to keep an owned copy of props.selectedCategory value to control css exit transitions
-    const [selectedCategory, setSelectedCategory] = useState<ArticleCategory>(
-        props.selectedCategory
-    );
+    /* The url is the single source of truth for the selected category, so that the
+     * articles list is swapped inside the view transition triggered by the navigation
+     */
+    const selectedCategory = getCategoryFromKey(searchParams.get('category')) || defaultCategory;
 
     const updateSelectedCategory = (category: ArticleCategory) => {
-        setSelectedCategory(category);
-
         const params = new URLSearchParams(location.search);
         if (category === defaultCategory) {
             params.delete('category');
         } else {
             params.set('category', getCategoryKey(category));
         }
-        navigate({ search: params.toString() }, { replace: true });
+        navigate({ search: params.toString() }, { replace: true, viewTransition: true });
     };
 
     return (
         <SectionContainer
-            containerRef={props.containerRef}
             links={
-                <NavLink to={portfolioRoute.path} className="link">
+                <NavLink to={portfolioRoute.path} className="link" viewTransition={true}>
                     Portfolio ➡️
                 </NavLink>
             }
@@ -105,27 +69,19 @@ export const Blog: React.FC<BlogProps> = (props) => {
                         ))}
                     </div>
                 </div>
-                <PatreonBadge selectedLanguage={props.selectedLanguage} />
-                {AllArticleCategories.map((category) => (
-                    <ArticlesTransition
-                        in={category === selectedCategory}
-                        key={category}
-                        onExited={() => props.setSelectedCategory(selectedCategory)}
-                    >
-                        {articles
-                            .filter(
-                                (article) => article.metadata.category === props.selectedCategory
-                            )
-                            .map((article) => (
-                                <Article
-                                    key={article.metadata.id + category}
-                                    {...article}
-                                    preview={true}
-                                    selectedLanguage={props.selectedLanguage}
-                                />
-                            ))}
-                    </ArticlesTransition>
-                ))}
+                <PatreonBadge selectedLanguage={selectedLanguage} />
+                <div className="articles">
+                    {articles
+                        .filter((article) => article.metadata.category === selectedCategory)
+                        .map((article) => (
+                            <Article
+                                key={article.metadata.id}
+                                {...article}
+                                preview={true}
+                                selectedLanguage={selectedLanguage}
+                            />
+                        ))}
+                </div>
             </React.Fragment>
         </SectionContainer>
     );

@@ -1,95 +1,118 @@
+@use './variables.scss' as *;
+
+/* Section transitions are handled by the browser View Transitions API, triggered by
+ * react-router-dom on every navigation (the viewTransition flag in links and navigate
+ * calls). Each section names its scrollable viewport through view-transition-name, and
+ * the rules below animate the resulting snapshots: the outgoing section leaves first and
+ * the incoming one arrives right after. Browsers with no view transitions support simply
+ * render the new section straight away
+ */
+
 @keyframes slide-in-down {
-    #{0%} {
+    from {
         opacity: 0;
         transform: translateY(-50px);
     }
 
-    #{100%} {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
 @keyframes slide-in-left {
-    #{0%} {
+    from {
         opacity: 0;
         transform: translateX(-50px);
     }
 
-    #{100%} {
+    to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes slide-in-right {
-    #{0%} {
+    from {
         opacity: 0;
         transform: translateX(50px);
     }
 
-    #{100%} {
+    to {
         opacity: 1;
         transform: translateX(0);
-    }
-}
-
-@keyframes slide-in-up {
-    #{0%} {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    #{100%} {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slide-out-down {
-    #{0%} {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    #{100%} {
-        opacity: 0;
-        transform: translateY(50px);
     }
 }
 
 @keyframes slide-out-left {
-    #{0%} {
+    from {
         opacity: 1;
         transform: translateX(0);
     }
 
-    #{100%} {
+    to {
         opacity: 0;
         transform: translateX(-50px);
     }
 }
 
 @keyframes slide-out-right {
-    #{0%} {
+    from {
         opacity: 1;
         transform: translateX(0);
     }
 
-    #{100%} {
+    to {
         opacity: 0;
         transform: translateX(50px);
     }
 }
 
 @keyframes slide-out-up {
-    #{0%} {
+    from {
         opacity: 1;
         transform: translateY(0);
     }
 
-    #{100%} {
+    to {
         opacity: 0;
         transform: translateY(-50px);
+    }
+}
+
+/** Animates the snapshots of a named element: $exit while leaving, $enter while arriving.
+ * The enter animation is delayed so that both halves play one after the other, and
+ * mix-blend-mode is reset because the snapshots no longer cross-fade
+ */
+@mixin sectionTransition($name, $exit, $enter) {
+    ::view-transition-old(#{$name}) {
+        animation: $exit $sectionTransitionDuration forwards;
+        mix-blend-mode: normal;
+    }
+
+    ::view-transition-new(#{$name}) {
+        animation: $enter $sectionTransitionDuration $sectionTransitionDuration backwards;
+        mix-blend-mode: normal;
+    }
+}
+
+@include sectionTransition(blog, slide-out-left, slide-in-left);
+@include sectionTransition(article, slide-out-up, slide-in-down);
+@include sectionTransition(portfolio, slide-out-right, slide-in-right);
+@include sectionTransition(error, slide-out-right, slide-in-right);
+
+/* The blog header keeps the browser cross-fade, which leaves it untouched when only the
+ * articles list changes (i.e. a category change), but matches the sections duration
+ */
+::view-transition-old(blog-header),
+::view-transition-new(blog-header) {
+    animation-duration: $sectionTransitionDuration;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
     }
 }

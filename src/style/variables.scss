@@ -3,8 +3,8 @@ $medium: 768px;
 $large: 992px;
 $extra-large: 1200px;
 
-// Keep in sync with variables.ts transitionsDuration
-$transitionsDuration: 1200ms;
+// Duration of each half (exit and enter) of a section view transition
+$sectionTransitionDuration: 400ms;
 
 $primaryColor: #fed136;
 

@@ -1,16 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter } from 'react-router-dom';
-import { App } from './components/app';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './components/router';
 
 import './style/main.scss';
 
 const ClientApp: React.FC = () => (
     <HelmetProvider>
-        <BrowserRouter>
-            <App isServerRendered={false} />
-        </BrowserRouter>
+        <RouterProvider router={router} />
     </HelmetProvider>
 );
 

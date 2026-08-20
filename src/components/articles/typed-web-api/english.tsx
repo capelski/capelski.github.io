@@ -151,7 +151,10 @@ export const english: ArticleContent = {
             <p>
                 And that's about it. This library is my second attempt at brining type safety to
                 network requests and it benefits from my previous learnings (i.e.{' '}
-                <NavLink to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}>
+                <NavLink
+                    viewTransition={true}
+                    to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
+                >
                     express-web-api
                 </NavLink>
                 ). It is meant to be generic, framework agnostic on the client side, and impose as

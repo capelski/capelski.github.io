@@ -23,7 +23,6 @@ const articleLinksContent: { [key: string]: { [Language.ca]: string; [Language.e
 export interface ArticleNavigationProps {
     articleId: ArticleId;
     nextArticle?: IArticle;
-    onArticleNavigation: (articleId: ArticleId) => void;
     previousArticle?: IArticle;
     selectedLanguage: Language;
     shareSentence: string;
@@ -31,10 +30,6 @@ export interface ArticleNavigationProps {
 }
 
 export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
-    const articleNavigationHandler = (articleId: ArticleId) => () => {
-        props.onArticleNavigation(articleId);
-    };
-
     const shareHandler = async () => {
         try {
             await window.navigator.share({
@@ -58,11 +53,9 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                     {props.previousArticle && (
                         <span className="link-text">
                             <NavLink
+                                viewTransition={true}
                                 to={articleRoute.path.replace(
                                     ':articleId',
-                                    props.previousArticle.metadata.id
-                                )}
-                                onClick={articleNavigationHandler(
                                     props.previousArticle.metadata.id
                                 )}
                             >
@@ -78,11 +71,11 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                     {props.nextArticle && (
                         <span className="link-text">
                             <NavLink
+                                viewTransition={true}
                                 to={articleRoute.path.replace(
                                     ':articleId',
                                     props.nextArticle.metadata.id
                                 )}
-                                onClick={articleNavigationHandler(props.nextArticle.metadata.id)}
                             >
                                 {articleLinksContent['following'][props.selectedLanguage]} ➡️
                             </NavLink>

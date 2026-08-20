@@ -88,6 +88,7 @@ export const english: ArticleContent = {
                 The second thing we need is the probability of the dealer ending up with each hand
                 in the list. In{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack01SolidDecisions
@@ -188,6 +189,7 @@ export const english: ArticleContent = {
                 expected final scores for a common player strategy: drawing to 14 and standing on
                 15. In the next chapter, we will use these final scores to predict the{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack03ExpectedEarnings

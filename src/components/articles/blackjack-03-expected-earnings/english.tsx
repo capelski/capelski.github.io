@@ -46,6 +46,7 @@ export const english: ArticleContent = {
                 see how close to it we can get. We know the player's strategy: "Stand on 15". With
                 that we can obtain their expected final scores, using the method we described in{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
                     chapter 2
@@ -266,6 +267,7 @@ export const english: ArticleContent = {
                 one with the highest edge value and is therefore the most profitable one of them. In
                 the next chapter we will be using the edge indicator to find out the{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack04OptimalActions

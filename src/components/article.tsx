@@ -2,14 +2,11 @@ import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArticleNavigation } from './article-navigation';
 import { Article as IArticle } from './articles/article-data';
-import { ArticleId } from './articles/article-id';
 import { Language } from './articles/language';
 import PatreonBadge from './patreon-badge';
 import { articleRoute } from './routes';
 
 interface ArticleBaseProps extends IArticle {
-    /** Ref to the article root element, needed by react-transition-group nodeRef */
-    containerRef?: React.RefObject<HTMLDivElement | null>;
     selectedLanguage: Language;
 }
 
@@ -19,7 +16,6 @@ export interface ArticlePreviewProps extends ArticleBaseProps {
 
 export interface ArticleFullProps extends ArticleBaseProps {
     nextArticle?: IArticle;
-    onArticleNavigation: (articleId: ArticleId) => void;
     preview: false;
     previousArticle?: IArticle;
     setSelectedLanguage: (language: Language) => void;
@@ -40,7 +36,6 @@ export const Article: React.FC<ArticleProps> = (props) => {
 
     return (
         <div
-            ref={props.containerRef}
             className={`article ${props.metadata.id}${props.preview ? '  preview-mode' : ''}`}
             onClick={props.preview ? containerClickHandler : undefined}
             lang={props.selectedLanguage}
@@ -87,6 +82,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
                       : content.body}
                 {props.preview ? (
                     <NavLink
+                        viewTransition={true}
                         ref={navigationRef}
                         to={articleRoute.path.replace(':articleId', props.metadata.id)}
                         className="programmatic-link"
@@ -97,7 +93,6 @@ export const Article: React.FC<ArticleProps> = (props) => {
                         <ArticleNavigation
                             articleId={props.metadata.id}
                             shareSentence={content.shareSentence || content.description}
-                            onArticleNavigation={props.onArticleNavigation}
                             nextArticle={props.nextArticle}
                             previousArticle={props.previousArticle}
                             selectedLanguage={props.selectedLanguage}

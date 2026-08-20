@@ -48,6 +48,7 @@ export const catalan: ArticleContent = {
                 15". Amb això podem obtenir les seves puntuacions finals esperades, fent servir el
                 mètode que vam descriure al{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
                     capítol 2
@@ -276,6 +277,7 @@ export const catalan: ArticleContent = {
                 per tant, la més rendible de totes. Al capítol següent farem servir l'indicador de
                 l'avantatge per esbrinar les{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack04OptimalActions

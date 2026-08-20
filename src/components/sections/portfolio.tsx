@@ -3,14 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
 import { Anchor } from '../articles/anchor';
 import { Project } from '../project';
-import { blogRoute, RouteComponentProps } from '../routes';
+import { blogRoute } from '../routes';
 import { SectionContainer } from '../section-container';
 
-export const Portfolio: React.FC<RouteComponentProps> = (props) => (
+export const Portfolio: React.FC = () => (
     <SectionContainer
-        containerRef={props.containerRef}
         links={
-            <NavLink to={blogRoute.path} className="link">
+            <NavLink to={blogRoute.path} className="link" viewTransition={true}>
                 ⬅️ Blog
             </NavLink>
         }

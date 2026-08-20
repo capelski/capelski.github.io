@@ -16,7 +16,10 @@ export const english: ArticleContent = {
         <p>
             Despite I do not work at Sage anymore, some of the tools I discovered there still are a
             very wise choice when it comes to web development. Since they did not fit in the{' '}
-            <NavLink to={articleRoute.path.replace(':articleId', ArticleId.webDevOnSteroidsI)}>
+            <NavLink
+                viewTransition={true}
+                to={articleRoute.path.replace(':articleId', ArticleId.webDevOnSteroidsI)}
+            >
                 first post
             </NavLink>{' '}
             of this series, I'll briefly describe them in this second one. Don't worry: I promise

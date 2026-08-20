@@ -62,6 +62,10 @@ body {
 }
 
 .section-links {
+    /* Shared view transition name across every section, so that the links bar stays in
+     * place (and cross-fades its contents) instead of sliding along with the section
+     */
+    view-transition-name: section-links;
     height: $linksHeight;
     display: flex;
     align-items: center;

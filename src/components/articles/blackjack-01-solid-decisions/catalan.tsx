@@ -282,6 +282,7 @@ export const catalan: ArticleContent = {
                 al Blackjack. Ara que hem establert els fonaments podem atacar tasques més
                 interessants, com per exemple, predir la{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
                     puntuació final

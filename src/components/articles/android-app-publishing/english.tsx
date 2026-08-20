@@ -30,6 +30,7 @@ export const english: ArticleContent = {
                     complicated. I recommend starting with Play Store, testing the app with some
                     users in the production environment and once everything is ready,{' '}
                     <NavLink
+                        viewTransition={true}
                         to={articleRoute.path.replace(':articleId', ArticleId.iosAppPublishing)}
                     >
                         move into App Store

@@ -39,6 +39,7 @@ export const english: ArticleContent = {
             <p>
                 In{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
                     chapter 2
@@ -339,6 +340,7 @@ export const english: ArticleContent = {
             <p>
                 In{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack04OptimalActions

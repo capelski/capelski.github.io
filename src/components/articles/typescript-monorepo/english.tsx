@@ -31,6 +31,7 @@ export const english: ArticleContent = {
                 and require them using relative paths 👍 We will need to decide how we ship the
                 shared files to production environments but that's a{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepoII)}
                 >
                     separate story

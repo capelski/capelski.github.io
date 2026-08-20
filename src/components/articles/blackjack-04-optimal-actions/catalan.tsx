@@ -61,6 +61,7 @@ export const catalan: ArticleContent = {
                 efectiva de mesurar els guanys esperats és l'indicador de l'avantatge que vam
                 introduir al{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack03ExpectedEarnings
@@ -95,6 +96,7 @@ export const catalan: ArticleContent = {
             <p>
                 Fent servir el model de probabilitat independent, introduït al{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack01SolidDecisions
@@ -321,6 +323,7 @@ export const catalan: ArticleContent = {
                 Millor que el -5.21% de l'estratègia de "plantar-se amb 16", però encara no prou bo.
                 Al capítol següent veurem com fer servir{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack05DealerCard)}
                 >
                     la carta del crupier

@@ -39,6 +39,7 @@ export const catalan: ArticleContent = {
             <p>
                 Al{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
                     capítol 2
@@ -366,6 +367,7 @@ export const catalan: ArticleContent = {
             <p>
                 Al{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack04OptimalActions

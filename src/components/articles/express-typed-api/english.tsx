@@ -78,7 +78,10 @@ export const english: ArticleContent = {
             <ReactGist id="6eb2b491b2af0ff8ea0eb02122833bbe" />
             <p>
                 Make sure you create the API type declaration in a{' '}
-                <NavLink to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}>
+                <NavLink
+                    viewTransition={true}
+                    to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
+                >
                     package/folder that can be imported from both client and server side
                 </NavLink>
                 , with <InlineSnippet>@express-typed-api/common</InlineSnippet> installed as a

@@ -28,6 +28,7 @@ export const english: ArticleContent = {
                     expensive ($100), must be renewed every year and the upload process is more
                     complicated. I recommend{' '}
                     <NavLink
+                        viewTransition={true}
                         to={articleRoute.path.replace(':articleId', ArticleId.androidAppPublishing)}
                     >
                         starting with Play Store

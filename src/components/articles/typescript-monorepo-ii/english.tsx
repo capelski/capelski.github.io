@@ -19,7 +19,10 @@ export const english: ArticleContent = {
     introduction: (
         <p>
             A couple years ago I wrote a piece about{' '}
-            <NavLink to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}>
+            <NavLink
+                viewTransition={true}
+                to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
+            >
                 sharing code in Typescript monorepos
             </NavLink>
             , focusing mainly on npm workspaces, and I left out an important aspect of the software
@@ -41,6 +44,7 @@ export const english: ArticleContent = {
                     Having successfully extracted the duplicate code into a separate directory/npm
                     project (covered in{' '}
                     <NavLink
+                        viewTransition={true}
                         to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
                     >
                         sharing code in Typescript monorepos

@@ -1,89 +1,54 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
-import { Article, ArticleProps } from '../article';
+import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useAppContext } from '../app';
+import { Article } from '../article';
 import { articles } from '../articles';
-import { ArticleCategory, defaultCategory, getCategoryKey } from '../articles/article-category';
+import { defaultCategory, getCategoryKey } from '../articles/article-category';
 import { Article as IArticle } from '../articles/article-data';
-import { defaultLanguage, Language } from '../articles/language';
-import { articleRoute, blogRoute, RouteComponentProps } from '../routes';
+import { defaultLanguage } from '../articles/language';
+import { articleRoute, blogRoute } from '../routes';
 import { SectionContainer } from '../section-container';
-import { transitionsDuration } from '../variables';
 import { Error } from './error';
 
-export interface ArticleLoaderAdditionalProps {
-    selectedCategory: ArticleCategory;
-    selectedLanguage: Language;
-    setSelectedLanguage: (language: Language) => void;
-}
-
-export type ArticleLoaderProps = RouteComponentProps & ArticleLoaderAdditionalProps;
-
-interface ArticleTransitionProps {
-    articleProps: ArticleProps;
-    in: boolean;
-    onExited: () => void;
-}
-
-/** react-transition-group requires a nodeRef since React 19 removed findDOMNode */
-const ArticleTransition: React.FC<ArticleTransitionProps> = (props) => {
-    const nodeRef = useRef<HTMLDivElement>(null);
-
-    return (
-        <CSSTransition
-            classNames="article"
-            in={props.in}
-            nodeRef={nodeRef}
-            onExited={props.onExited}
-            timeout={transitionsDuration}
-            unmountOnExit={true}
-        >
-            <Article {...props.articleProps} containerRef={nodeRef} />
-        </CSSTransition>
-    );
-};
-
-export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
+export const ArticleLoader: React.FC = () => {
+    const { selectedLanguage, setSelectedLanguage } = useAppContext();
     const location = useLocation();
     const navigate = useNavigate();
-    const articleIdInUrl = props.match?.params['articleId'];
-
-    // We need to keep an owned copy of props.match?.params['articleId'] value
-    // to control css exit transitions
-    const [currentArticleId, setCurrentArticleId] = useState(articleIdInUrl);
+    const { articleId } = useParams();
 
     const viewportRef = useRef<HTMLDivElement>(null);
-    const filteredArticles = articles.filter(
-        (article) => article.metadata.category === props.selectedCategory
-    );
 
     // Ignore languages the article has no translations for
     const getArticleLanguage = (article: IArticle) =>
-        article.metadata.languages.includes(props.selectedLanguage)
-            ? props.selectedLanguage
-            : defaultLanguage;
+        article.metadata.languages.includes(selectedLanguage) ? selectedLanguage : defaultLanguage;
 
     // Protection against non-existing urls (e.g. /blog/non-existing)
-    const currentArticle = filteredArticles.find(
-        (article) => article.metadata.id === currentArticleId
-    );
+    const currentArticle = articles.find((article) => article.metadata.id === articleId);
     const currentLanguage = currentArticle ? getArticleLanguage(currentArticle) : defaultLanguage;
     const articleContent = currentArticle?.content(currentLanguage);
 
-    useEffect(() => {
-        // When the articleId in the url is modified we need to update the currentArticleId,
-        // except when articleId is undefined (e.g. the component is being unmounted)
-        articleIdInUrl && setCurrentArticleId(articleIdInUrl);
-    }, [articleIdInUrl]);
+    /* The article category drives the previous/next navigation and the link back to the
+     * blog, so that the articles timeline matches the one displayed in the blog section
+     */
+    const selectedCategory = currentArticle ? currentArticle.metadata.category : defaultCategory;
+    const filteredArticles = articles.filter(
+        (article) => article.metadata.category === selectedCategory
+    );
 
     useEffect(() => {
-        // The language query parameter is only available in article urls; it gets removed
-        // from the url when navigating back to the blog section
-        if (!articleIdInUrl) {
-            return;
-        }
+        /* The article is rendered inside the section viewport, which keeps its scroll
+         * position when navigating from one article to another
+         */
+        (viewportRef.current as { scrollTo: (params: { top: number }) => void })?.scrollTo({
+            top: 0
+        });
+    }, [articleId]);
 
+    useEffect(() => {
+        /* The language query parameter is only available in article urls; it gets removed
+         * from the url when navigating back to the blog section
+         */
         const params = new URLSearchParams(location.search);
         if (currentLanguage === defaultLanguage) {
             params.delete('language');
@@ -91,28 +56,33 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
             params.set('language', currentLanguage);
         }
         navigate({ search: params.toString() }, { replace: true });
-    }, [articleIdInUrl, currentLanguage]);
+    }, [articleId, currentLanguage]);
 
-    const onArticleExit = () => {
-        (viewportRef.current as { scrollTo: (params: { top: number }) => void })?.scrollTo({
-            top: 0
-        });
-    };
+    if (!currentArticle) {
+        return <Error />;
+    }
 
-    return currentArticle ? (
+    const articleIndex = filteredArticles.findIndex(
+        (article) => article.metadata.id === currentArticle.metadata.id
+    );
+    const nextArticle = articleIndex > 0 ? filteredArticles[articleIndex - 1] : undefined;
+    const previousArticle =
+        articleIndex < filteredArticles.length - 1 ? filteredArticles[articleIndex + 1] : undefined;
+
+    return (
         <SectionContainer
-            containerRef={props.containerRef}
             links={
                 <React.Fragment>
                     <NavLink
                         to={{
                             pathname: blogRoute.path,
                             search:
-                                props.selectedCategory === defaultCategory
+                                selectedCategory === defaultCategory
                                     ? ''
-                                    : `?category=${getCategoryKey(props.selectedCategory)}`
+                                    : `?category=${getCategoryKey(selectedCategory)}`
                         }}
                         className="link"
+                        viewTransition={true}
                     >
                         ⬇️ Blog
                     </NavLink>
@@ -142,36 +112,14 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
                     />
                 ) : undefined}
             </Helmet>
-            {filteredArticles.map((article) => {
-                const articleIndex = filteredArticles.findIndex(
-                    (a) => a.metadata.id === article.metadata.id
-                );
-                const nextArticle =
-                    articleIndex > 0 ? filteredArticles[articleIndex - 1] : undefined;
-                const previousArticle =
-                    articleIndex < filteredArticles.length - 1
-                        ? filteredArticles[articleIndex + 1]
-                        : undefined;
-
-                return (
-                    <ArticleTransition
-                        articleProps={{
-                            ...article,
-                            nextArticle,
-                            onArticleNavigation: setCurrentArticleId,
-                            preview: false,
-                            previousArticle,
-                            selectedLanguage: getArticleLanguage(article),
-                            setSelectedLanguage: props.setSelectedLanguage
-                        }}
-                        in={article.metadata.id === currentArticleId}
-                        key={article.metadata.id}
-                        onExited={onArticleExit}
-                    />
-                );
-            })}
+            <Article
+                {...currentArticle}
+                nextArticle={nextArticle}
+                preview={false}
+                previousArticle={previousArticle}
+                selectedLanguage={currentLanguage}
+                setSelectedLanguage={setSelectedLanguage}
+            />
         </SectionContainer>
-    ) : (
-        <Error containerRef={props.containerRef} />
     );
 };

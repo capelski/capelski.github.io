@@ -276,6 +276,7 @@ export const english: ArticleContent = {
                 Now that we have set the foundations we can move on to more exciting ventures, such
                 as{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
                 >
                     forecasting the final score

@@ -30,6 +30,7 @@ export const english: ArticleContent = {
                     To follow along with this story you need to meet this two requirements. You can
                     check how to do so in{' '}
                     <NavLink
+                        viewTransition={true}
                         to={articleRoute.path.replace(
                             ':articleId',
                             ArticleId.reactNativeFirebaseAuth

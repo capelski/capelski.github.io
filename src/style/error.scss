@@ -1,6 +1,3 @@
-@use 'sass:math';
-@use './variables.scss' as *;
-
 .error {
     .section-content {
         display: flex;
@@ -20,52 +17,8 @@
         justify-content: space-between;
     }
 
-    // Animations
-
-    $animationSegments: 6;
-    $animationSegmentTime: math.div($transitionsDuration, $animationSegments);
-
-    &.page-enter-active {
-        display: none;
-    }
-    &:not(.page-enter-done):not(.page-exit-active), // Apply home first load too
-    &.page-enter-done {
-        .error-title {
-            opacity: 0;
-            animation: slide-in-right $animationSegmentTime forwards;
-            animation-delay: $animationSegmentTime * 2;
-        }
-
-        .error-image {
-            opacity: 0;
-            animation: slide-in-right $animationSegmentTime forwards;
-            animation-delay: $animationSegmentTime * 3;
-        }
-
-        .section-links a {
-            opacity: 0;
-            animation: slide-in-up $animationSegmentTime forwards;
-            animation-delay: $animationSegmentTime * 4;
-        }
-    }
-
-    &.page-exit-active {
-        .error-title {
-            animation: slide-out-right $animationSegmentTime forwards;
-            animation-delay: $animationSegmentTime * 4;
-        }
-
-        .error-image {
-            animation: slide-out-right $animationSegmentTime forwards;
-            animation-delay: $animationSegmentTime * 3;
-        }
-
-        .section-links a {
-            animation: slide-out-down $animationSegmentTime forwards;
-            animation-delay: $animationSegmentTime * 2;
-        }
-    }
-    &.page-exit-done {
-        display: none;
+    // The section viewport is the view transition unit; see style/animations.scss
+    > .section-viewport {
+        view-transition-name: error;
     }
 }

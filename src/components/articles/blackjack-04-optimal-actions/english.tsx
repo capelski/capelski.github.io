@@ -59,6 +59,7 @@ export const english: ArticleContent = {
                 decisions will be the ones that maximize our earnings. An effective way of measuring
                 the expected earnings is the edge indicator we introduced in{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack03ExpectedEarnings
@@ -90,6 +91,7 @@ export const english: ArticleContent = {
             <p>
                 Using the independent probability model, introduced in{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(
                         ':articleId',
                         ArticleId.blackjack01SolidDecisions
@@ -304,6 +306,7 @@ export const english: ArticleContent = {
                 the -5.21% edge of the "Stand on 16" strategy, but still not good enough. In the
                 next chapter, we will be looking at how to use{' '}
                 <NavLink
+                    viewTransition={true}
                     to={articleRoute.path.replace(':articleId', ArticleId.blackjack05DealerCard)}
                 >
                     the dealer card
