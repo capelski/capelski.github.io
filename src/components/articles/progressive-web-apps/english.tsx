@@ -4,6 +4,7 @@ import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ScreenSplitter } from '../screen-splitter';
 
 export const english: ArticleContent = {
     title: 'PWA: Make your website available offline',
@@ -148,7 +149,7 @@ export const english: ArticleContent = {
                 look like when installed in a mobile device:
             </p>
             <ReactGist id="e545792349b5ab52acb67e0d0a65215b" />
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     alt="PWA install notification"
                     articleId={ArticleId.progressiveWebApps}
@@ -167,7 +168,7 @@ export const english: ArticleContent = {
                     width={300}
                     filename="offline-mobile.png"
                 />
-            </div>
+            </ScreenSplitter>
             <p>
                 That's the end of it! As promised, you can turn your website into an offline
                 available progressive web app in less than 15 minutes. Reach me at{' '}

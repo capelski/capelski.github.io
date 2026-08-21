@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ScreenSplitter } from '../screen-splitter';
 import { ConventionalYear, TrecemberYear } from './helpers';
 
 export const english: ArticleContent = {
@@ -81,7 +82,7 @@ export const english: ArticleContent = {
                     month to make all of them 28 days long, except the last one that will contain
                     29.
                 </p>
-                <div className="screen-splitter">
+                <ScreenSplitter>
                     <div>
                         <h4>Conventional year</h4>
                         <ConventionalYear onDayClick={setSelectedDay} selectedDay={selectedDay} />
@@ -90,7 +91,7 @@ export const english: ArticleContent = {
                         <h4>Trecember year</h4>
                         <TrecemberYear onDayClick={setSelectedDay} selectedDay={selectedDay} />
                     </div>
-                </div>
+                </ScreenSplitter>
                 <p>
                     This approach resolves the problems 1 and 2 but keeps the problem 3. A very
                     sophisticated strategy similar to the gregorian calendar leap year would consist

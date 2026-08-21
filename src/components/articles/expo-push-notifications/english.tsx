@@ -6,6 +6,7 @@ import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
 import { BlockSnippet } from '../block-snippet';
 import { InlineSnippet } from '../inline-snippet';
+import { ScreenSplitter } from '../screen-splitter';
 
 export const english: ArticleContent = {
     title: 'First-class push notifications for Expo apps',
@@ -208,7 +209,7 @@ export const english: ArticleContent = {
                 Because it's a demonstration only app we don't need to spend much time styling it.
             </p>
 
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     alt="App use case screenshot 1"
                     articleId={ArticleId.expoPushNotifications}
@@ -221,7 +222,7 @@ export const english: ArticleContent = {
                     width={300}
                     filename="use-case-screen-2.png"
                 />
-            </div>
+            </ScreenSplitter>
 
             <h3>Implementation: client side</h3>
 
@@ -280,7 +281,7 @@ export const english: ArticleContent = {
                 on the app will not work until we implement the server side.
             </p>
 
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     alt="Expo notification tool send form"
                     articleId={ArticleId.expoPushNotifications}
@@ -292,7 +293,7 @@ export const english: ArticleContent = {
                     width={300}
                     filename="expo-notifications-tool-received.png"
                 />
-            </div>
+            </ScreenSplitter>
 
             <p>
                 About <InlineSnippet>server-operations.ts</InlineSnippet>, notice that server
@@ -565,7 +566,7 @@ export const english: ArticleContent = {
                 least; I haven't tested it on iOS).
             </p>
 
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.expoPushNotifications}
                     filename="firebase-notification-composer.png"
@@ -577,7 +578,7 @@ export const english: ArticleContent = {
                     width={300}
                     filename="firebase-notification-received.png"
                 />
-            </div>
+            </ScreenSplitter>
 
             <p>
                 An unpleasant surprise appears when clicking on the notification however: the app

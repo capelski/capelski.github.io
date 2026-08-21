@@ -4,6 +4,7 @@ import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
 import { ArticleVideo } from '../article-video';
+import { ScreenSplitter } from '../screen-splitter';
 
 export const english: ArticleContent = {
     title: 'Stadia: cloud gaming',
@@ -62,7 +63,7 @@ export const english: ArticleContent = {
                 alt="Stadia website landing page"
                 filename="stadia-devices.png"
             />
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.stadiaPlatform}
                     alt="Stadia mobile initial screen"
@@ -75,7 +76,7 @@ export const english: ArticleContent = {
                     width={300}
                     filename="stadia-mobile-2.jpg"
                 />
-            </div>
+            </ScreenSplitter>
             <p>
                 On the other hand, <b>Stadia has a couple downsides</b>. First and more important:{' '}
                 <b>the games still need to purchased one by one</b>. You will get some for free when

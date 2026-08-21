@@ -3,6 +3,7 @@ import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ScreenSplitter } from '../screen-splitter';
 
 export const english: ArticleContent = {
     title: 'Web development bad decisions',
@@ -46,7 +47,7 @@ export const english: ArticleContent = {
                 there are no page loads between sections navigation, I still animated the
                 transitions.
             </p>
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
                     filename="page-animations-vue.gif"
@@ -57,7 +58,7 @@ export const english: ArticleContent = {
                     filename="page-animations-react.gif"
                     footer="New website transitions"
                 />
-            </div>
+            </ScreenSplitter>
 
             <h3>Information indigestion</h3>
             <p>
@@ -75,7 +76,7 @@ export const english: ArticleContent = {
                 the links in the new version of the page, but I also added an image of each website
                 and I cut down the descriptions.
             </p>
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
                     filename="portfolio-vue.png"
@@ -86,7 +87,7 @@ export const english: ArticleContent = {
                     filename="portfolio-react.png"
                     footer="New website portfolio"
                 />
-            </div>
+            </ScreenSplitter>
             <h3>Perfectionism</h3>
             <p>
                 Being a software developer makes me want to write about code on my blog and
@@ -120,7 +121,7 @@ export const english: ArticleContent = {
                 the Gist limitations and achieved a similar solution to the problem while keeping
                 the web light.
             </p>
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
                     filename="code-snippet-monaco.png"
@@ -131,7 +132,7 @@ export const english: ArticleContent = {
                     filename="code-snippet-gist.png"
                     footer="New website code snippet"
                 />
-            </div>
+            </ScreenSplitter>
             <h3>Worsening features</h3>
             <p>
                 After having written a number of blog posts I thought it would be cool to have a
@@ -148,7 +149,7 @@ export const english: ArticleContent = {
                 filename="blog-filters-vue.png"
                 footer="Blog filters before the calendar view"
             />
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
                     filename="blog-calendar-view-collapsed.png"
@@ -159,7 +160,7 @@ export const english: ArticleContent = {
                     filename="blog-calendar-view.png"
                     footer="Blog filters after the calendar view (visible)"
                 />
-            </div>
+            </ScreenSplitter>
             <p>
                 What I unfortunately ended up doing though was making the blog page less intuitive,
                 as I made the blog filters less accessible while adding little value with the
@@ -192,7 +193,7 @@ export const english: ArticleContent = {
                 Hopefully, it will also force me to select more relevant topics in future blog
                 entries 🤞
             </p>
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.webBadDecisions}
                     filename="blog-filters-vue.png"
@@ -203,7 +204,7 @@ export const english: ArticleContent = {
                     filename="blog-filters-react.png"
                     footer="New website blog filters"
                 />
-            </div>
+            </ScreenSplitter>
             <h3>Conclusions</h3>
             <p>
                 Did I really need to make a new version of the page to fix the issues I mentioned?

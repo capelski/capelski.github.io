@@ -3,6 +3,7 @@ import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ScreenSplitter } from '../screen-splitter';
 
 export const catalan: ArticleContent = {
     title: 'Un algoritme de sudokus',
@@ -21,7 +22,7 @@ export const catalan: ArticleContent = {
     ),
     body: (
         <React.Fragment>
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.sudokuGeneration}
                     filename="easy-sudoku.png"
@@ -32,7 +33,7 @@ export const catalan: ArticleContent = {
                     filename="hard-sudoku.png"
                     footer="Sudoku difícil"
                 />
-            </div>
+            </ScreenSplitter>
             <p>
                 En el diari que la mama llegia aquell dia en concret, el sudoku fàcil tenia 28
                 caselles omplertes de les 81 caselles totals mentre que el sudoku difícil en tenia

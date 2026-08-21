@@ -5,10 +5,6 @@
  * - keyframes and the ::view-transition pseudo elements, which are not element styles
  * - html and body, which live outside the React root
  * - declarations targeting bare tags (p, a, li) written directly in the article content
- * - the descendant selectors of the screen-splitter helper
- *
- * The .medium-up class the App component puts on the app container stands in for the
- * media queries the last group used to rely on
  */
 
 /* ---------- Document ---------- */
@@ -47,27 +43,6 @@ a {
 
 .article .article-body ul li td {
     line-height: 1;
-}
-
-/* Applied from the article contents, and reaching arbitrary descendants, so no component
- * can inline these
- */
-.screen-splitter {
-    display: block;
-    align-items: center;
-}
-
-.medium-up .screen-splitter {
-    display: flex;
-}
-
-.medium-up .screen-splitter > * {
-    flex-grow: 1;
-    margin: 0 5px;
-}
-
-.medium-up .screen-splitter > * * {
-    max-width: 100% !important;
 }
 
 /* ---------- Section transitions ---------- */

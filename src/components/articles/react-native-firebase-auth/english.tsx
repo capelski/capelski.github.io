@@ -5,6 +5,7 @@ import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
 import { BlockSnippet } from '../block-snippet';
+import { ScreenSplitter } from '../screen-splitter';
 
 export const english: ArticleContent = {
     title: 'Email authentication in React Native apps using Firebase',
@@ -254,7 +255,7 @@ export const english: ArticleContent = {
                 many fields the form contains but the less the better; you can always ask for more
                 user details after users have created their account. Let's take Wikiloc for example:
             </p>
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.reactNativeFirebaseAuth}
                     alt="Wikiloc authentication screen"
@@ -273,7 +274,7 @@ export const english: ArticleContent = {
                     width={300}
                     filename="wikiloc-auth-sign-in.png"
                 />
-            </div>
+            </ScreenSplitter>
             <p>
                 Remember to protect the password fields setting the <i>secureTextEntry</i> property
                 on the corresponding <i>TextInput</i> components, reserve some space to display

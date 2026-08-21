@@ -3,6 +3,7 @@ import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ScreenSplitter } from '../screen-splitter';
 
 export const english: ArticleContent = {
     title: 'Writing a sudoku algorithm',
@@ -21,7 +22,7 @@ export const english: ArticleContent = {
     ),
     body: (
         <React.Fragment>
-            <div className="screen-splitter">
+            <ScreenSplitter>
                 <ArticleImage
                     articleId={ArticleId.sudokuGeneration}
                     filename="easy-sudoku.png"
@@ -32,7 +33,7 @@ export const english: ArticleContent = {
                     filename="hard-sudoku.png"
                     footer="Hard sudoku"
                 />
-            </div>
+            </ScreenSplitter>
             <p>
                 In the particular newspaper my mom was reading that day, the easy sudoku had 28
                 filled boxes out of the 81 total whereas the difficult sudoku had 29 filled boxes.{' '}
