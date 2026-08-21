@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useIsLargeUp, useIsMediumUp } from './breakpoints';
 
 const linksHeight = 64;
 const mobilePadding = 16;
 const desktopPadding = 32;
+
+/* No view transition runs on page load (there is no outgoing section to snapshot), so the
+ * section that renders first animates itself in; see style/main.css. The classes are
+ * resolved on mount and never again: were they to follow the view transition name, the
+ * blog would replay its enter animation upon navigating to an article
+ */
+let isPageLoad = true;
+
+const usePageLoadClassNames = (viewTransitionName: string) =>
+    useState(() => {
+        const classNames = isPageLoad ? ` page-load page-load-${viewTransitionName}` : '';
+        isPageLoad = false;
+        return classNames;
+    })[0];
 
 export const sectionLinkStyle: React.CSSProperties = {
     color: 'black',
@@ -30,11 +44,12 @@ export interface SectionContainerProps {
 export const SectionContainer: React.FC<SectionContainerProps> = (props) => {
     const isMediumUp = useIsMediumUp();
     const isLargeUp = useIsLargeUp();
+    const pageLoadClassNames = usePageLoadClassNames(props.viewTransitionName);
 
     return (
         <div className={props.sectionName} style={{ height: '100%' }}>
             <div
-                className="section-viewport"
+                className={`section-viewport${pageLoadClassNames}`}
                 ref={props.viewportRef}
                 style={{
                     height: `calc(100% - ${linksHeight}px)`,

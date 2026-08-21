@@ -79,6 +79,11 @@ a {
  * those snapshots, making the outgoing section leave first and the incoming one arrive
  * right after. Browsers with no view transitions support simply render the new section
  * straight away
+ *
+ * Page load is the one case no view transition covers: there is no outgoing section to
+ * snapshot, so react-router-dom runs no transition at all. The section that lands first
+ * plays its enter animation on the element itself instead, through the page-load classes
+ * that SectionContainer adds on the initial render
  */
 
 @keyframes slide-in-down {
@@ -237,6 +242,28 @@ a {
     mix-blend-mode: normal;
 }
 
+/* Each rule below replays the enter animation of one section on the element itself, with
+ * no snapshot involved and no delay, since on page load there is no exit half to wait
+ * for. blog-article is missing on purpose: the blog always lands as blog, and only takes
+ * the blog-article name on a later navigation
+ */
+
+.page-load-blog {
+    animation: slide-in-left 400ms backwards;
+}
+
+.page-load-article {
+    animation: slide-in-down 400ms backwards;
+}
+
+.page-load-portfolio {
+    animation: slide-in-right 400ms backwards;
+}
+
+.page-load-error {
+    animation: slide-in-up 400ms backwards;
+}
+
 /* The blog header keeps the browser cross-fade, which leaves it untouched when only the
  * articles list changes (i.e. a category change), but matches the sections duration
  */
@@ -248,7 +275,9 @@ a {
 @media (prefers-reduced-motion: reduce) {
     ::view-transition-group(*),
     ::view-transition-old(*),
-    ::view-transition-new(*) {
+    ::view-transition-new(*),
+    /* Every page-load-* class comes along with the plain page-load one */
+    .page-load {
         animation: none !important;
     }
 }
