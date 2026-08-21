@@ -2,8 +2,9 @@ import React from 'react';
 import { useIsLargeUp, useIsMediumUp } from './breakpoints';
 
 interface ProjectProps {
-    children?: React.ReactNode;
     date?: string;
+    description1?: React.ReactNode;
+    description2?: React.ReactNode;
     image: string;
     imageOrientation?: 'landscape' | 'portrait';
     repository?: string;
@@ -111,7 +112,10 @@ export const Project: React.FC<ProjectProps> = (props) => {
                     className="project-description"
                     style={{ maxWidth: halfWidth, width: halfWidth }}
                 >
-                    {props.children ? props.children : null}
+                    {props.description1 ? <p>{props.description1}</p> : null}
+                    {props.description2 ? (
+                        <p style={{ fontStyle: 'italic' }}>{props.description2}</p>
+                    ) : null}
                 </div>
             </div>
         </div>
