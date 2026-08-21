@@ -28,7 +28,7 @@ export const english: ArticleContent = {
                     do, there are certain types of untidiness that make you nervous. These are the
                     main aspects of the gregorian calendar I find profoundly troubling:
                 </p>
-                <ul className="numbered">
+                <ul className="numbered" style={{ listStyleType: 'decimal' }}>
                     <li>
                         <b>Different number of days in every month</b>. It makes the month an
                         unreliable time unit. Who in his god damned mind creates a measurement
@@ -63,7 +63,7 @@ export const english: ArticleContent = {
                     that, at the long run, the year must contain the number of days the Earth takes
                     to complete an orbit around the sun (365.26 days). Some random examples:
                 </p>
-                <ul className="numbered">
+                <ul className="numbered" style={{ listStyleType: 'decimal' }}>
                     <li>Each month could have 30 days, except December with 35</li>
                     <li>
                         Odd months could have 28 days and even months 35 days, except December with

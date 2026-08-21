@@ -110,7 +110,10 @@ export const catalan: ArticleContent = {
                 el proper Michael Phelps, però si gaudeixes nedant, ves a fer piscines quan puguis i
                 oblida't de la resta.
             </p>
-            <div className="article-quote">
+            <div
+                className="article-quote"
+                style={{ lineHeight: 2, margin: '32px auto', maxWidth: '80%' }}
+            >
                 <h4>
                     &#x275D;Un objectiu no sempre es marca per aconseguir-lo, sovint serveix només
                     per tenir una direcció cap on apuntar&#x275E;

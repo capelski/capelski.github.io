@@ -110,7 +110,10 @@ export const english: ArticleContent = {
                 next Michael Phelps, but if you enjoy it, go swimming whenever you can and forget
                 about the rest.
             </p>
-            <div className="article-quote">
+            <div
+                className="article-quote"
+                style={{ lineHeight: 2, margin: '32px auto', maxWidth: '80%' }}
+            >
                 <h4>
                     &#x275D;A goal is not always meant to be reached, it often serves simply as
                     something to aim at&#x275E;

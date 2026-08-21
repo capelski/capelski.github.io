@@ -1,7 +1,13 @@
 import React from 'react';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
-import { PersuasionHeader, PersuasionResource, PersuasionStage } from './helpers';
+import {
+    PersuasionHeader,
+    PersuasionResource,
+    PersuasionResources,
+    PersuasionSectionTitle,
+    PersuasionStage
+} from './helpers';
 
 export const english: ArticleContent = {
     title: 'Persuasion in pictures',
@@ -27,7 +33,7 @@ export const english: ArticleContent = {
                 imageAlt="Arrow avoiding object"
                 title="Avoid"
             />
-            <div className="persuasion-resources">
+            <PersuasionResources>
                 <PersuasionResource
                     description="Highlighting the other person mistakes might be perceived as an attempt to make them look stupid or uninformed, even when doing it with the best of your intentions. If you think the other person is mistaking, ask for clarifications rather than refuting their points"
                     image="bullseye.png"
@@ -46,14 +52,14 @@ export const english: ArticleContent = {
                     imageAlt="Representation of god"
                     title="Give your reasons"
                 />
-            </div>
+            </PersuasionResources>
             <PersuasionHeader
                 description="You can lead people to an answer, but you can't give it to them. The following three elements address the subconscious rather than the rational mind, so they are more likely to be accepted by the other person"
                 image="adopt.png"
                 imageAlt="Hand waiting to receive something"
                 title="Adopt"
             />
-            <div className="persuasion-resources">
+            <PersuasionResources>
                 <PersuasionResource
                     description="Maybe you think you have the answer to someone's problems but giving the answer straight away meets rational resistance from the other person. Maybe you think the other person is mistaking but you are the one who got it wrong. Questions are a great way to get/provide deeper explanations and sometimes help realizing about wrong assumptions"
                     image="questions.png"
@@ -72,8 +78,8 @@ export const english: ArticleContent = {
                     imageAlt="Translation representation"
                     title="Metaphors"
                 />
-            </div>
-            <h3 className="persuasion-header">Persuasion stages</h3>
+            </PersuasionResources>
+            <PersuasionSectionTitle>Persuasion stages</PersuasionSectionTitle>
             <p>
                 If you think of the last time somebody convinced you to do something, they probably
                 went through some of the following stages. Covering them all will help you showing
@@ -85,7 +91,7 @@ export const english: ArticleContent = {
                 row if the other person is connecting with you enough. You can also skip stages if
                 you have already been there before with the person you are trying to convince.
             </p>
-            <div className="persuasion-resources">
+            <PersuasionResources>
                 <PersuasionStage
                     description="Meet the other person at their emotional level. If you can't empathize with them, leave the persuasion for another moment"
                     image="encounter.png"
@@ -136,15 +142,15 @@ export const english: ArticleContent = {
                     image="dazzle.png"
                     title="10) Dazzle"
                 />
-            </div>
-            <h3 className="persuasion-header">Persuasive traits development</h3>
+            </PersuasionResources>
+            <PersuasionSectionTitle>Persuasive traits development</PersuasionSectionTitle>
             <p>
                 Understanding the previous stages will give you some advantage next time you try to
                 convince someone but the best way to do so is by generating trust. The following
                 exercises will help you developing personality traits that most people appreciate,
                 making it easier for you to reach people
             </p>
-            <div className="persuasion-resources">
+            <PersuasionResources>
                 <PersuasionResource
                     description="People will listen to you almost unconditionally if they know you truly care about them. Practice demonstrating you care by searching for 3 things to appreciate in people that surrounds you"
                     image="care.png"
@@ -181,7 +187,7 @@ export const english: ArticleContent = {
                     imageAlt="Gear"
                     title="Consistent"
                 />
-            </div>
+            </PersuasionResources>
             <p>
                 And that's about it! As usual when writing about such subjective and abstract
                 topics, I can't help feeling it all sounds like dime-store psychology. In an attempt

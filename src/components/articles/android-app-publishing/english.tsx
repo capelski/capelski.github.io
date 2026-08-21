@@ -84,7 +84,7 @@ export const english: ArticleContent = {
                 alt="App setup checklist"
                 filename="app-setup.png"
             />
-            <ul className="numbered">
+            <ul className="numbered" style={{ listStyleType: 'decimal' }}>
                 <li>
                     <b>App access</b>: If your app requires users to authenticate (e.g. creating an
                     account or using an identity provider such as Facebook), you will need to

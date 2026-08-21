@@ -1,4 +1,5 @@
 import React from 'react';
+import { primaryColor } from '../../button-style';
 
 interface Day {
     number: number;
@@ -45,7 +46,7 @@ interface YearProps extends YearBaseProps {
 const dayBorder = '1px solid black';
 const dayHeight = 50;
 const oddMonthColor = '#ddd8e4';
-const selectedDayColor = '#fed136'; // Keep in sync with variables.scss $primaryColor
+const selectedDayColor = primaryColor;
 
 const Year: React.FC<YearProps> = (props) => (
     <div className="year" style={{ display: 'flex', marginTop: 20 }}>

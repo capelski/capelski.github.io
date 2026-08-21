@@ -4,7 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './components/router';
 
-import './style/main.scss';
+import './style/main.css';
 
 const ClientApp: React.FC = () => (
     <HelmetProvider>

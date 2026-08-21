@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { buttonStyle } from '../../button-style';
 
 export const english: ArticleContent = {
     title: 'Four coin challenge',
@@ -71,6 +72,7 @@ export const english: ArticleContent = {
                         className={`button primary big ${
                             solutionStep > 1 ? '' : 'disabled-button'
                         }`}
+                        style={buttonStyle({ big: true, disabled: solutionStep <= 1 })}
                         onClick={() => {
                             setSolutionStep(Math.max(solutionStep - 1, 1));
                         }}
@@ -82,6 +84,7 @@ export const english: ArticleContent = {
                         className={`button primary big ${
                             solutionStep < 13 ? '' : 'disabled-button'
                         }`}
+                        style={buttonStyle({ big: true, disabled: solutionStep >= 13 })}
                         onClick={() => {
                             setSolutionStep(Math.min(solutionStep + 1, 13));
                         }}

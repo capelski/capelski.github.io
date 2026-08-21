@@ -43,7 +43,7 @@ export const english: ArticleContent = {
                 filename="webrtc-connection-diagram.png"
                 footer="WebRTC connection diagram"
             />
-            <ul className="numbered">
+            <ul className="numbered" style={{ listStyleType: 'decimal' }}>
                 <li>
                     <b>Initialize</b>. Both peers create a new connection object.
                 </li>

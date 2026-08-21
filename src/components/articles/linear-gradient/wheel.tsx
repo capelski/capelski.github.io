@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { buttonStyle } from '../../button-style';
 
 const wheelSize = 300;
 const wheelSpinDuration = 4000;
@@ -111,6 +112,7 @@ export const Wheel: React.FC<WheelProps> = (props) => {
                     type="button"
                     className={`button primary big ${isAnimated ? 'disabled-button' : ''}`}
                     disabled={isAnimated}
+                    style={buttonStyle({ big: true, disabled: isAnimated })}
                     onClick={() => {
                         const chosenTile = Math.floor(Math.random() * props.tiles.length);
                         const tileRotation = chosenTile * tileDelta + tileCenter;

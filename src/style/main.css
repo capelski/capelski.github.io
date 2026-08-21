@@ -1,0 +1,254 @@
+/* Component styles live inline, in the components that render the elements, and the
+ * breakpoints are resolved by react-responsive (see components/breakpoints.ts). What
+ * remains here is what the style prop cannot express:
+ *
+ * - keyframes and the ::view-transition pseudo elements, which are not element styles
+ * - html and body, which live outside the React root
+ * - declarations targeting bare tags (p, a, li) written directly in the article content
+ * - the descendant selectors of the screen-splitter helper
+ *
+ * The .medium-up class the App component puts on the app container stands in for the
+ * media queries the last group used to rely on
+ */
+
+/* ---------- Document ---------- */
+
+html,
+body,
+#app-placeholder {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, monospace;
+    font-size: 16px;
+}
+
+p {
+    line-height: 2;
+}
+
+a {
+    color: black;
+}
+
+/* ---------- Article content ---------- */
+
+.project .project-content .project-description p:nth-of-type(2) {
+    font-style: italic;
+}
+
+/* Not scoped to .article-container so it applies in the blog list too */
+.article .article-body ul li {
+    line-height: 2;
+    margin-top: 16px;
+}
+
+.article .article-body ul li td {
+    line-height: 1;
+}
+
+/* Applied from the article contents, and reaching arbitrary descendants, so no component
+ * can inline these
+ */
+.screen-splitter {
+    display: block;
+    align-items: center;
+}
+
+.medium-up .screen-splitter {
+    display: flex;
+}
+
+.medium-up .screen-splitter > * {
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
+.medium-up .screen-splitter > * * {
+    max-width: 100% !important;
+}
+
+/* ---------- Section transitions ---------- */
+
+/* Handled by the browser View Transitions API, triggered by react-router-dom on every
+ * navigation (the viewTransition flag in links and navigate calls). The
+ * view-transition-name of each snapshot is set inline, by the component that renders the
+ * element (see section-container.tsx and sections/blog.tsx); the rules below animate
+ * those snapshots, making the outgoing section leave first and the incoming one arrive
+ * right after. Browsers with no view transitions support simply render the new section
+ * straight away
+ */
+
+@keyframes slide-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out-down {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
+
+@keyframes slide-out-left {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+@keyframes slide-out-right {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+@keyframes slide-out-up {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* Each pair animates the snapshots of one section: the exit animation while leaving, the
+ * enter animation (delayed, so both halves play one after the other) while arriving.
+ * mix-blend-mode is reset because the snapshots no longer cross-fade
+ */
+
+::view-transition-old(blog) {
+    animation: slide-out-left 400ms forwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(blog) {
+    animation: slide-in-left 400ms 400ms backwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(article) {
+    animation: slide-out-up 400ms forwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(article) {
+    animation: slide-in-down 400ms 400ms backwards;
+    mix-blend-mode: normal;
+}
+
+/* The blog moves vertically, rather than sideways, when the section on the other side of
+ * the transition is an article: down on the way out, up on the way back in. The Blog
+ * component names its snapshot blog-article for those navigations only
+ */
+
+::view-transition-old(blog-article) {
+    animation: slide-out-down 400ms forwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(blog-article) {
+    animation: slide-in-up 400ms 400ms backwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(portfolio) {
+    animation: slide-out-right 400ms forwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(portfolio) {
+    animation: slide-in-right 400ms 400ms backwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(error) {
+    animation: slide-out-down 400ms forwards;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(error) {
+    animation: slide-in-up 400ms 400ms backwards;
+    mix-blend-mode: normal;
+}
+
+/* The blog header keeps the browser cross-fade, which leaves it untouched when only the
+ * articles list changes (i.e. a category change), but matches the sections duration
+ */
+::view-transition-old(blog-header),
+::view-transition-new(blog-header) {
+    animation-duration: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Language } from './articles/language';
 import { useIsMediumUp } from './breakpoints';
+import { buttonStyle } from './button-style';
 
 const formContent: { [key: string]: { [Language.ca]: string; [Language.en]: string } } = {
     title: {
@@ -78,7 +79,10 @@ export const Newsletter: React.FC<NewsletterProps> = (props) => {
                             value={formContent.button[props.selectedLanguage]}
                             name="subscribe"
                             id="mc-embedded-subscribe"
-                            style={{ margin: isMediumUp ? '0 0 0 10px' : '10px 0 0 0' }}
+                            style={{
+                                ...buttonStyle(),
+                                margin: isMediumUp ? '0 0 0 10px' : '10px 0 0 0'
+                            }}
                         />
                     </div>
                     <div style={{ display: 'none' }} aria-hidden="true">

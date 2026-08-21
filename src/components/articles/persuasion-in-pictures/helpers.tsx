@@ -4,6 +4,15 @@ import { useIsMediumUp } from '../../breakpoints';
 
 const resourceImageStyle: React.CSSProperties = { maxWidth: 200 };
 
+const resourceTextStyle: React.CSSProperties = { textAlign: 'left' };
+
+const headerStyle = (isMediumUp: boolean): React.CSSProperties => ({
+    display: 'grid',
+    gridTemplateColumns: isMediumUp ? '70% 30%' : '65% 35%',
+    marginBottom: 32,
+    marginTop: 32
+});
+
 const resourceStyle = (isMediumUp: boolean): React.CSSProperties => ({
     paddingRight: isMediumUp ? 16 : undefined,
     textAlign: 'center'
@@ -20,7 +29,7 @@ export const PersuasionHeader: React.FC<PersuasionHeaderProps> = (props) => {
     const isMediumUp = useIsMediumUp();
 
     return (
-        <div className="persuasion-header">
+        <div className="persuasion-header" style={headerStyle(isMediumUp)}>
             <div>
                 <h3>{props.title}</h3>
                 <p>{props.description}</p>
@@ -56,7 +65,7 @@ export const PersuasionStage: React.FC<PersuasionStageProps> = (props) => {
                 style={resourceImageStyle}
             />
             <h4>{props.title}</h4>
-            <p>{props.description}</p>
+            <p style={resourceTextStyle}>{props.description}</p>
         </div>
     );
 };
@@ -77,7 +86,35 @@ export const PersuasionResource: React.FC<PersuasionResourceProps> = (props) => 
                 alt={props.imageAlt}
                 style={resourceImageStyle}
             />
-            <p>{props.description}</p>
+            <p style={resourceTextStyle}>{props.description}</p>
+        </div>
+    );
+};
+
+/** Section heading of the article, sharing the header styles */
+export const PersuasionSectionTitle: React.FC<React.PropsWithChildren> = (props) => {
+    const isMediumUp = useIsMediumUp();
+
+    return (
+        <h3 className="persuasion-header" style={headerStyle(isMediumUp)}>
+            {props.children}
+        </h3>
+    );
+};
+
+/** Grid wrapping the article resources */
+export const PersuasionResources: React.FC<React.PropsWithChildren> = (props) => {
+    const isMediumUp = useIsMediumUp();
+
+    return (
+        <div
+            className="persuasion-resources"
+            style={{
+                display: isMediumUp ? 'grid' : undefined,
+                gridTemplateColumns: isMediumUp ? '1fr 1fr 1fr' : undefined
+            }}
+        >
+            {props.children}
         </div>
     );
 };

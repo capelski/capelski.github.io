@@ -34,7 +34,7 @@ export const Blog: React.FC = () => {
 
     /* True while a view transition to or from an article is running (the hook matches the
      * article path against both the current and the next location), which makes the blog
-     * animate vertically instead of sideways; see style/animations.scss
+     * animate vertically instead of sideways; see style/main.css
      */
     const isArticleTransition = useViewTransitionState(articleRoute.path);
 

@@ -20,7 +20,7 @@ export const useAppContext = () => useOutletContext<AppContext>();
 
 /** Layout route rendering whichever section matches the current url. The section
  * enter/exit animations are handled by the browser view transitions that
- * react-router-dom triggers on every navigation; see style/animations.scss
+ * react-router-dom triggers on every navigation; see style/main.css
  */
 export const App: React.FC<AppProps> = (props) => {
     const location = useLocation();

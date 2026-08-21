@@ -22,7 +22,7 @@ export interface SectionContainerProps {
     /** Merged into the links bar styles (e.g. to align the section links) */
     linksStyle?: React.CSSProperties;
     sectionName: string;
-    /** Name the browser uses to animate the section in and out; see style/animations.scss */
+    /** Name the browser uses to animate the section in and out; see style/main.css */
     viewTransitionName: string;
     viewportRef?: React.RefObject<HTMLDivElement | null>;
 }
