@@ -14,6 +14,7 @@ export const Portfolio: React.FC = () => (
             </NavLink>
         }
         sectionName="portfolio"
+        viewTransitionName="portfolio"
     >
         <Helmet>
             <title>Portfolio | Carles Capellas</title>
@@ -22,7 +23,9 @@ export const Portfolio: React.FC = () => (
                 content="The personal web projects I have developed on my free time"
             />
         </Helmet>
-        <h1 className="portfolio-title">Portfolio</h1>
+        <h1 className="portfolio-title" style={{ marginBottom: 32, marginTop: 0 }}>
+            Portfolio
+        </h1>
 
         <div className="projects">
             <Project

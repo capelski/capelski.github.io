@@ -42,32 +42,76 @@ interface YearProps extends YearBaseProps {
     weeks: Day[][];
 }
 
+const dayBorder = '1px solid black';
+const dayHeight = 50;
+const oddMonthColor = '#ddd8e4';
+const selectedDayColor = '#fed136'; // Keep in sync with variables.scss $primaryColor
+
 const Year: React.FC<YearProps> = (props) => (
-    <div className="year">
-        <div className="months">
+    <div className="year" style={{ display: 'flex', marginTop: 20 }}>
+        <div className="months" style={{ display: 'flex', flexDirection: 'column', width: '10%' }}>
             {props.months.map((month, monthIndex) => (
                 <div
                     key={monthIndex}
-                    className={`month weeks-${month.weeks} ${
-                        monthIndex % 2 === 0 ? 'odd-month' : 'even-month'
-                    }`}
+                    className="month"
+                    style={{
+                        backgroundColor: monthIndex % 2 === 0 ? oddMonthColor : undefined,
+                        borderBottom: dayBorder,
+                        borderLeft: dayBorder,
+                        borderTop: monthIndex === 0 ? dayBorder : undefined,
+                        boxSizing: 'border-box',
+                        height: month.weeks * dayHeight
+                    }}
                 >
-                    <div className="name">{month.name}</div>
+                    <div
+                        className="name"
+                        style={{
+                            height: '100%',
+                            margin: 'auto',
+                            textAlign: 'center',
+                            writingMode: 'vertical-rl'
+                        }}
+                    >
+                        {month.name}
+                    </div>
                 </div>
             ))}
         </div>
-        <div className="weeks">
+        <div className="weeks" style={{ width: '90%' }}>
             {props.weeks.map((week, weekIndex) => (
-                <div key={weekIndex} className="week">
+                <div
+                    key={weekIndex}
+                    className="week"
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
                     {week.map((day, dayIndex) => {
                         const dayKey = weekIndex * 7 + dayIndex;
+                        const isSelected = props.selectedDay === dayKey;
+
                         return (
                             <div
                                 key={dayKey}
-                                className={`day clickable ${
-                                    day.isOddMonth ? 'odd-month' : 'even-month'
-                                }${props.selectedDay === dayKey ? ' selected' : ''}`}
+                                className="day"
                                 onClick={() => props.onDayClick(dayKey)}
+                                style={{
+                                    backgroundColor: isSelected
+                                        ? selectedDayColor
+                                        : day.isOddMonth
+                                          ? oddMonthColor
+                                          : undefined,
+                                    borderBottom: dayBorder,
+                                    borderLeft: dayBorder,
+                                    borderRight:
+                                        dayIndex === week.length - 1 ? dayBorder : undefined,
+                                    borderTop: weekIndex === 0 ? dayBorder : undefined,
+                                    boxSizing: 'border-box',
+                                    cursor: 'pointer',
+                                    height: dayHeight,
+                                    lineHeight: '20px',
+                                    padding: '15px 0',
+                                    textAlign: 'center',
+                                    width: '14.28%'
+                                }}
                             >
                                 {day.number}
                             </div>

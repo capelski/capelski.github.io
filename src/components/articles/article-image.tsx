@@ -21,8 +21,18 @@ export const ArticleImage: React.FC<ArticleImageProps> = (props) => {
                 onError={() => {
                     setLoadError(true);
                 }}
+                style={{
+                    display: 'block',
+                    /* No bottom margin when a footer follows the image */
+                    margin: props.footer ? '32px auto 0' : '32px auto',
+                    maxWidth: '100%'
+                }}
             />
-            {props.footer ? <p className="article-image-footer">{props.footer}</p> : null}
+            {props.footer ? (
+                <p className="article-image-footer" style={{ marginTop: 0, textAlign: 'center' }}>
+                    {props.footer}
+                </p>
+            ) : null}
         </div>
     );
 };

@@ -2,10 +2,11 @@
 
 /* Section transitions are handled by the browser View Transitions API, triggered by
  * react-router-dom on every navigation (the viewTransition flag in links and navigate
- * calls). Each section names its scrollable viewport through view-transition-name, and
- * the rules below animate the resulting snapshots: the outgoing section leaves first and
- * the incoming one arrives right after. Browsers with no view transitions support simply
- * render the new section straight away
+ * calls). The view-transition-name of each snapshot is set inline, by the component that
+ * renders the element (see section-container.tsx and sections/blog.tsx); the rules below
+ * animate those snapshots, making the outgoing section leave first and the incoming one
+ * arrive right after. Browsers with no view transitions support simply render the new
+ * section straight away
  */
 
 @keyframes slide-in-down {

@@ -6,6 +6,12 @@ import { SectionContainer } from '../section-container';
 
 export const Error: React.FC = () => (
     <SectionContainer
+        contentStyle={{
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
+        }}
         links={
             <React.Fragment>
                 <NavLink to={blogRoute.path} className="link" viewTransition={true}>
@@ -16,7 +22,9 @@ export const Error: React.FC = () => (
                 </NavLink>
             </React.Fragment>
         }
+        linksStyle={{ justifyContent: 'space-between' }}
         sectionName="error"
+        viewTransitionName="error"
     >
         <Helmet>
             <title>Carles Capellas</title>
@@ -26,6 +34,16 @@ export const Error: React.FC = () => (
             />
         </Helmet>
         <h1 className="error-title">Something went wrong</h1>
-        <img className="error-image" src="/images/shrug.png" alt="Shrug meme" />
+        <img
+            className="error-image"
+            src="/images/shrug.png"
+            alt="Shrug meme"
+            style={{
+                display: 'block',
+                margin: '32px auto',
+                maxHeight: 250,
+                maxWidth: '100%'
+            }}
+        />
     </SectionContainer>
 );

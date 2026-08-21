@@ -43,13 +43,18 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
         } catch (error) {}
     };
 
+    const titlePreviewStyle: React.CSSProperties = { fontSize: 16, marginTop: 8 };
+
     return (
         <React.Fragment>
-            <h3 className="posts-timeline">
+            <h3 className="posts-timeline" style={{ marginBottom: 0, marginTop: 32 }}>
                 {articleLinksContent['postsTimeline'][props.selectedLanguage]}
             </h3>
-            <div className="article-links">
-                <div className="previous-link">
+            <div
+                className="article-links"
+                style={{ display: 'grid', gridTemplateColumns: '50% 50%' }}
+            >
+                <div className="previous-link" style={{ margin: '16px 0' }}>
                     {props.previousArticle && (
                         <span className="link-text">
                             <NavLink
@@ -58,16 +63,17 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                                     ':articleId',
                                     props.previousArticle.metadata.id
                                 )}
+                                style={{ textDecoration: 'none' }}
                             >
                                 ⬅️ {articleLinksContent['previous'][props.selectedLanguage]}
                             </NavLink>
-                            <div className="title-preview">
+                            <div className="title-preview" style={titlePreviewStyle}>
                                 {props.previousArticle.content(props.selectedLanguage).title}
                             </div>
                         </span>
                     )}
                 </div>
-                <div className="next-link">
+                <div className="next-link" style={{ margin: '16px 0', textAlign: 'right' }}>
                     {props.nextArticle && (
                         <span className="link-text">
                             <NavLink
@@ -76,10 +82,11 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                                     ':articleId',
                                     props.nextArticle.metadata.id
                                 )}
+                                style={{ textDecoration: 'none' }}
                             >
                                 {articleLinksContent['following'][props.selectedLanguage]} ➡️
                             </NavLink>
-                            <div className="title-preview">
+                            <div className="title-preview" style={titlePreviewStyle}>
                                 {props.nextArticle.content(props.selectedLanguage).title}
                             </div>
                         </span>
@@ -87,8 +94,12 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                 </div>
             </div>
             {typeof navigator !== 'undefined' && (
-                <div className="share-button">
-                    <img src="/images/share.png" onClick={shareHandler} />
+                <div className="share-button" style={{ cursor: 'pointer', margin: '16px 0' }}>
+                    <img
+                        src="/images/share.png"
+                        onClick={shareHandler}
+                        style={{ display: 'block', height: 48, margin: 'auto', width: 48 }}
+                    />
                 </div>
             )}
         </React.Fragment>

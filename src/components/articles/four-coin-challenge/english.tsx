@@ -62,7 +62,10 @@ export const english: ArticleContent = {
                     alt="4-coin challenge solution"
                     filename={`solution-${solutionStep}.jpg`}
                 />
-                <div className="solution-buttons">
+                <div
+                    className="solution-buttons"
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
                     <button
                         type="button"
                         className={`button primary big ${

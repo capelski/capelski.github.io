@@ -1,27 +1,24 @@
 @use 'sass:color';
 
-@use './article.scss';
-@use './articles/four-coin-challenge.scss';
-@use './articles/kanban-goals-tracking.scss';
-@use './articles/linear-gradient.scss';
-@use './articles/persuasion-in-pictures.scss';
-@use './articles/trecember.scss';
 @use './animations.scss';
-@use './blog.scss';
-@use './error.scss';
-@use './portfolio.scss';
-@use './project.scss';
 @use './variables.scss' as *;
 
-$mobilePadding: 16px;
-$desktopPadding: 32px;
-$linksHeight: 64px;
+/* Component styles live inline, in the components that render the elements. What remains
+ * here is what the style prop cannot express:
+ *
+ * - declarations that depend on a media query, a pseudo-class or a pseudo-element
+ * - declarations targeting bare tags (p, a, li) written directly in the article content
+ * - utility classes applied ad hoc from the article content, with no owning component
+ *
+ * Note that a property overridden by a media query or a pseudo-class must be declared
+ * here too: an inline style would always win over the override
+ */
+
+// ---------- Document ----------
 
 html,
 body,
-#app-placeholder,
-.app-container,
-.app-container > * {
+#app-placeholder {
     height: 100%;
 }
 
@@ -31,64 +28,290 @@ body {
     font-size: 16px;
 }
 
-.app-container {
+p {
+    line-height: 2;
+}
+
+a {
+    color: black;
+}
+
+// ---------- Sections ----------
+
+$mobilePadding: 16px;
+$desktopPadding: 32px;
+
+.section-content {
+    min-height: 100%;
+    padding: $mobilePadding * 1.5 $mobilePadding 0 $mobilePadding;
+    box-sizing: border-box;
     overflow-x: hidden;
 
-    &.server-rendered {
-        opacity: 0;
+    @media (min-width: $medium) {
+        padding: $desktopPadding 0 0 0;
+        margin: auto;
+        max-width: 720px;
+    }
+
+    @media (min-width: $large) {
+        max-width: 960px;
     }
 }
 
-.section-viewport {
-    height: calc(100% - #{$linksHeight});
-    overflow-y: auto;
+.section-links .link {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    padding: 16px;
+    cursor: pointer;
+    line-height: 32px;
+    transition: font-size $hoverTransition, opacity $hoverTransition;
 
-    .section-content {
-        min-height: 100%;
-        padding: $mobilePadding * 1.5 $mobilePadding 0 $mobilePadding;
-        box-sizing: border-box;
-        overflow-x: hidden;
-
-        @media (min-width: $medium) {
-            padding: $desktopPadding 0 0 0;
-            margin: auto;
-            max-width: 720px;
-        }
-
-        @media (min-width: $large) {
-            max-width: 960px;
-        }
+    &:hover {
+        font-size: 30px;
+        opacity: $hoverOpacity;
     }
 }
 
-.section-links {
-    /* Shared view transition name across every section, so that the links bar stays in
-     * place (and cross-fades its contents) instead of sliding along with the section
-     */
-    view-transition-name: section-links;
-    height: $linksHeight;
-    display: flex;
-    align-items: center;
-    box-shadow: -2px 0px 3px lightgrey;
+// ---------- Blog ----------
 
-    .link {
+.blog .category {
+    margin-right: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: font-size $hoverTransition, padding $hoverTransition, opacity $hoverTransition;
+
+    &.selected-category {
+        font-weight: 700;
+    }
+
+    &:hover:not(.selected-category) {
+        opacity: $hoverOpacity;
+        font-size: 20px;
+        padding: 0;
+    }
+}
+
+// ---------- Portfolio ----------
+
+.portfolio .projects {
+    display: grid;
+    grid-template-columns: 100%;
+
+    @media (min-width: $medium) {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+.project {
+    @media (min-width: $medium) {
+        padding-right: 24px;
+    }
+
+    .project-source {
         text-decoration: none;
         color: black;
-        font-size: 24px;
-        padding: 16px;
-        cursor: pointer;
-        line-height: 32px;
         transition: font-size $hoverTransition, opacity $hoverTransition;
 
         &:hover {
-            font-size: 30px;
+            font-size: 20px;
             opacity: $hoverOpacity;
+        }
+    }
+
+    .project-content {
+        &.portrait {
+            .project-image-wrapper {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 250px;
+            }
+        }
+
+        @media (min-width: $large) {
+            display: flex;
+
+            &.landscape {
+                flex-direction: column;
+            }
+
+            &.portrait {
+                flex-direction: row;
+
+                .project-image-wrapper,
+                .project-description {
+                    width: 50%;
+                    max-width: 50%;
+                }
+
+                .project-image-wrapper {
+                    margin-right: 16px;
+                }
+            }
+        }
+
+        .project-demo {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            transition: font-size $hoverTransition, opacity $hoverTransition;
+
+            &:hover {
+                font-size: 40px;
+                opacity: $hoverOpacity;
+            }
+        }
+
+        .project-description p:nth-of-type(2) {
+            font-style: italic;
         }
     }
 }
 
-p {
+// ---------- Articles ----------
+
+// This selector is not scoped to .article-container so it applies in the blog list too
+.article {
+    &.preview-mode {
+        cursor: pointer;
+
+        &:hover {
+            .article-info,
+            .article-body {
+                opacity: $hoverOpacity;
+            }
+        }
+    }
+
+    .article-info {
+        transition: opacity $hoverTransition;
+
+        @media (min-width: $medium) {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .article-title {
+            @media (min-width: $medium) {
+                margin-bottom: 8px;
+            }
+        }
+
+        .article-details {
+            margin: 8px 0;
+
+            @media (min-width: $medium) {
+                margin-left: 16px;
+            }
+
+            span {
+                padding-right: 8px;
+                white-space: nowrap;
+                display: inline-block;
+                margin-top: 8px;
+
+                &.article-language {
+                    cursor: pointer;
+                    transition: font-size $hoverTransition, margin $hoverTransition,
+                        opacity $hoverTransition;
+
+                    &.selected-language {
+                        cursor: default;
+                        font-weight: 700;
+                    }
+
+                    &:hover:not(.selected-language) {
+                        opacity: $hoverOpacity;
+                        margin-top: 0;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .article-body {
+        transition: opacity $hoverTransition;
+
+        ul {
+            &.numbered {
+                list-style-type: decimal;
+            }
+
+            li {
+                line-height: 2;
+                margin-top: 16px;
+
+                td {
+                    line-height: 1;
+                }
+            }
+        }
+    }
+
+    .article-links .link-text {
+        color: black;
+        font-size: 20px;
+        transition: font-size $hoverTransition, opacity $hoverTransition;
+
+        &:hover {
+            font-size: 24px;
+            opacity: $hoverOpacity;
+        }
+    }
+
+    .article-newsletter .inputs-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin: 24px 0;
+
+        .newsletter-submit {
+            margin: 10px 0 0 0;
+        }
+
+        @media (min-width: $medium) {
+            flex-direction: row;
+
+            .newsletter-submit {
+                margin: 0 0 0 10px;
+            }
+        }
+    }
+}
+
+// ---------- Article content utilities ----------
+
+.article-quote {
+    max-width: 80%;
+    margin: 32px auto;
     line-height: 2;
+}
+
+.article-image {
+    &.image-placeholder {
+        // Grey box as a placeholder for image loading errors
+        background-color: #f2f2f2;
+        padding: 96px 24px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &.image-300 {
+        width: 300px;
+    }
+
+    &.image-600 {
+        @media (min-width: $medium) {
+            width: 600px;
+        }
+    }
 }
 
 .screen-splitter {
@@ -146,6 +369,58 @@ p {
     }
 }
 
-a {
-    color: black;
+.kanban-board {
+    > div {
+        min-height: 80px;
+    }
+
+    @media (min-width: $medium) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        > div {
+            padding: 0 8px;
+        }
+    }
+}
+
+.persuasion-header {
+    margin-bottom: 32px;
+    margin-top: 32px;
+
+    display: grid;
+    grid-template-columns: 65% 35%;
+
+    @media (min-width: $medium) {
+        grid-template-columns: 70% 30%;
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+        margin: auto;
+
+        @media (min-width: $medium) {
+            max-width: 150px;
+        }
+    }
+}
+
+.persuasion-resources {
+    @media (min-width: $medium) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .persuasion-resource {
+        text-align: center;
+
+        @media (min-width: $medium) {
+            padding-right: 16px;
+        }
+
+        p {
+            text-align: left;
+        }
+    }
 }

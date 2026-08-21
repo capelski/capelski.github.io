@@ -11,11 +11,25 @@ interface ProjectProps {
 }
 
 export const Project: React.FC<ProjectProps> = (props) => (
-    <div className="project">
-        <div className="project-info">
-            <h3 className="project-title">{props.title}</h3>
+    <div className="project" style={{ paddingBottom: 24 }}>
+        <div
+            className="project-info"
+            style={{
+                alignItems: 'flex-end',
+                display: 'flex',
+                height: 32,
+                justifyContent: 'space-between'
+            }}
+        >
+            <h3 className="project-title" style={{ margin: 0 }}>
+                {props.title}
+            </h3>
             <div className="project-details">
-                {props.date ? <span className="project-date">📅 {props.date}</span> : null}
+                {props.date ? (
+                    <span className="project-date" style={{ paddingRight: 8 }}>
+                        📅 {props.date}
+                    </span>
+                ) : null}
                 {props.repository ? (
                     <a
                         target="_blank"
@@ -28,8 +42,21 @@ export const Project: React.FC<ProjectProps> = (props) => (
             </div>
         </div>
         <div className={`project-content ${props.imageOrientation || 'landscape'}`}>
-            <div className="project-image-wrapper">
-                <img src={`/images/portfolio/${props.image}`} alt={`${props.title} project`} />
+            <div className="project-image-wrapper" style={{ marginTop: 16, position: 'relative' }}>
+                <img
+                    src={`/images/portfolio/${props.image}`}
+                    alt={`${props.title} project`}
+                    style={{
+                        // Grey box as a placeholder for image loading errors
+                        backgroundColor: '#f2f2f2',
+                        border: '1px solid black',
+                        boxSizing: 'border-box',
+                        display: 'inline-block',
+                        maxWidth: '100%',
+                        minHeight: 200,
+                        width: '100%'
+                    }}
+                />
                 {props.url ? (
                     <a target="_blank" href={`${props.url}`} className="project-demo">
                         ▶️

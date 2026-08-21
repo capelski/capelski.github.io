@@ -22,7 +22,16 @@ export interface NewsletterProps {
 }
 
 export const Newsletter: React.FC<NewsletterProps> = (props) => (
-    <div id="mc_embed_signup" className="article-newsletter">
+    <div
+        id="mc_embed_signup"
+        className="article-newsletter"
+        style={{
+            borderBottom: '1px solid #e2e2e2',
+            borderTop: '1px solid #e2e2e2',
+            marginBottom: 56,
+            marginTop: 56
+        }}
+    >
         <form
             action="https://gmail.us4.list-manage.com/subscribe/post?u=1268a6ca6cbf3464a492cbc92&amp;id=06423c24b8"
             method="post"
@@ -33,7 +42,9 @@ export const Newsletter: React.FC<NewsletterProps> = (props) => (
             noValidate
         >
             <div id="mc_embed_signup_scroll">
-                <p className="newsletter-title">{formContent.title[props.selectedLanguage]}</p>
+                <p className="newsletter-title" style={{ fontSize: 20 }}>
+                    {formContent.title[props.selectedLanguage]}
+                </p>
                 <p>{formContent.body[props.selectedLanguage]}</p>
                 <div className="inputs-wrapper">
                     <input
@@ -43,6 +54,12 @@ export const Newsletter: React.FC<NewsletterProps> = (props) => (
                         id="mce-EMAIL"
                         placeholder={formContent.placeholder[props.selectedLanguage]}
                         required
+                        style={{
+                            fontFamily: 'inherit',
+                            fontSize: 16,
+                            minWidth: 250,
+                            padding: 8
+                        }}
                     />
                     <input
                         className="newsletter-submit button primary"

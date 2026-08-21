@@ -4,6 +4,13 @@ import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
 
+const boardHeaderStyle: React.CSSProperties = {
+    borderBottom: '1px solid black',
+    fontWeight: 'bold',
+    margin: '8px 0',
+    padding: 8
+};
+
 export const english: ArticleContent = {
     title: 'Kanban: keep track of your goals',
     description: 'How to efficiently manage your personal goals using Kanban strategy',
@@ -37,13 +44,19 @@ export const english: ArticleContent = {
             </p>
             <div className="kanban-board">
                 <div>
-                    <div className="kanban-board-header">Pending</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Pending
+                    </div>
                 </div>
                 <div>
-                    <div className="kanban-board-header">In Progress</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        In Progress
+                    </div>
                 </div>
                 <div>
-                    <div className="kanban-board-header">Done</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Done
+                    </div>
                 </div>
             </div>
             <p>
@@ -55,16 +68,22 @@ export const english: ArticleContent = {
             </p>
             <div className="kanban-board">
                 <div>
-                    <div className="kanban-board-header">Pending</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Pending
+                    </div>
                     <p>Write post about Kanban</p>
                     <p>Join CrossFit classes</p>
                     <p>Start playing the guitar</p>
                 </div>
                 <div>
-                    <div className="kanban-board-header">In Progress</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        In Progress
+                    </div>
                 </div>
                 <div>
-                    <div className="kanban-board-header">Done</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Done
+                    </div>
                 </div>
             </div>
             <p>
@@ -76,16 +95,22 @@ export const english: ArticleContent = {
             </p>
             <div className="kanban-board">
                 <div>
-                    <div className="kanban-board-header">Pending</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Pending
+                    </div>
                     <p>Join CrossFit classes</p>
                     <p>Start playing the guitar</p>
                 </div>
                 <div>
-                    <div className="kanban-board-header">In Progress</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        In Progress
+                    </div>
                     <p>Write post about Kanban</p>
                 </div>
                 <div>
-                    <div className="kanban-board-header">Done</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Done
+                    </div>
                 </div>
             </div>
             <p>
@@ -110,15 +135,21 @@ export const english: ArticleContent = {
             </p>
             <div className="kanban-board">
                 <div>
-                    <div className="kanban-board-header">Pending</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Pending
+                    </div>
                     <p>Join CrossFit classes</p>
                     <p>Start playing the guitar</p>
                 </div>
                 <div>
-                    <div className="kanban-board-header">In Progress</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        In Progress
+                    </div>
                 </div>
                 <div>
-                    <div className="kanban-board-header">Done</div>
+                    <div className="kanban-board-header" style={boardHeaderStyle}>
+                        Done
+                    </div>
                     <p style={{ textDecoration: 'line-through' }}>Write post about Kanban</p>
                 </div>
             </div>

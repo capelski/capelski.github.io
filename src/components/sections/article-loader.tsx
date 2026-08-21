@@ -89,6 +89,7 @@ export const ArticleLoader: React.FC = () => {
                 </React.Fragment>
             }
             sectionName="article-container"
+            viewTransitionName="article"
             viewportRef={viewportRef}
         >
             <Helmet>

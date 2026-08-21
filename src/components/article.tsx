@@ -86,6 +86,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
                         ref={navigationRef}
                         to={articleRoute.path.replace(':articleId', props.metadata.id)}
                         className="programmatic-link"
+                        style={{ display: 'none' }}
                     />
                 ) : (
                     <React.Fragment>

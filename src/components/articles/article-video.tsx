@@ -13,5 +13,6 @@ export const ArticleVideo: React.FC<ArticleVideoProps> = (props) => (
         width="100%"
         className={`article-video ${props.className ? props.className : ''}`}
         src={`/images/blog/${props.articleId}/${props.filename}`}
+        style={{ display: 'block', margin: '32px auto', maxWidth: '100%' }}
     />
 );

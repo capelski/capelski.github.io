@@ -43,7 +43,9 @@ export const Blog: React.FC = () => {
                     Portfolio ➡️
                 </NavLink>
             }
+            linksStyle={{ justifyContent: 'flex-end' }}
             sectionName="blog"
+            viewTransitionName="blog"
         >
             <Helmet>
                 <title>Blog | Carles Capellas</title>
@@ -53,7 +55,17 @@ export const Blog: React.FC = () => {
                 />
             </Helmet>
             <React.Fragment>
-                <div className="blog-header">
+                <div
+                    className="blog-header"
+                    style={{
+                        alignItems: 'center',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        /* Captured on its own so that it stays in place while the articles
+                         * list slides on a category change */
+                        viewTransitionName: 'blog-header'
+                    }}
+                >
                     <h1 className="blog-title">Blog</h1>
                     <div className="blog-categories">
                         {AllArticleCategories.map((category) => (

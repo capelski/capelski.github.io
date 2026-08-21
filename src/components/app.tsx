@@ -28,7 +28,14 @@ export const App: React.FC<AppProps> = (props) => {
     );
 
     return (
-        <div className={`app-container${props.isServerRendered ? ' server-rendered' : ''}`}>
+        <div
+            className="app-container"
+            style={{
+                height: '100%',
+                opacity: props.isServerRendered ? 0 : undefined,
+                overflowX: 'hidden'
+            }}
+        >
             <Outlet context={{ selectedLanguage, setSelectedLanguage } satisfies AppContext} />
         </div>
     );
