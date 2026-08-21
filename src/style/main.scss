@@ -3,15 +3,19 @@
 @use './animations.scss';
 @use './variables.scss' as *;
 
-/* Component styles live inline, in the components that render the elements. What remains
- * here is what the style prop cannot express:
+/* Component styles live inline, in the components that render the elements, and the
+ * breakpoints are resolved by react-responsive (see components/breakpoints.ts). What
+ * remains here is what the style prop cannot express:
  *
- * - declarations that depend on a media query, a pseudo-class or a pseudo-element
+ * - declarations that depend on a pseudo-class or a pseudo-element
  * - declarations targeting bare tags (p, a, li) written directly in the article content
  * - utility classes applied ad hoc from the article content, with no owning component
  *
- * Note that a property overridden by a media query or a pseudo-class must be declared
- * here too: an inline style would always win over the override
+ * The .medium-up class the App component puts on the app container stands in for the
+ * media queries of the last group, whose selectors reach into markup no component owns.
+ *
+ * Note that a property overridden by one of the rules below must be declared here too:
+ * an inline style would always win over the override
  */
 
 // ---------- Document ----------
@@ -37,26 +41,6 @@ a {
 }
 
 // ---------- Sections ----------
-
-$mobilePadding: 16px;
-$desktopPadding: 32px;
-
-.section-content {
-    min-height: 100%;
-    padding: $mobilePadding * 1.5 $mobilePadding 0 $mobilePadding;
-    box-sizing: border-box;
-    overflow-x: hidden;
-
-    @media (min-width: $medium) {
-        padding: $desktopPadding 0 0 0;
-        margin: auto;
-        max-width: 720px;
-    }
-
-    @media (min-width: $large) {
-        max-width: 960px;
-    }
-}
 
 .section-links .link {
     text-decoration: none;
@@ -94,20 +78,7 @@ $desktopPadding: 32px;
 
 // ---------- Portfolio ----------
 
-.portfolio .projects {
-    display: grid;
-    grid-template-columns: 100%;
-
-    @media (min-width: $medium) {
-        grid-template-columns: 50% 50%;
-    }
-}
-
 .project {
-    @media (min-width: $medium) {
-        padding-right: 24px;
-    }
-
     .project-source {
         text-decoration: none;
         color: black;
@@ -120,36 +91,6 @@ $desktopPadding: 32px;
     }
 
     .project-content {
-        &.portrait {
-            .project-image-wrapper {
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 250px;
-            }
-        }
-
-        @media (min-width: $large) {
-            display: flex;
-
-            &.landscape {
-                flex-direction: column;
-            }
-
-            &.portrait {
-                flex-direction: row;
-
-                .project-image-wrapper,
-                .project-description {
-                    width: 50%;
-                    max-width: 50%;
-                }
-
-                .project-image-wrapper {
-                    margin-right: 16px;
-                }
-            }
-        }
-
         .project-demo {
             position: absolute;
             top: 0;
@@ -193,24 +134,7 @@ $desktopPadding: 32px;
     .article-info {
         transition: opacity $hoverTransition;
 
-        @media (min-width: $medium) {
-            display: flex;
-            align-items: baseline;
-        }
-
-        .article-title {
-            @media (min-width: $medium) {
-                margin-bottom: 8px;
-            }
-        }
-
         .article-details {
-            margin: 8px 0;
-
-            @media (min-width: $medium) {
-                margin-left: 16px;
-            }
-
             span {
                 padding-right: 8px;
                 white-space: nowrap;
@@ -266,24 +190,6 @@ $desktopPadding: 32px;
             opacity: $hoverOpacity;
         }
     }
-
-    .article-newsletter .inputs-wrapper {
-        display: flex;
-        flex-direction: column;
-        margin: 24px 0;
-
-        .newsletter-submit {
-            margin: 10px 0 0 0;
-        }
-
-        @media (min-width: $medium) {
-            flex-direction: row;
-
-            .newsletter-submit {
-                margin: 0 0 0 10px;
-            }
-        }
-    }
 }
 
 // ---------- Article content utilities ----------
@@ -306,28 +212,30 @@ $desktopPadding: 32px;
     &.image-300 {
         width: 300px;
     }
+}
 
-    &.image-600 {
-        @media (min-width: $medium) {
-            width: 600px;
-        }
-    }
+/* Sizing utilities and the layout helpers below are applied from the article contents,
+ * so the components rendering them cannot inline the styles; .medium-up replaces the
+ * media queries these rules used to live in
+ */
+.medium-up .article-image.image-600 {
+    width: 600px;
 }
 
 .screen-splitter {
     display: block;
     align-items: center;
+}
 
-    @media (min-width: $medium) {
-        display: flex;
+.medium-up .screen-splitter {
+    display: flex;
 
-        & > * {
-            flex-grow: 1;
-            margin: 0 5px;
+    > * {
+        flex-grow: 1;
+        margin: 0 5px;
 
-            * {
-                max-width: 100% !important;
-            }
+        * {
+            max-width: 100% !important;
         }
     }
 }
@@ -369,58 +277,38 @@ $desktopPadding: 32px;
     }
 }
 
-.kanban-board {
+.kanban-board > div {
+    min-height: 80px;
+}
+
+.medium-up .kanban-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
     > div {
-        min-height: 80px;
-    }
-
-    @media (min-width: $medium) {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-
-        > div {
-            padding: 0 8px;
-        }
+        padding: 0 8px;
     }
 }
 
+/* Also applied to plain headings in the article contents, so it cannot be inlined in the
+ * PersuasionHeader component
+ */
 .persuasion-header {
-    margin-bottom: 32px;
-    margin-top: 32px;
-
     display: grid;
     grid-template-columns: 65% 35%;
-
-    @media (min-width: $medium) {
-        grid-template-columns: 70% 30%;
-    }
-
-    img {
-        max-width: 100%;
-        display: block;
-        margin: auto;
-
-        @media (min-width: $medium) {
-            max-width: 150px;
-        }
-    }
+    margin-bottom: 32px;
+    margin-top: 32px;
 }
 
-.persuasion-resources {
-    @media (min-width: $medium) {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+.medium-up .persuasion-header {
+    grid-template-columns: 70% 30%;
+}
 
-    .persuasion-resource {
-        text-align: center;
+.persuasion-resource p {
+    text-align: left;
+}
 
-        @media (min-width: $medium) {
-            padding-right: 16px;
-        }
-
-        p {
-            text-align: left;
-        }
-    }
+.medium-up .persuasion-resources {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }

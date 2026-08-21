@@ -1,5 +1,6 @@
 import React from 'react';
 import { Language } from './articles/language';
+import { useIsMediumUp } from './breakpoints';
 
 const formContent: { [key: string]: { [Language.ca]: string; [Language.en]: string } } = {
     title: {
@@ -21,62 +22,74 @@ export interface NewsletterProps {
     selectedLanguage: Language;
 }
 
-export const Newsletter: React.FC<NewsletterProps> = (props) => (
-    <div
-        id="mc_embed_signup"
-        className="article-newsletter"
-        style={{
-            borderBottom: '1px solid #e2e2e2',
-            borderTop: '1px solid #e2e2e2',
-            marginBottom: 56,
-            marginTop: 56
-        }}
-    >
-        <form
-            action="https://gmail.us4.list-manage.com/subscribe/post?u=1268a6ca6cbf3464a492cbc92&amp;id=06423c24b8"
-            method="post"
-            id="mc-embedded-subscribe-form"
-            name="mc-embedded-subscribe-form"
-            className="validate"
-            target="_blank"
-            noValidate
+export const Newsletter: React.FC<NewsletterProps> = (props) => {
+    const isMediumUp = useIsMediumUp();
+
+    return (
+        <div
+            id="mc_embed_signup"
+            className="article-newsletter"
+            style={{
+                borderBottom: '1px solid #e2e2e2',
+                borderTop: '1px solid #e2e2e2',
+                marginBottom: 56,
+                marginTop: 56
+            }}
         >
-            <div id="mc_embed_signup_scroll">
-                <p className="newsletter-title" style={{ fontSize: 20 }}>
-                    {formContent.title[props.selectedLanguage]}
-                </p>
-                <p>{formContent.body[props.selectedLanguage]}</p>
-                <div className="inputs-wrapper">
-                    <input
-                        type="email"
-                        name="EMAIL"
-                        className="email"
-                        id="mce-EMAIL"
-                        placeholder={formContent.placeholder[props.selectedLanguage]}
-                        required
+            <form
+                action="https://gmail.us4.list-manage.com/subscribe/post?u=1268a6ca6cbf3464a492cbc92&amp;id=06423c24b8"
+                method="post"
+                id="mc-embedded-subscribe-form"
+                name="mc-embedded-subscribe-form"
+                className="validate"
+                target="_blank"
+                noValidate
+            >
+                <div id="mc_embed_signup_scroll">
+                    <p className="newsletter-title" style={{ fontSize: 20 }}>
+                        {formContent.title[props.selectedLanguage]}
+                    </p>
+                    <p>{formContent.body[props.selectedLanguage]}</p>
+                    <div
+                        className="inputs-wrapper"
                         style={{
-                            fontFamily: 'inherit',
-                            fontSize: 16,
-                            minWidth: 250,
-                            padding: 8
+                            display: 'flex',
+                            flexDirection: isMediumUp ? 'row' : 'column',
+                            margin: '24px 0'
                         }}
-                    />
-                    <input
-                        className="newsletter-submit button primary"
-                        type="submit"
-                        value={formContent.button[props.selectedLanguage]}
-                        name="subscribe"
-                        id="mc-embedded-subscribe"
-                    />
+                    >
+                        <input
+                            type="email"
+                            name="EMAIL"
+                            className="email"
+                            id="mce-EMAIL"
+                            placeholder={formContent.placeholder[props.selectedLanguage]}
+                            required
+                            style={{
+                                fontFamily: 'inherit',
+                                fontSize: 16,
+                                minWidth: 250,
+                                padding: 8
+                            }}
+                        />
+                        <input
+                            className="newsletter-submit button primary"
+                            type="submit"
+                            value={formContent.button[props.selectedLanguage]}
+                            name="subscribe"
+                            id="mc-embedded-subscribe"
+                            style={{ margin: isMediumUp ? '0 0 0 10px' : '10px 0 0 0' }}
+                        />
+                    </div>
+                    <div style={{ display: 'none' }} aria-hidden="true">
+                        <input
+                            type="text"
+                            name="b_1268a6ca6cbf3464a492cbc92_06423c24b8"
+                            tabIndex={-1}
+                        />
+                    </div>
                 </div>
-                <div style={{ display: 'none' }} aria-hidden="true">
-                    <input
-                        type="text"
-                        name="b_1268a6ca6cbf3464a492cbc92_06423c24b8"
-                        tabIndex={-1}
-                    />
-                </div>
-            </div>
-        </form>
-    </div>
-);
+            </form>
+        </div>
+    );
+};

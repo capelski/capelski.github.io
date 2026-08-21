@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, useLocation, useOutletContext } from 'react-router-dom';
 import { defaultLanguage, getLanguageFromKey, Language } from './articles/language';
+import { useIsMediumUp } from './breakpoints';
 
 interface AppProps {
     isServerRendered: boolean;
@@ -23,13 +24,14 @@ export const useAppContext = () => useOutletContext<AppContext>();
  */
 export const App: React.FC<AppProps> = (props) => {
     const location = useLocation();
+    const isMediumUp = useIsMediumUp();
     const [selectedLanguage, setSelectedLanguage] = useState<Language>(() =>
         getInitialLanguage(location)
     );
 
     return (
         <div
-            className="app-container"
+            className={`app-container${isMediumUp ? ' medium-up' : ''}`}
             style={{
                 height: '100%',
                 opacity: props.isServerRendered ? 0 : undefined,

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { ArticleNavigation } from './article-navigation';
 import { Article as IArticle } from './articles/article-data';
 import { Language } from './articles/language';
+import { useIsMediumUp } from './breakpoints';
 import PatreonBadge from './patreon-badge';
 import { articleRoute } from './routes';
 
@@ -25,6 +26,7 @@ export type ArticleProps = ArticlePreviewProps | ArticleFullProps;
 
 export const Article: React.FC<ArticleProps> = (props) => {
     const navigationRef = useRef<HTMLAnchorElement>(null);
+    const isMediumUp = useIsMediumUp();
 
     const content = props.content(props.selectedLanguage);
 
@@ -34,19 +36,34 @@ export const Article: React.FC<ArticleProps> = (props) => {
         }
     };
 
+    const titleStyle: React.CSSProperties = { marginBottom: isMediumUp ? 8 : undefined };
+
     return (
         <div
             className={`article ${props.metadata.id}${props.preview ? '  preview-mode' : ''}`}
             onClick={props.preview ? containerClickHandler : undefined}
             lang={props.selectedLanguage}
         >
-            <div className="article-info">
+            <div
+                className="article-info"
+                style={{
+                    alignItems: isMediumUp ? 'baseline' : undefined,
+                    display: isMediumUp ? 'flex' : undefined
+                }}
+            >
                 {props.preview ? (
-                    <h3 className="article-title">{content.title}</h3>
+                    <h3 className="article-title" style={titleStyle}>
+                        {content.title}
+                    </h3>
                 ) : (
-                    <h2 className="article-title">{content.title}</h2>
+                    <h2 className="article-title" style={titleStyle}>
+                        {content.title}
+                    </h2>
                 )}
-                <div className="article-details">
+                <div
+                    className="article-details"
+                    style={{ margin: isMediumUp ? '8px 0 8px 16px' : '8px 0' }}
+                >
                     <span className="article-date">📅 {props.metadata.date}</span>
                     <span className="article-duration">🕐 {props.metadata.duration} mins</span>
                     {props.metadata.languages.map((language) => (

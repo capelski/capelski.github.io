@@ -22,7 +22,10 @@ module.exports = merge(baseConfig, {
             rendererOptions: {
                 /* Give the app time to render the section (and its embedded content)
                  * before taking the html snapshot */
-                renderAfterTime: 2000
+                renderAfterTime: 2000,
+                /* react-responsive resolves the breakpoints at render time, so the
+                 * snapshot freezes the layout of whichever viewport is used here */
+                viewport: { width: 1440, height: 900 }
             },
             routes
         })
