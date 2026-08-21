@@ -27,7 +27,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 alt="Abstract representation of an optimized database"
                 articleId={ArticleId.mongoDbOptimization}
-                className="image-600"
+                width={600}
                 filename="database-optimization.jpg"
             />
             <h3>The inefficient queries</h3>

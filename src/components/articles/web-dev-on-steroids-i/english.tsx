@@ -54,7 +54,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.webDevOnSteroidsI}
                 alt="Typescript autocomplete example"
-                className="image-600"
+                width={600}
                 filename="intellisense.png"
             />
             <h5>Steps</h5>

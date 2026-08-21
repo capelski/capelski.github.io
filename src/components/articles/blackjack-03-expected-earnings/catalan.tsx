@@ -257,7 +257,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Diana amb un dard al centre, representant la precisió de la predicció dels guanys"
-                className="image-300"
+                width={300}
                 filename="bullseye.png"
             />
             <p>
@@ -302,7 +302,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Gràfic amb els valors d'avantatge de diverses estratègies 'plantar-se amb X' en funció dels valors de X"
-                className="image-600"
+                width={600}
                 filename="stand-score-vs-edge.png"
             />
         </React.Fragment>

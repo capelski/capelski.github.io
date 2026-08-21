@@ -30,13 +30,13 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-3.png"
                 footer="Sample 15 hand with the next card being a 3"
             />
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-8.png"
                 footer="Sample 15 hand with the next card being an 8"
             />
@@ -87,7 +87,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="card-counting.png"
                 footer="Card counting example"
             />
@@ -108,7 +108,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-unknown.png"
                 footer="Sample 15 hand with unknown next card"
             />
@@ -153,7 +153,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 alt="Sample 15 hand about to bust"
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-bust.png"
             />
             <p>

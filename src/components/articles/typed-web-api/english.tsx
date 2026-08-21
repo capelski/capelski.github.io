@@ -27,7 +27,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 alt="Telecommunications antenna"
                 articleId={ArticleId.typedWebApi}
-                className="image-600"
+                width={600}
                 filename="antenna.jpg"
             />
             <p>

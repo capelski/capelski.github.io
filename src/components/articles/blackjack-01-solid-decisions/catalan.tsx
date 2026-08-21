@@ -31,13 +31,13 @@ export const catalan: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-3.png"
                 footer="Exemple de mà de 15 punts amb un 3 com a carta següent"
             />
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-8.png"
                 footer="Exemple de mà de 15 punts amb un 8 com a carta següent"
             />
@@ -91,7 +91,7 @@ export const catalan: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="card-counting.png"
                 footer="Exemple de comptatge de cartes"
             />
@@ -113,7 +113,7 @@ export const catalan: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-unknown.png"
                 footer="Exemple de mà de 15 punts sense conèixer la carta següent"
             />
@@ -159,7 +159,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 alt="Exemple de mà de 15 a punt de passar-se de 21"
                 articleId={ArticleId.blackjack01SolidDecisions}
-                className="image-600"
+                width={600}
                 filename="sample-15-upcoming-bust.png"
             />
             <p>

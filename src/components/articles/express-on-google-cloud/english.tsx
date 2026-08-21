@@ -26,7 +26,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
                 alt="Autoscaling environment"
-                className="image-600"
+                width={600}
                 filename="autoscaling.gif"
             />
             <h3>The conventional way</h3>
@@ -104,7 +104,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="swagger-ui.png"
                 footer="Web api endpoints"
             />
@@ -120,7 +120,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="swagger-call.png"
                 footer="Web api endpoint call example"
             />
@@ -169,7 +169,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="gcp-sql-instance.png"
                 footer="SQL instance creation in GCP"
             />
@@ -238,13 +238,13 @@ export const english: ArticleContent = {
             </BlockSnippet>
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="gcp-project-creation.png"
                 footer="Project creation in GCP"
             />
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="gcp-app-engine-creation.png"
                 footer="App engine creation in GCP"
             />
@@ -257,13 +257,13 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="gcp-app-engine-versions.png"
                 footer="App engine versions in GCP"
             />
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="gcp-app-engine-logs.png"
                 footer="App engine logs in GCP"
             />
@@ -277,7 +277,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.expressOnGoogleCloud}
-                className="image-600"
+                width={600}
                 filename="gcp-app-engine-config.png"
                 footer="App engine config in GCP"
             />

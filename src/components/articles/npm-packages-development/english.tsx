@@ -23,7 +23,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.npmPackagesDevelopment}
                 alt="Angry birds hero animation"
-                className="image-600"
+                width={600}
                 filename="hero.gif"
             />
             <h3>Why creating a Javascript library?</h3>
@@ -65,7 +65,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.npmPackagesDevelopment}
                 alt="Macaulay culkin celebrating"
-                className="image-600"
+                width={600}
                 filename="yes.gif"
             />
             <h3>How to publish a Javascript library to npm</h3>
@@ -131,7 +131,7 @@ export const english: ArticleContent = {
                     <ArticleImage
                         articleId={ArticleId.npmPackagesDevelopment}
                         alt="Visual studio code intellisense dropdown"
-                        className="image-600"
+                        width={600}
                         filename="intellisense.png"
                     />
                 </li>
@@ -147,7 +147,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.npmPackagesDevelopment}
                 alt="Man making explicit he is ready"
-                className="image-600"
+                width={600}
                 filename="ready.gif"
             />
             <h3>Some examples</h3>
@@ -189,7 +189,7 @@ export const english: ArticleContent = {
                     <ArticleImage
                         articleId={ArticleId.npmPackagesDevelopment}
                         alt="Man making explicit he is ready"
-                        className="image-600"
+                        width={600}
                         filename="react-redux-link.png"
                     />
                 </li>

@@ -90,7 +90,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.sudokuGeneration}
                 alt="Command line generated sudoku"
-                className="image-600"
+                width={600}
                 filename="command-line.png"
             />
             <p>
@@ -103,7 +103,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.sudokuGeneration}
                 alt="Command line generation error"
-                className="image-600"
+                width={600}
                 filename="command-line-error.png"
             />
             <p>
@@ -117,7 +117,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.sudokuGeneration}
                 alt="Web app first approach"
-                className="image-600"
+                width={600}
                 filename="web-app-first-approach.png"
             />
             <p>
@@ -130,7 +130,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.sudokuGeneration}
                 alt="Web app final approach"
-                className="image-600"
+                width={600}
                 filename="web-app-final-approach.png"
             />
             <p>
@@ -149,7 +149,7 @@ export const english: ArticleContent = {
                     <ArticleImage
                         articleId={ArticleId.sudokuGeneration}
                         alt="Sudoku box single candidate example"
-                        className="image-600"
+                        width={600}
                         filename="box-only-left-candidate.png"
                     />
                 </li>
@@ -159,7 +159,7 @@ export const english: ArticleContent = {
                     <ArticleImage
                         articleId={ArticleId.sudokuGeneration}
                         alt="Sudoku group single candidate example"
-                        className="image-600"
+                        width={600}
                         filename="group-single-candidate.png"
                     />
                 </li>
@@ -169,7 +169,7 @@ export const english: ArticleContent = {
                     <ArticleImage
                         articleId={ArticleId.sudokuGeneration}
                         alt="Sudoku owned candidates rule example"
-                        className="image-600"
+                        width={600}
                         filename="owned-candidates.png"
                     />
                 </li>
@@ -180,7 +180,7 @@ export const english: ArticleContent = {
                     <ArticleImage
                         articleId={ArticleId.sudokuGeneration}
                         alt="Sudoku region subset rule example"
-                        className="image-600"
+                        width={600}
                         filename="region-subset.png"
                     />
                 </li>

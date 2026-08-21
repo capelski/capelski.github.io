@@ -24,7 +24,7 @@ export const english: ArticleContent = {
         <React.Fragment>
             <ArticleImage
                 articleId={ArticleId.progressiveWebApps}
-                className="image-300"
+                width={300}
                 filename="add-home.png"
                 footer="Add PWA to home screen prompt"
             />
@@ -152,19 +152,19 @@ export const english: ArticleContent = {
                 <ArticleImage
                     alt="PWA install notification"
                     articleId={ArticleId.progressiveWebApps}
-                    className="image-300"
+                    width={300}
                     filename="pwa-install-notification.png"
                 />
                 <ArticleImage
                     alt="PWA starting"
                     articleId={ArticleId.progressiveWebApps}
-                    className="image-300"
+                    width={300}
                     filename="pwa-starting.png"
                 />
                 <ArticleImage
                     alt="Offline PWA in mobile device"
                     articleId={ArticleId.progressiveWebApps}
-                    className="image-300"
+                    width={300}
                     filename="offline-mobile.png"
                 />
             </div>

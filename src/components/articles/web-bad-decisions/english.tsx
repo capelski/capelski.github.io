@@ -144,7 +144,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.webBadDecisions}
-                className="image-600"
+                width={600}
                 filename="blog-filters-vue.png"
                 footer="Blog filters before the calendar view"
             />

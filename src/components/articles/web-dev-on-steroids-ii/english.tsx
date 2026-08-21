@@ -159,7 +159,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.webDevOnSteroidsII}
                 alt="istanbul.js coverage report"
-                className="image-600"
+                width={600}
                 filename="coverage-report.png"
             />
             <h5>Steps</h5>

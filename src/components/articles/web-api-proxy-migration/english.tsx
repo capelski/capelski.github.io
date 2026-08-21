@@ -26,7 +26,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 alt="Abstract representation of a web proxy"
                 articleId={ArticleId.webApiProxyMigration}
-                className="image-600"
+                width={600}
                 filename="web-proxy.png"
             />
             <h3>Personal statement</h3>

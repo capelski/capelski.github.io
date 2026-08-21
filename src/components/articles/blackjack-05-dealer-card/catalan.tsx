@@ -33,7 +33,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack05DealerCard}
                 alt="Crupier de Blackjack amb la carta desconeguda"
-                className="image-600"
+                width={600}
                 filename="dealer-card-unknown.png"
             />
             <p>
@@ -361,7 +361,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack05DealerCard}
                 alt="Crupier de Blackjack amb un 6 com a carta"
-                className="image-600"
+                width={600}
                 filename="dealer-card-6.png"
             />
             <p>

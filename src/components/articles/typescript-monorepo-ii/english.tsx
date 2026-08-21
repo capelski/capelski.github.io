@@ -37,7 +37,7 @@ export const english: ArticleContent = {
                 <ArticleImage
                     alt="Package distribution representation"
                     articleId={ArticleId.typescriptMonorepoII}
-                    className="image-600"
+                    width={600}
                     filename="distribution.jpg"
                 />
                 <p>

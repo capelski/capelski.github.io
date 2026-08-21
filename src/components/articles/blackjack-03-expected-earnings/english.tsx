@@ -249,7 +249,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Bullseye with a dart in the center, representing the accuracy of the earnings prediction"
-                className="image-300"
+                width={300}
                 filename="bullseye.png"
             />
             <p>
@@ -292,7 +292,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack03ExpectedEarnings}
                 alt="Chart showing the edge values of several 'Stand on X' strategies against the X values"
-                className="image-600"
+                width={600}
                 filename="stand-score-vs-edge.png"
             />
         </React.Fragment>

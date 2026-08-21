@@ -26,7 +26,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
                 alt="Abstract representation of secure storage"
-                className="image-600"
+                width={600}
                 filename="secure-storage.jpg"
             />
             <p>
@@ -141,7 +141,7 @@ export const english: ArticleContent = {
             </BlockSnippet>
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
-                className="image-600"
+                width={600}
                 filename="repo-initialization.png"
                 footer="Workspace changes after initializing git-secret"
             />
@@ -168,7 +168,7 @@ export const english: ArticleContent = {
             </BlockSnippet>
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
-                className="image-600"
+                width={600}
                 filename="first-user-added.png"
                 footer="Workspace changes after adding the first user"
             />
@@ -203,7 +203,7 @@ export const english: ArticleContent = {
             </BlockSnippet>
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
-                className="image-600"
+                width={600}
                 filename="secret-added.png"
                 footer="Workspace changes after adding a secret"
             />
@@ -216,7 +216,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
-                className="image-600"
+                width={600}
                 filename="secret-hidden.png"
                 footer="Workspace changes after hiding a secret"
             />
@@ -247,7 +247,7 @@ export const english: ArticleContent = {
                     </p>
                     <ArticleImage
                         articleId={ArticleId.gitSecrets}
-                        className="image-600"
+                        width={600}
                         filename="gitignore-exclusion-patterns.png"
                         footer="Workspace changes after changing .gitignore exclusion patterns"
                     />
@@ -272,7 +272,7 @@ export const english: ArticleContent = {
             </BlockSnippet>
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
-                className="image-600"
+                width={600}
                 filename="secret-removed.png"
                 footer="Workspace changes after removing a secret"
             />
@@ -301,7 +301,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
                 footer="Workspace changes after updating a secret"
-                className="image-600"
+                width={600}
                 filename="secret-updated.png"
             />
             <h3>Managing users</h3>
@@ -385,7 +385,7 @@ export const english: ArticleContent = {
             </BlockSnippet>
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
-                className="image-600"
+                width={600}
                 filename="user-added.png"
                 footer="Workspace changes after adding a user"
             />
@@ -436,7 +436,7 @@ export const english: ArticleContent = {
 
             <ArticleImage
                 articleId={ArticleId.gitSecrets}
-                className="image-600"
+                width={600}
                 filename="user-removed.png"
                 footer="Workspace changes after removing a user"
             />

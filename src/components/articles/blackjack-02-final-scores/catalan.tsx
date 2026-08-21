@@ -26,7 +26,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
                 alt="Representació abstracta d'una oferta en una subhasta secreta"
-                className="image-300"
+                width={300}
                 filename="blind-auction.png"
             />
             <p>
@@ -53,7 +53,7 @@ export const catalan: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
-                className="image-600"
+                width={600}
                 filename="dealer-hands-tree.png"
                 footer="Esquema amb totes les mans possibles del crupier"
             />
@@ -105,7 +105,7 @@ export const catalan: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
-                className="image-600"
+                width={600}
                 filename="sample-hands-probabilities.png"
                 footer="Probabilitat d'obtenir certes mans"
             />

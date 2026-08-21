@@ -27,7 +27,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 alt="Abstract representation of server rendering"
                 filename="server-rendering.jpg"
-                className="image-600"
+                width={600}
             />
             <h3>Starting point</h3>
             <p>
@@ -75,7 +75,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 filename="static-html.png"
                 footer="Static HTML sent by the server"
-                className="image-600"
+                width={600}
             />
             <h3>Server SSR setup</h3>
             <p>
@@ -157,7 +157,7 @@ export const english: ArticleContent = {
                         articleId={ArticleId.reactSsr}
                         filename="node-targeted-bundle-diff.png"
                         footer="Change in the webpack generated bundle"
-                        className="image-600"
+                        width={600}
                     />
                 </li>
                 <li>
@@ -179,13 +179,13 @@ export const english: ArticleContent = {
                         articleId={ArticleId.reactSsr}
                         filename="webpack-default-build.png"
                         footer="Size of the client webpack bundle"
-                        className="image-600"
+                        width={600}
                     />
                     <ArticleImage
                         articleId={ArticleId.reactSsr}
                         filename="webpack-node-build.png"
                         footer="Size of the Node.js webpack bundle"
-                        className="image-600"
+                        width={600}
                     />
                 </li>
             </ul>
@@ -201,7 +201,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 filename="server-rendered-html.png"
                 footer="HTML rendered by the server"
-                className="image-600"
+                width={600}
             />
             <h3>Routing</h3>
             <p>
@@ -237,7 +237,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 filename="deep-links-server-rendering.png"
                 footer="HTML rendered by the server at the corresponding route"
-                className="image-600"
+                width={600}
             />
             <h3>Fetching data on app start</h3>
             <p>
@@ -254,7 +254,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 filename="server-rendered-html-loading.png"
                 footer="List of user names in the client app"
-                className="image-600"
+                width={600}
             />
             <p>
                 While the client version works, it turns out the server rendered HTML doesn't
@@ -275,7 +275,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 filename="server-rendered-html-list.png"
                 footer="HTML rendered by the server including the list of user names"
-                className="image-600"
+                width={600}
             />
             <p>
                 Note however that, when running in the browser, the React app doesn't recognize it
@@ -287,7 +287,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 filename="redundant-fetch-request.png"
                 footer="Redundant fetch request triggered by the client app rendering"
-                className="image-600"
+                width={600}
             />
             <p>
                 Fortunately it is not complicated. We just need to make the initial state we used on
@@ -324,7 +324,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.reactSsr}
                 filename="rehydrated-state.png"
                 footer="Client rendered app without redundant fetch request"
-                className="image-600"
+                width={600}
             />
             <p>
                 That's it! React SSR with support for deep links and asynchronous data fetching 💃

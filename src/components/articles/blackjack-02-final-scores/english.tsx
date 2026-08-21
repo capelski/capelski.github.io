@@ -26,7 +26,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
                 alt="Abstract representation of bidding in a secret auction"
-                className="image-300"
+                width={300}
                 filename="blind-auction.png"
             />
             <p>
@@ -53,7 +53,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
-                className="image-600"
+                width={600}
                 filename="dealer-hands-tree.png"
                 footer="Schema listing all the possible hands of the dealer"
             />
@@ -104,7 +104,7 @@ export const english: ArticleContent = {
             </p>
             <ArticleImage
                 articleId={ArticleId.blackjack02FinalScores}
-                className="image-600"
+                width={600}
                 filename="sample-hands-probabilities.png"
                 footer="Probability of getting certain hands"
             />

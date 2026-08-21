@@ -23,7 +23,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.dynamicSitemap}
                 alt="Abstract representation of a website's sitemap"
-                className="image-600"
+                width={600}
                 filename="indexing.jpg"
             />
             <p>

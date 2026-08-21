@@ -26,7 +26,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.minimalisticTranslation}
                 alt="Representation of multi language platform"
                 filename="translation-art.jpg"
-                className="image-600"
+                width={600}
             />
             <p>
                 There is a set of features we will generally be interested in when setting up a
@@ -58,7 +58,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 alt="Screenshot of the sample app"
                 articleId={ArticleId.minimalisticTranslation}
-                className="image-600"
+                width={600}
                 filename="sample-app-untranslated.png"
             />
             <ReactGist id="75da67be6f4edde211a735d18aa0c70a" />
@@ -83,7 +83,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 alt="Screenshot of the sample app including a language selector"
                 articleId={ArticleId.minimalisticTranslation}
-                className="image-600"
+                width={600}
                 filename="language-selector.png"
             />
             <ReactGist id="894c4c82fdf59b6f7e82e027809fb7dc" />
@@ -148,7 +148,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 alt="The sample app translated to Spanish"
                 articleId={ArticleId.minimalisticTranslation}
-                className="image-600"
+                width={600}
                 filename="sample-app-translated.png"
             />
             <p>
@@ -343,31 +343,31 @@ export const english: ArticleContent = {
                 articleId={ArticleId.minimalisticTranslation}
                 alt="Creation of a BabelEdit project"
                 filename="babel-edit-new-project.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.minimalisticTranslation}
                 alt="Adding languages to a BabelEdit project"
                 filename="babel-edit-add-languages.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.minimalisticTranslation}
                 alt="Setting the primary language of a BabelEdit project"
                 filename="babel-edit-primary-language.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.minimalisticTranslation}
                 alt="Resources view in BabelEdit (empty)"
                 filename="babel-edit-empty-resources.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.minimalisticTranslation}
                 alt="Resources view in BabelEdit (pre-translated)"
                 filename="babel-edit-pretranslated-resources.png"
-                className="image-600"
+                width={600}
             />
             <h3>Conclusions</h3>
             <p>

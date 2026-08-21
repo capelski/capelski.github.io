@@ -33,7 +33,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack05DealerCard}
                 alt="Blackjack dealer with unknown up card"
-                className="image-600"
+                width={600}
                 filename="dealer-card-unknown.png"
             />
             <p>
@@ -334,7 +334,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack05DealerCard}
                 alt="Blackjack dealer with 6 up card"
-                className="image-600"
+                width={600}
                 filename="dealer-card-6.png"
             />
             <p>

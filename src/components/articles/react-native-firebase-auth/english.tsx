@@ -258,19 +258,19 @@ export const english: ArticleContent = {
                 <ArticleImage
                     articleId={ArticleId.reactNativeFirebaseAuth}
                     alt="Wikiloc authentication screen"
-                    className="image-300"
+                    width={300}
                     filename="wikiloc-auth-home.png"
                 />
                 <ArticleImage
                     articleId={ArticleId.reactNativeFirebaseAuth}
                     alt="Wikiloc sign up screen"
-                    className="image-300"
+                    width={300}
                     filename="wikiloc-auth-sign-up.png"
                 />
                 <ArticleImage
                     articleId={ArticleId.reactNativeFirebaseAuth}
                     alt="Wikiloc sign in screen"
-                    className="image-300"
+                    width={300}
                     filename="wikiloc-auth-sign-in.png"
                 />
             </div>

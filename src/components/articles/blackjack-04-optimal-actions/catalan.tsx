@@ -52,7 +52,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack04OptimalActions}
                 alt="Persona rumiant què menjar per dinar mentre mira el temps que fa a fora"
-                className="image-600"
+                width={600}
                 filename="lunch-options.png"
             />
             <p>
@@ -198,7 +198,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack04OptimalActions}
                 alt="Il·lustració del dilema de l'ou i la gallina en la presa de decisions"
-                className="image-600"
+                width={600}
                 filename="chicken-egg-dilemma.png"
             />
             <p>
@@ -279,7 +279,7 @@ export const catalan: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack04OptimalActions}
                 alt="Representació de l'efecte dòmino en la inducció cap enrere"
-                className="image-600"
+                width={600}
                 filename="domino-effect.png"
             />
             <ResponsiveTable<[string, string, string, string]>

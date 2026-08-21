@@ -212,13 +212,13 @@ export const english: ArticleContent = {
                 <ArticleImage
                     alt="App use case screenshot 1"
                     articleId={ArticleId.expoPushNotifications}
-                    className="image-300"
+                    width={300}
                     filename="use-case-screen-1.png"
                 />
                 <ArticleImage
                     alt="App use case screenshot 2"
                     articleId={ArticleId.expoPushNotifications}
-                    className="image-300"
+                    width={300}
                     filename="use-case-screen-2.png"
                 />
             </div>
@@ -289,7 +289,7 @@ export const english: ArticleContent = {
                 <ArticleImage
                     alt="Received notification from Expo notification tool"
                     articleId={ArticleId.expoPushNotifications}
-                    className="image-300"
+                    width={300}
                     filename="expo-notifications-tool-received.png"
                 />
             </div>
@@ -574,7 +574,7 @@ export const english: ArticleContent = {
                 <ArticleImage
                     alt="Received notification from Firebase composer"
                     articleId={ArticleId.expoPushNotifications}
-                    className="image-300"
+                    width={300}
                     filename="firebase-notification-received.png"
                 />
             </div>

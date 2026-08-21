@@ -66,13 +66,13 @@ export const english: ArticleContent = {
                 <ArticleImage
                     articleId={ArticleId.stadiaPlatform}
                     alt="Stadia mobile initial screen"
-                    className="image-300"
+                    width={300}
                     filename="stadia-mobile-1.jpg"
                 />
                 <ArticleImage
                     articleId={ArticleId.stadiaPlatform}
                     alt="Stadia mobile development in process disclaimer"
-                    className="image-300"
+                    width={300}
                     filename="stadia-mobile-2.jpg"
                 />
             </div>

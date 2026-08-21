@@ -27,7 +27,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Screenshot of the Jira Cloud for Sheets Chrome extension"
                 filename="jira-cloud-extension.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 Let's start with a simple use case. Say we want to calculate how many story points
@@ -40,7 +40,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Sample filter in JIRA Issues view"
                 filename="jira-release-filter.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 Summing the <InlineSnippet>Story point estimate</InlineSnippet> values cannot be
@@ -71,25 +71,25 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Installing the Jira Cloud for Sheets extension"
                 filename="jira-cloud-install.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Allowing Jira Cloud for Sheets access to the Google account"
                 filename="jira-cloud-google-sign-in.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Allowing Jira Cloud for Sheets access to the Google account"
                 filename="jira-cloud-google-permissions.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Allowing Jira Cloud for Sheets access to the JIRA account"
                 filename="jira-cloud-atlassian-sign-in.png"
-                className="image-600"
+                width={600}
             />
             <h3>Features</h3>
             <p>
@@ -104,7 +104,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Opening the Jira Cloud for Sheets window"
                 filename="jira-cloud-open.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 The extension also supports JQL queries, which allows filtering by custom fields or
@@ -117,13 +117,13 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Sample JQL query through JIRA Issues view"
                 filename="jira-release-jql.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Sample JQL query through Jira Cloud for Sheets"
                 filename="jira-cloud-jql-query.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 Note however that using JQL queries will wipe out the entire page every time we
@@ -135,7 +135,7 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="JIRA function description"
                 filename="jira-cloud-function-description.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 It can be used on any cell of the spreadsheet and it takes three parameters: a JQL
@@ -148,13 +148,13 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Simple usage of the JIRA function"
                 filename="jira-cloud-function-example.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Usage of the JIRA function with cell references"
                 filename="jira-cloud-function-dynamic.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 <i>
@@ -169,13 +169,13 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Enabling the JIRA function"
                 filename="jira-cloud-function-enable.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="JIRA function account warning"
                 filename="jira-cloud-function-warning.png"
-                className="image-300"
+                width={300}
             />
             <p>
                 The list of issues can be refreshed from the extension's window and, upon refresh,
@@ -189,13 +189,13 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Sum of a numeric column coming from JIRA"
                 filename="jira-cloud-function-aggregation.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Refreshing the issues list while keeping existing rows"
                 filename="jira-cloud-function-refresh.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 Additional advantages of the JIRA function is that we can turn the spreadsheet
@@ -208,13 +208,13 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Prepending a new column with a link to each JIRA issue"
                 filename="jira-link-column-1.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Hiding the Key column from the JIRA query"
                 filename="jira-link-column-2.png"
-                className="image-600"
+                width={600}
             />
             <p>
                 One final hack before you go. The list of issues will be refreshed every time there
@@ -227,31 +227,31 @@ export const english: ArticleContent = {
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Inserting a drawing to Google Sheets"
                 filename="google-sheets-drawing.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Opening Apps Script from Google Sheets"
                 filename="google-sheets-apps-script.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Creating a refresh function in Apps Script"
                 filename="apps-script-refresh-function.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Assigning an Apps Script to a Google Sheets drawing"
                 filename="google-sheets-assign-script.png"
-                className="image-600"
+                width={600}
             />
             <ArticleImage
                 articleId={ArticleId.jiraGoogleSheets}
                 alt="Authorizing Apps Script to access Google Sheets"
                 filename="apps-script-authorization.png"
-                className="image-600"
+                width={600}
             />
         </React.Fragment>
     )

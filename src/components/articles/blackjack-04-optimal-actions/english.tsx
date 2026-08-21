@@ -51,7 +51,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack04OptimalActions}
                 alt="Person wondering what to eat for lunch while looking at the weather outside"
-                className="image-600"
+                width={600}
                 filename="lunch-options.png"
             />
             <p>
@@ -183,7 +183,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack04OptimalActions}
                 alt="Illustration of the chicken-and-egg dilemma in decision making"
-                className="image-600"
+                width={600}
                 filename="chicken-egg-dilemma.png"
             />
             <p>
@@ -262,7 +262,7 @@ export const english: ArticleContent = {
             <ArticleImage
                 articleId={ArticleId.blackjack04OptimalActions}
                 alt="Representation of the domino effect in backward induction"
-                className="image-600"
+                width={600}
                 filename="domino-effect.png"
             />
             <ResponsiveTable<[string, string, string, string]>
