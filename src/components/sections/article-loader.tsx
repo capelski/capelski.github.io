@@ -4,10 +4,10 @@ import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useAppContext } from '../app';
 import { Article } from '../article';
 import { articles } from '../articles';
-import { defaultCategory, getCategoryKey } from '../articles/article-category';
+import { defaultCategory } from '../articles/article-category';
 import { Article as IArticle } from '../articles/article-data';
 import { defaultLanguage } from '../articles/language';
-import { articleRoute, blogRoute } from '../routes';
+import { articleRoute, getBlogCategoryPath } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 import { Error } from './error';
 
@@ -74,13 +74,7 @@ export const ArticleLoader: React.FC = () => {
             links={
                 <React.Fragment>
                     <NavLink
-                        to={{
-                            pathname: blogRoute.path,
-                            search:
-                                selectedCategory === defaultCategory
-                                    ? ''
-                                    : `?category=${getCategoryKey(selectedCategory)}`
-                        }}
+                        to={getBlogCategoryPath(selectedCategory)}
                         className="link"
                         style={sectionLinkStyle}
                         viewTransition={true}

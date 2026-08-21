@@ -1,11 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
+    matchPath,
+    Navigate,
     NavLink,
+    UNSAFE_ViewTransitionContext,
     useLocation,
-    useNavigate,
-    useSearchParams,
-    useViewTransitionState
+    useSearchParams
 } from 'react-router-dom';
 import { useAppContext } from '../app';
 import { Article } from '../article';
@@ -14,39 +15,63 @@ import {
     AllArticleCategories,
     ArticleCategory,
     defaultCategory,
-    getCategoryFromKey,
-    getCategoryKey
+    getCategoryFromKey
 } from '../articles/article-category';
 import PatreonBadge from '../patreon-badge';
-import { articleRoute, portfolioRoute } from '../routes';
+import { articleRoute, getBlogCategoryPath, portfolioRoute } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
-export const Blog: React.FC = () => {
-    const { selectedLanguage } = useAppContext();
-    const location = useLocation();
-    const navigate = useNavigate();
+/** Tells the article urls (e.g. /blog/react-ssr) from the category urls (e.g.
+ * /blog/offTopic), which the article route path matches just the same
+ */
+const isArticlePath = (pathname: string) => {
+    const match = matchPath(articleRoute.path, pathname);
+    return !!match && !getCategoryFromKey(match.params.articleId!);
+};
+
+/** True while a view transition to or from an article is running, which makes the blog
+ * animate vertically instead of sideways; see style/main.css.
+ *
+ * useViewTransitionState is no use here: it matches a path pattern against both sides of
+ * the transition, and the article path matches the category urls the blog itself lives
+ * in. The context that hook reads from carries the locations, which can be told apart
+ */
+const useIsArticleTransition = () => {
+    const { pathname } = useLocation();
+    const viewTransition = React.useContext(UNSAFE_ViewTransitionContext);
+
+    if (!viewTransition.isTransitioning) {
+        return false;
+    }
+
+    // The blog is on one side of the transition; the article is looked for on the other one
+    const { currentLocation, nextLocation } = viewTransition;
+    return isArticlePath(
+        currentLocation.pathname === pathname ? nextLocation.pathname : currentLocation.pathname
+    );
+};
+
+/** Sends the blog route to the default category, honouring the category query parameter
+ * that used to hold the selection (e.g. /blog?category=offTopic → /blog/offTopic)
+ */
+export const BlogRedirect: React.FC = () => {
     const [searchParams] = useSearchParams();
+    const category = getCategoryFromKey(searchParams.get('category')) || defaultCategory;
 
-    /* The url is the single source of truth for the selected category, so that the
-     * articles list is swapped inside the view transition triggered by the navigation
+    return <Navigate replace={true} to={getBlogCategoryPath(category)} />;
+};
+
+interface BlogProps {
+    /** The url is the single source of truth for the selected category (see the blog
+     * children routes in router.tsx), so that the articles list is swapped inside the
+     * view transition triggered by the navigation
      */
-    const selectedCategory = getCategoryFromKey(searchParams.get('category')) || defaultCategory;
+    selectedCategory: ArticleCategory;
+}
 
-    /* True while a view transition to or from an article is running (the hook matches the
-     * article path against both the current and the next location), which makes the blog
-     * animate vertically instead of sideways; see style/main.css
-     */
-    const isArticleTransition = useViewTransitionState(articleRoute.path);
-
-    const updateSelectedCategory = (category: ArticleCategory) => {
-        const params = new URLSearchParams(location.search);
-        if (category === defaultCategory) {
-            params.delete('category');
-        } else {
-            params.set('category', getCategoryKey(category));
-        }
-        navigate({ search: params.toString() }, { replace: true, viewTransition: true });
-    };
+export const Blog: React.FC<BlogProps> = (props) => {
+    const { selectedLanguage } = useAppContext();
+    const isArticleTransition = useIsArticleTransition();
 
     return (
         <SectionContainer
@@ -85,29 +110,35 @@ export const Blog: React.FC = () => {
                 >
                     <h1 className="blog-title">Blog</h1>
                     <div className="blog-categories">
-                        {AllArticleCategories.map((category) => (
-                            <span
-                                key={category}
-                                className={`category${
-                                    selectedCategory === category ? ' selected-category' : ''
-                                }`}
-                                onClick={() => updateSelectedCategory(category)}
-                                style={{
-                                    cursor: 'pointer',
-                                    fontWeight: selectedCategory === category ? 700 : undefined,
-                                    marginRight: 8,
-                                    padding: 8
-                                }}
-                            >
-                                {category}
-                            </span>
-                        ))}
+                        {AllArticleCategories.map((category) => {
+                            const isSelected = props.selectedCategory === category;
+
+                            return (
+                                <NavLink
+                                    key={category}
+                                    className={`category${isSelected ? ' selected-category' : ''}`}
+                                    /* A category is not worth a history entry: going back
+                                     * from the blog lands on the previous section */
+                                    replace={true}
+                                    style={{
+                                        fontWeight: isSelected ? 700 : undefined,
+                                        marginRight: 8,
+                                        padding: 8,
+                                        textDecoration: 'none'
+                                    }}
+                                    to={getBlogCategoryPath(category)}
+                                    viewTransition={true}
+                                >
+                                    {category}
+                                </NavLink>
+                            );
+                        })}
                     </div>
                 </div>
                 <PatreonBadge selectedLanguage={selectedLanguage} />
                 <div className="articles">
                     {articles
-                        .filter((article) => article.metadata.category === selectedCategory)
+                        .filter((article) => article.metadata.category === props.selectedCategory)
                         .map((article) => (
                             <Article
                                 key={article.metadata.id}

@@ -1,11 +1,16 @@
 const { merge } = require('webpack-merge');
 const PrerenderSPAPlugin = require('@prerenderer/webpack-plugin');
+const { ArticleCategory } = require('./article-category');
 const { ArticleId } = require('./article-id');
 const baseConfig = require('./base.config');
 
-const routes = ['/', '/blog', '/portfolio'].concat(
-    Object.values(ArticleId).map((articleId) => `/blog/${articleId}`)
-);
+/* Every url the app resolves must have a prerendered html file of its own: github pages
+ * serves static files, with no fallback for the paths the client router knows about
+ */
+const routes = ['/', '/blog', '/portfolio']
+    // The blog route redirects to the default category; each category is a page on its own
+    .concat(Object.keys(ArticleCategory).map((categoryKey) => `/blog/${categoryKey}`))
+    .concat(Object.values(ArticleId).map((articleId) => `/blog/${articleId}`));
 
 module.exports = merge(baseConfig, {
     mode: 'production',

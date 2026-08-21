@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Anchor } from '../articles/anchor';
 import { useIsMediumUp } from '../breakpoints';
 import { Project } from '../project';
-import { blogRoute } from '../routes';
+import { defaultBlogPath } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 export const Portfolio: React.FC = () => {
@@ -19,7 +19,7 @@ export const Portfolio: React.FC = () => {
         <SectionContainer
             links={
                 <NavLink
-                    to={blogRoute.path}
+                    to={defaultBlogPath}
                     className="link"
                     style={sectionLinkStyle}
                     viewTransition={true}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
-import { blogRoute, portfolioRoute } from '../routes';
+import { defaultBlogPath, portfolioRoute } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 export const Error: React.FC = () => (
@@ -15,7 +15,7 @@ export const Error: React.FC = () => (
         links={
             <React.Fragment>
                 <NavLink
-                    to={blogRoute.path}
+                    to={defaultBlogPath}
                     className="link"
                     style={sectionLinkStyle}
                     viewTransition={true}

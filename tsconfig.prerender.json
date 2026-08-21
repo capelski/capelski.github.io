@@ -5,5 +5,5 @@
         "outDir": "./webpack",
         "rootDir": "./src/components/articles"
     },
-    "include": ["**/article-id.ts"]
+    "include": ["**/article-category.ts", "**/article-id.ts"]
 }
