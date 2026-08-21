@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const catalan: ArticleContent = {
@@ -37,13 +36,7 @@ export const catalan: ArticleContent = {
                 filename="dealer-card-unknown.png"
             />
             <p>
-                Al{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
-                >
-                    capítol 2
-                </NavLink>{' '}
+                Al <ArticleLink articleId={ArticleId.blackjack02FinalScores}>capítol 2</ArticleLink>{' '}
                 vam fer servir l'estratègia del crupier per elaborar una llista de totes les mans
                 possibles amb què el crupier pot acabar la partida. Després vam fer servir aquesta
                 llista per esbrinar amb quina freqüència podem esperar que el crupier acabi amb una
@@ -366,15 +359,7 @@ export const catalan: ArticleContent = {
             />
             <p>
                 Al{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack04OptimalActions
-                    )}
-                >
-                    capítol 4
-                </NavLink>{' '}
+                <ArticleLink articleId={ArticleId.blackjack04OptimalActions}>capítol 4</ArticleLink>{' '}
                 vam calcular l'avantatge de cada acció per a qualsevol puntuació del jugador.
                 Recordem ràpidment com funciona el càlcul. L'avantatge de demanar carta surt de
                 ponderar els escenaris futurs als quals arribarem demanant una altra carta,

@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 
 export const english: ArticleContent = {
     title: 'Publishing an iOS app to App Store',
@@ -27,12 +26,9 @@ export const english: ArticleContent = {
                     Play Store's license is cheap ($25) and lasts forever, Apple's one is more
                     expensive ($100), must be renewed every year and the upload process is more
                     complicated. I recommend{' '}
-                    <NavLink
-                        viewTransition={true}
-                        to={articleRoute.path.replace(':articleId', ArticleId.androidAppPublishing)}
-                    >
+                    <ArticleLink articleId={ArticleId.androidAppPublishing}>
                         starting with Play Store
-                    </NavLink>
+                    </ArticleLink>
                     , testing the app with some users in the production environment and once
                     everything is ready, move into App Store.
                 </i>

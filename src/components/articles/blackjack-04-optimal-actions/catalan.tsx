@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const catalan: ArticleContent = {
@@ -60,15 +59,9 @@ export const catalan: ArticleContent = {
                 així que les bones decisions seran les que maximitzin els nostres guanys. Una manera
                 efectiva de mesurar els guanys esperats és l'indicador de l'avantatge que vam
                 introduir al{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack03ExpectedEarnings
-                    )}
-                >
+                <ArticleLink articleId={ArticleId.blackjack03ExpectedEarnings}>
                     capítol 3
-                </NavLink>
+                </ArticleLink>
                 , així que aquest pot ser el nostre paràmetre de sortida. Per optimitzar les nostres
                 decisions, voldrem basar les estratègies en paràmetres d'entrada que es
                 correlacionin bé amb l'indicador de l'avantatge. Si els paràmetres d'entrada no s'hi
@@ -95,15 +88,7 @@ export const catalan: ArticleContent = {
             </p>
             <p>
                 Fent servir el model de probabilitat independent, introduït al{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack01SolidDecisions
-                    )}
-                >
-                    capítol 1
-                </NavLink>
+                <ArticleLink articleId={ArticleId.blackjack01SolidDecisions}>capítol 1</ArticleLink>
                 , podem expressar la probabilitat de passar-se de 21 per a una puntuació determinada
                 com el nombre de cartes de 13 que fan que el jugador es passi. Escollir la
                 probabilitat màxima de passar-se de 21 que estàs disposat a acceptar determina la
@@ -322,12 +307,9 @@ export const catalan: ArticleContent = {
                 rendible. L'avantatge de l'estratègia de "plantar-se amb 15 i 8/18" és del -4.07%.
                 Millor que el -5.21% de l'estratègia de "plantar-se amb 16", però encara no prou bo.
                 Al capítol següent veurem com fer servir{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack05DealerCard)}
-                >
+                <ArticleLink articleId={ArticleId.blackjack05DealerCard}>
                     la carta del crupier
-                </NavLink>{' '}
+                </ArticleLink>{' '}
                 per millorar l'avantatge significativament.
             </p>
         </React.Fragment>

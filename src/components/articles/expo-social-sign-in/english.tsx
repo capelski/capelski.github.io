@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactGist from 'react-gist';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { BlockSnippet } from '../block-snippet';
 import { InlineSnippet } from '../inline-snippet';
 
@@ -29,15 +28,9 @@ export const english: ArticleContent = {
                 <i>
                     To follow along with this story you need to meet this two requirements. You can
                     check how to do so in{' '}
-                    <NavLink
-                        viewTransition={true}
-                        to={articleRoute.path.replace(
-                            ':articleId',
-                            ArticleId.reactNativeFirebaseAuth
-                        )}
-                    >
+                    <ArticleLink articleId={ArticleId.reactNativeFirebaseAuth}>
                         Email authentication in React Native apps using Firebase
-                    </NavLink>
+                    </ArticleLink>
                     :
                 </i>
             </p>

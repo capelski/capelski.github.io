@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
@@ -45,13 +44,7 @@ export const english: ArticleContent = {
                 there any way we could have predicted that outcome before starting to play? Let's
                 see how close to it we can get. We know the player's strategy: "Stand on 15". With
                 that we can obtain their expected final scores, using the method we described in{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
-                >
-                    chapter 2
-                </NavLink>
-                .
+                <ArticleLink articleId={ArticleId.blackjack02FinalScores}>chapter 2</ArticleLink>.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[
@@ -266,15 +259,9 @@ export const english: ArticleContent = {
                 indicators for different "Stand on X" strategies. The "Stand on 16" strategy is the
                 one with the highest edge value and is therefore the most profitable one of them. In
                 the next chapter we will be using the edge indicator to find out the{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack04OptimalActions
-                    )}
-                >
+                <ArticleLink articleId={ArticleId.blackjack04OptimalActions}>
                     optimal actions
-                </NavLink>{' '}
+                </ArticleLink>{' '}
                 that yield the most earnings for every possible score.
             </p>
             <ResponsiveTable<[string, string]>

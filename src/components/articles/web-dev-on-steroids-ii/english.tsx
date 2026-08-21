@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactGist from 'react-gist';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { BlockSnippet } from '../block-snippet';
 
 export const english: ArticleContent = {
@@ -16,14 +15,9 @@ export const english: ArticleContent = {
         <p>
             Despite I do not work at Sage anymore, some of the tools I discovered there still are a
             very wise choice when it comes to web development. Since they did not fit in the{' '}
-            <NavLink
-                viewTransition={true}
-                to={articleRoute.path.replace(':articleId', ArticleId.webDevOnSteroidsI)}
-            >
-                first post
-            </NavLink>{' '}
-            of this series, I'll briefly describe them in this second one. Don't worry: I promise
-            not to write a third part.
+            <ArticleLink articleId={ArticleId.webDevOnSteroidsI}>first post</ArticleLink> of this
+            series, I'll briefly describe them in this second one. Don't worry: I promise not to
+            write a third part.
         </p>
     ),
     body: (

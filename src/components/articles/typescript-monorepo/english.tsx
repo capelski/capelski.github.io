@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { BlockSnippet } from '../block-snippet';
 import { DirectoryView } from '../directory-view';
 import { InlineSnippet } from '../inline-snippet';
@@ -30,12 +29,7 @@ export const english: ArticleContent = {
                 written. Therefore, we can we can easily extract the duplicated code to shared files
                 and require them using relative paths 👍 We will need to decide how we ship the
                 shared files to production environments but that's a{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepoII)}
-                >
-                    separate story
-                </NavLink>
+                <ArticleLink articleId={ArticleId.typescriptMonorepoII}>separate story</ArticleLink>
                 .
             </p>
             <p>

@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
@@ -87,15 +86,7 @@ export const english: ArticleContent = {
             <p>
                 The second thing we need is the probability of the dealer ending up with each hand
                 in the list. In{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack01SolidDecisions
-                    )}
-                >
-                    chapter 1
-                </NavLink>{' '}
+                <ArticleLink articleId={ArticleId.blackjack01SolidDecisions}>chapter 1</ArticleLink>{' '}
                 I introduced the independent probability model and defined the probability of
                 drawing a certain card as 1 out of 13, regardless of the cards that have been dealt
                 before. Using that model, the probability of a certain combination of cards is
@@ -188,15 +179,9 @@ export const english: ArticleContent = {
                 find the expected final scores of any player with a defined strategy. These are the
                 expected final scores for a common player strategy: drawing to 14 and standing on
                 15. In the next chapter, we will use these final scores to predict the{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack03ExpectedEarnings
-                    )}
-                >
+                <ArticleLink articleId={ArticleId.blackjack03ExpectedEarnings}>
                     expected earnings
-                </NavLink>{' '}
+                </ArticleLink>{' '}
                 of a given strategy.
             </p>
             <ResponsiveTable<[string, string, string]>

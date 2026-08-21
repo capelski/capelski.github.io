@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const catalan: ArticleContent = {
@@ -47,13 +46,7 @@ export const catalan: ArticleContent = {
                 a quin punt ens hi podem acostar. Coneixem l'estratègia del jugador: "plantar-se amb
                 15". Amb això podem obtenir les seves puntuacions finals esperades, fent servir el
                 mètode que vam descriure al{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
-                >
-                    capítol 2
-                </NavLink>
-                .
+                <ArticleLink articleId={ArticleId.blackjack02FinalScores}>capítol 2</ArticleLink>.
             </p>
             <ResponsiveTable<[string, string]>
                 rows={[
@@ -276,15 +269,9 @@ export const catalan: ArticleContent = {
                 L'estratègia de "plantar-se amb 16" és la que té el valor d'avantatge més alt i és,
                 per tant, la més rendible de totes. Al capítol següent farem servir l'indicador de
                 l'avantatge per esbrinar les{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack04OptimalActions
-                    )}
-                >
+                <ArticleLink articleId={ArticleId.blackjack04OptimalActions}>
                     accions òptimes
-                </NavLink>{' '}
+                </ArticleLink>{' '}
                 que maximitzen els guanys per a cada puntuació possible.
             </p>
             <ResponsiveTable<[string, string]>

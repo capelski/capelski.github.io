@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 
 export const english: ArticleContent = {
     title: 'Publishing an Android app to Play Store',
@@ -29,12 +28,9 @@ export const english: ArticleContent = {
                     expensive ($100), must be renewed every year and the upload process is more
                     complicated. I recommend starting with Play Store, testing the app with some
                     users in the production environment and once everything is ready,{' '}
-                    <NavLink
-                        viewTransition={true}
-                        to={articleRoute.path.replace(':articleId', ArticleId.iosAppPublishing)}
-                    >
+                    <ArticleLink articleId={ArticleId.iosAppPublishing}>
                         move into App Store
-                    </NavLink>
+                    </ArticleLink>
                     .
                 </i>
             </p>

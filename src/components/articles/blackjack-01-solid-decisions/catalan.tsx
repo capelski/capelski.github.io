@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const catalan: ArticleContent = {
@@ -280,13 +279,10 @@ export const catalan: ArticleContent = {
             <p>
                 Així és com la probabilitat i l'estadística ens ajuden a prendre decisions sòlides
                 al Blackjack. Ara que hem establert els fonaments podem atacar tasques més
-                interessants, com per exemple, predir la{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
-                >
-                    puntuació final
-                </NavLink>
+                interessants, com per exemple, predir les{' '}
+                <ArticleLink articleId={ArticleId.blackjack02FinalScores}>
+                    puntuacions finals
+                </ArticleLink>
                 . Repassem els punts clau fins ara:
             </p>
             <ul>

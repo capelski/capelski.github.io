@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactGist from 'react-gist';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { InlineSnippet } from '../inline-snippet';
 
 export const english: ArticleContent = {
@@ -78,12 +77,9 @@ export const english: ArticleContent = {
             <ReactGist id="6eb2b491b2af0ff8ea0eb02122833bbe" />
             <p>
                 Make sure you create the API type declaration in a{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
-                >
+                <ArticleLink articleId={ArticleId.typescriptMonorepo}>
                     package/folder that can be imported from both client and server side
-                </NavLink>
+                </ArticleLink>
                 , with <InlineSnippet>@express-typed-api/common</InlineSnippet> installed as a
                 dependency.
             </p>

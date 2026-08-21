@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
@@ -274,13 +273,8 @@ export const english: ArticleContent = {
             <p>
                 This is how probability and statistics help us making solid decisions in Blackjack.
                 Now that we have set the foundations we can move on to more exciting ventures, such
-                as{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
-                >
-                    forecasting the final score
-                </NavLink>
+                as forecasting the{' '}
+                <ArticleLink articleId={ArticleId.blackjack02FinalScores}>final scores</ArticleLink>
                 . Let's recap the key points so far:
             </p>
             <ul>

@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
@@ -37,13 +36,7 @@ export const english: ArticleContent = {
                 filename="dealer-card-unknown.png"
             />
             <p>
-                In{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack02FinalScores)}
-                >
-                    chapter 2
-                </NavLink>{' '}
+                In <ArticleLink articleId={ArticleId.blackjack02FinalScores}>chapter 2</ArticleLink>{' '}
                 we used the dealer strategy to compile a list of all the possible hands the dealer
                 can finish the game with. We then used that list to find out how often we can expect
                 the dealer to end up with a certain score. This information is accurate from a
@@ -339,15 +332,7 @@ export const english: ArticleContent = {
             />
             <p>
                 In{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack04OptimalActions
-                    )}
-                >
-                    chapter 4
-                </NavLink>{' '}
+                <ArticleLink articleId={ArticleId.blackjack04OptimalActions}>chapter 4</ArticleLink>{' '}
                 we computed the edge of each action for any given player score. Quick recap. The
                 edge of drawing a card comes from pondering the future scenarios we will get to by
                 drawing another card, starting with the highest player score and working our way

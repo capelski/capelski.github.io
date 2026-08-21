@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactGist from 'react-gist';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { BlockSnippet } from '../block-snippet';
 import { DirectoryView } from '../directory-view';
 import { InlineSnippet } from '../inline-snippet';
@@ -19,12 +18,9 @@ export const english: ArticleContent = {
     introduction: (
         <p>
             A couple years ago I wrote a piece about{' '}
-            <NavLink
-                viewTransition={true}
-                to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
-            >
+            <ArticleLink articleId={ArticleId.typescriptMonorepo}>
                 sharing code in Typescript monorepos
-            </NavLink>
+            </ArticleLink>
             , focusing mainly on npm workspaces, and I left out an important aspect of the software
             development lifecycle: shipping the compiled files to production environments. Because
             that is such a fundamental part of software development, I'll be addressing it in this
@@ -43,12 +39,9 @@ export const english: ArticleContent = {
                 <p>
                     Having successfully extracted the duplicate code into a separate directory/npm
                     project (covered in{' '}
-                    <NavLink
-                        viewTransition={true}
-                        to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
-                    >
+                    <ArticleLink articleId={ArticleId.typescriptMonorepo}>
                         sharing code in Typescript monorepos
-                    </NavLink>
+                    </ArticleLink>
                     ), the task at hand is to decide how the shared code and its external
                     dependencies will make their way to production environments. Let's consider two
                     different solutions: one based on <b>relative path imports</b> and another based

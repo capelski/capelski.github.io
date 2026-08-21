@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
@@ -58,15 +57,9 @@ export const english: ArticleContent = {
                 Decision making in Blackjack is no exception. The goal is to earn money, so good
                 decisions will be the ones that maximize our earnings. An effective way of measuring
                 the expected earnings is the edge indicator we introduced in{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack03ExpectedEarnings
-                    )}
-                >
+                <ArticleLink articleId={ArticleId.blackjack03ExpectedEarnings}>
                     chapter 3
-                </NavLink>
+                </ArticleLink>
                 , so that can be our output parameter. To optimize our decision making, we will want
                 to base our strategies on input parameters that correlate well with the edge
                 indicator. If the input parameters don't correlate well with the edge indicator, we
@@ -90,15 +83,7 @@ export const english: ArticleContent = {
             </p>
             <p>
                 Using the independent probability model, introduced in{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(
-                        ':articleId',
-                        ArticleId.blackjack01SolidDecisions
-                    )}
-                >
-                    chapter 1
-                </NavLink>
+                <ArticleLink articleId={ArticleId.blackjack01SolidDecisions}>chapter 1</ArticleLink>
                 , we can express the probability of busting for a certain score as the number of
                 cards out of 13 that make the player bust. Choosing the maximum probability of
                 busting you are willing to accept determines the lowest score you will stand on. If
@@ -305,12 +290,9 @@ export const english: ArticleContent = {
                 profitable. The edge of the "Stand on 15 and 8/18" strategy is -4.07%. Better than
                 the -5.21% edge of the "Stand on 16" strategy, but still not good enough. In the
                 next chapter, we will be looking at how to use{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.blackjack05DealerCard)}
-                >
+                <ArticleLink articleId={ArticleId.blackjack05DealerCard}>
                     the dealer card
-                </NavLink>{' '}
+                </ArticleLink>{' '}
                 to improve the edge significantly.
             </p>
         </React.Fragment>

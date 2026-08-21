@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactGist from 'react-gist';
-import { NavLink } from 'react-router-dom';
-import { articleRoute } from '../../routes';
 import { Anchor } from '../anchor';
 import { ArticleContent } from '../article-data';
 import { ArticleId } from '../article-id';
 import { ArticleImage } from '../article-image';
+import { ArticleLink } from '../article-link';
 import { InlineSnippet } from '../inline-snippet';
 
 export const english: ArticleContent = {
@@ -151,12 +150,7 @@ export const english: ArticleContent = {
             <p>
                 And that's about it. This library is my second attempt at brining type safety to
                 network requests and it benefits from my previous learnings (i.e.{' '}
-                <NavLink
-                    viewTransition={true}
-                    to={articleRoute.path.replace(':articleId', ArticleId.typescriptMonorepo)}
-                >
-                    express-web-api
-                </NavLink>
+                <ArticleLink articleId={ArticleId.typescriptMonorepo}>express-web-api</ArticleLink>
                 ). It is meant to be generic, framework agnostic on the client side, and impose as
                 little changes as possible in both sides of the code. I'm pretty confident with the
                 result but, hey, one always thinks to have done an outstanding job in their limited
