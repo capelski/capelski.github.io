@@ -8,7 +8,7 @@ import { defaultCategory, getCategoryKey } from '../articles/article-category';
 import { Article as IArticle } from '../articles/article-data';
 import { defaultLanguage } from '../articles/language';
 import { articleRoute, blogRoute } from '../routes';
-import { SectionContainer } from '../section-container';
+import { SectionContainer, sectionLinkStyle } from '../section-container';
 import { Error } from './error';
 
 export const ArticleLoader: React.FC = () => {
@@ -82,6 +82,7 @@ export const ArticleLoader: React.FC = () => {
                                     : `?category=${getCategoryKey(selectedCategory)}`
                         }}
                         className="link"
+                        style={sectionLinkStyle}
                         viewTransition={true}
                     >
                         ⬇️ Blog

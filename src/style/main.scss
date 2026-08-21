@@ -40,154 +40,26 @@ a {
     color: black;
 }
 
-// ---------- Sections ----------
-
-.section-links .link {
-    text-decoration: none;
-    color: black;
-    font-size: 24px;
-    padding: 16px;
-    cursor: pointer;
-    line-height: 32px;
-    transition: font-size $hoverTransition, opacity $hoverTransition;
-
-    &:hover {
-        font-size: 30px;
-        opacity: $hoverOpacity;
-    }
-}
-
-// ---------- Blog ----------
-
-.blog .category {
-    margin-right: 8px;
-    padding: 8px;
-    cursor: pointer;
-    transition: font-size $hoverTransition, padding $hoverTransition, opacity $hoverTransition;
-
-    &.selected-category {
-        font-weight: 700;
-    }
-
-    &:hover:not(.selected-category) {
-        opacity: $hoverOpacity;
-        font-size: 20px;
-        padding: 0;
-    }
-}
-
 // ---------- Portfolio ----------
 
-.project {
-    .project-source {
-        text-decoration: none;
-        color: black;
-        transition: font-size $hoverTransition, opacity $hoverTransition;
-
-        &:hover {
-            font-size: 20px;
-            opacity: $hoverOpacity;
-        }
-    }
-
-    .project-content {
-        .project-demo {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            text-decoration: none;
-            transition: font-size $hoverTransition, opacity $hoverTransition;
-
-            &:hover {
-                font-size: 40px;
-                opacity: $hoverOpacity;
-            }
-        }
-
-        .project-description p:nth-of-type(2) {
-            font-style: italic;
-        }
-    }
+.project .project-content .project-description p:nth-of-type(2) {
+    font-style: italic;
 }
 
 // ---------- Articles ----------
 
 // This selector is not scoped to .article-container so it applies in the blog list too
-.article {
-    &.preview-mode {
-        cursor: pointer;
-
-        &:hover {
-            .article-info,
-            .article-body {
-                opacity: $hoverOpacity;
-            }
-        }
+.article .article-body ul {
+    &.numbered {
+        list-style-type: decimal;
     }
 
-    .article-info {
-        transition: opacity $hoverTransition;
+    li {
+        line-height: 2;
+        margin-top: 16px;
 
-        .article-details {
-            span {
-                padding-right: 8px;
-                white-space: nowrap;
-                display: inline-block;
-                margin-top: 8px;
-
-                &.article-language {
-                    cursor: pointer;
-                    transition: font-size $hoverTransition, margin $hoverTransition,
-                        opacity $hoverTransition;
-
-                    &.selected-language {
-                        cursor: default;
-                        font-weight: 700;
-                    }
-
-                    &:hover:not(.selected-language) {
-                        opacity: $hoverOpacity;
-                        margin-top: 0;
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
-    }
-
-    .article-body {
-        transition: opacity $hoverTransition;
-
-        ul {
-            &.numbered {
-                list-style-type: decimal;
-            }
-
-            li {
-                line-height: 2;
-                margin-top: 16px;
-
-                td {
-                    line-height: 1;
-                }
-            }
-        }
-    }
-
-    .article-links .link-text {
-        color: black;
-        font-size: 20px;
-        transition: font-size $hoverTransition, opacity $hoverTransition;
-
-        &:hover {
-            font-size: 24px;
-            opacity: $hoverOpacity;
+        td {
+            line-height: 1;
         }
     }
 }
@@ -258,14 +130,6 @@ a {
     &.big {
         font-size: 20px;
         line-height: 28px;
-    }
-
-    &:hover {
-        background-color: color.mix(white, $primaryColor, 15%);
-    }
-
-    &:active {
-        background-color: color.mix(black, $primaryColor, 15%);
     }
 
     &:not(.disabled-button) {

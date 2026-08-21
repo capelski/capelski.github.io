@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
 import { blogRoute, portfolioRoute } from '../routes';
-import { SectionContainer } from '../section-container';
+import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 export const Error: React.FC = () => (
     <SectionContainer
@@ -14,10 +14,20 @@ export const Error: React.FC = () => (
         }}
         links={
             <React.Fragment>
-                <NavLink to={blogRoute.path} className="link" viewTransition={true}>
+                <NavLink
+                    to={blogRoute.path}
+                    className="link"
+                    style={sectionLinkStyle}
+                    viewTransition={true}
+                >
                     ⬅️ Blog
                 </NavLink>
-                <NavLink to={portfolioRoute.path} className="link" viewTransition={true}>
+                <NavLink
+                    to={portfolioRoute.path}
+                    className="link"
+                    style={sectionLinkStyle}
+                    viewTransition={true}
+                >
                     Portfolio ➡️
                 </NavLink>
             </React.Fragment>

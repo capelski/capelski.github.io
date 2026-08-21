@@ -38,11 +38,19 @@ export const Article: React.FC<ArticleProps> = (props) => {
 
     const titleStyle: React.CSSProperties = { marginBottom: isMediumUp ? 8 : undefined };
 
+    const detailStyle: React.CSSProperties = {
+        display: 'inline-block',
+        marginTop: 8,
+        paddingRight: 8,
+        whiteSpace: 'nowrap'
+    };
+
     return (
         <div
             className={`article ${props.metadata.id}${props.preview ? '  preview-mode' : ''}`}
             onClick={props.preview ? containerClickHandler : undefined}
             lang={props.selectedLanguage}
+            style={{ cursor: props.preview ? 'pointer' : undefined }}
         >
             <div
                 className="article-info"
@@ -64,29 +72,44 @@ export const Article: React.FC<ArticleProps> = (props) => {
                     className="article-details"
                     style={{ margin: isMediumUp ? '8px 0 8px 16px' : '8px 0' }}
                 >
-                    <span className="article-date">📅 {props.metadata.date}</span>
-                    <span className="article-duration">🕐 {props.metadata.duration} mins</span>
-                    {props.metadata.languages.map((language) => (
-                        <span
-                            key={language}
-                            className={
-                                props.preview
-                                    ? ''
-                                    : `article-language${
-                                          props.selectedLanguage === language
-                                              ? ' selected-language'
-                                              : ''
-                                      }`
-                            }
-                            onClick={
-                                props.preview
-                                    ? undefined
-                                    : () => props.setSelectedLanguage(language)
-                            }
-                        >
-                            🌎 {language}
-                        </span>
-                    ))}
+                    <span className="article-date" style={detailStyle}>
+                        📅 {props.metadata.date}
+                    </span>
+                    <span className="article-duration" style={detailStyle}>
+                        🕐 {props.metadata.duration} mins
+                    </span>
+                    {props.metadata.languages.map((language) => {
+                        const isSelected = props.selectedLanguage === language;
+
+                        return (
+                            <span
+                                key={language}
+                                className={
+                                    props.preview
+                                        ? ''
+                                        : `article-language${
+                                              isSelected ? ' selected-language' : ''
+                                          }`
+                                }
+                                onClick={
+                                    props.preview
+                                        ? undefined
+                                        : () => props.setSelectedLanguage(language)
+                                }
+                                style={{
+                                    ...detailStyle,
+                                    cursor: props.preview
+                                        ? undefined
+                                        : isSelected
+                                          ? 'default'
+                                          : 'pointer',
+                                    fontWeight: !props.preview && isSelected ? 700 : undefined
+                                }}
+                            >
+                                🌎 {language}
+                            </span>
+                        );
+                    })}
                 </div>
             </div>
             {!props.preview && <PatreonBadge selectedLanguage={props.selectedLanguage} />}

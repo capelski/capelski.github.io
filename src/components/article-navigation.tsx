@@ -43,6 +43,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
         } catch (error) {}
     };
 
+    const linkTextStyle: React.CSSProperties = { color: 'black', fontSize: 20 };
     const titlePreviewStyle: React.CSSProperties = { fontSize: 16, marginTop: 8 };
 
     return (
@@ -56,7 +57,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
             >
                 <div className="previous-link" style={{ margin: '16px 0' }}>
                     {props.previousArticle && (
-                        <span className="link-text">
+                        <span className="link-text" style={linkTextStyle}>
                             <NavLink
                                 viewTransition={true}
                                 to={articleRoute.path.replace(
@@ -75,7 +76,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                 </div>
                 <div className="next-link" style={{ margin: '16px 0', textAlign: 'right' }}>
                     {props.nextArticle && (
-                        <span className="link-text">
+                        <span className="link-text" style={linkTextStyle}>
                             <NavLink
                                 viewTransition={true}
                                 to={articleRoute.path.replace(

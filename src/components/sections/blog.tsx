@@ -13,7 +13,7 @@ import {
 } from '../articles/article-category';
 import PatreonBadge from '../patreon-badge';
 import { portfolioRoute } from '../routes';
-import { SectionContainer } from '../section-container';
+import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 export const Blog: React.FC = () => {
     const { selectedLanguage } = useAppContext();
@@ -39,7 +39,12 @@ export const Blog: React.FC = () => {
     return (
         <SectionContainer
             links={
-                <NavLink to={portfolioRoute.path} className="link" viewTransition={true}>
+                <NavLink
+                    to={portfolioRoute.path}
+                    className="link"
+                    style={sectionLinkStyle}
+                    viewTransition={true}
+                >
                     Portfolio ➡️
                 </NavLink>
             }
@@ -75,6 +80,12 @@ export const Blog: React.FC = () => {
                                     selectedCategory === category ? ' selected-category' : ''
                                 }`}
                                 onClick={() => updateSelectedCategory(category)}
+                                style={{
+                                    cursor: 'pointer',
+                                    fontWeight: selectedCategory === category ? 700 : undefined,
+                                    marginRight: 8,
+                                    padding: 8
+                                }}
                             >
                                 {category}
                             </span>

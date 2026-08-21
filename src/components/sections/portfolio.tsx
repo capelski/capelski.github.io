@@ -5,7 +5,7 @@ import { Anchor } from '../articles/anchor';
 import { useIsMediumUp } from '../breakpoints';
 import { Project } from '../project';
 import { blogRoute } from '../routes';
-import { SectionContainer } from '../section-container';
+import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 export const Portfolio: React.FC = () => {
     const isMediumUp = useIsMediumUp();
@@ -18,7 +18,12 @@ export const Portfolio: React.FC = () => {
     return (
         <SectionContainer
             links={
-                <NavLink to={blogRoute.path} className="link" viewTransition={true}>
+                <NavLink
+                    to={blogRoute.path}
+                    className="link"
+                    style={sectionLinkStyle}
+                    viewTransition={true}
+                >
                     ⬅️ Blog
                 </NavLink>
             }

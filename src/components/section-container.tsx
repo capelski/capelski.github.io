@@ -5,6 +5,15 @@ const linksHeight = 64;
 const mobilePadding = 16;
 const desktopPadding = 32;
 
+export const sectionLinkStyle: React.CSSProperties = {
+    color: 'black',
+    cursor: 'pointer',
+    fontSize: 24,
+    lineHeight: '32px',
+    padding: 16,
+    textDecoration: 'none'
+};
+
 export interface SectionContainerProps {
     children?: React.ReactNode;
     /** Merged into the section content styles (e.g. to center the error section) */

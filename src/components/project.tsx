@@ -46,6 +46,7 @@ export const Project: React.FC<ProjectProps> = (props) => {
                             target="_blank"
                             className="project-source"
                             href={`https://github.com/capelski/${props.repository}`}
+                            style={{ color: 'black', textDecoration: 'none' }}
                         >
                             ⌨️ code
                         </a>
@@ -85,7 +86,23 @@ export const Project: React.FC<ProjectProps> = (props) => {
                         }}
                     />
                     {props.url ? (
-                        <a target="_blank" href={`${props.url}`} className="project-demo">
+                        <a
+                            target="_blank"
+                            href={`${props.url}`}
+                            className="project-demo"
+                            style={{
+                                alignItems: 'center',
+                                bottom: 0,
+                                display: 'flex',
+                                fontSize: 24,
+                                justifyContent: 'center',
+                                left: 0,
+                                position: 'absolute',
+                                right: 0,
+                                textDecoration: 'none',
+                                top: 0
+                            }}
+                        >
                             ▶️
                         </a>
                     ) : null}
