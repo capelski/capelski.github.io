@@ -1,6 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import {
+    NavLink,
+    useLocation,
+    useNavigate,
+    useSearchParams,
+    useViewTransitionState
+} from 'react-router-dom';
 import { useAppContext } from '../app';
 import { Article } from '../article';
 import { articles } from '../articles';
@@ -12,7 +18,7 @@ import {
     getCategoryKey
 } from '../articles/article-category';
 import PatreonBadge from '../patreon-badge';
-import { portfolioRoute } from '../routes';
+import { articleRoute, portfolioRoute } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 export const Blog: React.FC = () => {
@@ -25,6 +31,12 @@ export const Blog: React.FC = () => {
      * articles list is swapped inside the view transition triggered by the navigation
      */
     const selectedCategory = getCategoryFromKey(searchParams.get('category')) || defaultCategory;
+
+    /* True while a view transition to or from an article is running (the hook matches the
+     * article path against both the current and the next location), which makes the blog
+     * animate vertically instead of sideways; see style/animations.scss
+     */
+    const isArticleTransition = useViewTransitionState(articleRoute.path);
 
     const updateSelectedCategory = (category: ArticleCategory) => {
         const params = new URLSearchParams(location.search);
@@ -50,7 +62,7 @@ export const Blog: React.FC = () => {
             }
             linksStyle={{ justifyContent: 'flex-end' }}
             sectionName="blog"
-            viewTransitionName="blog"
+            viewTransitionName={isArticleTransition ? 'blog-article' : 'blog'}
         >
             <Helmet>
                 <title>Blog | Carles Capellas</title>

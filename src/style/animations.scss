@@ -33,6 +33,18 @@
     }
 }
 
+@keyframes slide-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes slide-in-right {
     from {
         opacity: 0;
@@ -42,6 +54,18 @@
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes slide-out-down {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(50px);
     }
 }
 
@@ -99,6 +123,12 @@
 
 @include sectionTransition(blog, slide-out-left, slide-in-left);
 @include sectionTransition(article, slide-out-up, slide-in-down);
+
+/* The blog moves vertically, rather than sideways, when the section on the other side of
+ * the transition is an article: down on the way out, up on the way back in. The Blog
+ * component names its snapshot blog-article for those navigations only
+ */
+@include sectionTransition(blog-article, slide-out-down, slide-in-up);
 @include sectionTransition(portfolio, slide-out-right, slide-in-right);
 @include sectionTransition(error, slide-out-right, slide-in-right);
 
