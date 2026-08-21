@@ -130,7 +130,7 @@
  */
 @include sectionTransition(blog-article, slide-out-down, slide-in-up);
 @include sectionTransition(portfolio, slide-out-right, slide-in-right);
-@include sectionTransition(error, slide-out-right, slide-in-right);
+@include sectionTransition(error, slide-out-down, slide-in-up);
 
 /* The blog header keeps the browser cross-fade, which leaves it untouched when only the
  * articles list changes (i.e. a category change), but matches the sections duration
