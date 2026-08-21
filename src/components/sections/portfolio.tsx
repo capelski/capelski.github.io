@@ -47,7 +47,6 @@ export const Portfolio: React.FC = () => {
                     image="daggout.png"
                     imageOrientation="portrait"
                     title="DAGGOUT"
-                    url="https://play.google.com/store/apps/details?id=daggout.user"
                 >
                     <p>
                         Android/iOS app designed to store and manage clothing receipts, allowing the
