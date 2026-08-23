@@ -3,10 +3,15 @@ import { renderToString } from 'react-dom/server.edge';
 import { HelmetProvider } from 'react-helmet-async';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { parseLinks } from 'vite-prerender-plugin/parse';
+import { articles } from './components/articles';
 import { AllArticleCategories } from './components/articles/article-category';
-import { ArticleId } from './components/articles/article-id';
 import { createAppRoutes } from './components/router-config';
-import { articleRoute, blogRoute, getBlogCategoryPath, portfolioRoute } from './components/routes';
+import {
+    blogRoute,
+    getArticlePath,
+    getBlogCategoryPath,
+    portfolioRoute
+} from './components/routes';
 
 type HeadElement = {
     props: { [attribute: string]: string };
@@ -67,8 +72,11 @@ const extractHead = (html: string): ExtractedHead => {
 const additionalRoutes: string[] = [blogRoute.path, portfolioRoute.path]
     .concat(AllArticleCategories.map(getBlogCategoryPath))
     .concat(
-        Object.values(ArticleId).map((articleId) =>
-            articleRoute.path.replace(':articleId', articleId)
+        /* One url per article translation (e.g. /blog/existential-injustice/ca); the
+         * language an article is displayed in by default maps to the plain article url
+         */
+        articles.flatMap((article) =>
+            article.metadata.languages.map((language) => getArticlePath(article.metadata, language))
         )
     );
 

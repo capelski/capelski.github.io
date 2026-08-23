@@ -1,9 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Article as IArticle } from './articles/article-data';
-import { ArticleId } from './articles/article-id';
+import { Article as IArticle, ArticleMetadata, getArticleLanguage } from './articles/article-data';
 import { Language } from './articles/language';
-import { articleRoute } from './routes';
+import { getArticlePath } from './routes';
 
 const articleLinksContent: { [key: string]: { [Language.ca]: string; [Language.en]: string } } = {
     following: {
@@ -21,7 +20,7 @@ const articleLinksContent: { [key: string]: { [Language.ca]: string; [Language.e
 };
 
 export interface ArticleNavigationProps {
-    articleId: ArticleId;
+    metadata: ArticleMetadata;
     nextArticle?: IArticle;
     previousArticle?: IArticle;
     selectedLanguage: Language;
@@ -35,10 +34,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
             await window.navigator.share({
                 text: props.shareSentence,
                 title: props.title,
-                url: `${PRODUCTION_URL_BASE}${articleRoute.path.replace(
-                    ':articleId',
-                    props.articleId
-                )}${location.search}`
+                url: `${PRODUCTION_URL_BASE}${getArticlePath(props.metadata, props.selectedLanguage)}`
             });
         } catch (error) {}
     };
@@ -60,16 +56,23 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                         <span className="link-text" style={linkTextStyle}>
                             <NavLink
                                 viewTransition={true}
-                                to={articleRoute.path.replace(
-                                    ':articleId',
-                                    props.previousArticle.metadata.id
+                                to={getArticlePath(
+                                    props.previousArticle.metadata,
+                                    props.selectedLanguage
                                 )}
                                 style={{ textDecoration: 'none' }}
                             >
                                 ⬅️ {articleLinksContent['previous'][props.selectedLanguage]}
                             </NavLink>
                             <div className="title-preview" style={titlePreviewStyle}>
-                                {props.previousArticle.content(props.selectedLanguage).title}
+                                {
+                                    props.previousArticle.content(
+                                        getArticleLanguage(
+                                            props.previousArticle.metadata,
+                                            props.selectedLanguage
+                                        )
+                                    ).title
+                                }
                             </div>
                         </span>
                     )}
@@ -79,16 +82,23 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                         <span className="link-text" style={linkTextStyle}>
                             <NavLink
                                 viewTransition={true}
-                                to={articleRoute.path.replace(
-                                    ':articleId',
-                                    props.nextArticle.metadata.id
+                                to={getArticlePath(
+                                    props.nextArticle.metadata,
+                                    props.selectedLanguage
                                 )}
                                 style={{ textDecoration: 'none' }}
                             >
                                 {articleLinksContent['following'][props.selectedLanguage]} ➡️
                             </NavLink>
                             <div className="title-preview" style={titlePreviewStyle}>
-                                {props.nextArticle.content(props.selectedLanguage).title}
+                                {
+                                    props.nextArticle.content(
+                                        getArticleLanguage(
+                                            props.nextArticle.metadata,
+                                            props.selectedLanguage
+                                        )
+                                    ).title
+                                }
                             </div>
                         </span>
                     )}

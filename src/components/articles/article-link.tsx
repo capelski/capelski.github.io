@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppContext } from '../app';
-import { articleRoute } from '../routes';
+import { getArticlePath } from '../routes';
 import { ArticleId } from './article-id';
 import { articles } from './index';
-import { defaultLanguage } from './language';
 
 interface ArticleLinkProps {
     articleId: ArticleId;
@@ -22,16 +21,10 @@ export const ArticleLink: React.FC<ArticleLinkProps> = (props) => {
      * circular dependency harmless
      */
     const targetArticle = articles.find((article) => article.metadata.id === props.articleId);
-    const targetLanguage = targetArticle?.metadata.languages.includes(selectedLanguage)
-        ? selectedLanguage
-        : defaultLanguage;
 
     return (
         <NavLink
-            to={{
-                pathname: articleRoute.path.replace(':articleId', props.articleId),
-                search: targetLanguage === defaultLanguage ? '' : `?language=${targetLanguage}`
-            }}
+            to={getArticlePath(targetArticle!.metadata, selectedLanguage)}
             viewTransition={true}
         >
             {props.children}

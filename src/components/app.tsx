@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { Outlet, useLocation, useOutletContext } from 'react-router-dom';
-import { defaultLanguage, getLanguageFromKey, Language } from './articles/language';
+import { Outlet, useOutletContext } from 'react-router-dom';
+import { defaultLanguage, Language } from './articles/language';
 
 interface AppProps {
     isServerRendered: boolean;
 }
 
-const getInitialLanguage = (location: { search: string }) =>
-    getLanguageFromKey(new URLSearchParams(location.search).get('language')) || defaultLanguage;
-
-/** State shared by the app sections, exposed through the layout route Outlet */
 export interface AppContext {
     selectedLanguage: Language;
     setSelectedLanguage: (language: Language) => void;
@@ -22,10 +18,7 @@ export const useAppContext = () => useOutletContext<AppContext>();
  * react-router-dom triggers on every navigation; see style/main.css
  */
 export const App: React.FC<AppProps> = (props) => {
-    const location = useLocation();
-    const [selectedLanguage, setSelectedLanguage] = useState<Language>(() =>
-        getInitialLanguage(location)
-    );
+    const [selectedLanguage, setSelectedLanguage] = useState<Language>(defaultLanguage);
 
     return (
         <div
@@ -36,7 +29,7 @@ export const App: React.FC<AppProps> = (props) => {
                 overflowX: 'hidden'
             }}
         >
-            <Outlet context={{ selectedLanguage, setSelectedLanguage } satisfies AppContext} />
+            <Outlet context={{ selectedLanguage, setSelectedLanguage }} />
         </div>
     );
 };

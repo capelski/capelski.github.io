@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArticleNavigation } from './article-navigation';
-import { Article as IArticle } from './articles/article-data';
+import { Article as IArticle, getArticleLanguage } from './articles/article-data';
 import { Language } from './articles/language';
 import { useIsMediumUp } from './breakpoints';
 import PatreonBadge from './patreon-badge';
-import { articleRoute } from './routes';
+import { getArticlePath } from './routes';
 
 interface ArticleBaseProps extends IArticle {
     selectedLanguage: Language;
@@ -19,7 +19,6 @@ export interface ArticleFullProps extends ArticleBaseProps {
     nextArticle?: IArticle;
     preview: false;
     previousArticle?: IArticle;
-    setSelectedLanguage: (language: Language) => void;
 }
 
 export type ArticleProps = ArticlePreviewProps | ArticleFullProps;
@@ -28,7 +27,9 @@ export const Article: React.FC<ArticleProps> = (props) => {
     const navigationRef = useRef<HTMLAnchorElement>(null);
     const isMediumUp = useIsMediumUp();
 
-    const content = props.content(props.selectedLanguage);
+    // Ignore languages the article has no translations for (e.g. in the blog previews)
+    const articleLanguage = getArticleLanguage(props.metadata, props.selectedLanguage);
+    const content = props.content(articleLanguage);
 
     const containerClickHandler = () => {
         if (props.preview) {
@@ -49,7 +50,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
         <div
             className={`article ${props.metadata.id}${props.preview ? '  preview-mode' : ''}`}
             onClick={props.preview ? containerClickHandler : undefined}
-            lang={props.selectedLanguage}
+            lang={articleLanguage}
             style={{ cursor: props.preview ? 'pointer' : undefined }}
         >
             <div
@@ -79,40 +80,43 @@ export const Article: React.FC<ArticleProps> = (props) => {
                         🕐 {props.metadata.duration} mins
                     </span>
                     {props.metadata.languages.map((language) => {
-                        const isSelected = props.selectedLanguage === language;
+                        const isSelected = articleLanguage === language;
 
-                        return (
-                            <span
-                                key={language}
-                                className={
-                                    props.preview
-                                        ? ''
-                                        : `article-language${
-                                              isSelected ? ' selected-language' : ''
-                                          }`
-                                }
-                                onClick={
-                                    props.preview
-                                        ? undefined
-                                        : () => props.setSelectedLanguage(language)
-                                }
-                                style={{
-                                    ...detailStyle,
-                                    cursor: props.preview
-                                        ? undefined
-                                        : isSelected
-                                          ? 'default'
-                                          : 'pointer',
-                                    fontWeight: !props.preview && isSelected ? 700 : undefined
-                                }}
-                            >
+                        const languageStyle: React.CSSProperties = {
+                            ...detailStyle,
+                            fontWeight: !props.preview && isSelected ? 700 : undefined
+                        };
+
+                        /* Each translation has a url of its own (see the article routes in
+                         * router-config.tsx), so switching language is a navigation. It is
+                         * not worth a history entry: going back from an article lands on
+                         * the section it was reached from
+                         */
+                        return props.preview ? (
+                            <span key={language} style={languageStyle}>
                                 🌎 {language}
                             </span>
+                        ) : (
+                            <NavLink
+                                key={language}
+                                className={`article-language${
+                                    isSelected ? ' selected-language' : ''
+                                }`}
+                                replace={true}
+                                style={{
+                                    ...languageStyle,
+                                    cursor: isSelected ? 'default' : 'pointer',
+                                    textDecoration: 'none'
+                                }}
+                                to={getArticlePath(props.metadata, language)}
+                            >
+                                🌎 {language}
+                            </NavLink>
                         );
                     })}
                 </div>
             </div>
-            {!props.preview && <PatreonBadge selectedLanguage={props.selectedLanguage} />}
+            {!props.preview && <PatreonBadge selectedLanguage={articleLanguage} />}
             <div className="article-body">
                 {content.introduction}
                 {props.preview
@@ -124,19 +128,19 @@ export const Article: React.FC<ArticleProps> = (props) => {
                     <NavLink
                         viewTransition={true}
                         ref={navigationRef}
-                        to={articleRoute.path.replace(':articleId', props.metadata.id)}
+                        to={getArticlePath(props.metadata, articleLanguage)}
                         className="programmatic-link"
                         style={{ display: 'none' }}
                     />
                 ) : (
                     <React.Fragment>
-                        <PatreonBadge selectedLanguage={props.selectedLanguage} />
+                        <PatreonBadge selectedLanguage={articleLanguage} />
                         <ArticleNavigation
-                            articleId={props.metadata.id}
+                            metadata={props.metadata}
                             shareSentence={content.shareSentence || content.description}
                             nextArticle={props.nextArticle}
                             previousArticle={props.previousArticle}
-                            selectedLanguage={props.selectedLanguage}
+                            selectedLanguage={articleLanguage}
                             title={content.title}
                         />
                     </React.Fragment>

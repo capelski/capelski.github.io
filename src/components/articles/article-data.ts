@@ -1,5 +1,5 @@
 import { ArticleId } from './article-id';
-import { Language } from './language';
+import { defaultLanguage, Language } from './language';
 import { ArticleCategory } from './article-category';
 
 export interface ArticleContent {
@@ -25,3 +25,17 @@ export interface Article {
     metadata: ArticleMetadata;
     previous?: ArticleId;
 }
+
+/** Language an article is displayed in when no language is specified: the default one,
+ * or the only available language for articles with no default language translation
+ */
+export const getDefaultArticleLanguage = (metadata: ArticleMetadata): Language =>
+    metadata.languages.includes(defaultLanguage) ? defaultLanguage : metadata.languages[0];
+
+/** Language an article is displayed in for a given language selection; languages the
+ * article has no translation for are ignored
+ */
+export const getArticleLanguage = (metadata: ArticleMetadata, language?: Language): Language =>
+    language && metadata.languages.includes(language)
+        ? language
+        : getDefaultArticleLanguage(metadata);

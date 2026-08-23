@@ -4,6 +4,7 @@ import {
     matchPath,
     Navigate,
     NavLink,
+    PathMatch,
     UNSAFE_ViewTransitionContext,
     useLocation,
     useSearchParams
@@ -17,15 +18,27 @@ import {
     defaultCategory,
     getCategoryFromKey
 } from '../articles/article-category';
+import { AllLanguages } from '../articles/language';
 import PatreonBadge from '../patreon-badge';
-import { articleRoute, getBlogCategoryPath, portfolioRoute } from '../routes';
+import {
+    articleRoute,
+    getArticleLanguagePath,
+    getBlogCategoryPath,
+    portfolioRoute
+} from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
+/** Paths of the article routes; the ones stating a language included (e.g. /blog/react-ssr/ca) */
+const articlePaths = [articleRoute.path].concat(AllLanguages.map(getArticleLanguagePath));
+
 /** Tells the article urls (e.g. /blog/react-ssr) from the category urls (e.g.
- * /blog/offTopic), which the article route path matches just the same
+ * /blog/offTopic), which the article route paths match just the same
  */
 const isArticlePath = (pathname: string) => {
-    const match = matchPath(articleRoute.path, pathname);
+    const match = articlePaths.reduce<PathMatch<'articleId'> | null>(
+        (reduced, articlePath) => reduced || matchPath(articlePath, pathname),
+        null
+    );
     return !!match && !getCategoryFromKey(match.params.articleId!);
 };
 
