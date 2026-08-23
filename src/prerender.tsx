@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server.edge';
-import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { parseLinks } from 'vite-prerender-plugin/parse';
 import { AllArticleCategories } from './components/articles/article-category';
@@ -13,33 +13,52 @@ type HeadElement = {
     type: string;
 };
 
-const parseMetaTags = (metaMarkup: string): HeadElement[] => {
-    const tags = metaMarkup.match(/<meta\s+[^>]*>/g) || [];
-
-    return tags.map((tag) => {
-        const props: { [attribute: string]: string } = {};
-        const attributes = tag.matchAll(/([\w:-]+)="([^"]*)"/g);
-
-        for (const [, name, value] of attributes) {
-            props[name] = value;
-        }
-
-        return {
-            props,
-            type: 'meta'
-        };
-    });
+type ExtractedHead = {
+    elements: HeadElement[];
+    html: string;
+    title: string | undefined;
 };
 
-const extractLang = (htmlAttributesMarkup: string): string | undefined => {
-    const langMatch = htmlAttributesMarkup.match(/lang="([^"]+)"/);
-    return langMatch ? langMatch[1] : undefined;
+const decodeEntities = (value: string): string =>
+    value
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#x27;/g, "'")
+        .replace(/&#39;/g, "'")
+        .replace(/&amp;/g, '&');
+
+const parseAttributes = (tagMarkup: string): { [attribute: string]: string } => {
+    const props: { [attribute: string]: string } = {};
+    const attributes = tagMarkup.matchAll(/([\w:.-]+)="([^"]*)"/g);
+
+    for (const [, name, value] of attributes) {
+        props[name] = decodeEntities(value);
+    }
+
+    return props;
 };
 
-const extractTitle = (helmet: HelmetServerState): string | undefined => {
-    const titleMarkup = helmet.title.toString();
-    const titleMatch = titleMarkup.match(/<title[^>]*>([\s\S]*?)<\/title>/);
-    return titleMatch ? titleMatch[1] : undefined;
+/** On React 19 react-helmet-async renders the document metadata as regular elements and
+ * lets React hoist them into the head. renderToString does not render a full document,
+ * so the metadata ends up inlined in the body markup; it must be pulled out of the html
+ * and handed over to the prerender plugin, which places it inside the head element
+ */
+const extractHead = (html: string): ExtractedHead => {
+    const elements: HeadElement[] = [];
+    let title: string | undefined;
+
+    const htmlWithoutMeta = html
+        .replace(/<title[^>]*>([\s\S]*?)<\/title>/g, (_match, titleContent: string) => {
+            title = decodeEntities(titleContent);
+            return '';
+        })
+        .replace(/<meta\s+[^>]*>/g, (match) => {
+            elements.push({ props: parseAttributes(match), type: 'meta' });
+            return '';
+        });
+
+    return { elements, html: htmlWithoutMeta, title };
 };
 
 /** Routes that are not reachable by crawling the links of the prerendered pages (e.g. the
@@ -58,23 +77,19 @@ export async function prerender(data: { url?: string }) {
         initialEntries: [data?.url || '/']
     });
 
-    const helmetContext: { helmet?: HelmetServerState } = {};
-
-    const html = renderToString(
-        <HelmetProvider context={helmetContext}>
+    const renderedHtml = renderToString(
+        <HelmetProvider>
             <RouterProvider router={router} />
         </HelmetProvider>
     );
 
+    const { elements, html, title } = extractHead(renderedHtml);
     const links = new Set([...parseLinks(html), ...additionalRoutes]);
-    const helmet = helmetContext.helmet;
-    const headElements = helmet ? parseMetaTags(helmet.meta.toString()) : [];
 
     return {
         head: {
-            elements: new Set(headElements),
-            lang: helmet ? extractLang(helmet.htmlAttributes.toString()) : undefined,
-            title: helmet ? extractTitle(helmet) : undefined
+            elements: new Set(elements),
+            title
         },
         html,
         links
