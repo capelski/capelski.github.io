@@ -1,8 +1,5 @@
 /** Categories the blog articles are grouped in. The enum keys are the url segments of the
- * blog children routes (see components/routes.ts).
- *
- * Compiled to plain JS separately for prerendering via webpack. See the build:prerender
- * script in package.json
+ * blog children routes (see components/routes.ts)
  */
 export enum ArticleCategory {
     tech = '💻 Tech',

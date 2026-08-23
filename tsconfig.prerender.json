@@ -1,9 +1,0 @@
-{
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "declaration": true,
-        "outDir": "./webpack",
-        "rootDir": "./src/components/articles"
-    },
-    "include": ["**/article-category.ts", "**/article-id.ts"]
-}

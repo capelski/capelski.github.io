@@ -3,38 +3,15 @@
     "version": "1.0.0",
     "description": "Personal page built in react",
     "scripts": {
-        "build": "npm run clean:build && npm run build:prerender && npm run build:client",
-        "build:prerender": "rm -rf webpack/article-category* webpack/article-id* && tsc -p tsconfig.prerender.json",
-        "build:client": "webpack --config webpack/production.config.js",
-        "build:ts": "tsc --noEmit -p tsconfig.json",
-        "clean:build": "rm -rf docs",
-        "clean:dependencies": "rm -rf node_modules/ package-lock.json",
-        "dev": "webpack serve --config webpack/development.config.js",
+        "build": "npm run compile && vite build",
+        "compile": "tsc --noEmit -p tsconfig.json",
+        "dev": "vite --open",
         "prettier": "prettier --list-different \"src/**/*.{ts,tsx}\"",
         "prettier:fix": "prettier --write \"src/**/*.{ts,tsx}\"",
         "start": "node index.js"
     },
     "author": "Carles Capellas <capellas.carles@gmail.com>",
     "license": "ISC",
-    "devDependencies": {
-        "@prerenderer/webpack-plugin": "^5.3.10",
-        "@types/react": "^19.2.18",
-        "@types/react-dom": "^19.2.4",
-        "copy-webpack-plugin": "^14.0.0",
-        "css-loader": "^7.1.4",
-        "express": "^5.2.1",
-        "html-loader": "^5.1.0",
-        "html-webpack-plugin": "^5.6.8",
-        "mini-css-extract-plugin": "^2.10.2",
-        "prettier": "^3.9.6",
-        "puppeteer": "^25.8.0",
-        "ts-loader": "^9.6.2",
-        "typescript": "^6.0.3",
-        "webpack": "^5.109.2",
-        "webpack-cli": "^7.2.2",
-        "webpack-dev-server": "^6.0.0",
-        "webpack-merge": "^6.0.1"
-    },
     "dependencies": {
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
@@ -42,6 +19,16 @@
         "react-helmet-async": "^3.0.0",
         "react-responsive": "^10.0.1",
         "react-router-dom": "^7.18.2"
+    },
+    "devDependencies": {
+        "@types/react": "^19.2.18",
+        "@types/react-dom": "^19.2.4",
+        "@vitejs/plugin-react": "^5.1.0",
+        "express": "^5.2.1",
+        "prettier": "^3.9.6",
+        "typescript": "^6.0.3",
+        "vite": "^7.1.6",
+        "vite-prerender-plugin": "^0.5.13"
     },
     "overrides": {
         "react-gist": {
