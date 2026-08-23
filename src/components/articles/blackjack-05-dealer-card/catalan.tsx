@@ -361,7 +361,7 @@ export const catalan: ArticleContent = {
                 Al{' '}
                 <ArticleLink articleId={ArticleId.blackjack04OptimalActions}>capítol 4</ArticleLink>{' '}
                 vam calcular l'avantatge de cada acció per a qualsevol puntuació del jugador.
-                Recordem ràpidment com funciona el càlcul. L'avantatge de demanar carta surt de
+                Recordem ràpidament com funciona el càlcul. L'avantatge de demanar carta surt de
                 ponderar els escenaris futurs als quals arribarem demanant una altra carta,
                 començant per la puntuació més alta del jugador i anant cap enrere. L'avantatge de
                 plantar-se surt de comparar la puntuació del jugador amb les puntuacions finals
