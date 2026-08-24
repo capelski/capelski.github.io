@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import { defaultLanguage, Language } from './articles/language';
 
-interface AppProps {
-    isServerRendered: boolean;
-}
-
 export interface AppContext {
     selectedLanguage: Language;
     setSelectedLanguage: (language: Language) => void;
@@ -17,18 +13,11 @@ export const useAppContext = () => useOutletContext<AppContext>();
  * enter/exit animations are handled by the browser view transitions that
  * react-router-dom triggers on every navigation; see style/main.css
  */
-export const App: React.FC<AppProps> = (props) => {
+export const App: React.FC = () => {
     const [selectedLanguage, setSelectedLanguage] = useState<Language>(defaultLanguage);
 
     return (
-        <div
-            className="app-container"
-            style={{
-                height: '100%',
-                opacity: props.isServerRendered ? 0 : undefined,
-                overflowX: 'hidden'
-            }}
-        >
+        <div className="app-container" style={{ height: '100%', overflowX: 'hidden' }}>
             <Outlet context={{ selectedLanguage, setSelectedLanguage }} />
         </div>
     );

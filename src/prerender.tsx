@@ -94,7 +94,7 @@ const additionalRoutes: string[] = [blogRoute.path, portfolioRoute.path]
     );
 
 export async function prerender(data: { url?: string }) {
-    const router = createMemoryRouter(createAppRoutes(true), {
+    const router = createMemoryRouter(createAppRoutes(), {
         initialEntries: [data?.url || '/']
     });
 

@@ -17,9 +17,9 @@ import { articleRedirectLoader, Blog, BlogRedirect } from './sections/blog';
 import { Error } from './sections/error';
 import { Portfolio } from './sections/portfolio';
 
-export const createAppRoutes = (isServerRendered: boolean): RouteObject[] => [
+export const createAppRoutes = (): RouteObject[] => [
     {
-        element: <App isServerRendered={isServerRendered} />,
+        element: <App />,
         children: [
             { index: true, element: <Navigate replace={true} to={blogRoute.path} /> },
             {
