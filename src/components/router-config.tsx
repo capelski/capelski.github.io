@@ -8,10 +8,12 @@ import {
     blogRoute,
     errorRoute,
     getArticleLanguagePath,
+    legacyArticleLanguagePath,
+    legacyArticlePath,
     portfolioRoute
 } from './routes';
 import { ArticleLoader } from './sections/article-loader';
-import { Blog, BlogRedirect } from './sections/blog';
+import { articleRedirectLoader, Blog, BlogRedirect } from './sections/blog';
 import { Error } from './sections/error';
 import { Portfolio } from './sections/portfolio';
 
@@ -27,12 +29,27 @@ export const createAppRoutes = (isServerRendered: boolean): RouteObject[] => [
                     ...AllArticleCategories.map((category) => ({
                         path: getCategoryKey(category),
                         element: <Blog selectedCategory={category} />
-                    }))
+                    })),
+                    /* The articles used to live under the blog route; those urls are kept
+                     * around, redirecting to the article route. Only the urls of articles
+                     * that do not exist make it to the route element */
+                    {
+                        path: legacyArticlePath,
+                        element: <Error />,
+                        loader: articleRedirectLoader
+                    },
+                    {
+                        path: legacyArticleLanguagePath,
+                        element: <Error />,
+                        loader: articleRedirectLoader
+                    }
                 ]
             },
+            /* The plain article route states no language, so it redirects to the language
+             * the article defaults to */
             { path: articleRoute.path, element: <ArticleLoader /> },
             /* One route per language, so that each article translation has a url of its
-             * own (e.g. /blog/existential-injustice/ca) */
+             * own (e.g. /article/existential-injustice/ca) */
             ...AllLanguages.map((language) => ({
                 path: getArticleLanguagePath(language),
                 element: <ArticleLoader language={language} />

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
+    LoaderFunctionArgs,
     matchPath,
     Navigate,
     NavLink,
-    PathMatch,
+    replace,
     UNSAFE_ViewTransitionContext,
     useLocation,
     useSearchParams
@@ -18,36 +19,30 @@ import {
     defaultCategory,
     getCategoryFromKey
 } from '../articles/article-category';
-import { AllLanguages } from '../articles/language';
+import { AllLanguages, getLanguageFromKey } from '../articles/language';
 import PatreonBadge from '../patreon-badge';
 import {
     articleRoute,
     getArticleLanguagePath,
+    getArticlePath,
     getBlogCategoryPath,
     portfolioRoute
 } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
-/** Paths of the article routes; the ones stating a language included (e.g. /blog/react-ssr/ca) */
+/** Paths of the article routes; the ones stating a language included (e.g. /article/react-ssr/ca) */
 const articlePaths = [articleRoute.path].concat(AllLanguages.map(getArticleLanguagePath));
 
-/** Tells the article urls (e.g. /blog/react-ssr) from the category urls (e.g.
- * /blog/offTopic), which the article route paths match just the same
- */
-const isArticlePath = (pathname: string) => {
-    const match = articlePaths.reduce<PathMatch<'articleId'> | null>(
-        (reduced, articlePath) => reduced || matchPath(articlePath, pathname),
-        null
-    );
-    return !!match && !getCategoryFromKey(match.params.articleId!);
-};
+const isArticlePath = (pathname: string) =>
+    articlePaths.some((articlePath) => !!matchPath(articlePath, pathname));
 
 /** True while a view transition to or from an article is running, which makes the blog
  * animate vertically instead of sideways; see style/main.css.
  *
- * useViewTransitionState is no use here: it matches a path pattern against both sides of
- * the transition, and the article path matches the category urls the blog itself lives
- * in. The context that hook reads from carries the locations, which can be told apart
+ * useViewTransitionState is no use here: it needs the very url the transition goes to,
+ * which the blog does not know (any of the articles it lists might be the one). The
+ * context that hook reads from carries the locations, which can be matched against the
+ * article route paths
  */
 const useIsArticleTransition = () => {
     const { pathname } = useLocation();
@@ -72,6 +67,31 @@ export const BlogRedirect: React.FC = () => {
     const category = getCategoryFromKey(searchParams.get('category')) || defaultCategory;
 
     return <Navigate replace={true} to={getBlogCategoryPath(category)} />;
+};
+
+/** Sends the urls the articles used to live in (e.g. /blog/existential-injustice/ca, or
+ * /blog/existential-injustice?language=ca for the older ones, which held the language in
+ * a query parameter) to the article route the given article and language map to.
+ *
+ * A route loader (rather than a Navigate element) so that the redirect happens before the
+ * route renders: the prerendered legacy pages then hold the article markup, metadata
+ * included, instead of the empty markup of a route that navigates away once rendered
+ */
+export const articleRedirectLoader = ({ params, request }: LoaderFunctionArgs) => {
+    // Non-existing urls (e.g. /blog/non-existing) fall through to the route element
+    const currentArticle = articles.find((article) => article.metadata.id === params.articleId);
+
+    if (!currentArticle) {
+        return null;
+    }
+
+    const urlLanguage = getLanguageFromKey(
+        params.language || new URL(request.url).searchParams.get('language')
+    );
+
+    /* Replacing the history entry, so that going back from the article does not land on
+     * the legacy url, which would redirect to the article again */
+    return replace(getArticlePath(currentArticle.metadata, urlLanguage));
 };
 
 interface BlogProps {
@@ -140,7 +160,6 @@ export const Blog: React.FC<BlogProps> = (props) => {
                                         textDecoration: 'none'
                                     }}
                                     to={getBlogCategoryPath(category)}
-                                    viewTransition={true}
                                 >
                                     {category}
                                 </NavLink>

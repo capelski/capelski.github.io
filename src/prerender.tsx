@@ -5,11 +5,13 @@ import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { parseLinks } from 'vite-prerender-plugin/parse';
 import { articles } from './components/articles';
 import { AllArticleCategories } from './components/articles/article-category';
+import { getDefaultArticleLanguage } from './components/articles/article-data';
 import { createAppRoutes } from './components/router-config';
 import {
     blogRoute,
     getArticlePath,
     getBlogCategoryPath,
+    getLegacyArticlePath,
     portfolioRoute
 } from './components/routes';
 
@@ -72,17 +74,52 @@ const extractHead = (html: string): ExtractedHead => {
 const additionalRoutes: string[] = [blogRoute.path, portfolioRoute.path]
     .concat(AllArticleCategories.map(getBlogCategoryPath))
     .concat(
-        /* One url per article translation (e.g. /blog/existential-injustice/ca); the
-         * language an article is displayed in by default maps to the plain article url
-         */
+        /* One url per article translation (e.g. /article/existential-injustice/ca) */
         articles.flatMap((article) =>
             article.metadata.languages.map((language) => getArticlePath(article.metadata, language))
         )
+    )
+    .concat(
+        /* The urls the articles used to live in, so that the pages redirecting to the
+         * article route (see ArticleRedirect in sections/blog.tsx) are served too. The
+         * language an article was displayed in by default mapped to the plain url, the
+         * remaining translations stating the language in a url segment
+         */
+        articles.flatMap((article) => [
+            getLegacyArticlePath(article.metadata),
+            ...article.metadata.languages
+                .filter((language) => language !== getDefaultArticleLanguage(article.metadata))
+                .map((language) => getLegacyArticlePath(article.metadata, language))
+        ])
     );
 
 export async function prerender(data: { url?: string }) {
     const router = createMemoryRouter(createAppRoutes(true), {
         initialEntries: [data?.url || '/']
+    });
+
+    /* Some urls redirect to another one on a route loader (e.g. the legacy article urls;
+     * see articleRedirectLoader in components/sections/blog.tsx). RouterProvider runs the
+     * loaders on mount, which renderToString does not get to, so the navigation is
+     * started here and waited for: the snapshot then holds the markup of the url the
+     * redirect lands on, metadata included, rather than no markup at all
+     */
+    router.initialize();
+    await new Promise<void>((resolve) => {
+        const isSettled = () =>
+            router.state.initialized && router.state.navigation.state === 'idle';
+
+        if (isSettled()) {
+            resolve();
+            return;
+        }
+
+        const unsubscribe = router.subscribe(() => {
+            if (isSettled()) {
+                unsubscribe();
+                resolve();
+            }
+        });
     });
 
     const renderedHtml = renderToString(

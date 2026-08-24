@@ -1,19 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Navigate, NavLink, useParams, useSearchParams } from 'react-router-dom';
+import { Navigate, NavLink, useParams } from 'react-router-dom';
 import { useAppContext } from '../app';
 import { Article } from '../article';
 import { articles } from '../articles';
 import { defaultCategory } from '../articles/article-category';
-import { getArticleLanguage, getDefaultArticleLanguage } from '../articles/article-data';
-import { defaultLanguage, getLanguageFromKey, Language } from '../articles/language';
+import { getArticleLanguage } from '../articles/article-data';
+import { defaultLanguage, Language } from '../articles/language';
 import { getArticlePath, getBlogCategoryPath } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 import { Error } from './error';
 
 interface ArticleLoaderProps {
-    /** Language stated in the url; undefined in the plain article route, which displays
-     * the article in the language it defaults to (see the article routes in router-config.tsx)
+    /** Language stated in the url; undefined in the plain article route, which redirects
+     * to the language the article defaults to (see the article routes in router-config.tsx)
      */
     language?: Language;
 }
@@ -21,30 +21,23 @@ interface ArticleLoaderProps {
 export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
     const { setSelectedLanguage } = useAppContext();
     const { articleId } = useParams();
-    const [searchParams] = useSearchParams();
-
-    /* The language used to be held in a query parameter (e.g. /blog/react-ssr?language=ca);
-     * such urls get redirected to the language route the parameter refers to
-     */
-    const legacyLanguage = getLanguageFromKey(searchParams.get('language'));
-    const urlLanguage = props.language || legacyLanguage;
 
     const viewportRef = useRef<HTMLDivElement>(null);
 
-    // Protection against non-existing urls (e.g. /blog/non-existing)
+    // Protection against non-existing urls (e.g. /article/non-existing)
     const currentArticle = articles.find((article) => article.metadata.id === articleId);
 
     // Ignore languages the article has no translations for
     const currentLanguage = currentArticle
-        ? getArticleLanguage(currentArticle.metadata, urlLanguage)
+        ? getArticleLanguage(currentArticle.metadata, props.language)
         : defaultLanguage;
 
     /* The article url is the single source of truth for the displayed language, but the
      * selection outlives the article (e.g. it drives the blog previews language)
      */
     useEffect(() => {
-        if (urlLanguage && urlLanguage === currentLanguage) {
-            setSelectedLanguage(urlLanguage);
+        if (props.language && props.language === currentLanguage) {
+            setSelectedLanguage(props.language);
         }
     }, [articleId, currentLanguage]);
 
@@ -63,14 +56,11 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
 
     const articlePath = getArticlePath(currentArticle.metadata, currentLanguage);
 
-    /* The language an article is displayed in by default is implicit in the plain article
-     * url, so urls stating it (e.g. /blog/react-ssr/en), as well as urls stating a
-     * language the article has no translation for, are not canonical; neither are the
-     * urls holding the language in the legacy query parameter
+    /* The language is always stated in the article urls, so the plain article url (e.g.
+     * /article/react-ssr), as well as the urls stating a language the article has no
+     * translation for (e.g. /article/provinenca-desconeguda/en), are not canonical
      */
-    const isCanonicalUrl =
-        !legacyLanguage &&
-        (!props.language || currentLanguage !== getDefaultArticleLanguage(currentArticle.metadata));
+    const isCanonicalUrl = props.language === currentLanguage;
 
     if (!isCanonicalUrl) {
         return <Navigate replace={true} to={articlePath} />;
