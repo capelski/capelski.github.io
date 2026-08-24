@@ -31,7 +31,7 @@ import {
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 /** Paths of the article routes; the ones stating a language included (e.g. /article/react-ssr/ca) */
-const articlePaths = [articleRoute.path].concat(AllLanguages.map(getArticleLanguagePath));
+const articlePaths = [articleRoute].concat(AllLanguages.map(getArticleLanguagePath));
 
 const isArticlePath = (pathname: string) =>
     articlePaths.some((articlePath) => !!matchPath(articlePath, pathname));
@@ -110,7 +110,7 @@ export const Blog: React.FC<BlogProps> = (props) => {
         <SectionContainer
             links={
                 <NavLink
-                    to={portfolioRoute.path}
+                    to={portfolioRoute}
                     className="link"
                     style={sectionLinkStyle}
                     viewTransition={true}

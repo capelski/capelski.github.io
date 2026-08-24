@@ -20,9 +20,9 @@ export const routes: RouteObject[] = [
     {
         element: <App />,
         children: [
-            { index: true, element: <Navigate replace={true} to={blogRoute.path} /> },
+            { index: true, element: <Navigate replace={true} to={blogRoute} /> },
             {
-                path: blogRoute.path,
+                path: blogRoute,
                 children: [
                     { index: true, element: <BlogRedirect /> },
                     ...AllArticleCategories.map((category) => ({
@@ -46,14 +46,14 @@ export const routes: RouteObject[] = [
             },
             /* The plain article route states no language, so it redirects to the language
              * the article defaults to */
-            { path: articleRoute.path, element: <ArticleLoader /> },
+            { path: articleRoute, element: <ArticleLoader /> },
             /* One route per language, so that each article translation has a url of its
              * own (e.g. /article/existential-injustice/ca) */
             ...AllLanguages.map((language) => ({
                 path: getArticleLanguagePath(language),
                 element: <ArticleLoader language={language} />
             })),
-            { path: portfolioRoute.path, element: <Portfolio /> },
+            { path: portfolioRoute, element: <Portfolio /> },
             { path: '*', element: <Error /> }
         ]
     }

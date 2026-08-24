@@ -23,7 +23,7 @@ export const Error: React.FC = () => (
                     ⬅️ Blog
                 </NavLink>
                 <NavLink
-                    to={portfolioRoute.path}
+                    to={portfolioRoute}
                     className="link"
                     style={sectionLinkStyle}
                     viewTransition={true}

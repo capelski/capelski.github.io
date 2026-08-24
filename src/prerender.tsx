@@ -71,7 +71,7 @@ const extractHead = (html: string): ExtractedHead => {
 /** Routes that are not reachable by crawling the links of the prerendered pages (e.g. the
  * article pages of a category that is not the default one) and must be prerendered too
  */
-const additionalRoutes: string[] = [blogRoute.path, portfolioRoute.path]
+const additionalRoutes: string[] = [blogRoute, portfolioRoute]
     .concat(AllArticleCategories.map(getBlogCategoryPath))
     .concat(
         /* One url per article translation (e.g. /article/existential-injustice/ca) */
