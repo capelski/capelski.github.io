@@ -26,7 +26,6 @@ export const getBlogCategoryPath = (category: ArticleCategory) =>
  * ArticleRedirect in sections/blog.tsx)
  */
 export const legacyArticlePath = ':articleId';
-export const legacyArticleLanguagePath = `${legacyArticlePath}/:language`;
 
 /** Url an article used to be reachable at, either the plain one (e.g. /blog/react-ssr)
  * or the one stating the language in a url segment (e.g. /blog/existential-injustice/ca)

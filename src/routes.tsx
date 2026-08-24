@@ -2,13 +2,7 @@ import React from 'react';
 import { Navigate, RouteObject } from 'react-router-dom';
 import { App } from './components/app';
 import { AllArticleCategories, getCategoryKey } from './components/articles/article-category';
-import {
-    articleRoute,
-    blogRoute,
-    legacyArticleLanguagePath,
-    legacyArticlePath,
-    portfolioRoute
-} from './components/routes';
+import { articleRoute, blogRoute, legacyArticlePath, portfolioRoute } from './components/routes';
 import { ArticleLoader } from './components/sections/article-loader';
 import { articleRedirectLoader, Blog, BlogRedirect } from './components/sections/blog';
 import { Error } from './components/sections/error';
@@ -32,11 +26,6 @@ export const routes: RouteObject[] = [
                      * that do not exist make it to the route element */
                     {
                         path: legacyArticlePath,
-                        element: <Error />,
-                        loader: articleRedirectLoader
-                    },
-                    {
-                        path: legacyArticleLanguagePath,
                         element: <Error />,
                         loader: articleRedirectLoader
                     }
