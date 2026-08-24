@@ -20,10 +20,6 @@ export const blogRoute: AppRoute = {
     path: '/blog'
 };
 
-export const errorRoute: AppRoute = {
-    path: '/error'
-};
-
 export const portfolioRoute: AppRoute = {
     path: '/portfolio'
 };

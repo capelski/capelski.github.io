@@ -6,7 +6,6 @@ import { AllLanguages } from './components/articles/language';
 import {
     articleRoute,
     blogRoute,
-    errorRoute,
     getArticleLanguagePath,
     legacyArticleLanguagePath,
     legacyArticlePath,
@@ -55,8 +54,7 @@ export const routes: RouteObject[] = [
                 element: <ArticleLoader language={language} />
             })),
             { path: portfolioRoute.path, element: <Portfolio /> },
-            { path: errorRoute.path, element: <Error /> },
-            { path: '*', element: <Navigate replace={true} to={errorRoute.path} /> }
+            { path: '*', element: <Error /> }
         ]
     }
 ];
