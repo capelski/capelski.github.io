@@ -2,11 +2,9 @@ import React from 'react';
 import { Navigate, RouteObject } from 'react-router-dom';
 import { App } from './components/app';
 import { AllArticleCategories, getCategoryKey } from './components/articles/article-category';
-import { AllLanguages } from './components/articles/language';
 import {
     articleRoute,
     blogRoute,
-    getArticleLanguagePath,
     legacyArticleLanguagePath,
     legacyArticlePath,
     portfolioRoute
@@ -44,15 +42,7 @@ export const routes: RouteObject[] = [
                     }
                 ]
             },
-            /* The plain article route states no language, so it redirects to the language
-             * the article defaults to */
             { path: articleRoute, element: <ArticleLoader /> },
-            /* One route per language, so that each article translation has a url of its
-             * own (e.g. /article/existential-injustice/ca) */
-            ...AllLanguages.map((language) => ({
-                path: getArticleLanguagePath(language),
-                element: <ArticleLoader language={language} />
-            })),
             { path: portfolioRoute, element: <Portfolio /> },
             { path: '*', element: <Error /> }
         ]

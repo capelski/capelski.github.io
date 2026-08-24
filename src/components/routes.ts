@@ -8,7 +8,7 @@ import { Language } from './articles/language';
 
 const articleBasePath = '/article';
 
-export const articleRoute = `${articleBasePath}/:articleId`;
+export const articleRoute = `${articleBasePath}/:articleId/:language`;
 
 export const blogRoute = '/blog';
 
@@ -20,12 +20,6 @@ export const portfolioRoute = '/portfolio';
  */
 export const getBlogCategoryPath = (category: ArticleCategory) =>
     `${blogRoute}/${getCategoryKey(category)}`;
-
-/** Path of the article children routes, one per language (e.g. /article/:articleId/ca).
- * Declared as static paths (rather than as a single :language parameter) so that
- * unknown url segments end up in the error route
- */
-export const getArticleLanguagePath = (language: Language) => `${articleRoute}/${language}`;
 
 /** Paths of the blog children routes the articles used to live in, relative to the blog
  * route; they no longer render an article, but redirect to the article route (see

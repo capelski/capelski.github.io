@@ -19,22 +19,10 @@ import {
     defaultCategory,
     getCategoryFromKey
 } from '../articles/article-category';
-import { AllLanguages, getLanguageFromKey } from '../articles/language';
+import { getLanguageFromKey } from '../articles/language';
 import PatreonBadge from '../patreon-badge';
-import {
-    articleRoute,
-    getArticleLanguagePath,
-    getArticlePath,
-    getBlogCategoryPath,
-    portfolioRoute
-} from '../routes';
+import { articleRoute, getArticlePath, getBlogCategoryPath, portfolioRoute } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
-
-/** Paths of the article routes; the ones stating a language included (e.g. /article/react-ssr/ca) */
-const articlePaths = [articleRoute].concat(AllLanguages.map(getArticleLanguagePath));
-
-const isArticlePath = (pathname: string) =>
-    articlePaths.some((articlePath) => !!matchPath(articlePath, pathname));
 
 /** True while a view transition to or from an article is running, which makes the blog
  * animate vertically instead of sideways; see style/main.css.
@@ -54,7 +42,8 @@ const useIsArticleTransition = () => {
 
     // The blog is on one side of the transition; the article is looked for on the other one
     const { currentLocation, nextLocation } = viewTransition;
-    return isArticlePath(
+    return !!matchPath(
+        articleRoute,
         currentLocation.pathname === pathname ? nextLocation.pathname : currentLocation.pathname
     );
 };

@@ -5,68 +5,40 @@ import { useAppContext } from '../app';
 import { Article } from '../article';
 import { articles } from '../articles';
 import { defaultCategory } from '../articles/article-category';
-import { getArticleLanguage } from '../articles/article-data';
-import { defaultLanguage, Language } from '../articles/language';
+import { Language } from '../articles/language';
 import { getArticlePath, getBlogCategoryPath } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 import { Error } from './error';
 
-interface ArticleLoaderProps {
-    /** Language stated in the url; undefined in the plain article route, which redirects
-     * to the language the article defaults to (see the article routes in router-config.tsx)
-     */
-    language?: Language;
-}
+export const ArticleLoader: React.FC = () => {
+    const { selectedLanguage, setSelectedLanguage } = useAppContext();
+    const { articleId, language: languageRaw } = useParams();
+    const language = languageRaw as Language;
 
-export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
-    const { setSelectedLanguage } = useAppContext();
-    const { articleId } = useParams();
-
+    const currentArticle = articles.find((article) => article.metadata.id === articleId);
     const viewportRef = useRef<HTMLDivElement>(null);
 
-    // Protection against non-existing urls (e.g. /article/non-existing)
-    const currentArticle = articles.find((article) => article.metadata.id === articleId);
-
-    // Ignore languages the article has no translations for
-    const currentLanguage = currentArticle
-        ? getArticleLanguage(currentArticle.metadata, props.language)
-        : defaultLanguage;
-
-    /* The article url is the single source of truth for the displayed language, but the
-     * selection outlives the article (e.g. it drives the blog previews language)
-     */
     useEffect(() => {
-        if (props.language && props.language === currentLanguage) {
-            setSelectedLanguage(props.language);
+        if (language !== selectedLanguage) {
+            setSelectedLanguage(language);
         }
-    }, [articleId, currentLanguage]);
+    }, [articleId, language]);
 
     useEffect(() => {
-        /* The article is rendered inside the section viewport, which keeps its scroll
-         * position when navigating from one article to another
-         */
-        (viewportRef.current as { scrollTo: (params: { top: number }) => void })?.scrollTo({
-            top: 0
-        });
+        viewportRef.current?.scrollTo({ top: 0 });
     }, [articleId]);
 
     if (!currentArticle) {
         return <Error />;
     }
 
-    const articlePath = getArticlePath(currentArticle.metadata, currentLanguage);
+    const articlePath = getArticlePath(currentArticle.metadata, language);
 
-    /* The language is always stated in the article urls, so the plain article url (e.g.
-     * /article/react-ssr), as well as the urls stating a language the article has no
-     * translation for (e.g. /article/provinenca-desconeguda/en), are not canonical
-     */
-    const isCanonicalUrl = props.language === currentLanguage;
-
-    if (!isCanonicalUrl) {
+    if (!currentArticle.metadata.languages.includes(language)) {
         return <Navigate replace={true} to={articlePath} />;
     }
 
-    const articleContent = currentArticle.content(currentLanguage);
+    const articleContent = currentArticle.content(language);
 
     /* The article category drives the previous/next navigation and the link back to the
      * blog, so that the articles timeline matches the one displayed in the blog section
@@ -121,7 +93,7 @@ export const ArticleLoader: React.FC<ArticleLoaderProps> = (props) => {
                 nextArticle={nextArticle}
                 preview={false}
                 previousArticle={previousArticle}
-                selectedLanguage={currentLanguage}
+                selectedLanguage={language}
             />
         </SectionContainer>
     );
