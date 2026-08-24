@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, RouteObject } from 'react-router-dom';
-import { App } from './app';
-import { AllArticleCategories, getCategoryKey } from './articles/article-category';
-import { AllLanguages } from './articles/language';
+import { App } from './components/app';
+import { AllArticleCategories, getCategoryKey } from './components/articles/article-category';
+import { AllLanguages } from './components/articles/language';
 import {
     articleRoute,
     blogRoute,
@@ -11,13 +11,13 @@ import {
     legacyArticleLanguagePath,
     legacyArticlePath,
     portfolioRoute
-} from './routes';
-import { ArticleLoader } from './sections/article-loader';
-import { articleRedirectLoader, Blog, BlogRedirect } from './sections/blog';
-import { Error } from './sections/error';
-import { Portfolio } from './sections/portfolio';
+} from './components/routes';
+import { ArticleLoader } from './components/sections/article-loader';
+import { articleRedirectLoader, Blog, BlogRedirect } from './components/sections/blog';
+import { Error } from './components/sections/error';
+import { Portfolio } from './components/sections/portfolio';
 
-export const createAppRoutes = (): RouteObject[] => [
+export const routes: RouteObject[] = [
     {
         element: <App />,
         children: [

@@ -6,7 +6,6 @@ import { parseLinks } from 'vite-prerender-plugin/parse';
 import { articles } from './components/articles';
 import { AllArticleCategories } from './components/articles/article-category';
 import { getDefaultArticleLanguage } from './components/articles/article-data';
-import { createAppRoutes } from './components/router-config';
 import {
     blogRoute,
     getArticlePath,
@@ -14,6 +13,7 @@ import {
     getLegacyArticlePath,
     portfolioRoute
 } from './components/routes';
+import { routes } from './routes';
 
 type HeadElement = {
     props: { [attribute: string]: string };
@@ -94,7 +94,7 @@ const additionalRoutes: string[] = [blogRoute.path, portfolioRoute.path]
     );
 
 export async function prerender(data: { url?: string }) {
-    const router = createMemoryRouter(createAppRoutes(), {
+    const router = createMemoryRouter(routes, {
         initialEntries: [data?.url || '/']
     });
 

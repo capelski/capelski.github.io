@@ -1,10 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './components/router';
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { routes } from './routes';
 import './style/main.css';
+
+const router = createBrowserRouter(routes);
 
 const ClientApp: React.FC = () => (
     <HelmetProvider>
