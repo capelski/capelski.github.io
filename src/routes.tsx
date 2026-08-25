@@ -11,9 +11,9 @@ import {
 import { ArticleLoader } from './components/sections/article-loader';
 import { Blog } from './components/sections/blog';
 import { Error } from './components/sections/error';
-import { LegacyArticleRedirect } from './components/sections/legacy-article-redirect';
-import { LegacyBlogRedirect } from './components/sections/legacy-blog-redirect';
 import { Portfolio } from './components/sections/portfolio';
+import { legacyArticleRedirectLoader } from './legacy-article-redirect';
+import { legacyBlogRedirectLoader } from './legacy-blog-redirect';
 
 export const routes: RouteObject[] = [
     {
@@ -23,8 +23,18 @@ export const routes: RouteObject[] = [
             { path: articleRoute, element: <ArticleLoader /> },
             { path: blogRoute, element: <Blog /> },
             { path: portfolioRoute, element: <Portfolio /> },
-            { path: blogLegacyRoute, element: <LegacyBlogRedirect /> },
-            { path: articleLegacyRoute, element: <LegacyArticleRedirect /> },
+
+            /** The redirects happen on a loader (instead of rendering a Navigate element) so that the
+             * router resolves it on initialization; renderToString never runs the effects a Navigate
+             * element relies on, which would leave the prerendered page empty
+             * */
+            { path: blogLegacyRoute, loader: legacyBlogRedirectLoader },
+            {
+                path: articleLegacyRoute,
+                element: <Error />,
+                loader: legacyArticleRedirectLoader
+            },
+
             { path: '*', element: <Error /> }
         ]
     }

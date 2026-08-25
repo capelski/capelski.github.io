@@ -8,6 +8,7 @@ import { AllArticleCategories } from './components/articles/article-category';
 import { AllLanguages } from './components/articles/language';
 import {
     articleLegacyRoute,
+    blogLegacyRoute,
     getArticlePath,
     getBlogPath,
     portfolioRoute
@@ -77,6 +78,7 @@ const additionalRoutes: string[] = [
     ...articles.flatMap((article) =>
         article.metadata.languages.map((language) => getArticlePath(article.metadata.id, language))
     ),
+    blogLegacyRoute,
     /** Legacy article routes (e.g. /blog/react-ssr) */
     ...articles.flatMap((article) => [
         articleLegacyRoute.replace(':articleId', article.metadata.id)
@@ -88,8 +90,7 @@ export async function prerender(data: { url?: string }) {
         initialEntries: [data?.url || '/']
     });
 
-    /* Some urls redirect to another one on a route loader (e.g. the legacy article urls;
-     * see articleRedirectLoader in components/sections/blog.tsx). RouterProvider runs the
+    /* Some urls redirect to another one via route loader. RouterProvider runs the
      * loaders on mount, which renderToString does not get to, so the navigation is
      * started here and waited for: the snapshot then holds the markup of the url the
      * redirect lands on, metadata included, rather than no markup at all
