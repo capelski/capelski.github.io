@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, RouteObject } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 import { App } from './components/app';
 import {
     articleLegacyRoute,
@@ -19,15 +19,15 @@ export const routes: RouteObject[] = [
     {
         element: <App />,
         children: [
-            { index: true, element: <Navigate replace={true} to={blogLegacyRoute} /> },
             { path: articleRoute, element: <ArticleLoader /> },
             { path: blogRoute, element: <Blog /> },
             { path: portfolioRoute, element: <Portfolio /> },
 
-            /** The redirects happen on a loader (instead of rendering a Navigate element) so that the
+            /** Redirects happen via loaders (instead of rendering a Navigate element) so that the
              * router resolves it on initialization; renderToString never runs the effects a Navigate
              * element relies on, which would leave the prerendered page empty
-             * */
+             **/
+            { index: true, loader: legacyBlogRedirectLoader },
             { path: blogLegacyRoute, loader: legacyBlogRedirectLoader },
             {
                 path: articleLegacyRoute,
