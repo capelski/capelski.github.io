@@ -1,14 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
+import { useAppContext } from '../app';
 import { Anchor } from '../articles/anchor';
 import { useIsMediumUp } from '../breakpoints';
 import { Project } from '../project';
-import { defaultBlogPath } from '../routes';
+import { getBlogPath } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 export const Portfolio: React.FC = () => {
     const isMediumUp = useIsMediumUp();
+    const { selectedCategory, selectedLanguage } = useAppContext();
 
     const projectsStyle: React.CSSProperties = {
         display: 'grid',
@@ -19,7 +21,7 @@ export const Portfolio: React.FC = () => {
         <SectionContainer
             links={
                 <NavLink
-                    to={defaultBlogPath}
+                    to={getBlogPath(selectedCategory, selectedLanguage)}
                     className="link"
                     style={sectionLinkStyle}
                     viewTransition={true}

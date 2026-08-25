@@ -108,7 +108,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
                                     cursor: isSelected ? 'default' : 'pointer',
                                     textDecoration: 'none'
                                 }}
-                                to={getArticlePath(props.metadata, language)}
+                                to={getArticlePath(props.metadata.id, language)}
                             >
                                 🌎 {language}
                             </NavLink>
@@ -128,7 +128,7 @@ export const Article: React.FC<ArticleProps> = (props) => {
                     <NavLink
                         viewTransition={true}
                         ref={navigationRef}
-                        to={getArticlePath(props.metadata, articleLanguage)}
+                        to={getArticlePath(props.metadata.id, articleLanguage)}
                         className="programmatic-link"
                         style={{ display: 'none' }}
                     />

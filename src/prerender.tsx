@@ -5,12 +5,11 @@ import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { parseLinks } from 'vite-prerender-plugin/parse';
 import { articles } from './components/articles';
 import { AllArticleCategories } from './components/articles/article-category';
-import { getDefaultArticleLanguage } from './components/articles/article-data';
+import { AllLanguages } from './components/articles/language';
 import {
-    blogRoute,
+    articleLegacyRoute,
     getArticlePath,
-    getBlogCategoryPath,
-    getLegacyArticlePath,
+    getBlogPath,
     portfolioRoute
 } from './components/routes';
 import { routes } from './routes';
@@ -68,28 +67,25 @@ const extractHead = (html: string): ExtractedHead => {
     return { elements, html: htmlWithoutMeta, title };
 };
 
-/** Routes that are not reachable by crawling the links of the prerendered pages (e.g. the
- * article pages of a category that is not the default one) and must be prerendered too
- */
-const additionalRoutes: string[] = [blogRoute, portfolioRoute]
-    .concat(AllArticleCategories.map(getBlogCategoryPath))
+const additionalRoutes: string[] = [articleLegacyRoute, portfolioRoute]
     .concat(
-        /* One url per article translation (e.g. /article/existential-injustice/ca) */
-        articles.flatMap((article) =>
-            article.metadata.languages.map((language) => getArticlePath(article.metadata, language))
+        /** Blog routes (e.g. /blog/tech/en) */
+        AllArticleCategories.flatMap((category) =>
+            AllLanguages.map((language) => getBlogPath(category, language))
         )
     )
     .concat(
-        /* The urls the articles used to live in, so that the pages redirecting to the
-         * article route (see ArticleRedirect in sections/blog.tsx) are served too. The
-         * language an article was displayed in by default mapped to the plain url, the
-         * remaining translations stating the language in a url segment
-         */
+        /* Article routes (e.g. /article/react-ssr/ca) */
+        articles.flatMap((article) =>
+            article.metadata.languages.map((language) =>
+                getArticlePath(article.metadata.id, language)
+            )
+        )
+    )
+    .concat(
+        /** Legacy article routes (e.g. /blog/react-ssr) */
         articles.flatMap((article) => [
-            getLegacyArticlePath(article.metadata),
-            ...article.metadata.languages
-                .filter((language) => language !== getDefaultArticleLanguage(article.metadata))
-                .map((language) => getLegacyArticlePath(article.metadata, language))
+            articleLegacyRoute.replace(':articleId', article.metadata.id)
         ])
     );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Article as IArticle, ArticleMetadata, getArticleLanguage } from './articles/article-data';
+import { ArticleMetadata, getArticleLanguage, Article as IArticle } from './articles/article-data';
 import { Language } from './articles/language';
 import { getArticlePath } from './routes';
 
@@ -34,7 +34,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
             await window.navigator.share({
                 text: props.shareSentence,
                 title: props.title,
-                url: `${PRODUCTION_URL_BASE}${getArticlePath(props.metadata, props.selectedLanguage)}`
+                url: `${PRODUCTION_URL_BASE}${getArticlePath(props.metadata.id, props.selectedLanguage)}`
             });
         } catch (error) {}
     };
@@ -57,7 +57,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                             <NavLink
                                 viewTransition={true}
                                 to={getArticlePath(
-                                    props.previousArticle.metadata,
+                                    props.previousArticle.metadata.id,
                                     props.selectedLanguage
                                 )}
                                 style={{ textDecoration: 'none' }}
@@ -83,7 +83,7 @@ export const ArticleNavigation: React.FC<ArticleNavigationProps> = (props) => {
                             <NavLink
                                 viewTransition={true}
                                 to={getArticlePath(
-                                    props.nextArticle.metadata,
+                                    props.nextArticle.metadata.id,
                                     props.selectedLanguage
                                 )}
                                 style={{ textDecoration: 'none' }}

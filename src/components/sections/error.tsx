@@ -1,59 +1,64 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
-import { defaultBlogPath, portfolioRoute } from '../routes';
+import { useAppContext } from '../app';
+import { getBlogPath, portfolioRoute } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
-export const Error: React.FC = () => (
-    <SectionContainer
-        contentStyle={{
-            alignItems: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center'
-        }}
-        links={
-            <React.Fragment>
-                <NavLink
-                    to={defaultBlogPath}
-                    className="link"
-                    style={sectionLinkStyle}
-                    viewTransition={true}
-                >
-                    ⬅️ Blog
-                </NavLink>
-                <NavLink
-                    to={portfolioRoute}
-                    className="link"
-                    style={sectionLinkStyle}
-                    viewTransition={true}
-                >
-                    Portfolio ➡️
-                </NavLink>
-            </React.Fragment>
-        }
-        linksStyle={{ justifyContent: 'space-between' }}
-        sectionName="error"
-        viewTransitionName="error"
-    >
-        <Helmet>
-            <title>Carles Capellas</title>
-            <meta
-                name="description"
-                content="Something went wrong... You are not supposed to be here"
-            />
-        </Helmet>
-        <h1 className="error-title">Something went wrong</h1>
-        <img
-            className="error-image"
-            src="/images/shrug.png"
-            alt="Shrug meme"
-            style={{
-                display: 'block',
-                margin: '32px auto',
-                maxHeight: 250,
-                maxWidth: '100%'
+export const Error: React.FC = () => {
+    const { selectedCategory, selectedLanguage } = useAppContext();
+
+    return (
+        <SectionContainer
+            contentStyle={{
+                alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
             }}
-        />
-    </SectionContainer>
-);
+            links={
+                <React.Fragment>
+                    <NavLink
+                        to={getBlogPath(selectedCategory, selectedLanguage)}
+                        className="link"
+                        style={sectionLinkStyle}
+                        viewTransition={true}
+                    >
+                        ⬅️ Blog
+                    </NavLink>
+                    <NavLink
+                        to={portfolioRoute}
+                        className="link"
+                        style={sectionLinkStyle}
+                        viewTransition={true}
+                    >
+                        Portfolio ➡️
+                    </NavLink>
+                </React.Fragment>
+            }
+            linksStyle={{ justifyContent: 'space-between' }}
+            sectionName="error"
+            viewTransitionName="error"
+        >
+            <Helmet>
+                <title>Carles Capellas</title>
+                <meta
+                    name="description"
+                    content="Something went wrong... You are not supposed to be here"
+                />
+            </Helmet>
+            <h1 className="error-title">Something went wrong</h1>
+            <img
+                className="error-image"
+                src="/images/shrug.png"
+                alt="Shrug meme"
+                style={{
+                    display: 'block',
+                    margin: '32px auto',
+                    maxHeight: 250,
+                    maxWidth: '100%'
+                }}
+            />
+        </SectionContainer>
+    );
+};

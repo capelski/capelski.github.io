@@ -1,27 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
-    LoaderFunctionArgs,
     matchPath,
-    Navigate,
     NavLink,
-    replace,
     UNSAFE_ViewTransitionContext,
     useLocation,
-    useSearchParams
+    useParams
 } from 'react-router-dom';
 import { useAppContext } from '../app';
 import { Article } from '../article';
 import { articles } from '../articles';
-import {
-    AllArticleCategories,
-    ArticleCategory,
-    defaultCategory,
-    getCategoryFromKey
-} from '../articles/article-category';
-import { getLanguageFromKey } from '../articles/language';
+import { AllArticleCategories, ArticleCategory } from '../articles/article-category';
+import { Language } from '../articles/language';
 import PatreonBadge from '../patreon-badge';
-import { articleRoute, getArticlePath, getBlogCategoryPath, portfolioRoute } from '../routes';
+import { articleRoute, getBlogPath, portfolioRoute } from '../routes';
 import { SectionContainer, sectionLinkStyle } from '../section-container';
 
 /** True while a view transition to or from an article is running, which makes the blog
@@ -48,52 +40,29 @@ const useIsArticleTransition = () => {
     );
 };
 
-/** Sends the blog route to the default category, honouring the category query parameter
- * that used to hold the selection (e.g. /blog?category=offTopic → /blog/offTopic)
- */
-export const BlogRedirect: React.FC = () => {
-    const [searchParams] = useSearchParams();
-    const category = getCategoryFromKey(searchParams.get('category')) || defaultCategory;
-
-    return <Navigate replace={true} to={getBlogCategoryPath(category)} />;
+const displayCategories: Record<ArticleCategory, string> = {
+    [ArticleCategory.tech]: '💻 Tech',
+    [ArticleCategory.offTopic]: '🕹️ Off-topic'
 };
 
-/** Sends the urls the articles used to live in (e.g. /blog/existential-injustice/ca, or
- * /blog/existential-injustice?language=ca for the older ones, which held the language in
- * a query parameter) to the article route the given article and language map to.
- *
- * A route loader (rather than a Navigate element) so that the redirect happens before the
- * route renders: the prerendered legacy pages then hold the article markup, metadata
- * included, instead of the empty markup of a route that navigates away once rendered
- */
-export const articleRedirectLoader = ({ params, request }: LoaderFunctionArgs) => {
-    // Non-existing urls (e.g. /blog/non-existing) fall through to the route element
-    const currentArticle = articles.find((article) => article.metadata.id === params.articleId);
-
-    if (!currentArticle) {
-        return null;
-    }
-
-    const urlLanguage = getLanguageFromKey(
-        params.language || new URL(request.url).searchParams.get('language')
-    );
-
-    /* Replacing the history entry, so that going back from the article does not land on
-     * the legacy url, which would redirect to the article again */
-    return replace(getArticlePath(currentArticle.metadata, urlLanguage));
-};
-
-interface BlogProps {
-    /** The url is the single source of truth for the selected category (see the blog
-     * children routes in router.tsx), so that the articles list is swapped inside the
-     * view transition triggered by the navigation
-     */
-    selectedCategory: ArticleCategory;
-}
-
-export const Blog: React.FC<BlogProps> = (props) => {
-    const { selectedLanguage } = useAppContext();
+export const Blog: React.FC = () => {
+    const { selectedLanguage, selectedCategory, setSelectedLanguage, setSelectedCategory } =
+        useAppContext();
+    const { category, language: languageRaw } = useParams<{
+        category: ArticleCategory;
+        language: Language;
+    }>();
     const isArticleTransition = useIsArticleTransition();
+    const language = languageRaw ?? selectedLanguage;
+
+    useEffect(() => {
+        if (language !== selectedLanguage) {
+            setSelectedLanguage(language);
+        }
+        if (category && category !== selectedCategory) {
+            setSelectedCategory(category);
+        }
+    }, [language, category]);
 
     return (
         <SectionContainer
@@ -132,12 +101,12 @@ export const Blog: React.FC<BlogProps> = (props) => {
                 >
                     <h1 className="blog-title">Blog</h1>
                     <div className="blog-categories">
-                        {AllArticleCategories.map((category) => {
-                            const isSelected = props.selectedCategory === category;
+                        {AllArticleCategories.map((c) => {
+                            const isSelected = category === c;
 
                             return (
                                 <NavLink
-                                    key={category}
+                                    key={c}
                                     className={`category${isSelected ? ' selected-category' : ''}`}
                                     /* A category is not worth a history entry: going back
                                      * from the blog lands on the previous section */
@@ -148,24 +117,24 @@ export const Blog: React.FC<BlogProps> = (props) => {
                                         padding: 8,
                                         textDecoration: 'none'
                                     }}
-                                    to={getBlogCategoryPath(category)}
+                                    to={getBlogPath(c, language)}
                                 >
-                                    {category}
+                                    {displayCategories[c]}
                                 </NavLink>
                             );
                         })}
                     </div>
                 </div>
-                <PatreonBadge selectedLanguage={selectedLanguage} />
+                <PatreonBadge selectedLanguage={language} />
                 <div className="articles">
                     {articles
-                        .filter((article) => article.metadata.category === props.selectedCategory)
+                        .filter((article) => article.metadata.category === category)
                         .map((article) => (
                             <Article
                                 key={article.metadata.id}
                                 {...article}
                                 preview={true}
-                                selectedLanguage={selectedLanguage}
+                                selectedLanguage={language}
                             />
                         ))}
                 </div>
