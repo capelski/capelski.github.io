@@ -67,27 +67,21 @@ const extractHead = (html: string): ExtractedHead => {
     return { elements, html: htmlWithoutMeta, title };
 };
 
-const additionalRoutes: string[] = [articleLegacyRoute, portfolioRoute]
-    .concat(
-        /** Blog routes (e.g. /blog/tech/en) */
-        AllArticleCategories.flatMap((category) =>
-            AllLanguages.map((language) => getBlogPath(category, language))
-        )
-    )
-    .concat(
-        /* Article routes (e.g. /article/react-ssr/ca) */
-        articles.flatMap((article) =>
-            article.metadata.languages.map((language) =>
-                getArticlePath(article.metadata.id, language)
-            )
-        )
-    )
-    .concat(
-        /** Legacy article routes (e.g. /blog/react-ssr) */
-        articles.flatMap((article) => [
-            articleLegacyRoute.replace(':articleId', article.metadata.id)
-        ])
-    );
+const additionalRoutes: string[] = [
+    portfolioRoute,
+    /** Blog routes (e.g. /blog/tech/en) */
+    ...AllArticleCategories.flatMap((category) =>
+        AllLanguages.map((language) => getBlogPath(category, language))
+    ),
+    /* Article routes (e.g. /article/react-ssr/ca) */
+    ...articles.flatMap((article) =>
+        article.metadata.languages.map((language) => getArticlePath(article.metadata.id, language))
+    ),
+    /** Legacy article routes (e.g. /blog/react-ssr) */
+    ...articles.flatMap((article) => [
+        articleLegacyRoute.replace(':articleId', article.metadata.id)
+    ])
+];
 
 export async function prerender(data: { url?: string }) {
     const router = createMemoryRouter(routes, {
