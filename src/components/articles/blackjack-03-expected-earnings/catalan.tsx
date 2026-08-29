@@ -99,8 +99,8 @@ export const catalan: ArticleContent = {
             <p style={{ textAlign: 'center' }}>
                 <i>
                     Font:{' '}
-                    <Anchor url="https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15&mm=result">
-                        https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15&mm=result
+                    <Anchor url="https://capelski.github.io/blackjack-stats/ca/threshold/comparisons/matrix?t=15&mm=result">
+                        https://capelski.github.io/blackjack-stats/ca/threshold/comparisons/matrix?t=15&mm=result
                     </Anchor>
                 </i>
             </p>
@@ -155,8 +155,8 @@ export const catalan: ArticleContent = {
             <p style={{ textAlign: 'center' }}>
                 <i>
                     Font:{' '}
-                    <Anchor url="https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15">
-                        https://capelski.github.io/blackjack-stats/ca/threshold/results/matrix?t=15
+                    <Anchor url="https://capelski.github.io/blackjack-stats/ca/threshold/comparisons/matrix?t=15">
+                        https://capelski.github.io/blackjack-stats/ca/threshold/comparisons/matrix?t=15
                     </Anchor>
                 </i>
             </p>
@@ -212,39 +212,47 @@ export const catalan: ArticleContent = {
                 s'anomena <b>avantatge</b> en la comunitat del Blackjack.
             </p>
             <ResponsiveTable<[string, string, string, string]>
-                headerless={true}
                 rows={[
-                    ['Victòries', '37.56%', '+1 aposta', '+37.56% apostes'],
-                    ['Victòries amb blackjack', '4.51%', '+3/2 apostes', '+6.77% apostes'],
-                    ['Empats', '8.33%', '+0 apostes', '+0 apostes'],
-                    ['Derrotes', '49.60%', '-1 aposta', '-49.60% apostes'],
-                    ['Avantatge', '', '', '-5.27% apostes']
+                    ['Resultat', "Multiplicador de l'aposta", 'Probabilitat', 'Variació del pot'],
+                    ['Victòries', '+1 aposta', '37.56%', '+37.56% aposta'],
+                    ['Victòries amb blackjack', '+3/2 aposta', '4.51%', '+6.76% aposta'],
+                    ['Empats', '+0 aposta', '8.33%', '+0 aposta'],
+                    ['Derrotes', '-1 aposta', '49.60%', '-49.60% aposta'],
+                    ['Avantatge', '', '', '-5.28% aposta']
                 ]}
             />
+            <p style={{ textAlign: 'center' }}>
+                <i>
+                    Font:{' '}
+                    <Anchor url="https://capelski.github.io/blackjack-stats/ca/threshold/results?t=15">
+                        https://capelski.github.io/blackjack-stats/ca/threshold/results?t=15
+                    </Anchor>
+                </i>
+            </p>
             <p>
                 L'avantatge ens diu quin percentatge de la nostra aposta podem esperar guanyar o
                 perdre per ronda de mitjana. Si l'avantatge és negatiu, el joc afavoreix el crupier
                 i podem esperar perdre diners a la llarga. Al contrari, si l'avantatge és positiu,
                 el joc afavoreix el jugador i podem esperar guanyar diners. L'avantatge de
                 l'estratègia de "plantar-se amb 15" ens diu que, de mitjana, podem esperar que el
-                nostre pot es redueixi un 5.27% de l'import apostat per ronda.
+                nostre pot es redueixi un 5.28% de l'import apostat per ronda.
             </p>
             <p>
                 <i>
                     Valors d'avantatge negatius ens donen una idea de quantes rondes podem esperar
                     jugar abans de quedar-nos sense diners. Donat el pot inicial expressat en termes
                     d'apostes, podem esbrinar quant tarda el pot a arribar a 0. Si comencem a jugar
-                    amb un pot de, per exemple, 10 apostes i sabem que perdem el 5.27% de l'import
+                    amb un pot de, per exemple, 10 apostes i sabem que perdem el 5.28% de l'import
                     apostat per ronda, podem esperar quedar-nos sense diners després de 10 apostes /
-                    0.0527 apostes per ronda = 189.7 rondes.
+                    0.0528 apostes per ronda = 189.4 rondes.
                 </i>
             </p>
             <p>
                 L'indicador de l'avantatge ens ajuda a predir quants diners guanyarem o perdrem a la
                 llarga. Tornem a l'exemple del jugador prudent. Sabem que pot esperar perdre, de
-                mitjana, el 5.27% de la seva aposta cada ronda. Com que aposta 10€ per ronda, això
-                vol dir perdre 0.527€ per ronda. Després de 100 rondes, pot esperar haver perdut
-                52.7€. El jugador ha perdut 55€ en l'exemple anterior, així que la predicció és
+                mitjana, el 5.28% de la seva aposta cada ronda. Com que aposta 10€ per ronda, això
+                vol dir perdre 0.528€ per ronda. Després de 100 rondes, pot esperar haver perdut
+                52.8€. El jugador ha perdut 55€ en l'exemple anterior, així que la predicció és
                 força encertada!
             </p>
             <ArticleImage

@@ -96,8 +96,8 @@ export const english: ArticleContent = {
             <p style={{ textAlign: 'center' }}>
                 <i>
                     Source:{' '}
-                    <Anchor url="https://capelski.github.io/blackjack-stats/en/threshold/results/matrix?t=15&mm=result">
-                        https://capelski.github.io/blackjack-stats/en/threshold/results/matrix?t=15&mm=result
+                    <Anchor url="https://capelski.github.io/blackjack-stats/en/threshold/comparisons/matrix?t=15&mm=result">
+                        https://capelski.github.io/blackjack-stats/en/threshold/comparisons/matrix?t=15&mm=result
                     </Anchor>
                 </i>
             </p>
@@ -151,8 +151,8 @@ export const english: ArticleContent = {
             <p style={{ textAlign: 'center' }}>
                 <i>
                     Source:{' '}
-                    <Anchor url="https://capelski.github.io/blackjack-stats/en/threshold/results/matrix?t=15">
-                        https://capelski.github.io/blackjack-stats/en/threshold/results/matrix?t=15
+                    <Anchor url="https://capelski.github.io/blackjack-stats/en/threshold/comparisons/matrix?t=15">
+                        https://capelski.github.io/blackjack-stats/en/threshold/comparisons/matrix?t=15
                     </Anchor>
                 </i>
             </p>
@@ -204,39 +204,47 @@ export const english: ArticleContent = {
                 community.
             </p>
             <ResponsiveTable<[string, string, string, string]>
-                headerless={true}
                 rows={[
-                    ['Wins', '37.56%', '+1 bet', '+37.56% bets'],
-                    ['Blackjack wins', '4.51%', '+3/2 bets', '+6.77% bets'],
-                    ['Pushes', '8.33%', '+0 bets', '+0 bets'],
-                    ['Losses', '49.60%', '-1 bet', '-49.60% bets'],
-                    ['Edge', '', '', '-5.27% bets']
+                    ['Result', 'Bet multiplier', 'Probability', 'Pot variation'],
+                    ['Wins', '+1 bet', '37.56%', '+37.56% bet'],
+                    ['Blackjack wins', '+3/2 bets', '4.51%', '+6.76% bet'],
+                    ['Pushes', '+0 bets', '8.33%', '+0 bet'],
+                    ['Losses', '-1 bet', '49.60%', '-49.60% bet'],
+                    ['Edge', '', '', '-5.28% bet']
                 ]}
             />
+            <p style={{ textAlign: 'center' }}>
+                <i>
+                    Source:{' '}
+                    <Anchor url="https://capelski.github.io/blackjack-stats/en/threshold/results?t=15">
+                        https://capelski.github.io/blackjack-stats/en/threshold/results?t=15
+                    </Anchor>
+                </i>
+            </p>
             <p>
                 The edge tells us the percentage of our bet size that we can expect to win or lose
                 per round on average. If the edge is negative, the game favours the dealer and we
                 can expect to lose money at the end of the day. Conversely, if the edge is positive,
                 the game favours the player and we can expect to win money. The edge for the "Stand
                 on 15" strategy tells us that, on average, we can expect our pot to decrease by
-                5.27% of the bet size per round.
+                5.28% of the bet size per round.
             </p>
             <p>
                 <i>
                     Negative edge values give us an idea of how many rounds we can expect to play
                     before running out of money. Given the initial pot expressed in terms of bets,
                     we can find out how long it takes for the pot to reach 0. If we start playing
-                    with a pot of, for example, 10 bets and we know we lose 5.27% of our bet size
-                    per round, we can expect to run out of money after 10 bets / 0.0527 bets per
-                    round = 189.7 rounds.
+                    with a pot of, for example, 10 bets and we know we lose 5.28% of our bet size
+                    per round, we can expect to run out of money after 10 bets / 0.0528 bets per
+                    round = 189.4 rounds.
                 </i>
             </p>
             <p>
                 The edge indicator helps us predict how much money we will win or lose in the long
                 run. Let's go back to the example of the cautious player. We know they can expect to
-                lose, on average, 5.27% of their bet size per round. Since they are betting 10€ per
-                round, that is losing 0.527€ per round. After 100 rounds, they can expect to have
-                lost 52.7€. The player actually lost 55€ in the example, so the prediction is quite
+                lose, on average, 5.28% of their bet size per round. Since they are betting 10€ per
+                round, that is losing 0.528€ per round. After 100 rounds, they can expect to have
+                lost 52.8€. The player actually lost 55€ in the example, so the prediction is quite
                 close!
             </p>
             <ArticleImage
