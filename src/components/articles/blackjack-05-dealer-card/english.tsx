@@ -486,8 +486,9 @@ export const english: ArticleContent = {
                 cards. It requires remembering a larger variety of cases, but the increase in
                 complexity is definitely justified by the increase in expected earnings. With these
                 tweaks, we have managed to improve the expected earnings of our strategy to a
-                whopping -2.42%! In the next chapter we will analyze how doubling and splitting in
-                the right moments can help us improve our expected earnings even further.
+                whopping -2.42%! In the next chapter we will analyze how{' '}
+                <ArticleLink articleId={ArticleId.blackjack06Doubling}>doubling</ArticleLink> in the
+                right situations can help us improve our expected earnings even further.
             </p>
         </React.Fragment>
     )

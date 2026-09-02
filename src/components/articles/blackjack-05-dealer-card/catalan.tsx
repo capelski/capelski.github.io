@@ -534,8 +534,9 @@ export const catalan: ArticleContent = {
                 casos més gran, però l'augment de complexitat queda justificat de sobres per
                 l'augment dels guanys esperats. Amb aquests ajustaments, hem aconseguit millorar els
                 guanys esperats de la nostra estratègia fins a un espectacular -2.42%! Al capítol
-                següent analitzarem com doblar i dividir en els moments adequats ens pot ajudar a
-                millorar els guanys esperats encara més.
+                següent analitzarem com{' '}
+                <ArticleLink articleId={ArticleId.blackjack06Doubling}>doblar</ArticleLink> en els
+                moments adequats ens pot ajudar a millorar els guanys esperats encara més.
             </p>
         </React.Fragment>
     )

@@ -42,5 +42,6 @@ export enum ArticleId {
     blackjack02FinalScores = 'blackjack-02-final-scores',
     blackjack03ExpectedEarnings = 'blackjack-03-expected-earnings',
     blackjack04OptimalActions = 'blackjack-04-optimal-actions',
-    blackjack05DealerCard = 'blackjack-05-dealer-card'
+    blackjack05DealerCard = 'blackjack-05-dealer-card',
+    blackjack06Doubling = 'blackjack-06-doubling'
 }
