@@ -8,7 +8,7 @@ import { ResponsiveTable } from '../responsive-table';
 
 export const english: ArticleContent = {
     title: 'Blackjack 06. Doubling',
-    description: 'How to spot the situations when doubling a blackjack hand is profitable',
+    description: 'How to spot the Blackjack hands that are worth doubling',
     shareSentence: 'Never double a Blackjack 10 when the dealer has an A',
     introduction: (
         <p>
@@ -102,9 +102,10 @@ export const english: ArticleContent = {
                 Now we know how to obtain the edge of doubling. Let's recompute the table of optimal
                 actions for each player score in the same way we did in chapter 4, including the
                 option to double. The table reveals that, overall, doubling is only worth it when
-                the player has either a 10 or an 11. That seems reasonable. The optimal action for
-                most future scenarios after drawing a card with 10 or 11 is to stand, so not being
-                able to draw any more cards doesn't penalize us much.
+                the player has either a 10 or an 11. That seems reasonable. After drawing a card
+                with 10 or 11, the optimal action for most future scenarios is to stand; not being
+                able to draw any more cards doesn't penalize us much. And, since 10 and 11 are
+                strong scores to draw a card with, doubling amplifies the earnings even more.
             </p>
             <ResponsiveTable<[string, string, string, string, string]>
                 rows={[
@@ -128,8 +129,8 @@ export const english: ArticleContent = {
                 </i>
             </p>
             <p>
-                Let's see how doubling affects the expected earnings of the strategy. For that, we
-                will need to modify slightly the calculations we did in chapters 2 and 3. In{' '}
+                How does doubling affect the expected earnings of the strategy? To find the answer,
+                we will need to modify slightly the calculations we did in chapters 2 and 3. In{' '}
                 <ArticleLink articleId={ArticleId.blackjack02FinalScores}>chapter 2</ArticleLink>,
                 we compiled a list of all the possible hands a player can end up with. Doubling
                 causes some of the hands in that list to end up with a doubled bet size. Hands of
@@ -331,9 +332,9 @@ export const english: ArticleContent = {
             </p>
             <p>
                 Finally, note that some casinos only allow doubling with scores of 9, 10 or 11. That
-                slightly reduces the strategy edge to -1.25% but, on the flip side, it makes the
-                strategy easier to remember (see the table below). In the next chapter we will
-                discuss further improving the expected earnings by splitting pairs when appropriate.
+                reduces the strategy edge to -1.25% but, on the flip side, it makes the strategy
+                easier to remember. In the next chapter we will discuss further improving the
+                expected earnings by splitting pairs when appropriate.
             </p>
             <ResponsiveTable<
                 [
