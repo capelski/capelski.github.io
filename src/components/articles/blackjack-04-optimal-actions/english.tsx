@@ -135,7 +135,7 @@ export const english: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string, string]>
                 rows={[
-                    ['Dealer score', 'Probability', 'Outcome', 'Edge contribution'],
+                    ['Dealer score', 'Probability', 'Outcome', 'Edge (weighted)'],
                     ['17', '14.51%', 'Win', '14.51%'],
                     ['18', '13.95%', 'Win', '13.95%'],
                     ['19', '13.35%', 'Win', '13.35%'],
@@ -182,14 +182,7 @@ export const english: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string, string, string, string]>
                 rows={[
-                    [
-                        'Next card',
-                        'Probability',
-                        'Next score',
-                        'Action',
-                        'Edge',
-                        'Edge contribution'
-                    ],
+                    ['Next card', 'Probability', 'Next score', 'Action', 'Edge', 'Edge (weighted)'],
                     ['A', '1 / 13', '21', 'Stand', '83.26%', '6.40%'],
                     ['2 - K', '12 / 13', 'Bust', 'End', '-100%', '-92.31%'],
                     ['Edge', '', '', '', '', '-85.90%']
@@ -214,14 +207,7 @@ export const english: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string, string, string, string]>
                 rows={[
-                    [
-                        'Next card',
-                        'Probability',
-                        'Next score',
-                        'Action',
-                        'Edge',
-                        'Edge contribution'
-                    ],
+                    ['Next card', 'Probability', 'Next score', 'Action', 'Edge', 'Edge (weighted)'],
                     ['A', '1 / 13', '20', 'Stand', '57.96%', '4.46%'],
                     ['2', '1 / 13', '21', 'End', '83.26%', '6.40%'],
                     ['3 - K', '11 / 13', '22+', 'Bust', '-100.00%', '-84.62%'],

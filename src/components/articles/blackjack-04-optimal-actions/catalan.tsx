@@ -144,12 +144,7 @@ export const catalan: ArticleContent = {
             </p>
             <ResponsiveTable<[string, string, string, string]>
                 rows={[
-                    [
-                        'Puntuació del crupier',
-                        'Probabilitat',
-                        'Resultat',
-                        "Contribució a l'avantatge"
-                    ],
+                    ['Puntuació del crupier', 'Probabilitat', 'Resultat', 'Avantatge (ponderat)'],
                     ['17', '14.51%', 'Victòria', '14.51%'],
                     ['18', '13.95%', 'Victòria', '13.95%'],
                     ['19', '13.35%', 'Victòria', '13.35%'],
@@ -203,7 +198,7 @@ export const catalan: ArticleContent = {
                         'Puntuació següent',
                         'Acció',
                         'Avantatge',
-                        "Contribució a l'avantatge"
+                        'Avantatge (ponderat)'
                     ],
                     ['A', '1 / 13', '21', 'Plantar-se', '83.26%', '6.40%'],
                     ['2 - K', '12 / 13', '22+', 'Fi', '-100%', '-92.31%'],
@@ -236,7 +231,7 @@ export const catalan: ArticleContent = {
                         'Puntuació següent',
                         'Acció',
                         'Avantatge',
-                        "Contribució a l'avantatge"
+                        'Avantatge (ponderat)'
                     ],
                     ['A', '1 / 13', '20', 'Plantar-se', '57.96%', '4.46%'],
                     ['2', '1 / 13', '21', 'Fi', '83.26%', '6.40%'],

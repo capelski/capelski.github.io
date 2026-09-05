@@ -57,17 +57,24 @@ export const catalan: ArticleContent = {
                 <ArticleLink articleId={ArticleId.blackjack04OptimalActions}>capítol 4</ArticleLink>
                 . Igual que l'avantatge de demanar carta, l'avantatge de doblar surt de combinar
                 l'avantatge de tots els escenaris futurs als quals podem arribar amb la carta
-                següent. Hi ha dues diferències, però. Primera, com que no podem demanar més cartes
-                després de doblar, ens veurem obligats a plantar-nos, independentment de quina sigui
-                l'acció òptima per a l'escenari futur.
+                següent. Hi ha però dues diferències:
             </p>
-            <p>
-                Segona, l'avantatge de cada escenari futur ha de reflectir la mida doble de
-                l'aposta. Recordem que l'avantatge d'una acció expressa els guanys esperats en
-                termes de mida de l'aposta. Com que hem multiplicat la mida de l'aposta per 2 per
-                arribar a cada escenari futur, els seus avantatges també s'han de multiplicar per 2.
-                Així queda l'avantatge de doblar per a una puntuació de 10.
-            </p>
+            <ul>
+                <li>
+                    Després de doblar, no podem demanar més cartes. Independentment de quina sigui
+                    l'acció òptima per cada escenari futur, ens haurem de plantar.
+                </li>
+                <li>
+                    Doblar implica multiplicar l'aposta per dos. L'avantatge de cada escenari futur
+                    no té en compte la mida doble de l'aposta, així que, quan els combinem, obtenim
+                    l'avantatge de demanar una carta més i després plantar-nos. Recordem que
+                    l'avantatge d'una acció expressa els guanys esperats en termes de la mida de
+                    l'aposta. Si la mida de l'aposta es duplica, també ho faran els guanys esperats.
+                    Hem de multiplicar doncs l'avantatge obtingut per 2 per tal de tenir en compte
+                    l'aposta doble.
+                </li>
+            </ul>
+            <p>Així queda l'avantatge de doblar per a una puntuació de 10.</p>
             <ResponsiveTable<[string, string, string, string, string, string]>
                 rows={[
                     [
@@ -76,19 +83,19 @@ export const catalan: ArticleContent = {
                         'Puntuació següent',
                         'Acció',
                         'Avantatge',
-                        "Contribució a l'avantatge"
+                        'Avantatge (ponderat)'
                     ],
-                    ['A', '1 / 13', '11/21', 'Plantar-se', '83.26% (x2)', '12.81%'],
-                    ['2', '1 / 13', '12', 'Plantar-se', '-43.68% (x2)', '-6.72%'],
-                    ['3', '1 / 13', '13', 'Plantar-se', '-43.68% (x2)', '-6.72%'],
-                    ['4', '1 / 13', '14', 'Plantar-se', '-43.68% (x2)', '-6.72%'],
-                    ['5', '1 / 13', '15', 'Plantar-se', '-43.68% (x2)', '-6.72%'],
-                    ['6', '1 / 13', '16', 'Plantar-se', '-43.68% (x2)', '-6.72%'],
-                    ['7', '1 / 13', '17', 'Plantar-se', '-29.17% (x2)', '-4.49%'],
-                    ['8', '1 / 13', '18', 'Plantar-se', '-0.71% (x2)', '-0.11%'],
-                    ['9', '1 / 13', '19', 'Plantar-se', '26.59% (x2)', '4.09%'],
-                    ['10 - K', '4 / 13', '20', 'Plantar-se', '57.96% (x2)', '35.67%'],
-                    ['Avantatge', '', '', '', '', '14.37%']
+                    ['A', '1 / 13', '11/21', 'Fi', '83.26%', '6.40%'],
+                    ['2', '1 / 13', '12', 'Fi', '-43.68%', '-3.36%'],
+                    ['3', '1 / 13', '13', 'Fi', '-43.68%', '-3.36%'],
+                    ['4', '1 / 13', '14', 'Fi', '-43.68%', '-3.36%'],
+                    ['5', '1 / 13', '15', 'Fi', '-43.68%', '-3.36%'],
+                    ['6', '1 / 13', '16', 'Fi', '-43.68%', '-3.36%'],
+                    ['7', '1 / 13', '17', 'Fi', '-29.17%', '-2.24%'],
+                    ['8', '1 / 13', '18', 'Fi', '-0.71%', '-0.05%'],
+                    ['9', '1 / 13', '19', 'Fi', '26.59%', '2.05%'],
+                    ['10 - K', '4 / 13', '20', 'Fi', '57.96%', '17.83%'],
+                    ['Edge', '', '', '', '', '7.19% x2 = 14.37%']
                 ]}
             />
             <p style={{ textAlign: 'center' }}>

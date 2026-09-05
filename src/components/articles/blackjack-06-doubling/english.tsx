@@ -56,38 +56,37 @@ export const english: ArticleContent = {
                 <ArticleLink articleId={ArticleId.blackjack04OptimalActions}>chapter 4</ArticleLink>
                 . Just like the edge of drawing, the edge of doubling comes from combining the edge
                 of all the future scenarios we can get to with the next card. The are two
-                differences though. First, since we can not draw any more cards after doubling, we
-                will be forced to stand, regardless of what the optimal action is for the future
-                scenario.
+                differences though:
             </p>
-            <p>
-                Second, the edge of each future scenario needs to reflect the doubled bet size.
-                Remember the edge of an action conveys the expected earnings in terms of bet size.
-                Since we multiplied the bet size by 2 to get to each future scenario, their edges
-                need to be multiplied by 2 as well. This is what the edge of doubling looks like for
-                a score of 10.
-            </p>
+            <ul>
+                <li>
+                    After doubling, we can not draw any more cards. Regardless of what the optimal
+                    action is for each future scenario, we will be forced to stand.
+                </li>
+                <li>
+                    Doubling implies multiplying our bet size by 2. The edge of each future scenario
+                    doesn't consider the double bet size so, when we merge them, we obtain the edge
+                    for drawing one more card and then standing. Remember the edge of an action
+                    expresses the expected earnings in terms of bet size. If the bet size is
+                    doubled, so will be the expected earnings. We need to multiply the obtained edge
+                    by 2 to account for the doubled bet size.
+                </li>
+            </ul>
+            <p>This is what the edge of doubling looks like for a score of 10.</p>
             <ResponsiveTable<[string, string, string, string, string, string]>
                 rows={[
-                    [
-                        'Next card',
-                        'Probability',
-                        'Next score',
-                        'Action',
-                        'Edge',
-                        'Edge contribution'
-                    ],
-                    ['A', '1 / 13', '11/21', 'Stand', '83.26% (x2)', '12.81%'],
-                    ['2', '1 / 13', '12', 'Stand', '-43.68% (x2)', '-6.72%'],
-                    ['3', '1 / 13', '13', 'Stand', '-43.68% (x2)', '-6.72%'],
-                    ['4', '1 / 13', '14', 'Stand', '-43.68% (x2)', '-6.72%'],
-                    ['5', '1 / 13', '15', 'Stand', '-43.68% (x2)', '-6.72%'],
-                    ['6', '1 / 13', '16', 'Stand', '-43.68% (x2)', '-6.72%'],
-                    ['7', '1 / 13', '17', 'Stand', '-29.17% (x2)', '-4.49%'],
-                    ['8', '1 / 13', '18', 'Stand', '-0.71% (x2)', '-0.11%'],
-                    ['9', '1 / 13', '19', 'Stand', '26.59% (x2)', '4.09%'],
-                    ['10 - K', '4 / 13', '20', 'Stand', '57.96% (x2)', '35.67%'],
-                    ['Edge', '', '', '', '', '14.37%']
+                    ['Next card', 'Probability', 'Next score', 'Action', 'Edge', 'Edge (weighted)'],
+                    ['A', '1 / 13', '11/21', 'End', '83.26%', '6.40%'],
+                    ['2', '1 / 13', '12', 'End', '-43.68%', '-3.36%'],
+                    ['3', '1 / 13', '13', 'End', '-43.68%', '-3.36%'],
+                    ['4', '1 / 13', '14', 'End', '-43.68%', '-3.36%'],
+                    ['5', '1 / 13', '15', 'End', '-43.68%', '-3.36%'],
+                    ['6', '1 / 13', '16', 'End', '-43.68%', '-3.36%'],
+                    ['7', '1 / 13', '17', 'End', '-29.17%', '-2.24%'],
+                    ['8', '1 / 13', '18', 'End', '-0.71%', '-0.05%'],
+                    ['9', '1 / 13', '19', 'End', '26.59%', '2.05%'],
+                    ['10 - K', '4 / 13', '20', 'End', '57.96%', '17.83%'],
+                    ['Edge', '', '', '', '', '7.19% x2 = 14.37%']
                 ]}
             />
             <p style={{ textAlign: 'center' }}>
